@@ -8,7 +8,7 @@ import PropsSearchPanel from './props-search-panel';
 import PropsTablePanel from './props-table-panel';
 import debounce from 'lodash.debounce';
 import { Empty } from '@arco-design/web-react';
-import { isEmpty } from '@/util';
+import { isEmpty } from '@yl-d/shared';
 
 export interface PropsConfigPanelTypes {
   style?: any; //

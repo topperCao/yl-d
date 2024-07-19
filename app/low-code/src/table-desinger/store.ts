@@ -3,9 +3,9 @@ import { SchemaProps, TableProps, createStore } from '@yl-d/components';
 import { SearchProps } from '@yl-d/components/dist/search/type';
 import { TableColumnType } from '@yl-d/components/dist/table/column.type';
 import { getStandardSchema as getTableStandardSchema } from './util';
-import { encrypt, recursionFind } from '@/util';
+import { encrypt, recursionFind } from '../util';
 import { ReactNode } from 'react';
-import materialConfig from '@/material-config';
+import materialConfig from '../material-config';
 
 interface DesignerSchemaProps extends SchemaProps {
   key: string;

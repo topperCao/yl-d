@@ -32,9 +32,9 @@ import FormList from './extension/form-list';
 import BlockQuote from './extension/block-quote';
 import FieldSet from './extension/fields-set';
 import RangeInput from './extension/input/range';
-import TableList from '@/table-list';
-import OssFileUpload from '@/oss-file-upload';
-import { SubFormType } from '@/form/form';
+import TableList from '../table-list';
+import OssFileUpload from '../oss-file-upload';
+import { SubFormType } from '../form/form';
 import { ReactNode } from 'react';
 // 内置组件映射关系
 export const BuiltInWidgetMapping = {

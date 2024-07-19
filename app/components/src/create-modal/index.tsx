@@ -1,8 +1,8 @@
 import ReactDOM from 'react-dom';
-import ModalForm from '@/form-submit/modal-form';
+import ModalForm from '../form-submit/modal-form';
 import { useEffect } from 'react';
 import { createStore, ModalFormProps } from '../index';
-import { uuid } from '@/util';
+import { uuid } from '../util';
 
 const $: any = document.querySelector.bind(document);
 

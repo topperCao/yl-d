@@ -2,9 +2,9 @@
 /* eslint-disable no-console */
 import { Spin, Empty } from '@arco-design/web-react';
 import debounce from 'lodash.debounce';
-import Select from '@/widgets/arco-design/select';
+import Select from '../../../widgets/arco-design/select';
 import { useEffect, useState, useRef, useMemo } from 'react';
-import { AsyncOptionsCache, isEmpty } from '@/util';
+import { AsyncOptionsCache, isEmpty } from '../../../util';
 
 export default ({
   fetchOptions,

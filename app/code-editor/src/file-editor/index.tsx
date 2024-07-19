@@ -1,11 +1,11 @@
 import { FileEditorProps } from './types';
 import HeaderTabs from './tabs';
-import CodeEditor from '@/code-editor';
-import CreateSpin from '@/create-spin';
+import CodeEditor from '../code-editor';
+import CreateSpin from '../create-spin';
 import { useEffect, useRef, useState, useMemo } from 'react';
-import { FileProps } from '@/file-explorer/types';
-import { uuid } from '@/tools';
-import { sleep } from '@/file-explorer';
+import { FileProps } from '../file-explorer/types';
+import { uuid } from '../tools';
+import { sleep } from '../file-explorer';
 import './index.less';
 
 const defaultExtra = [

@@ -1,7 +1,7 @@
 import { Card } from '@arco-design/web-react';
-import Form from '@/form';
+import Form from '../../form';
 import { useMemo } from 'react';
-import { uuid } from '@/util';
+import { uuid } from '../../util';
 import { CardFormProps } from './type';
 import Footer from '../footer';
 import './index.less';

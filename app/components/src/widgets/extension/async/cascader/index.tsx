@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
-import Cascader from '@/widgets/arco-design/cascader';
 import { useState, useEffect } from 'react';
-import { AsyncOptionsCache } from '@/util';
+import { AsyncOptionsCache } from '../../../../util';
+import Cascader from '../../../../widgets/arco-design/cascader';
 import { IconLoading } from '@arco-design/web-react/icon';
 
 const AsyncCascader = (props: any) => {

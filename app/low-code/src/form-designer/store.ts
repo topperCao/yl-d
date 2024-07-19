@@ -4,7 +4,7 @@ import {
   getStandardSchema as getFormStandardSchema,
   recursionFind,
 } from '../util';
-import materialConfig from '@/material-config';
+import materialConfig from '../material-config';
 import { ReactElement } from 'react';
 
 interface DesignerSchemaProps extends SchemaProps {

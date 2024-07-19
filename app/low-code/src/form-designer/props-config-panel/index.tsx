@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Empty, Radio } from '@arco-design/web-react';
 import FormPropsConfig from './config/props-form';
 import ItemPropsConfig from './config/props-item';
-import { isEmpty } from '@/util';
+import { isEmpty } from '@yl-d/shared';
 import debounce from 'lodash.debounce';
 import { CodeEditor } from '@yl-d/code-editor';
 import store from '../store';

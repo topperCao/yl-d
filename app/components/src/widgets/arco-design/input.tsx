@@ -1,4 +1,4 @@
-import { getGlobalConfig } from '@/config';
+import { getGlobalConfig } from '../../config';
 import { Input, InputProps } from '@arco-design/web-react';
 import { ExtendInputProps } from '..';
 

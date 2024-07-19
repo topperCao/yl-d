@@ -1,6 +1,6 @@
 import AsyncComponent from '../index';
 
-import CheckGroup from '@/widgets/arco-design/check-group';
+import CheckGroup from '../../../../widgets/arco-design/check-group';
 
 const AsyncCheckGroup: any = AsyncComponent(CheckGroup);
 

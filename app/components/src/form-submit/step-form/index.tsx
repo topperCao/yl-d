@@ -1,4 +1,4 @@
-import Form from '@/form';
+import Form from '../../form';
 import { Steps } from '@arco-design/web-react';
 import Footer from '../footer';
 import { StepFormProps } from './type';

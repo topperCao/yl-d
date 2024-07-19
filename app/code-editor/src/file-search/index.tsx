@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { FileSearchProps } from './type';
 import Header from '../header';
-import CreateSpin from '@/create-spin';
+import CreateSpin from '../create-spin';
 import { useRef } from 'react';
 import FileExplorer, { sleep } from '../file-explorer';
-import { isEmpty } from '@/tools';
+import { isEmpty } from '../tools';
 import './index.less';
 
 const prefixCls = 'ide-editor-file-search';

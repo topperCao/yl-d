@@ -1,6 +1,6 @@
 /* eslint-disable prefer-destructuring */
 /* eslint-disable @iceworks/best-practices/recommend-polyfill */
-import { decrypt } from '@/util';
+import { decrypt } from '../util';
 import cloneDeep from 'lodash.clonedeep';
 
 export const getPageStandardSchema = (scurce) => {

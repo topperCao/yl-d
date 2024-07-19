@@ -1,17 +1,17 @@
-import Item from '@/form/item';
-import { tranfromSchema } from '@/form/util';
+import Item from '../form/item';
+import { tranfromSchema } from '../form/util';
 import { Table, Form, Space } from '@arco-design/web-react';
 import { useEffect, useMemo, useRef } from 'react';
 import { TableListProps } from './type';
-import { EventEmit } from '@/util';
-import Button from '@/button';
+import { EventEmit } from '../util';
+import Button from '../button';
 import { tranfromInnerValues, beforeReceiveInnerValues } from './util';
 import { IconPlus } from '@arco-design/web-react/icon';
 import {
   DraggableContainer,
   DraggableRow,
   DragHandle,
-} from '@/table/drag-columns';
+} from '../table/drag-columns';
 import './index.css';
 
 export default ({

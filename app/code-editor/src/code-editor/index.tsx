@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-bitwise */
-import { uuid } from '@/tools';
+import { uuid } from '../tools';
 import { useEffect, useRef, CSSProperties, memo, useMemo } from 'react';
 import FunctionEditor from './function-editor';
 import JsonEditor from './json-editor';

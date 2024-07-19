@@ -1,4 +1,4 @@
-import { cloneDeep } from '@/util';
+import { cloneDeep } from '../../util';
 import { DragForm, Table } from '@yl-d/components';
 import { parseTableColumns, parseTableSchema } from '../util';
 import { useEffect, useState } from 'react';

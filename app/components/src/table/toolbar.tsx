@@ -6,7 +6,7 @@ import {
   Tooltip,
   Divider,
 } from '@arco-design/web-react';
-import Button from '@/button';
+import Button from '../button';
 import { IconDown, IconRefresh } from '@arco-design/web-react/icon';
 
 export default ({

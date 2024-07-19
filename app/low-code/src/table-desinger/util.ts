@@ -1,6 +1,6 @@
 /* eslint-disable no-await-in-loop */
 import { babelParse } from '@yl-d/shared';
-import { cloneDeep, decrypt, encrypt, getCleanCloneSchema } from '@/util';
+import { cloneDeep, decrypt, encrypt, getCleanCloneSchema } from '../util';
 /**
  * 克隆一份
  */

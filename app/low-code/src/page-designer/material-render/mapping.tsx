@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-shadow */
-import CrudRender from '@/crud-model-render';
+import CrudRender from '../../crud-model-render';
 import { memo } from 'react';
 import {
   Typography,

@@ -4,7 +4,7 @@ import Form from './form';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { CoreFormProps, FormRefInstance } from './form.type';
 import { SchemaProps } from './item.type';
-import { AsyncOptionsCache, uuid } from '@/util';
+import { AsyncOptionsCache, uuid } from '../util';
 
 /** 组件入口 */
 const CoreForm = (props: CoreFormProps) => {

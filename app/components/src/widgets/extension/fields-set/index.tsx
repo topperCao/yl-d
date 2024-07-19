@@ -1,4 +1,4 @@
-import { NOTICESELF } from '@/util';
+import { NOTICESELF } from '../../../util';
 import { Space } from '@arco-design/web-react';
 import { useEffect, useState } from 'react';
 import './index.less';

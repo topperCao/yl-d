@@ -1,4 +1,4 @@
-import { copyImg } from '@/util';
+import { copyImg } from '../../util';
 import { Message, Radio, Space } from '@arco-design/web-react';
 import { IconEdit, IconEmpty, IconEye } from '@arco-design/web-react/icon';
 import { Button } from '@yl-d/components';

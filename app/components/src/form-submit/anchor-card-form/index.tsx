@@ -1,7 +1,7 @@
 import { AnchorCardFormProps } from './type';
-import CardForm from '@/form-submit/card-form';
-import AnchorCard from '@/anchor-card';
-import Form from '@/form';
+import CardForm from '../../form-submit/card-form';
+import AnchorCard from '../../anchor-card';
+import Form from '../../form';
 import './index.less';
 
 export default ({

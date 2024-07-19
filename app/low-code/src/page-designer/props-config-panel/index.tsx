@@ -7,7 +7,6 @@
 // import pageConfig from './page.config';
 // import { CodeEditor } from '@yl-d/code-editor';
 // import './index.less';
-
 // export interface PropsConfigPanelTypes {
 //   // onPropsConfigUpdate: Function; // 配置改变返回新的配置
 //   style?: CSSProperties;

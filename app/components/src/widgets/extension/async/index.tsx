@@ -3,7 +3,7 @@
 /* eslint-disable no-console */
 import { useEffect, useState } from 'react';
 import { Spin, Empty } from '@arco-design/web-react';
-import { AsyncOptionsCache } from '@/util';
+import { AsyncOptionsCache } from '../../../util';
 import { IconLoading } from '@arco-design/web-react/icon';
 
 export default (Component: any) =>

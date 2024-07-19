@@ -1,4 +1,4 @@
-import { encrypt } from '@/util';
+import { encrypt } from '../util';
 
 export default {
   title: encrypt(`() => {

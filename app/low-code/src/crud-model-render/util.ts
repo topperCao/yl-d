@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { babelParse } from '@yl-d/shared';
-import { decrypt } from '@/util';
+import { decrypt } from '../util';
 
 export const parseStandardSchemaStrategy = {
   form: (code: string, require: any) => {

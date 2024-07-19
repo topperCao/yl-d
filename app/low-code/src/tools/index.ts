@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { encrypt, decrypt } from '@/util';
+import { encrypt, decrypt } from '../util';
 
 export default () => {
   return {

@@ -1,8 +1,8 @@
 import ReactDOM from 'react-dom';
-import DrawerForm from '@/form-submit/drawer-form';
+import DrawerForm from '../form-submit/drawer-form';
 import { useEffect } from 'react';
 import { createStore, DrawerFormProps } from '../index';
-import { uuid } from '@/util';
+import { uuid } from '../util';
 
 const closeModal = (containId: string, store: any) => {
   store.visible = false;

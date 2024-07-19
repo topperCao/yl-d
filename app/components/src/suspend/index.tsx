@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import ReactDOM from 'react-dom';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { uuid } from '@/util';
+import { uuid } from '../util';
 import { SuspendProps } from './type';
 import './index.less';
 

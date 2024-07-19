@@ -12,6 +12,7 @@ export default defineConfig({
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/components.min.css',
   ],
   devScript: [
+    'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/axios.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/react.development.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/react-dom.development.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/router.development.js',
@@ -35,6 +36,7 @@ export default defineConfig({
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/shared.min.js',
   ],
   buildScript: [
+    'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/axios.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/react.production.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/react-dom.production.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/router.production.js',
@@ -61,6 +63,7 @@ export default defineConfig({
   serverPath: '/apis',
   docsRequire: {
     ArcoDesign: '@arco-design/web-react',
+    axios: "axios",
   },
   menus: [
     {

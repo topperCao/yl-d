@@ -10,7 +10,7 @@ import {
   Progress,
 } from '@arco-design/web-react';
 import { OssFileUploadProps } from './type';
-import { uuid } from '@/util';
+import { uuid } from '../util';
 import { IconPlus } from '@arco-design/web-react/icon';
 import createOssInstance from './util';
 import './index.less';

@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react';
-import { uuid } from '@/tools';
+import { uuid } from '../tools';
 import ReactDOM from 'react-dom';
 import './index.less';
 

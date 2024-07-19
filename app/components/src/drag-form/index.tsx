@@ -1,4 +1,4 @@
-import { cloneDeep, isEmpty, uuid } from '@/util';
+import { cloneDeep, isEmpty, uuid } from '../util';
 import { Message } from '@arco-design/web-react';
 import { ReactNode, useMemo } from 'react';
 import { Search, CardForm, DragWrapper } from '..';

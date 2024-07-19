@@ -1,4 +1,4 @@
-import { cloneDeep, isEmpty, uuid } from '@/util';
+import { cloneDeep, isEmpty, uuid } from '../util';
 import { Message } from '@arco-design/web-react';
 /**
  * 判断容器

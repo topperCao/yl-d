@@ -1,6 +1,6 @@
 import AsyncComponent from '../index';
 
-import Select from '@/widgets/arco-design/select';
+import Select from '../../../../widgets/arco-design/select';
 
 const AsyncSelect: any = AsyncComponent(Select);
 

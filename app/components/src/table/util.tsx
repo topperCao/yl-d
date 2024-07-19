@@ -4,7 +4,7 @@
 // 转换处理
 import { Tooltip, Typography, Space } from '@arco-design/web-react';
 import AdjustWidth from './adjust-width';
-import { getType, isEmpty, cloneDeep } from '@/util';
+import { getType, isEmpty, cloneDeep } from '../util';
 import { Fragment } from 'react';
 import { TableColumnType } from './column.type';
 import dayjs from 'dayjs';
