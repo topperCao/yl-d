@@ -20,6 +20,10 @@
   "main": "dist/index.umd.js",
   "module": "dist/index.umd.js",
   "typings": "dist/index.d.ts",
+  "dependencies": {
+    "lodash.clonedeep": "4.5.0",
+    "lodash.debounce": "4.0.8"
+  },
   "peerDependencies": {
     "@arco-design/web-react": ">=2.61.3",
     "@yl-d/code-editor": ">=1.0.0",
