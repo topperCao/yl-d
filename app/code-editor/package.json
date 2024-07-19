@@ -4,8 +4,6 @@
   "author": "yunliang-ding",
   "version": "1.0.5",
   "scripts": {
-    "start": "lyr-docs dev",
-    "docs:build": "lyr-docs build",
     "build": "rollup -c"
   },
   "main": "dist/index.js",

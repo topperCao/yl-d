@@ -45,7 +45,7 @@ export default () => {
 
 ```tsx | react
 import { Form, Button } from '@yl-d/components';
-import schema from '@/components/schema/form-advance/async-option.tsx';
+import schema from '@/components/form/schema/form-advance/async-option.tsx';
 
 export default () => {
   const [fresh, setFresh] = React.useState(false);
@@ -382,7 +382,7 @@ export default () => {
 
 ```tsx | react
 import { Form, Button } from '@yl-d/components';
-import schema from '@/components/schema/form-advance/form-list.ts';
+import schema from '@/components/form/schema/form-advance/form-list.ts';
 
 export default () => {
   const [form] = Form.useForm();
@@ -452,7 +452,7 @@ export default () => {
 
 ```tsx | react
 import { Form } from '@yl-d/components';
-import DragContainer from '@/components/demo/drag.tsx';
+import DragContainer from '@/components/form/demo/drag.tsx';
 
 export default () => {
   return (
@@ -607,7 +607,7 @@ export default () => {
 
 ```tsx | react
 import { Form, Button } from '@yl-d/components';
-import CountInput from '@/components/demo/count-input.tsx';
+import CountInput from '@/components/form/demo/count-input.tsx';
 
 export default () => {
   const [form] = Form.useForm();

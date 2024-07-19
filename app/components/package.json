@@ -5,9 +5,6 @@
   "version": "1.0.3",
   "private": false,
   "scripts": {
-    "start": "lyr-docs dev",
-    "watch": "lyr-docs watch",
-    "docs:build": "lyr-docs build",
     "build": "rollup -c"
   },
   "main": "dist/index.js",
