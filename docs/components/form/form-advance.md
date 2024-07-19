@@ -45,7 +45,7 @@ export default () => {
 
 ```tsx | react
 import { Form, Button } from '@yl-d/components';
-import schema from '@/components/form/schema/form-advance/async-option.tsx';
+import schema from '@/components/schema/form-advance/async-option.tsx';
 
 export default () => {
   const [fresh, setFresh] = React.useState(false);
@@ -382,7 +382,7 @@ export default () => {
 
 ```tsx | react
 import { Form, Button } from '@yl-d/components';
-import schema from '@/components/form/schema/form-advance/form-list.ts';
+import schema from '@/components/schema/form-advance/form-list.ts';
 
 export default () => {
   const [form] = Form.useForm();

@@ -35,9 +35,10 @@ export default defineConfig({
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/docxtemplater.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/luna-object-viewer.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/luna-console.min.js',
-    'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/components.min.js',
+    // 'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/components.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/code-editor.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/shared.min.js',
+    'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/low-code.min.js',
   ],
   buildScript: [
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/axios.min.js',
@@ -66,6 +67,7 @@ export default defineConfig({
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/components.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/code-editor.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/shared.min.js',
+    'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/low-code.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/track.min.js',
   ],
   serverPath: '/apis',
@@ -77,8 +79,6 @@ export default defineConfig({
   webpackConfig() {
     return {
       externals: {
-        '@yl-d/shared': 'lyrShared',
-        '@yl-d/code-editor': 'lyrCodeEditor',
         '@yl-d/low-code': 'lyrLowCode',
       },
     };
@@ -106,10 +106,12 @@ export default defineConfig({
         {
           label: '介绍',
           path: '/components',
+          group: true,
         },
         {
           label: '表单相关',
           path: '/components/form',
+          group: true,
           children: [
             {
               label: 'Form 基本用法',
@@ -156,6 +158,7 @@ export default defineConfig({
         {
           label: '数据展示',
           path: '/components/display',
+          group: true,
           children: [
             {
               label: 'Table 数据表格',
@@ -174,6 +177,7 @@ export default defineConfig({
         {
           label: '拖拽相关',
           path: '/components/dnd',
+          group: true,
           children: [
             {
               label: 'DragWrapper 拖拽',
@@ -192,6 +196,7 @@ export default defineConfig({
         {
           label: '其他',
           path: '/components/other',
+          group: true,
           children: [
             {
               label: 'Button 扩展',
@@ -206,6 +211,7 @@ export default defineConfig({
         {
           label: '状态管理',
           path: '/components/state',
+          group: true,
           children: [
             {
               label: 'createStore',
@@ -216,6 +222,7 @@ export default defineConfig({
         {
           label: '自定义 hooks',
           path: '/components/hooks',
+          group: true,
           children: [
             {
               label: 'useRefesh',
@@ -238,6 +245,7 @@ export default defineConfig({
         {
           label: '更新日志',
           path: '/components/logs',
+          group: true,
         },
       ],
     },

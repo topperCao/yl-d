@@ -62,11 +62,9 @@ export default () => {
       dark={dark}
       onDarkChange={async (dark: boolean) => {
         uiStore.dark = dark;
-        (window as any).monacoTheme = dark ? 'vs-dark' : 'vs';
-        (window as any).monaco.editor.setTheme((window as any).monacoTheme);
       }}
       menu={{
-        className: "lyr-docs-wrap-menus",
+        className: 'lyr-docs-wrap-menus',
         items: menus.map((i: any) => ({ ...i, group: true })) as any,
         onClick: ({ path }: any) => {
           location.hash = path;

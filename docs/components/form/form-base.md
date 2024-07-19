@@ -2,7 +2,7 @@
 
 ```tsx | react
 import { Form } from '@yl-d/components';
-import schema from '@/components/form/schema/form-base/schema.ts';
+import schema from '@/components/schema/form-base/schema.ts';
 
 export default () => {
   return (
@@ -22,7 +22,7 @@ export default () => {
 ```tsx | react
 import { useState } from 'react';
 import { Form } from '@yl-d/components';
-import schema from '@/components/form/schema/form-base/schema.ts';
+import schema from '@/components/schema/form-base/schema.ts';
 import { Select } from '@arco-design/web-react';
 
 export default () => {
@@ -56,7 +56,7 @@ export default () => {
 
 ```tsx | react
 import { Form } from '@yl-d/components';
-import schema from '@/components/form/schema/form-base/schema.ts';
+import schema from '@/components/schema/form-base/schema.ts';
 
 export default () => {
   return (
@@ -85,7 +85,7 @@ export default () => {
 
 ```tsx | react
 import { Form } from '@yl-d/components';
-import schema from '@/components/form/schema/form-base/schema2.tsx';
+import schema from '@/components/schema/form-base/schema2.tsx';
 
 export default () => {
   const [form] = Form.useForm();
@@ -129,7 +129,7 @@ export default () => {
 ```tsx | react
 import { Form, Button } from '@yl-d/components';
 import { Switch } from '@arco-design/web-react';
-import schema from '@/components/form/schema/form-base/schema.ts';
+import schema from '@/components/schema/form-base/schema.ts';
 
 export default () => {
   const [disabled, setDisabled] = React.useState(false);
@@ -198,7 +198,7 @@ export default () => {
 
 ```tsx | react
 import { Form } from '@yl-d/components';
-import schema from '@/components/form/schema/form-base/schema3.ts';
+import schema from '@/components/schema/form-base/schema3.ts';
 
 export default () => {
   return <Form schema={schema} column={3} />;
