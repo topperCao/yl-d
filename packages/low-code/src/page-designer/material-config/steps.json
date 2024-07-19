@@ -1,0 +1,50 @@
+{
+  "widget": "Step",
+  "label": "步骤条",
+  "props": {
+    "placeholder": "请输入",
+    "allowClear": true,
+    "disabled": false,
+    "maxLength": 64,
+    "showWordLimit": false
+  },
+  "propsConfig": [
+    {
+      "widget": "Switch",
+      "valuePropName": "checked",
+      "name": "showWordLimit",
+      "label": "是否展示计数"
+    },
+    {
+      "widget": "Switch",
+      "valuePropName": "checked",
+      "name": "disabled",
+      "label": "是否禁用"
+    },
+    {
+      "widget": "Switch",
+      "name": "allowClear",
+      "valuePropName": "checked",
+      "label": "是否允许清除"
+    },
+    {
+      "widget": "Input",
+      "name": "placeholder",
+      "label": "提示文案"
+    },
+    {
+      "widget": "InputNumber",
+      "name": "maxLength",
+      "label": "最大长度"
+    },
+    {
+      "widget": "CodeEditor",
+      "name": "onChange",
+      "label": "设置onChange",
+      "props": {
+        "mode": "function",
+        "useEncrypt": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "widget": "OssFileUpload",
+  "label": "图片上传",
+  "props": {
+    "disabled": false,
+    "name": "file",
+    "text": "点击上传",
+    "limit": 1,
+    "limitSize": 100
+  },
+  "propsConfig": [
+    {
+      "widget": "Switch",
+      "name": "disabled",
+      "label": "是否禁用"
+    },
+    {
+      "widget": "Input",
+      "name": "text",
+      "label": "按钮文案"
+    },
+    {
+      "widget": "InputNumber",
+      "name": "maxCount",
+      "label": "最多上传张数"
+    },
+    {
+      "widget": "InputNumber",
+      "name": "limitSize",
+      "label": "文件大小限制"
+    },
+    {
+      "widget": "CodeEditor",
+      "name": "onChange",
+      "label": "设置onChange",
+      "props": {
+        "mode": "function",
+        "useEncrypt": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "widget": "TextArea",
+  "label": "多行文本",
+  "props": {
+    "placeholder": "请输入",
+    "allowClear": true,
+    "disabled": false,
+    "maxLength": 500,
+    "showWordLimit": true
+  },
+  "propsConfig": [
+    {
+      "widget": "Switch",
+      "name": "showWordLimit",
+      "label": "是否展示计数"
+    },
+    {
+      "widget": "Switch",
+      "name": "disabled",
+      "label": "是否禁用"
+    },
+    {
+      "widget": "Switch",
+      "name": "allowClear",
+      "label": "是否允许清除"
+    },
+    {
+      "widget": "Input",
+      "name": "placeholder",
+      "label": "提示文案"
+    },
+    {
+      "widget": "InputNumber",
+      "name": "maxLength",
+      "label": "最大长度"
+    },
+    {
+      "widget": "CodeEditor",
+      "name": "onChange",
+      "label": "设置onChange",
+      "props": {
+        "mode": "function",
+        "useEncrypt": true
+      }
+    }
+  ]
+}

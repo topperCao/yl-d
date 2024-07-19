@@ -1,0 +1,57 @@
+{
+  "widget": "FormList",
+  "label": "子表单容器",
+  "span": "fill",
+  "props": {
+    "column": 2,
+    "disabled": false,
+    "maxCount": 9999,
+    "leastOne": false,
+    "label": "",
+    "children": []
+  },
+  "propsConfig": [
+    {
+      "widget": "Input",
+      "name": "label",
+      "label": "子项标题"
+    },
+    {
+      "widget": "Switch",
+      "name": "disabled",
+      "label": "是否禁用"
+    },
+    {
+      "widget": "Switch",
+      "name": "leastOne",
+      "label": "至少保留一条"
+    },
+    {
+      "widget": "InputNumber",
+      "name": "maxCount",
+      "label": "最大条数限制"
+    },
+    {
+      "widget": "RadioGroup",
+      "name": "column",
+      "label": "容器排版",
+      "props": {
+        "optionType": "button",
+        "options": [
+          {
+            "label": "1列",
+            "value": 1
+          },
+          {
+            "label": "2列",
+            "value": 2
+          },
+          {
+            "label": "3列",
+            "value": 3
+          }
+        ]
+      }
+    }
+  ]
+}

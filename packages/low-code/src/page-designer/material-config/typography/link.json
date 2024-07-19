@@ -1,0 +1,27 @@
+{
+  "widget": "Link",
+  "label": "链接",
+  "props": {
+    "href": "https://www.baidu.com/",
+    "target": true,
+    "title": "这是一个链接"
+  },
+  "propsConfig": [
+    {
+      "widget": "Input",
+      "name": "href",
+      "label": "链接地址"
+    },
+    {
+      "widget": "Switch",
+      "valuePropName": "checked",
+      "name": "target",
+      "label": "是否新开窗口"
+    },
+    {
+      "widget": "Input",
+      "name": "title",
+      "label": "文案"
+    }
+  ]
+}
