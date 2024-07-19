@@ -1,0 +1,38 @@
+{
+  "name": "@yl-d/shared",
+  "description": "工具函数库",
+  "author": "yunliang-ding",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "lyr-docs dev",
+    "watch": "lyr-docs watch",
+    "build": "rollup -c",
+    "docs:build": "lyr-docs build"
+  },
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "typings": "dist/index.d.ts",
+  "keywords": [
+    "@yl-d/shared"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yunliang-ding/lyr-shared"
+  },
+  "allowPackages": {
+    "urllib": {
+      "version": "*"
+    }
+  },
+  "peerDependencies": {
+    "react": ">=17.0.2",
+    "react-dom": ">=17.0.2",
+    "@arco-design/web-react": ">=2.62.1"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  }
+}

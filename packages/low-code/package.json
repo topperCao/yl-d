@@ -1,0 +1,38 @@
+{
+  "name": "@yl-d/low-code",
+  "version": "1.0.1",
+  "description": "低码相关组件",
+  "author": "yunliang-ding",
+  "homepage": "http://dev-ops.yunliang.cloud/website/lyr-low-code",
+  "keywords": [
+    "@yl-d/components",
+    "low-code"
+  ],
+  "repository": {
+    "widget": "git",
+    "url": "https://github.com/yunliang-ding/lyr-low-code"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "scripts": {
+    "start": "lyr-docs dev",
+    "docs:build": "lyr-docs build",
+    "build": "rollup -c"
+  },
+  "main": "dist/index.umd.js",
+  "module": "dist/index.umd.js",
+  "typings": "dist/index.d.ts",
+  "peerDependencies": {
+    "@arco-design/web-react": ">=2.61.3",
+    "@yl-d/code-editor": ">=1.0.0",
+    "@yl-d/components": ">=1.0.2",
+    "@yl-d/shared": ">=1.0.0",
+    "axios": ">=0.21.1",
+    "html2canvas": "1.4.1",
+    "react": ">=17.0.2",
+    "react-dom": ">=17.0.2"
+  },
+  "license": "MIT"
+}
