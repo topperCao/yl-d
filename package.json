@@ -79,7 +79,8 @@
     "@types/lodash.debounce": "4.0.9",
     "@arco-design/color": "0.4.0",
     "react-to-print": "2.13.0",
-    "remark-gfm": "3.0.1"
+    "remark-gfm": "3.0.1",
+    "path-browserify": "1.0.1"
   },
   "repository": {
     "type": "git",
