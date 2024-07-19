@@ -82,6 +82,7 @@
     "remark-gfm": "3.0.1",
     "path-browserify": "1.0.1"
   },
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/yunliang-ding/packages"
