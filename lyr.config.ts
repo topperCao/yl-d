@@ -77,7 +77,7 @@ export default defineConfig({
   webpackConfig() {
     return {
       externals: {
-        '@yr-d/shared': 'lyrShared',
+        '@yl-d/shared': 'lyrShared',
         '@yl-d/code-editor': 'lyrCodeEditor',
         '@yl-d/low-code': 'lyrLowCode',
       },
@@ -99,66 +99,6 @@ export default defineConfig({
     },
   ],
   menus: [
-    {
-      label: '@yl-d/shared',
-      path: '/shared',
-      children: [
-        {
-          label: '介绍',
-          path: '/shared',
-        },
-        {
-          label: '组件',
-          path: '/shared/components',
-          children: [
-            {
-              label: 'asyncLoad',
-              path: '/shared/components/async-load',
-            },
-            {
-              label: 'BigNumber',
-              path: '/shared/components/big-number',
-            },
-            {
-              label: 'babelParse',
-              path: '/shared/components/babel-parse',
-            },
-            {
-              label: 'ConsoleRender',
-              path: '/shared/components/console-render',
-            },
-            {
-              label: 'copyToClipBoard',
-              path: '/shared/components/copy-to-clip-board',
-            },
-            {
-              label: 'docxReplace',
-              path: '/shared/components/docx-replace',
-            },
-            {
-              label: 'downloadFile',
-              path: '/shared/components/download-file',
-            },
-            {
-              label: 'getElementSnapshot',
-              path: '/shared/components/get-element-snapshot',
-            },
-            {
-              label: 'getUrlSearchParams',
-              path: '/shared/components/get-url-search-params',
-            },
-            {
-              label: 'MarkdownViewer',
-              path: '/shared/components/markdown-viewer',
-            },
-            {
-              label: 'ReactPlayground',
-              path: '/shared/components/react-playground',
-            },
-          ],
-        },
-      ],
-    },
     {
       label: '@yl-d/components',
       path: '/components',
@@ -298,6 +238,66 @@ export default defineConfig({
         {
           label: '更新日志',
           path: '/components/logs',
+        },
+      ],
+    },
+    {
+      label: '@yl-d/shared',
+      path: '/shared',
+      children: [
+        {
+          label: '介绍',
+          path: '/shared',
+        },
+        {
+          label: '组件',
+          path: '/shared/components',
+          children: [
+            {
+              label: 'asyncLoad',
+              path: '/shared/components/async-load',
+            },
+            {
+              label: 'BigNumber',
+              path: '/shared/components/big-number',
+            },
+            {
+              label: 'babelParse',
+              path: '/shared/components/babel-parse',
+            },
+            {
+              label: 'ConsoleRender',
+              path: '/shared/components/console-render',
+            },
+            {
+              label: 'copyToClipBoard',
+              path: '/shared/components/copy-to-clip-board',
+            },
+            {
+              label: 'docxReplace',
+              path: '/shared/components/docx-replace',
+            },
+            {
+              label: 'downloadFile',
+              path: '/shared/components/download-file',
+            },
+            {
+              label: 'getElementSnapshot',
+              path: '/shared/components/get-element-snapshot',
+            },
+            {
+              label: 'getUrlSearchParams',
+              path: '/shared/components/get-url-search-params',
+            },
+            {
+              label: 'MarkdownViewer',
+              path: '/shared/components/markdown-viewer',
+            },
+            {
+              label: 'ReactPlayground',
+              path: '/shared/components/react-playground',
+            },
+          ],
         },
       ],
     },
