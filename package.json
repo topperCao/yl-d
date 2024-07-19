@@ -1,5 +1,10 @@
 {
   "author": "yunliang-ding",
+  "name": "packages",
+  "scripts": {
+    "start": "lyr-docs dev",
+    "docs:build": "lyr-docs build"
+  },
   "dependencies": {
     "@babel/core": "7.23.5",
     "chalk": "^4.0.0",
