@@ -307,27 +307,27 @@ export default defineConfig({
       children: [
         {
           label: '介绍',
-          path: '/',
+          path: '/code-editor',
         },
         {
           label: '组件',
-          path: '/components',
+          path: '/code-editor/components',
           children: [
             {
               label: 'FileExplorer 目录展示',
-              path: '/components/file-explorer',
+              path: '/code-editor/components/file-explorer',
             },
             {
               label: 'FileEditor 内容展示',
-              path: '/components/file-editor',
+              path: '/code-editor/components/file-editor',
             },
             {
               label: 'FileSearch 文件查找',
-              path: '/components/file-search',
+              path: '/code-editor/components/file-search',
             },
             {
               label: 'GitManager 源代码管理',
-              path: '/components/git-manager',
+              path: '/code-editor/components/git-manager',
             },
           ],
         },
