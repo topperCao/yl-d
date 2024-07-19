@@ -8,10 +8,6 @@
     "@yl-d/components",
     "low-code"
   ],
-  "repository": {
-    "widget": "git",
-    "url": "https://github.com/yunliang-ding/lyr-low-code"
-  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"

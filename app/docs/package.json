@@ -1,0 +1,19 @@
+{
+  "private": false,
+  "name": "@yl-d/docs",
+  "version": "1.0.14",
+  "author": "yunliang-ding",
+  "main": "./dist/index.js",
+  "description": "快速搭建 React 组件库文档",
+  "bin": {
+    "lyr-docs": "./bin/index.js"
+  },
+  "scripts": {
+    "build": "node build.js"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  }
+}

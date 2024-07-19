@@ -80,5 +80,9 @@
     "@arco-design/color": "0.4.0",
     "react-to-print": "2.13.0",
     "remark-gfm": "3.0.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yunliang-ding/packages"
+  },
 }
