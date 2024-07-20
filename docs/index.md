@@ -1,1 +1,3 @@
-# 前端生态包
+```jsx | react
+location.hash = '/components'
+```
