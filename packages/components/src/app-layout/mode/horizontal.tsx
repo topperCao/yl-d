@@ -76,6 +76,7 @@ export default ({
               openKeys={openKeys}
               collapse={collapsed}
               theme={dark ? 'dark' : 'light'}
+              className={menu.className}
             >
               {RenderMenus(
                 (menu.items?.find((item) => item?.path === topKey) as any)

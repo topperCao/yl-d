@@ -35,7 +35,7 @@ export default defineConfig({
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/docxtemplater.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/luna-object-viewer.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/luna-console.min.js',
-    // 'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/components.min.js',
+    'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/components.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/code-editor.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/shared.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/low-code.min.js',
@@ -256,10 +256,12 @@ export default defineConfig({
         {
           label: '介绍',
           path: '/shared',
+          group: true,
         },
         {
           label: '组件',
           path: '/shared/components',
+          group: true,
           children: [
             {
               label: 'asyncLoad',
@@ -316,10 +318,12 @@ export default defineConfig({
         {
           label: '介绍',
           path: '/code-editor',
+          group: true,
         },
         {
           label: '组件',
           path: '/code-editor/components',
+          group: true,
           children: [
             {
               label: 'FileExplorer 目录展示',
@@ -348,10 +352,12 @@ export default defineConfig({
         {
           label: '介绍',
           path: '/low-code',
+          group: true,
         },
         {
           label: '组件',
           path: '/low-code/components',
+          group: true,
           children: [
             {
               label: 'DesignerForm',

@@ -18,10 +18,7 @@
         "./src/.lyr"
       ],
       "react": [
-        "./node_modules/@types/react"
-      ],
-      "@yl-d/components": [
-        "./dist"
+        "../../node_modules/@types/react"
       ],
     }
   },

@@ -12,10 +12,18 @@
     "skipLibCheck": true,
     "outDir": "./dist",
     "paths": {
-      "@/*": ["./src/*"],
-      "lyr": ["./src/.lyr"],
-      "react": ["./node_modules/@types/react"]
+      "@/*": [
+        "./src/*"
+      ],
+      "lyr": [
+        "./src/.lyr"
+      ],
+      "react": [
+        "../../node_modules/@types/react"
+      ],
     }
   },
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }
