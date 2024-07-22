@@ -499,4 +499,4 @@ export const add = () => {
 
 ## 一分钟搭建 PlayGround
 
-[点击查看](https://dev-ops.yunliang.cloud/website/lyr-shared#/components/react-playground)
+[点击查看](https://dev-ops.yunliang.cloud/website/packages#/shared/components/react-playground)

@@ -55,4 +55,4 @@ yarn add @yl-d/components
 
 ## 在线文档
 
-[点击跳转文档](https://dev-ops.yunliang.cloud/website/lyr-component)
+[点击跳转文档](https://dev-ops.yunliang.cloud/website/packages/#/components)

@@ -27,7 +27,7 @@ export default () => {
 };
 ```
 
-## @yl-d/shared
+## 安装
 
 ```shell
 yarn add @yl-d/shared

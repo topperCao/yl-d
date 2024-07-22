@@ -1,3 +1,3 @@
 ## 在线文档
 
-[点击跳转文档](http://dev-ops.yunliang.cloud/website/@yl-d/code-editor)
+[点击跳转文档](https://dev-ops.yunliang.cloud/website/packages/#/code-editor)

@@ -83,21 +83,6 @@ export default defineConfig({
       },
     };
   },
-  navs: [
-    {
-      title: '脚手架',
-      children: [
-        {
-          title: 'lyr-cli',
-          path: 'https://dev-ops.yunliang.cloud/website/lyr-cli',
-        },
-        {
-          title: 'lyr-docs',
-          path: 'https://dev-ops.yunliang.cloud/website/lyr-docs',
-        },
-      ],
-    },
-  ],
   menus: [
     {
       label: '@yl-d/components',
@@ -379,5 +364,23 @@ export default defineConfig({
         },
       ],
     },
+    {
+      label: '@yl-d/cli',
+      path: '/cli',
+      children: [{
+        label: '介绍',
+        path: '/cli',
+        group: true,
+      }]
+    },
+    {
+      label: '@yl-d/docs',
+      path: '/doc',
+      children: [{
+        label: '介绍',
+        path: '/doc',
+        group: true,
+      }]
+    }
   ],
 });

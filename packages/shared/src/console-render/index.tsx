@@ -18,6 +18,7 @@ export default {
     return {
       listener: (el: HTMLElement) => {
         if (el) {
+          console.log(el);
           instance = new LunaConsole(el, {
             theme,
             ...reset,

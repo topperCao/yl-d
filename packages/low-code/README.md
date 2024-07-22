@@ -1,1 +1,1 @@
-[在线文档](https://dev-ops.yunliang.cloud/website/lyr-low-code)
+[在线文档](https://dev-ops.yunliang.cloud/website/packages/#/low-code)
