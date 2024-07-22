@@ -1,7 +1,7 @@
 import { defineConfig } from 'lyr';
 
 export default defineConfig({
-  title: 'packages',
+  title: '前端生态包',
   favicon: 'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/assets/favicon.ico',
   monorepo: true,
   link: [
