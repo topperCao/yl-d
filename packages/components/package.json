@@ -3,7 +3,7 @@
   "description": "中后台开发提效方案",
   "author": "yunliang-ding",
   "version": "1.0.3",
-  "homepage": "https://dev-ops.yunliang.cloud/website/packages/#/components",
+  "homepage": "https://packages.yunliang.cloud/#/components",
   "scripts": {
     "build": "rollup -c"
   },

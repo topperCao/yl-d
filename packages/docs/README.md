@@ -1,7 +1,7 @@
 # lyr-docs
 
 - 自动解析 `docs` 文件夹下的 `md` 文件生成路由
-- md 文件中 `React` 组件渲染能力依赖 [MarkdownViewer](https://dev-ops.yunliang.cloud/website/packages#/shared/components/markdown-viewer)
+- md 文件中 `React` 组件渲染能力依赖 [MarkdownViewer](https://packages.yunliang.cloud#/shared/components/markdown-viewer)
   - 内置所有 demo 的 `code-playground`
   - 支持解析组件 API
   - 支持定制主题
@@ -18,4 +18,4 @@
 
 # 在线文档
 
-[点击跳转文档](http://dev-ops.yunliang.cloud/website/packages/#/docs)
+[点击跳转文档](https://packages.yunliang.cloud/#/doc)

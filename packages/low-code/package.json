@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "description": "低码相关组件",
   "author": "yunliang-ding",
-  "homepage": "https://dev-ops.yunliang.cloud/website/packages/#/low-code",
+  "homepage": "https://packages.yunliang.cloud/#/low-code",
   "keywords": [
     "@yl-d/components",
     "low-code"

@@ -1,1 +1,1 @@
-[在线文档](https://dev-ops.yunliang.cloud/website/lyr-shared)
+[在线文档](https://packages.yunliang.cloud/#/shared)

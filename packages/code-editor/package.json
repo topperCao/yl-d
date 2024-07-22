@@ -3,7 +3,7 @@
   "description": "代码编辑器组件",
   "author": "yunliang-ding",
   "version": "1.0.5",
-  "homepage": "https://dev-ops.yunliang.cloud/website/packages/#/code-editor",
+  "homepage": "https://packages.yunliang.cloud/#/code-editor",
   "scripts": {
     "build": "rollup -c"
   },

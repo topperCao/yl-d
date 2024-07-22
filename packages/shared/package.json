@@ -3,7 +3,7 @@
   "description": "工具函数库",
   "author": "yunliang-ding",
   "version": "1.0.0",
-  "homepage": "https://dev-ops.yunliang.cloud/website/packages/#/shared",
+  "homepage": "https://packages.yunliang.cloud/#/shared",
   "scripts": {
     "build": "rollup -c"
   },
