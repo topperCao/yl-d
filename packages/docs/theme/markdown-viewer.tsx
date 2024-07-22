@@ -105,7 +105,7 @@ export default ({ github, updateTime, ...rest }: any) => {
             style={{
               display: 'flex',
               justifyContent: 'space-between',
-              padding: '12.5px 60px',
+              padding: '12.5px 80px',
             }}
           >
             <a href={github} target="_blank">
