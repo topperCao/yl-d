@@ -53,7 +53,7 @@ export default ({
   showLogo = false,
   showConsole = false,
 }: PlayGroundProps) => {
-  const divRef: any = useRef({});
+  const divRef: any = useRef();
   const [load, setLoad] = useState(false);
   const [reload, setReload] = useState(Math.random());
   const [activeTab, setActiveTab] = useState('0');
@@ -72,7 +72,7 @@ export default ({
     [],
   );
   useEffect(() => {
-    if (!previewOnly) {
+    if(divRef.current){
       listener(divRef.current);
       return destory;
     }

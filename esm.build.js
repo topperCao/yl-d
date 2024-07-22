@@ -9,7 +9,7 @@ const runEsmBuild = () =>
     target: 'esnext',
     format: 'esm',
     platform: 'browser',
-    outdir: 'www/esm',
+    outdir: 'www/dev/esm',
     bundle: true,
     minify: true,
     logLevel: 'info',
