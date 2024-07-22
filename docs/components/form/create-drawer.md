@@ -154,5 +154,5 @@ export default () => {
 ## API
 
 ```API
-/src/form-submit/drawer-form/type.tsx
+/packages/components/src/form-submit/drawer-form/type.tsx
 ```

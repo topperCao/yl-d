@@ -240,5 +240,5 @@ export default () => {
 ## API
 
 ```API
-/src/button/type.tsx
+/packages/components/src/button/type.tsx
 ```

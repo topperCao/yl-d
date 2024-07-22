@@ -123,5 +123,5 @@ export default () => {
 ## API
 
 ```API
-/src/table-list/type.tsx
+/packages/components/src/table-list/type.tsx
 ```

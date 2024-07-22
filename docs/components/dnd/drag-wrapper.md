@@ -117,5 +117,5 @@ export default () => {
 ## API
 
 ```API
-/src/drag-wrapper/type.tsx
+/packages/components/src/drag-wrapper/type.tsx
 ```

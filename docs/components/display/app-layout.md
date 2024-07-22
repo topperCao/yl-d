@@ -114,11 +114,11 @@ menu={{
 ## API
 
 ```API
-/src/app-layout/type.tsx
+/packages/components/src/app-layout/type.tsx
 ```
 
 ## RightProps
 
 ```API
-/src/app-layout/right.type.tsx
+/packages/components/src/app-layout/right.type.tsx
 ```

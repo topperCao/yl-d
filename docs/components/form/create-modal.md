@@ -107,5 +107,5 @@ export default (props) => {
 ## API
 
 ```API
-/src/form-submit/modal-form/type.tsx
+/packages/components/src/form-submit/modal-form/type.tsx
 ```

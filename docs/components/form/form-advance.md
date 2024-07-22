@@ -699,5 +699,5 @@ export default () => {
 ## FormInstance
 
 ```API
-/src/form/instance.type.tsx
+/packages/components/src/form/instance.type.tsx
 ```

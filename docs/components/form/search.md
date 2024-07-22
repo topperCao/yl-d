@@ -262,5 +262,5 @@ export default () => {
 ## API
 
 ```API
-/src/search/type.tsx
+/packages/components/src/search/type.tsx
 ```

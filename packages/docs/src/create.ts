@@ -86,17 +86,19 @@ const createFileRouter = async function (
       const folder = `${rootPath}/packages/**/package.json`;
       const files = glob.sync(folder);
       files.forEach((file) => {
-        const { name } = require(file);
-        const libName = name
-          .replaceAll('-', '')
-          .replaceAll('@', '')
-          .replaceAll('/', '');
-        importArr.push(
-          `import * as ${libName} from '${file
-            .replace('package.json', 'src/index.ts')
-            .replace(rootPath, '../..')}';`,
-        );
-        _require[name] = encodeStr(libName);
+        const { name, bin } = require(file);
+        if (!bin) {
+          const libName = name
+            .replaceAll('-', '')
+            .replaceAll('@', '')
+            .replaceAll('/', '');
+          importArr.push(
+            `import * as ${libName} from '${file
+              .replace('package.json', 'src/index.ts')
+              .replace(rootPath, '../..')}';`,
+          );
+          _require[name] = encodeStr(libName);
+        }
       });
     } else {
       importArr.push(`import * as ${libName} from '../index';`);
@@ -197,11 +199,11 @@ const createRequireSocure = async function (rootPath: string) {
   );
 };
 /** 创建组件 interface 描述对象 */
-const createComponentTypeMapping = (rootPath: string) => {
+const createComponentTypeMapping = (rootPath: string, config: ConfigProps) => {
   const componentInterface = {};
   const types = glob.sync([
-    `${rootPath}/src/**/*.type.tsx`,
-    `${rootPath}/src/**/type.tsx`,
+    `${rootPath}/${config.monorepo ? 'packages/**/src' : 'src'}/**/*.type.tsx`,
+    `${rootPath}/${config.monorepo ? 'packages/**/src' : 'src'}/**/type.tsx`,
   ]);
   const tsconfigPath = path.resolve(process.cwd(), 'tsconfig.json');
   const parser = withCustomConfig(tsconfigPath, {
@@ -282,7 +284,7 @@ export const repository = "${packageJson.repository?.url}";
   /** 创建依赖描述 */
   createRequireSocure(rootPath);
   /** 创建组件 interface 描述对象  */
-  createComponentTypeMapping(rootPath);
+  createComponentTypeMapping(rootPath, config);
   /** 监听 type 文件改动 */
   const watcherType = chokidar.watch(
     [`${rootPath}/src/**/*.type.tsx`, `${rootPath}/src/**/type.tsx`],
@@ -292,10 +294,10 @@ export const repository = "${packageJson.repository?.url}";
     },
   );
   watcherType.on('change', async () => {
-    createComponentTypeMapping(rootPath);
+    createComponentTypeMapping(rootPath, config);
   });
   watcherType.on('add', async () => {
-    createComponentTypeMapping(rootPath);
+    createComponentTypeMapping(rootPath, config);
   });
   /** 监听 依赖文件 改动 */
   const watcherRequireSocure = chokidar.watch(

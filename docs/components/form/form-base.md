@@ -257,11 +257,11 @@ export default () => {
 ## API
 
 ```API
-/src/form/form.type.tsx
+/packages/components/src/form/form.type.tsx
 ```
 
 ## Form.Item
 
 ```API
-/src/form/item.type.tsx
+/packages/components/src/form/item.type.tsx
 ```

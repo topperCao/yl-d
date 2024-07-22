@@ -1,4 +1,4 @@
-## 基本使用
+# ReactPlayground 代码演示台
 
 > 依赖 cdn
 
@@ -103,5 +103,5 @@ export default () => {
 ## API
 
 ```API
-/src/react-playground/type.tsx
+/packages/shared/src/react-playground/type.tsx
 ```

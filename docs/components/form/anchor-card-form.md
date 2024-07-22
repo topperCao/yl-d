@@ -148,5 +148,5 @@ export default () => {
 ## API
 
 ```API
-/src/form-submit/anchor-card-form/type.tsx
+/packages/components/src/form-submit/anchor-card-form/type.tsx
 ```

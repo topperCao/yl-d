@@ -202,5 +202,5 @@ export default () => {
 ## API
 
 ```API
-/src/form-submit/card-form/type.tsx
+/packages/components/src/form-submit/card-form/type.tsx
 ```

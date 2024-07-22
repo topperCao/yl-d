@@ -175,5 +175,5 @@ export default () => {
 ## API
 
 ```API
-/src/drag-form/type.tsx
+/packages/components/src/drag-form/type.tsx
 ```

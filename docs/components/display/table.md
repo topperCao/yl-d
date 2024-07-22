@@ -385,17 +385,17 @@ export default () => {
 ## API
 
 ```API
-/src/table/type.tsx
+/packages/components/src/table/type.tsx
 ```
 
 ## TableColumnType
 
 ```API
-/src/table/column.type.tsx
+/packages/components/src/table/column.type.tsx
 ```
 
 ## ToolsType
 
 ```API
-/src/table/tools.type.tsx
+/packages/components/src/table/tools.type.tsx
 ```
