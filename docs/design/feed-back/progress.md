@@ -19,7 +19,6 @@ export default () => {
 ## 获取和设置进度
 
 ```jsx | react
-import React from 'react';
 import { Progress, Button } from '@yl-d/design';
 
 export default () => {

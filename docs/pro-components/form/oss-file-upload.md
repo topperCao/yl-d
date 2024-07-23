@@ -115,5 +115,5 @@ export default () => {
 ## API
 
 ```API
-/packages/components/src/oss-file-upload/type.tsx
+/packages/pro-components/src/oss-file-upload/type.tsx
 ```

@@ -330,5 +330,5 @@ export default (props) => {
 ## API
 
 ```API
-/packages/components/src/form-submit/step-form/type.tsx
+/packages/pro-components/src/form-submit/step-form/type.tsx
 ```

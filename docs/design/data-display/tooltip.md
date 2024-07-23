@@ -20,22 +20,22 @@ import { Tooltip, Button } from '@yl-d/design';
 export default () => {
   return (
     <>
-      <Tooltip title={<>这个是一个描述信息</>} placement="top" theme={theme}>
+      <Tooltip title={<>这个是一个描述信息</>} placement="top">
         <Button>Top</Button>
       </Tooltip>
       &nbsp;&nbsp;&nbsp;
-      <Tooltip title={<>这个是一个描述信息</>} placement="bottom" theme={theme}>
+      <Tooltip title={<>这个是一个描述信息</>} placement="bottom">
         <Button>Bottom</Button>
       </Tooltip>
       <br />
       <br />
       <br />
       <br />
-      <Tooltip title={<>这个是一个描述信息</>} placement="left" theme={theme}>
+      <Tooltip title={<>这个是一个描述信息</>} placement="left">
         <Button>Left</Button>
       </Tooltip>
       &nbsp;&nbsp;&nbsp;
-      <Tooltip title={<>这个是一个描述信息</>} placement="right" theme={theme}>
+      <Tooltip title={<>这个是一个描述信息</>} placement="right">
         <Button>Right</Button>
       </Tooltip>
     </>

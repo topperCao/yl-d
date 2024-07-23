@@ -1,7 +1,7 @@
 ## 基本使用
 
 ```jsx |react
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { RadioGroup, Form, Button, Space } from '@yl-d/design';
 import items from './items';
 

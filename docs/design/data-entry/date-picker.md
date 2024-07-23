@@ -1,11 +1,7 @@
----
-order: 8
----
-
 ## 基本使用
 
 ```jsx | react
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { RangeDatePicker, DatePicker, Button, Switch } from '@yl-d/design';
 
 export default () => {

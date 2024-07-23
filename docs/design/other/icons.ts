@@ -1,4 +1,4 @@
-[
+export default [
   {
     "icon_id": "1410489",
     "name": "refresh",

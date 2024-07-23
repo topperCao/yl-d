@@ -48,5 +48,5 @@ export default () => {
 ## API
 
 ```API
-/packages/components/src/suspend/type.tsx
+/packages/pro-components/src/suspend/type.tsx
 ```

@@ -1,7 +1,7 @@
 ## Menu 菜单
 
 ```jsx | react
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Menu, Icon, Switch } from '@yl-d/design';
 
 const { SubMenu } = Menu;
@@ -51,7 +51,7 @@ export default () => {
 ```
 
 ```jsx | react
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Menu, Icon, Switch } from '@yl-d/design';
 
 const { SubMenu } = Menu;
@@ -119,7 +119,7 @@ export default () => {
 ```
 
 ```jsx | react
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Menu, Icon, Switch } from '@yl-d/design';
 
 export default () => {

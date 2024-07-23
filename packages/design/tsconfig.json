@@ -2,20 +2,22 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "moduleResolution": "node",
-    "importHelpers": true,
-    "jsx": "react-jsx",
     "esModuleInterop": true,
-    "sourceMap": true,
-    "baseUrl": "./",
+    "moduleResolution": "node",
+    "declaration": true,
+    "jsx": "react-jsx",
     "strict": false,
+    "sourceMap": false,
+    "skipLibCheck": true,
+    "outDir": "./dist",
     "paths": {
-      "@/*": ["src/*"],
-    },
-    "allowSyntheticDefaultImports": true
+      "react": [
+        "../../node_modules/@types/react"
+      ],
+    }
   },
   "exclude": [
     "node_modules",
-    "dist",
+    "dist"
   ]
 }

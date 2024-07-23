@@ -2,7 +2,6 @@
 
 ```jsx | react
 import { Table, Button, Select, Switch } from '@yl-d/design';
-import { columns } from './schema';
 import axios from 'axios';
 
 export default () => {
@@ -12,7 +11,50 @@ export default () => {
       rowKey="id"
       tableRef={tableRef}
       title="用户信息表"
-      columns={columns}
+      columns={[
+        {
+          title: 'ID',
+          dataIndex: 'id',
+          width: 80,
+        },
+        {
+          title: '姓名',
+          dataIndex: 'username',
+          width: 125,
+        },
+        {
+          title: '性别',
+          dataIndex: 'sex',
+          width: 125,
+          enums: ['男', '女'],
+        },
+        {
+          title: '城市',
+          dataIndex: 'city',
+          width: 125,
+        },
+        {
+          title: '签名',
+          dataIndex: 'sign',
+          width: 125,
+          sort: true,
+        },
+        {
+          title: '登录次数',
+          dataIndex: 'logins',
+          width: 125,
+        },
+        {
+          title: '分类',
+          dataIndex: 'classify',
+          width: 125,
+        },
+        {
+          title: '分数',
+          dataIndex: 'score',
+          width: 125,
+        },
+      ]}
       style={{ height: 260 }}
       bordered
       checkable
@@ -77,7 +119,7 @@ export default () => {
       }}
       request={async (params) => {
         const res = await axios.get(
-          'http://api-online.yunliang.cloud/react-core-form/table',
+          'https://api-online.yunliang.cloud/lyr-component/table',
           {
             params,
           },

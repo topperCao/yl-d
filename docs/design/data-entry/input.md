@@ -1,7 +1,7 @@
 # 基本使用
 
 ```jsx | react
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Input, Switch } from '@yl-d/design';
 
 export default () => {

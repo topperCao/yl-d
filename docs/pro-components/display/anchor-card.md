@@ -43,5 +43,5 @@ export default () => {
 ## API
 
 ```API
-/packages/components/packages/components/src/anchor-card/type.tsx
+/packages/pro-components/packages/pro-components/src/anchor-card/type.tsx
 ```

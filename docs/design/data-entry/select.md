@@ -1,7 +1,7 @@
 ## 基本使用
 
 ```jsx | react
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Select, Switch } from '@yl-d/design';
 
 const { Option } = Select;
@@ -52,7 +52,7 @@ export default () => {
 ## 选项禁用, 支持清空
 
 ```jsx | react
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Select } from '@yl-d/design';
 
 export default () => {
@@ -99,7 +99,7 @@ export default () => {
 ## 带搜索框-自定义规则
 
 ```jsx | react
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Select } from '@yl-d/design';
 
 export default () => {
@@ -164,7 +164,7 @@ export default () => {
 ## 下拉多选
 
 ```jsx | react
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Select, Checkbox } from '@yl-d/design';
 
 export default () => {

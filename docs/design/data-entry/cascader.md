@@ -1,7 +1,7 @@
 ## 基本使用
 
 ```jsx | react
-import { Cascader, Switch } from '@yl-d/design';
+import { Cascader } from '@yl-d/design';
 
 export default () => {
   const options = [

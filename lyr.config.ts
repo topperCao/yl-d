@@ -86,272 +86,6 @@ export default defineConfig({
   },
   menus: [
     {
-      label: '@yl-d/design',
-      path: '/design',
-      children: [
-        {
-          label: '介绍',
-          path: '/design',
-          group: true,
-        },
-        {
-          label: '数据展示',
-          path: '/design/data-display',
-          group: true,
-          children: [
-            {
-              label: 'Avatar',
-              path: '/design/data-display/avatar',
-            },
-            {
-              label: 'Badge',
-              path: '/design/data-display/badge',
-            },
-            {
-              label: 'Carousel',
-              path: '/design/data-display/carousel',
-            },
-            {
-              label: 'Collapse',
-              path: '/design/data-display/collapse',
-            },
-            {
-              label: 'Descriptions',
-              path: '/design/data-display/descriptions',
-            },
-            {
-              label: 'Empty',
-              path: '/design/data-display/empty',
-            },
-            {
-              label: 'List',
-              path: '/design/data-display/list',
-            },
-            {
-              label: 'Popover',
-              path: '/design/data-display/popover',
-            },
-            {
-              label: 'Space',
-              path: '/design/data-display/space',
-            },
-            {
-              label: 'Table',
-              path: '/design/data-display/table',
-            },
-            {
-              label: 'Tabs',
-              path: '/design/data-display/tabs',
-            },
-            {
-              label: 'Tag',
-              path: '/design/data-display/tag',
-            },
-            {
-              label: 'Timeline',
-              path: '/design/data-display/timeline',
-            },
-            {
-              label: 'tooltip',
-              path: '/design/data-display/Tooltip',
-            },
-            {
-              label: 'Tree',
-              path: '/design/data-display/tree',
-            },
-          ],
-        },
-        {
-          label: '表单相关',
-          path: '/design/data-entry',
-          group: true,
-          children: [
-            {
-              label: 'AutoComplete',
-              path: '/design/data-entry/auto-complete',
-            },
-            {
-              label: 'Cascader',
-              path: '/design/data-entry/cascader',
-            },
-            {
-              label: 'Checkbox',
-              path: '/design/data-entry/checkbox',
-            },
-            {
-              label: 'AutoComplete',
-              path: '/design/data-entry/auto-complete',
-            },
-            {
-              label: 'Cascader',
-              path: '/design/data-entry/cascader',
-            },
-            {
-              label: 'Checkbox',
-              path: '/design/data-entry/checkbox',
-            },
-            {
-              label: 'DatePicker',
-              path: '/design/data-entry/date-picker',
-            },
-            {
-              label: 'InputNumber',
-              path: '/design/data-entry/input-number',
-            },
-            {
-              label: 'Input',
-              path: '/design/data-entry/input',
-            },
-            {
-              label: 'Radio',
-              path: '/design/data-entry/radio',
-            },
-            {
-              label: 'Rate',
-              path: '/design/data-entry/rate',
-            },
-            {
-              label: 'Select',
-              path: '/design/data-entry/select',
-            },
-            {
-              label: 'Slider',
-              path: '/design/data-entry/slider',
-            },
-            {
-              label: 'Switch',
-              path: '/design/data-entry/switch',
-            },
-            {
-              label: 'TimePicker',
-              path: '/design/data-entry/time-picker',
-            },
-            {
-              label: 'Transfer',
-              path: '/design/data-entry/transfer',
-            },
-            {
-              label: 'TreeSelect',
-              path: '/design/data-entry/tree-select',
-            },
-            {
-              label: 'Upload',
-              path: '/design/data-entry/upload',
-            },
-          ],
-        },
-        {
-          label: '反馈提示',
-          path: '/design/feed-back',
-          group: true,
-          children: [
-            {
-              label: 'Alert',
-              path: '/design/feed-back/alert',
-            },
-            {
-              label: 'Drawer',
-              path: '/design/feed-back/drawer',
-            },
-            {
-              label: 'message',
-              path: '/design/feed-back/message',
-            },
-            {
-              label: 'Modal',
-              path: '/design/feed-back/modal',
-            },
-            {
-              label: 'notification',
-              path: '/design/feed-back/notification',
-            },
-            {
-              label: 'Popconfirm',
-              path: '/design/feed-back/popconfirm',
-            },
-            {
-              label: 'Progress',
-              path: '/design/feed-back/progress',
-            },
-            {
-              label: 'Result',
-              path: '/design/feed-back/result',
-            },
-            {
-              label: 'Skeleton',
-              path: '/design/feed-back/skeleton',
-            },
-            {
-              label: 'Spin',
-              path: '/design/feed-back/spin',
-            },
-          ],
-        },
-        {
-          label: '导航相关',
-          path: '/design/navigation',
-          group: true,
-          children: [
-            {
-              label: 'Breadcrumb',
-              path: '/design/navigation/breadcrumb',
-            },
-            {
-              label: 'Dropdown',
-              path: '/design/navigation/dropdown',
-            },
-            {
-              label: 'Grid',
-              path: '/design/navigation/grid',
-            },
-            {
-              label: 'Layout',
-              path: '/design/navigation/layout',
-            },
-            {
-              label: 'Menu',
-              path: '/design/navigation/menu',
-            },
-            {
-              label: 'PageHeader',
-              path: '/design/navigation/page-header',
-            },
-            {
-              label: 'Pagination',
-              path: '/design/navigation/pagination',
-            },
-            {
-              label: 'Steps',
-              path: '/design/navigation/steps',
-            },
-          ],
-        },
-        {
-          label: '其他',
-          path: '/design/other',
-          group: true,
-          children: [
-            {
-              label: 'BackTop',
-              path: '/design/other/back-top',
-            },
-            {
-              label: 'Button',
-              path: '/design/other/button',
-            },
-            {
-              label: 'CopyToClipboard',
-              path: '/design/other/copy-to-clipboard',
-            },
-            {
-              label: 'Icon',
-              path: '/design/other/icon',
-            },
-          ],
-        },
-      ],
-    },
-    {
       label: '@yl-d/pro-components',
       path: '/pro-components',
       children: [
@@ -650,6 +384,257 @@ export default defineConfig({
           label: '介绍',
           path: '/doc',
           group: true,
+        },
+      ],
+    },
+
+    {
+      label: '@yl-d/design',
+      path: '/design',
+      children: [
+        {
+          label: '介绍',
+          path: '/design',
+          group: true,
+        },
+        {
+          label: '数据展示',
+          path: '/design/data-display',
+          group: true,
+          children: [
+            {
+              label: 'Avatar',
+              path: '/design/data-display/avatar',
+            },
+            {
+              label: 'Badge',
+              path: '/design/data-display/badge',
+            },
+            {
+              label: 'Carousel',
+              path: '/design/data-display/carousel',
+            },
+            {
+              label: 'Collapse',
+              path: '/design/data-display/collapse',
+            },
+            {
+              label: 'Descriptions',
+              path: '/design/data-display/descriptions',
+            },
+            {
+              label: 'Empty',
+              path: '/design/data-display/empty',
+            },
+            {
+              label: 'List',
+              path: '/design/data-display/list',
+            },
+            {
+              label: 'Popover',
+              path: '/design/data-display/popover',
+            },
+            {
+              label: 'Space',
+              path: '/design/data-display/space',
+            },
+            {
+              label: 'Table',
+              path: '/design/data-display/table',
+            },
+            {
+              label: 'Tabs',
+              path: '/design/data-display/tabs',
+            },
+            {
+              label: 'Tag',
+              path: '/design/data-display/tag',
+            },
+            {
+              label: 'Timeline',
+              path: '/design/data-display/timeline',
+            },
+            {
+              label: 'tooltip',
+              path: '/design/data-display/Tooltip',
+            },
+            {
+              label: 'Tree',
+              path: '/design/data-display/tree',
+            },
+          ],
+        },
+        {
+          label: '表单相关',
+          path: '/design/data-entry',
+          group: true,
+          children: [
+            {
+              label: 'AutoComplete',
+              path: '/design/data-entry/auto-complete',
+            },
+            {
+              label: 'Cascader',
+              path: '/design/data-entry/cascader',
+            },
+            {
+              label: 'Checkbox',
+              path: '/design/data-entry/checkbox',
+            },
+            {
+              label: 'DatePicker',
+              path: '/design/data-entry/date-picker',
+            },
+            {
+              label: 'InputNumber',
+              path: '/design/data-entry/input-number',
+            },
+            {
+              label: 'Input',
+              path: '/design/data-entry/input',
+            },
+            {
+              label: 'Radio',
+              path: '/design/data-entry/radio',
+            },
+            {
+              label: 'Rate',
+              path: '/design/data-entry/rate',
+            },
+            {
+              label: 'Select',
+              path: '/design/data-entry/select',
+            },
+            {
+              label: 'Slider',
+              path: '/design/data-entry/slider',
+            },
+            {
+              label: 'Switch',
+              path: '/design/data-entry/switch',
+            },
+            {
+              label: 'TimePicker',
+              path: '/design/data-entry/time-picker',
+            },
+            {
+              label: 'Transfer',
+              path: '/design/data-entry/transfer',
+            },
+            {
+              label: 'TreeSelect',
+              path: '/design/data-entry/tree-select',
+            },
+            {
+              label: 'Upload',
+              path: '/design/data-entry/upload',
+            },
+          ],
+        },
+        {
+          label: '反馈提示',
+          path: '/design/feed-back',
+          group: true,
+          children: [
+            {
+              label: 'Alert',
+              path: '/design/feed-back/alert',
+            },
+            {
+              label: 'Drawer',
+              path: '/design/feed-back/drawer',
+            },
+            {
+              label: 'message',
+              path: '/design/feed-back/message',
+            },
+            {
+              label: 'Modal',
+              path: '/design/feed-back/modal',
+            },
+            {
+              label: 'notification',
+              path: '/design/feed-back/notification',
+            },
+            {
+              label: 'Popconfirm',
+              path: '/design/feed-back/popconfirm',
+            },
+            {
+              label: 'Progress',
+              path: '/design/feed-back/progress',
+            },
+            {
+              label: 'Result',
+              path: '/design/feed-back/result',
+            },
+            {
+              label: 'Skeleton',
+              path: '/design/feed-back/skeleton',
+            },
+            {
+              label: 'Spin',
+              path: '/design/feed-back/spin',
+            },
+          ],
+        },
+        {
+          label: '导航相关',
+          path: '/design/navigation',
+          group: true,
+          children: [
+            {
+              label: 'Breadcrumb',
+              path: '/design/navigation/breadcrumb',
+            },
+            {
+              label: 'Dropdown',
+              path: '/design/navigation/dropdown',
+            },
+            {
+              label: 'Grid',
+              path: '/design/navigation/grid',
+            },
+            {
+              label: 'Menu',
+              path: '/design/navigation/menu',
+            },
+            {
+              label: 'PageHeader',
+              path: '/design/navigation/page-header',
+            },
+            {
+              label: 'Pagination',
+              path: '/design/navigation/pagination',
+            },
+            {
+              label: 'Steps',
+              path: '/design/navigation/steps',
+            },
+          ],
+        },
+        {
+          label: '其他',
+          path: '/design/other',
+          group: true,
+          children: [
+            {
+              label: 'BackTop',
+              path: '/design/other/back-top',
+            },
+            {
+              label: 'Button',
+              path: '/design/other/button',
+            },
+            {
+              label: 'CopyToClipboard',
+              path: '/design/other/copy-to-clipboard',
+            },
+            {
+              label: 'Icon',
+              path: '/design/other/icon',
+            },
+          ],
         },
       ],
     },
