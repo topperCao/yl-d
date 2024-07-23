@@ -1,7 +1,7 @@
 {
   "private": true,
   "author": "yunliang-ding",
-  "name": "前端生态包",
+  "name": "packages",
   "scripts": {
     "start": "lyr-docs dev",
     "docs:build": "lyr-docs build"
@@ -52,6 +52,7 @@
     "esbuild-plugin-external-global": "1.0.1",
     "raw-loader": "4.0.2",
     "rollup": "3.29.0",
+    "typescript": "5.5.4",
     "rollup-plugin-less": "1.1.3",
     "rollup-plugin-peer-deps-external": "2.2.4",
     "@rollup/plugin-node-resolve": "15.2.3",
