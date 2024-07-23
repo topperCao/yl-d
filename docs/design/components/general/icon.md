@@ -1,14 +1,6 @@
----
-order: 1
----
+## 基本使用
 
-# Icon 字体图标
-
-```jsx
-/**
- * title: 基本使用
- */
-import React, { useState } from 'react';
+```jsx | react
 import { Icon, CopyToClipboard } from '@yl-d/design';
 import icons from './icons.json';
 
@@ -27,11 +19,9 @@ export default () => {
 };
 ```
 
-```jsx
-/**
- * title: 设置颜色
- */
-import React, { useState } from 'react';
+## 设置颜色
+
+```jsx | react
 import { Icon, CopyToClipboard } from '@yl-d/design';
 import icons from './icons.json';
 
@@ -50,11 +40,9 @@ export default () => {
 };
 ```
 
-```jsx
-/**
- * title: 设置大小和主题色
- */
-import React, { useState } from 'react';
+## 设置大小和主题色
+
+```jsx | react
 import { Icon, CopyToClipboard } from '@yl-d/design';
 import icons from './icons.json';
 

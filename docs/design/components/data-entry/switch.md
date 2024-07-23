@@ -1,25 +1,16 @@
----
-order: 10
----
+## 基本使用
 
-# Switch 开关
-
-```jsx
-/**
- * title: 基本使用
- */
-import React from 'react';
+```jsx | react
 import { Switch } from '@yl-d/design';
+
 export default () => {
   return <Switch />;
 };
 ```
 
-```jsx
-/**
- * title: 显示文本
- */
-import React from 'react';
+## 显示文本
+
+```jsx | react
 import { Switch, Icon, Space } from '@yl-d/design';
 
 export default () => {
@@ -36,11 +27,10 @@ export default () => {
 };
 ```
 
-```jsx
-/**
- * title: 禁用状态
- */
-import React, { useState } from 'react';
+## 禁用状态
+
+```jsx | react
+import { useState } from 'react';
 import { Switch, Button, Space } from '@yl-d/design';
 
 export default () => {
@@ -56,11 +46,9 @@ export default () => {
 };
 ```
 
-```jsx
-/**
- * title: 自动加载状态
- */
-import React, { useState } from 'react';
+## 自动加载状态
+
+```jsx | react
 import { Switch, Space } from '@yl-d/design';
 
 export default () => {
@@ -76,7 +64,3 @@ export default () => {
   );
 };
 ```
-
-## API
-
-<API src="../../../src/data-entry/switch/index.tsx" hideTitle></API>

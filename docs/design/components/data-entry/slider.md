@@ -1,15 +1,9 @@
----
-order: 10
----
+## 基本使用
 
-# Slider 滑动输入条
-
-```jsx
-/**
- * title: 基本使用
- */
+```jsx | react
 import React, { useState } from 'react';
 import { Slider, InputNumber, Switch } from '@yl-d/design';
+
 export default () => {
   const [value, setvalue] = useState(30);
   const [disabled, setdisabled] = useState(false);
@@ -48,7 +42,3 @@ export default () => {
   );
 };
 ```
-
-## API
-
-<API src="../../../src/data-entry/slider/index.tsx" hideTitle></API>

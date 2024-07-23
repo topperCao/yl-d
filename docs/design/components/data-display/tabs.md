@@ -1,11 +1,8 @@
-# Tabs 选项卡
+## 基本使用
 
-```jsx
-/**
- * title: 基本使用
- */
-import React, { useState } from 'react';
+```jsx | react
 import { Tabs } from '@yl-d/design';
+
 export default () => {
   const data = [
     {
@@ -38,12 +35,11 @@ export default () => {
 };
 ```
 
-```jsx
-/**
- * title: 支持关闭
- */
-import React, { useState } from 'react';
+## 支持关闭
+
+```jsx | react
 import { Tabs } from '@yl-d/design';
+
 export default () => {
   const data = [
     {

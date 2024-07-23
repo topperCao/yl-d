@@ -1,15 +1,9 @@
----
-order: 6
----
+## 基本使用
 
-# AutoComplete 自动完成
-
-```jsx
-/**
- * title: 基本使用
- */
+```jsx | react
 import React, { useState } from 'react';
 import { AutoComplete, Switch } from '@yl-d/design';
+
 export default () => {
   const [value, setValue] = useState('');
   const [disabled, setDisabled] = useState('');
@@ -40,7 +34,3 @@ export default () => {
   );
 };
 ```
-
-## API
-
-<API src="../../../src/data-entry/auto-complete/index.tsx" hideTitle></API>

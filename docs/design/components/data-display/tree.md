@@ -1,11 +1,9 @@
-# Tree 树形控件
+## 基本使用
 
-```jsx
-/**
- * title: 基本使用
- */
-import React, { useState } from 'react';
+```jsx | react
+import { useState } from 'react';
 import { Tree, Switch } from '@yl-d/design';
+
 export default () => {
   const [disabled, setdisabled] = useState();
   const treeData = [

@@ -1,15 +1,9 @@
----
-order: 9
----
+## 基本使用
 
-# TimePicker 时间选择器
-
-```jsx
-/**
- * title: 基本使用
- */
-import React, { useState } from 'react';
+```jsx | react
+import { useState } from 'react';
 import { RangeTimePicker, TimePicker, Switch } from '@yl-d/design';
+
 export default () => {
   const [disabled, setdisabled] = useState();
   return (
@@ -45,7 +39,3 @@ export default () => {
   );
 };
 ```
-
-## API
-
-<API src="../../../src/data-entry/time-picker/index.tsx" hideTitle></API>

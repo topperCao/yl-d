@@ -1,15 +1,9 @@
----
-order: 4
----
+## 基本使用
 
-# Radio 单选框
-
-```jsx
-/**
- * title: 基本使用
- */
+```jsx | react
 import React, { useState } from 'react';
 import { Radio } from '@yl-d/design';
+
 export default () => {
   const [checked, setCheck] = useState(false);
   return (
@@ -25,14 +19,14 @@ export default () => {
 };
 ```
 
-```jsx
-/**
- * title: 基本使用
- */
-import React, { useState } from 'react';
+## 多个选项
+
+```jsx | react
+import { useState } from 'react';
 import { RadioGroup } from '@yl-d/design';
 
 export default () => {
+  const [value, setValue] = useState('React');
   const options = [
     {
       label: 'Html',
@@ -56,7 +50,6 @@ export default () => {
       disabled: true,
     },
   ];
-  const [value, setValue] = useState('React');
   return (
     <RadioGroup
       options={options}
@@ -68,7 +61,3 @@ export default () => {
   );
 };
 ```
-
-## API
-
-<API src="../../../src/data-entry/radio/index.tsx" hideTitle></API>

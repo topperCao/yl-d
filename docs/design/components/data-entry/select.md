@@ -1,16 +1,11 @@
----
-order: 3
----
+## 基本使用
 
-# Select 选择器
-
-```jsx
-/**
- * title: 基本使用
- */
+```jsx | react
 import React, { useState } from 'react';
 import { Select, Switch } from '@yl-d/design';
+
 const { Option } = Select;
+
 export default () => {
   const [disabled, setdisabled] = useState(false);
   return (
@@ -54,12 +49,12 @@ export default () => {
 };
 ```
 
-```jsx
-/**
- * title: 选项禁用, 支持清空
- */
+## 选项禁用, 支持清空
+
+```jsx | react
 import React, { useState } from 'react';
 import { Select } from '@yl-d/design';
+
 export default () => {
   const options = [
     {
@@ -101,12 +96,12 @@ export default () => {
 };
 ```
 
-```jsx
-/**
- * title: 带搜索框-自定义规则
- */
+## 带搜索框-自定义规则
+
+```jsx | react
 import React, { useState } from 'react';
 import { Select } from '@yl-d/design';
+
 export default () => {
   const options = [
     {
@@ -166,12 +161,12 @@ export default () => {
 };
 ```
 
-```jsx
-/**
- * title: 下拉多选
- */
+## 下拉多选
+
+```jsx | react
 import React, { useState } from 'react';
 import { Select, Checkbox } from '@yl-d/design';
+
 export default () => {
   const options = [
     {
@@ -227,7 +222,3 @@ export default () => {
   );
 };
 ```
-
-## API
-
-<API src="../../../src/data-entry/select/index.tsx" hideTitle></API>

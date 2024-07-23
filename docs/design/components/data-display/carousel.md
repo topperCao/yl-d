@@ -1,11 +1,8 @@
-# Carousel 走马灯
+## 基本使用
 
-```jsx
-/**
- * title: 基本使用
- */
-import React from 'react';
+```jsx | react
 import { Carousel, Icon } from '@yl-d/design';
+
 export default () => {
   const style = {
     width: '100%',
@@ -46,12 +43,11 @@ export default () => {
 };
 ```
 
-```jsx
-/**
- * title: 自动播放/渐变模式
- */
-import React from 'react';
+## 自动播放-渐变模式
+
+```jsx | react
 import { Carousel, Icon } from '@yl-d/design';
+
 export default () => {
   const style = {
     width: '100%',

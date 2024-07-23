@@ -1,10 +1,6 @@
-# Table 基础表格
+# 基本使用
 
-```jsx
-/**
- * title: 基本使用
- */
-import React, { useState } from 'react';
+```jsx | react
 import { Table, Button, Select, Switch } from '@yl-d/design';
 import { columns } from './schema';
 import axios from 'axios';
@@ -96,7 +92,3 @@ export default () => {
   );
 };
 ```
-
-## API
-
-<API src="../../../src/data-display/table/index.tsx" hideTitle></API>

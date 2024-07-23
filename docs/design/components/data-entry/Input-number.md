@@ -1,15 +1,9 @@
----
-order: 2
----
+## 基本使用
 
-# InputNumber 数字输入框
-
-```jsx
-/**
- * title: 基本使用
- */
+```jsx | react
 import React, { useState } from 'react';
 import { InputNumber, Switch } from '@yl-d/design';
+
 export default () => {
   const [disabled, setdisabled] = useState(false);
   return (
@@ -37,7 +31,3 @@ export default () => {
   );
 };
 ```
-
-## API
-
-<API src="../../../src/data-entry/input-number/index.tsx" hideTitle></API>

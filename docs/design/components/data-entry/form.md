@@ -1,13 +1,6 @@
----
-order: 18
----
+## 基本使用
 
-# Form 提交表单
-
-```jsx
-/**
- * title: 基本使用
- */
+```jsx |react
 import React, { useState } from 'react';
 import { RadioGroup, Form, Button, Space } from '@yl-d/design';
 import items from './items';
@@ -137,11 +130,9 @@ export default () => {
 };
 ```
 
-```jsx
-/**
- * title: 表单项联动
- */
-import React from 'react';
+## 表单项联动
+
+```jsx | react
 import { Form, Button } from '@yl-d/design';
 
 export default () => {
@@ -199,11 +190,9 @@ export default () => {
 };
 ```
 
-```jsx
-/**
- * title: 动态修改模型
- */
-import React from 'react';
+## 动态修改模型
+
+```jsx | react
 import { Form, Button } from '@yl-d/design';
 
 export default () => {
@@ -252,11 +241,9 @@ export default () => {
 };
 ```
 
-```jsx
-/**
- * title: 自定义表单组件
- */
-import React from 'react';
+## 自定义表单组件
+
+```jsx | react
 import { Form, Button } from '@yl-d/design';
 
 export default () => {
@@ -292,15 +279,3 @@ export default () => {
   );
 };
 ```
-
-## Form 属性
-
-<API src="../../../src/data-entry/form/type.form.tsx" hideTitle></API>
-
-## Item 属性
-
-<API src="../../../src/data-entry/form/type.item.tsx" hideTitle></API>
-
-## Form 实例
-
-<API src="../../../src/data-entry/form/type.instance.tsx" hideTitle></API>

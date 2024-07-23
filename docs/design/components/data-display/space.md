@@ -1,14 +1,6 @@
----
-order: 2
----
+## 基本使用
 
-# Space 小布局
-
-```jsx
-/**
- * title: 基本使用
- */
-import React, { useState } from 'react';
+```jsx | react
 import { Space } from '@yl-d/design';
 
 export default () => {

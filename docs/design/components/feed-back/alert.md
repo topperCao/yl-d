@@ -1,4 +1,4 @@
-## Alert 提示信息
+## 基本使用
 
 ```jsx | react
 import { Alert } from '@yl-d/design';

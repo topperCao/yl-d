@@ -1,11 +1,8 @@
-# Badge 徽章
+## 基本使用
 
-```jsx
-/**
- * title: 基本使用
- */
-import React from 'react';
+```jsx | react
 import { Badge, Icon, Space } from '@yl-d/design';
+
 export default () => {
   return (
     <Space>

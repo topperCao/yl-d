@@ -1,15 +1,9 @@
----
-order: 5
----
+# 基本使用
 
-# Checkbox 多选框
-
-```jsx
-/**
- * title: 基本使用
- */
-import React, { useState } from 'react';
+```jsx | react
+import { useState } from 'react';
 import { Checkbox } from '@yl-d/design';
+
 export default () => {
   const [checked, setCheck] = useState(false);
   return (
@@ -25,13 +19,14 @@ export default () => {
 };
 ```
 
-```jsx
-/**
- * title: 选项组
- */
-import React, { useState } from 'react';
+## 选项组
+
+```jsx | react
+import { useState } from 'react';
 import { CheckGroup } from '@yl-d/design';
+
 export default () => {
+  const [value, setValue] = useState(['React']);
   const options = [
     {
       label: 'Html',
@@ -55,7 +50,6 @@ export default () => {
       disabled: true,
     },
   ];
-  const [value, setValue] = useState(['React']);
   console.log('checkbox value is: ', value);
   return (
     <CheckGroup
@@ -68,7 +62,3 @@ export default () => {
   );
 };
 ```
-
-## API
-
-<API src="../../../src/data-entry/checkbox/index.tsx" hideTitle></API>

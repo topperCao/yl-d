@@ -1,15 +1,9 @@
----
-order: 1
----
+# 基本使用
 
-# Input 输入框
-
-```jsx
-/**
- * title: 基本使用
- */
+```jsx | react
 import React, { useState } from 'react';
 import { Input, Switch } from '@yl-d/design';
+
 export default () => {
   const [disabled, setdisabled] = useState('');
   return (
@@ -40,12 +34,11 @@ export default () => {
 };
 ```
 
-```jsx
-/**
- * title: 前后缀
- */
-import React from 'react';
+## 前后缀
+
+```jsx | react
 import { Input } from '@yl-d/design';
+
 export default () => {
   return (
     <>
@@ -67,12 +60,11 @@ export default () => {
 };
 ```
 
-```jsx
-/**
- * title: 内联前后缀
- */
-import React from 'react';
+## 内联前后缀
+
+```jsx | react
 import { Input, Icon } from '@yl-d/design';
+
 export default () => {
   return (
     <>
@@ -88,12 +80,11 @@ export default () => {
 };
 ```
 
-```jsx
-/**
- * title: 支持清除
- */
-import React from 'react';
+## 支持清除
+
+```jsx | react
 import { Input, Icon } from '@yl-d/design';
+
 export default () => {
   return (
     <>
@@ -110,12 +101,11 @@ export default () => {
 };
 ```
 
-```jsx
-/**
- * title: 密码输入框
- */
-import React from 'react';
+## 密码输入框
+
+```jsx | react
 import { Input, Icon } from '@yl-d/design';
+
 export default () => {
   return (
     <>
@@ -125,12 +115,11 @@ export default () => {
 };
 ```
 
-```jsx
-/**
- * title: 多行文本
- */
-import React from 'react';
+## 多行文本
+
+```jsx | react
 import { Input } from '@yl-d/design';
+
 export default () => (
   <>
     <Input
@@ -149,7 +138,3 @@ export default () => (
   </>
 );
 ```
-
-## API
-
-<API src="../../../src/data-entry/input/index.tsx" hideTitle></API>

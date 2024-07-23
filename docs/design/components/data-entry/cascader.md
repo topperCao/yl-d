@@ -1,14 +1,6 @@
----
-order: 7
----
+## 基本使用
 
-# Cascader 级联选择器
-
-```jsx
-/**
- * title: 基本使用
- */
-import React, { useState } from 'react';
+```jsx | react
 import { Cascader, Switch } from '@yl-d/design';
 
 export default () => {
@@ -65,12 +57,11 @@ export default () => {
 };
 ```
 
-```jsx
-/**
- * title: 自定义字段名
- */
-import React, { useState } from 'react';
+## 自定义字段名
+
+```jsx | react
 import { Cascader } from '@yl-d/design';
+
 export default () => {
   const options = [
     {
@@ -129,7 +120,3 @@ export default () => {
   );
 };
 ```
-
-## API
-
-<API src="../../../src/data-entry/cascader/index.tsx" hideTitle></API>

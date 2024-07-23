@@ -2,14 +2,12 @@
 order: 8
 ---
 
-# DatePicker 日期选择
+## 基本使用
 
-```jsx
-/**
- * title: 基本使用
- */
+```jsx | react
 import React, { useState } from 'react';
 import { RangeDatePicker, DatePicker, Button, Switch } from '@yl-d/design';
+
 export default () => {
   const [disabled, setDisabled] = useState(false);
   return (
@@ -44,7 +42,3 @@ export default () => {
   );
 };
 ```
-
-## API
-
-<API src="../../../src/data-entry/date-picker/index.tsx" hideTitle></API>
