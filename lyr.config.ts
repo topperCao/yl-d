@@ -9,7 +9,7 @@ export default defineConfig({
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/monaco-file-icon.css',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/luna-object-viewer.min.css',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/luna-console.min.css',
-    'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/components.min.css',
+    'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/pro-components.min.css',
   ],
   devScript: [
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/axios.min.js',
@@ -35,7 +35,7 @@ export default defineConfig({
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/docxtemplater.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/luna-object-viewer.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/luna-console.min.js',
-    'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/components.min.js',
+    'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/pro-components.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/code-editor.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/shared.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/low-code.min.js',
@@ -64,7 +64,7 @@ export default defineConfig({
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/docxtemplater.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/luna-object-viewer.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/luna-console.min.js',
-    'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/components.min.js',
+    'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/pro-components.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/code-editor.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/shared.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/low-code.min.js',
@@ -85,151 +85,151 @@ export default defineConfig({
   },
   menus: [
     {
-      label: '@yl-d/components',
+      label: '@yl-d/pro-components',
       path: '/components',
       children: [
         {
           label: '介绍',
-          path: '/components',
+          path: '/pro-components',
           group: true,
         },
         {
           label: '表单相关',
-          path: '/components/form',
+          path: '/pro-components/form',
           group: true,
           children: [
             {
               label: 'Form 基本用法',
-              path: '/components/form/form-base',
+              path: '/pro-components/form/form-base',
             },
             {
               label: 'Form 高级用法',
-              path: '/components/form/form-advance',
+              path: '/pro-components/form/form-advance',
             },
             {
               label: 'CardForm 卡片',
-              path: '/components/form/card-form',
+              path: '/pro-components/form/card-form',
             },
             {
               label: 'CreateModal 弹出层',
-              path: '/components/form/create-modal',
+              path: '/pro-components/form/create-modal',
             },
             {
               label: 'CreateDrawer 抽屉',
-              path: '/components/form/create-drawer',
+              path: '/pro-components/form/create-drawer',
             },
             {
               label: 'StepForm 分布操作',
-              path: '/components/form/step-form',
+              path: '/pro-components/form/step-form',
             },
             {
               label: 'AnchorCardForm 锚点',
-              path: '/components/form/anchor-card-form',
+              path: '/pro-components/form/anchor-card-form',
             },
             {
               label: 'Search 查询',
-              path: '/components/form/search',
+              path: '/pro-components/form/search',
             },
             {
               label: 'TableList 编辑表格',
-              path: '/components/form/table-list',
+              path: '/pro-components/form/table-list',
             },
             {
               label: 'OssFileUpload 上传',
-              path: '/components/form/oss-file-upload',
+              path: '/pro-components/form/oss-file-upload',
             },
           ],
         },
         {
           label: '数据展示',
-          path: '/components/display',
+          path: '/pro-components/display',
           group: true,
           children: [
             {
               label: 'Table 数据表格',
-              path: '/components/display/table',
+              path: '/pro-components/display/table',
             },
             {
               label: 'AnchorCard 锚点卡片',
-              path: '/components/display/anchor-card',
+              path: '/pro-components/display/anchor-card',
             },
             {
               label: 'AppLayout 应用布局',
-              path: '/components/display/app-layout',
+              path: '/pro-components/display/app-layout',
             },
           ],
         },
         {
           label: '拖拽相关',
-          path: '/components/dnd',
+          path: '/pro-components/dnd',
           group: true,
           children: [
             {
               label: 'DragWrapper 拖拽',
-              path: '/components/dnd/drag-wrapper',
+              path: '/pro-components/dnd/drag-wrapper',
             },
             {
               label: 'DragList 拖拽序列',
-              path: '/components/dnd/drag-list',
+              path: '/pro-components/dnd/drag-list',
             },
             {
               label: 'DragForm 拖拽表单',
-              path: '/components/dnd/drag-form',
+              path: '/pro-components/dnd/drag-form',
             },
           ],
         },
         {
           label: '其他',
-          path: '/components/other',
+          path: '/pro-omponents/other',
           group: true,
           children: [
             {
               label: 'Button 扩展',
-              path: '/components/other/button',
+              path: '/pro-components/other/button',
             },
             {
               label: 'Suspend 悬浮容器',
-              path: '/components/other/suspend',
+              path: '/pro-components/other/suspend',
             },
           ],
         },
         {
           label: '状态管理',
-          path: '/components/state',
+          path: '/pro-components/state',
           group: true,
           children: [
             {
               label: 'createStore',
-              path: '/components/state/create-store',
+              path: '/pro-components/state/create-store',
             },
           ],
         },
         {
           label: '自定义 hooks',
-          path: '/components/hooks',
+          path: '/pro-components/hooks',
           group: true,
           children: [
             {
               label: 'useRefesh',
-              path: '/components/hooks/use-refresh',
+              path: '/pro-components/hooks/use-refresh',
             },
             {
               label: 'useUpdateEffect',
-              path: '/components/hooks/use-update-effect',
+              path: '/pro-components/hooks/use-update-effect',
             },
             {
               label: 'useFullscreen',
-              path: '/components/hooks/use-fullscreen',
+              path: '/pro-components/hooks/use-fullscreen',
             },
             {
               label: 'useReactive',
-              path: '/components/hooks/use-reactive',
+              path: '/pro-components/hooks/use-reactive',
             },
           ],
         },
         {
           label: '更新日志',
-          path: '/components/logs',
+          path: '/pro-components/logs',
           group: true,
         },
       ],

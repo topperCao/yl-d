@@ -2,7 +2,7 @@
 
 ```tsx | react
 import { asyncLoadScript, asyncLoadLink } from '@yl-d/shared';
-import { Button } from '@yl-d/components';
+import { Button } from '@yl-d/pro-components';
 
 export default () => {
   return (
@@ -27,7 +27,7 @@ export default () => {
 
 ```tsx | react
 import { asyncLoadScript, asyncLoadLink } from '@yl-d/shared';
-import { Button } from '@yl-d/components';
+import { Button } from '@yl-d/pro-components';
 
 export default () => {
   return (

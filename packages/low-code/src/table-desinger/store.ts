@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/method-signature-style */
-import { SchemaProps, TableProps, createStore } from '@yl-d/components';
-import { SearchProps } from '@yl-d/components/dist/search/type';
-import { TableColumnType } from '@yl-d/components/dist/table/column.type';
+import { SchemaProps, TableProps, createStore } from '@yl-d/pro-components';
+import { SearchProps } from '@yl-d/pro-components/dist/search/type';
+import { TableColumnType } from '@yl-d/pro-components/dist/table/column.type';
 import { getStandardSchema as getTableStandardSchema } from './util';
 import { encrypt, recursionFind } from '../util';
 import { ReactNode } from 'react';

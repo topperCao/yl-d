@@ -22,7 +22,7 @@ export default (config: ConfigProps) =>
       'react-router-dom': 'ReactRouterDOM',
       '@arco-design/web-react': 'arco',
       '@arco-design/web-react/icon': 'arcoicon',
-      '@yl-d/components': 'lyr',
+      '@yl-d/pro-components': 'lyr',
       '@yl-d/shared': "lyrShared",
       '@yl-d/code-editor': "lyrCodeEditor",
     },

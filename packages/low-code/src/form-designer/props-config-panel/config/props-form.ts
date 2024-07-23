@@ -1,7 +1,7 @@
 /**
  * Form的属性配置
  */
-import { SchemaProps } from '@yl-d/components';
+import { SchemaProps } from '@yl-d/pro-components';
 
 const schema: SchemaProps<{}>[] = [
   {

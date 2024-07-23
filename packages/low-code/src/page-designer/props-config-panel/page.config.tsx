@@ -1,4 +1,4 @@
-import { SchemaProps } from '@yl-d/components';
+import { SchemaProps } from '@yl-d/pro-components';
 
 export default [
   {

@@ -1,7 +1,7 @@
 /**
  * cell的属性配置
  */
-import { SchemaProps, CreateDrawer } from '@yl-d/components';
+import { SchemaProps, CreateDrawer } from '@yl-d/pro-components';
 import { CodeEditor } from '@yl-d/code-editor';
 
 const cellDetailFields: SchemaProps<{}>[] = [

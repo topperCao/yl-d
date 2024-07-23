@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppLayout } from '@yl-d/components';
+import { AppLayout } from '@yl-d/pro-components';
 import { Menu } from '@arco-design/web-react';
 import uiStore from '@/store/ui';
 import userStore from '@/store/user';

@@ -4,7 +4,7 @@
 
 ```tsx | react
 import { downloadFile } from '@yl-d/shared';
-import { Button } from '@yl-d/components';
+import { Button } from '@yl-d/pro-components';
 
 export default () => {
   return (

@@ -1,4 +1,4 @@
-import { Form } from '@yl-d/components';
+import { Form } from '@yl-d/pro-components';
 import { Radio } from '@arco-design/web-react';
 import { CodeEditor } from '@yl-d/code-editor';
 

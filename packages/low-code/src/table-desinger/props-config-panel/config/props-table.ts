@@ -1,7 +1,7 @@
 /**
  * Table的属性配置
  */
-import { CreateDrawer, SchemaProps } from '@yl-d/components';
+import { CreateDrawer, SchemaProps } from '@yl-d/pro-components';
 import { encrypt } from '../../../util';
 import { CodeEditor } from '@yl-d/code-editor';
 

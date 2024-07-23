@@ -1,6 +1,6 @@
 import { Space } from '@arco-design/web-react';
 import cloneDeep from 'lodash.clonedeep';
-import { Button, DragWrapper } from '@yl-d/components';
+import { Button, DragWrapper } from '@yl-d/pro-components';
 import { uuid } from '@yl-d/shared';
 import formStore from '../store';
 import Icon from './icon';

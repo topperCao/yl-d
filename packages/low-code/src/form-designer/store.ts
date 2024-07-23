@@ -1,4 +1,4 @@
-import { CardFormProps, SchemaProps, createStore } from '@yl-d/components';
+import { CardFormProps, SchemaProps, createStore } from '@yl-d/pro-components';
 import {
   encrypt,
   getStandardSchema as getFormStandardSchema,

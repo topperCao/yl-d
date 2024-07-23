@@ -1,6 +1,6 @@
 /* eslint-disable @iceworks/best-practices/recommend-polyfill */
 /* eslint-disable react-hooks/rules-of-hooks */
-import { Table, CardForm } from '@yl-d/components';
+import { Table, CardForm } from '@yl-d/pro-components';
 import { isEmpty } from '@yl-d/shared';
 import { parseStandardSchemaStrategy, registerGlobalApi } from './util';
 import { Empty, Result } from '@arco-design/web-react';

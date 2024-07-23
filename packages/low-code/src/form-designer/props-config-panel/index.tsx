@@ -1,4 +1,4 @@
-import { Form } from '@yl-d/components';
+import { Form } from '@yl-d/pro-components';
 import { useState } from 'react';
 import { Empty, Radio } from '@arco-design/web-react';
 import FormPropsConfig from './config/props-form';

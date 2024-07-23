@@ -3,7 +3,7 @@
 // import { encrypt, isEmpty, recursionFind } from '@/util';
 // import { Ctx } from '../store';
 // import debounce from 'lodash.debounce';
-// import { Form } from '@yl-d/components';
+// import { Form } from '@yl-d/pro-components';
 // import pageConfig from './page.config';
 // import { CodeEditor } from '@yl-d/code-editor';
 // import './index.less';

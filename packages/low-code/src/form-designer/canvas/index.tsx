@@ -1,5 +1,5 @@
 // import axios from 'axios';
-import { CardForm, DragForm } from '@yl-d/components';
+import { CardForm, DragForm } from '@yl-d/pro-components';
 import { babelParse } from '@yl-d/shared';
 import store from '../store';
 

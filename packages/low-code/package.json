@@ -5,7 +5,7 @@
   "author": "yunliang-ding",
   "homepage": "https://packages.yunliang.cloud/#/low-code",
   "keywords": [
-    "@yl-d/components",
+    "@yl-d/pro-components",
     "low-code"
   ],
   "publishConfig": {
@@ -25,7 +25,7 @@
   "peerDependencies": {
     "@arco-design/web-react": ">=2.61.3",
     "@yl-d/code-editor": ">=1.0.0",
-    "@yl-d/components": ">=1.0.2",
+    "@yl-d/pro-components": ">=1.0.2",
     "@yl-d/shared": ">=1.0.0",
     "axios": ">=0.21.1",
     "html2canvas": "1.4.1",

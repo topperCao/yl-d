@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/restrict-plus-operands */
 import React, { useEffect, useRef } from 'react';
-import { AppLayout } from '@yl-d/components';
+import { AppLayout } from '@yl-d/pro-components';
 import uiStore from '../store/ui';
 import menus from '@/.lyr/menus';
 import navs from '@/.lyr/navs';

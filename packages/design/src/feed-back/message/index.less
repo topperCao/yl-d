@@ -1,0 +1,56 @@
+.yld-message {
+  position: fixed;
+  top: 50;
+  left: calc(50% - 120px);
+  z-index: 930226;
+  display: flex;
+  align-items: center;
+  min-width: 120px;
+  height: 38px;
+  padding: 0 10px;
+  color: var(--text-color);
+  background: #fff;
+  border-radius: var(--border-radius-base);
+  box-shadow: 0 0 5px 0px #dcdcdc;
+  transition: 0.4s;
+  &-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding-right: 30px;
+    color: #fff;
+    font-size: var(--font-size-base);
+    white-space: nowrap;
+    &-icon {
+      width: 30px;
+    }
+    &-message {
+      width: calc(100% - 40px);
+      font-size: var(--font-size-base);
+    }
+    &-close {
+      position: absolute;
+      right: 0;
+      cursor: pointer;
+      transition: 0.3s;
+      opacity: 0.8;
+      &:hover {
+        opacity: 1;
+        transition: 0.3s;
+      }
+    }
+  }
+}
+
+.yld-message-dark {
+  background-color: #1e1e1e;
+  .yld-message-content {
+    &-message {
+      color: #fff;
+    }
+    &-close {
+      color: #fff;
+    }
+  }
+}

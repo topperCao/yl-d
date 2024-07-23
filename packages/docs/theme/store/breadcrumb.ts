@@ -1,4 +1,4 @@
-import { createStore } from '@yl-d/components';
+import { createStore } from '@yl-d/pro-components';
 
 export default createStore({
   title: '', // 大标题
