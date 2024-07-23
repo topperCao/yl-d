@@ -45,13 +45,13 @@ if (type !== 'build' && type !== 'docs:build') {
 /** 运行 */
 (async () => {
   if (type === 'dev') {
-    console.log(chalk.green(`=> use lyr-docs ${version}`));
+    console.log(chalk.green(`=> use @yl-d/docs ${version}`));
     lyrConfig.mode = 'development';
     lyrConfig.wsPort = await getAvailablePort(4000); // 可用的 wsPort
     lyrConfig.wsHost = await getIPAddress() // 解析 host
     runWatch(rootPath, lyrConfig);
   } else if (type === 'build') {
-    console.log(chalk.green(`=> use lyr-docs ${version}`));
+    console.log(chalk.green(`=> use @yl-d/docs ${version}`));
     lyrConfig.mode = 'production';
     runBuild(rootPath, lyrConfig); // 打包
   }

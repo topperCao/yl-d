@@ -27,6 +27,16 @@ export default () => {
 };
 ```
 
+## 快速开始
+
+- 在终端执行以下命令
+
+```shell
+yarn create lyr-cli new my-app
+```
+
+- 选择 `lyr-react-docs` 模版
+
 ## 说明
 
 - 自动解析 `docs` 文件夹下的 `md` 文件生成路由
@@ -38,7 +48,7 @@ export default () => {
 - 采用 rollup 提供组件打包的能力（ems、cjs、umd）
 - 代码完全 cover 方便定制化、启动打包速度明显提升
 
-# 为什么不用 dumi
+## 为什么不用 dumi
 
 - 定制主题复杂，依赖东西太多，1.x less 必须是 4.x 以下版本
 - 1.x 经常页面崩贵 (貌似是 默认主题的 API 解析有问题)

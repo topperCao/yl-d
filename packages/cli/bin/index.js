@@ -46,13 +46,13 @@ if (type !== 'build' && type !== 'deploy') {
 /** 运行 */
 (async () => {
   if (type === 'dev') {
-    console.log(chalk.green(`=> use lyr-cli ${version}`));
+    console.log(chalk.green(`=> use @yl-d/cli ${version}`));
     lyrConfig.mode = 'development';
     lyrConfig.wsPort = await getAvailablePort(4000); // 可用的 wsPort
     lyrConfig.wsHost = await getIPAddress() // 解析 host
     runWatch(rootPath, lyrConfig);
   } else if (type === 'build') {
-    console.log(chalk.green(`=> use lyr-cli ${version}`));
+    console.log(chalk.green(`=> use @yl-d/cli ${version}`));
     lyrConfig.mode = 'production';
     runBuild(rootPath, lyrConfig); // 打包
   } else if (type === 'deploy') {

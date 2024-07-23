@@ -341,7 +341,7 @@ export const createIndexHtml = async function (
   let liveReload = '';
   if (mode === 'dev') {
     liveReload = `<script>
-    // 由 lyr-docs 在开发环境所创建
+    // 由 @yl-d/docs 在开发环境所创建
     window.__lyrcli_version__ = "${config.version}";
     window.onload = () => {
       if ('WebSocket' in window) {

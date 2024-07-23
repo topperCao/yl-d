@@ -1,7 +1,7 @@
 import { createStore } from '@yl-d/components';
 
 export default createStore({
-  title: 'lyr-cli',
+  title: '@yl-d/cli',
   primaryColor: '#165dff',
   collapsed: false,
   dark: false,

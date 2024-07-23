@@ -1,4 +1,5 @@
 {
+  "private": true,
   "author": "yunliang-ding",
   "name": "前端生态包",
   "scripts": {
