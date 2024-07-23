@@ -26,6 +26,8 @@ export interface ConfigProps {
   serverPath?: string;
   /** 是否多包 */
   monorepo?: boolean;
+  /** 指定包 */
+  monorepoPackages?: string[];
   /** 导航 */
   navs?: {
     title: string;

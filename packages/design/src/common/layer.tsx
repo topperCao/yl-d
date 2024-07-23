@@ -42,6 +42,14 @@ export default ({
     layerContainer.style.width = '100%';
     layerContainer.style.position = 'absolute';
     setlayerContainer(layerContainer);
+    // hash 改变 卸载
+    window.addEventListener(
+      'hashchange',
+      () => {
+        layerContainer && layerContainer.remove();
+      },
+      { once: true },
+    );
   }, []);
   const Renderlayer = () => {
     return (

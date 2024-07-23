@@ -83,23 +83,32 @@ const createFileRouter = async function (
   if (config.docsMode !== true) {
     /** 多包模式这里需要解析 packages 文件夹下的所有包 */
     if (config.monorepo) {
-      const folder = `${rootPath}/packages/**/package.json`;
-      const files = glob.sync(folder);
-      files.forEach((file) => {
-        const { name, bin } = require(file);
-        if (!bin) {
+      const pkgs = `${rootPath}/packages/**/package.json`;
+      const pkgList = glob.sync(pkgs);
+      pkgList
+        .filter((pkg: string) => {
+          const { name, bin } = require(pkg);
+          if (bin) {
+            return false;
+          }
+          return (
+            config.monorepoPackages === undefined ||
+            config.monorepoPackages.includes(name)
+          );
+        })
+        .forEach((pkg) => {
+          const { name } = require(pkg);
           const libName = name
             .replaceAll('-', '')
             .replaceAll('@', '')
             .replaceAll('/', '');
           importArr.push(
-            `import * as ${libName} from '${file
+            `import * as ${libName} from '${pkg
               .replace('package.json', 'src/index.ts')
               .replace(rootPath, '../..')}';`,
           );
           _require[name] = encodeStr(libName);
-        }
-      });
+        });
     } else {
       importArr.push(`import * as ${libName} from '../index';`);
       _require[packageJson.name] = encodeStr(libName);
