@@ -2,7 +2,7 @@
 
 ```jsx | react
 import { Icon, CopyToClipboard } from '@yl-d/design';
-import icons from './icons.json';
+import icons from '@/design/other/icons.json';
 
 export default () => {
   return (
@@ -23,7 +23,7 @@ export default () => {
 
 ```jsx | react
 import { Icon, CopyToClipboard } from '@yl-d/design';
-import icons from './icons.json';
+import icons from '@/design/other/icons.json';
 
 export default () => {
   return (
@@ -44,7 +44,7 @@ export default () => {
 
 ```jsx | react
 import { Icon, CopyToClipboard } from '@yl-d/design';
-import icons from './icons.json';
+import icons from '@/design/other/icons.json';
 
 export default () => {
   return (

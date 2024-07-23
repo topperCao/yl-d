@@ -78,7 +78,7 @@ export default () => {
 
 ## 指定高度
 
-```jsx ｜ react
+```jsx | react
 import { Drawer, Button } from '@yl-d/design';
 
 export default () => {

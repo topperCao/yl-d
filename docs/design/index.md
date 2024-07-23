@@ -1,14 +1,8 @@
-## 使用样式
-
-```less
-@import '@yl-d/design/dist/index.min.css';
-```
-
-## 可以配置自定义主题
+## 自定义主题
 
 ```css
 :root {
-  --primary-color: #4569d4;
+  --primary-color: #165dff;
   --primary-box-shadow: #d8e2fc;
   --primary-spin-background: #d8e2fc52;
   --font-size-base: 12px;

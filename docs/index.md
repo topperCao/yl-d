@@ -1,3 +1,3 @@
 ```jsx | react
-location.hash = '/components'
+location.hash = '/design'
 ```
