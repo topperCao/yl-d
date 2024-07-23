@@ -144,47 +144,47 @@ body {
   }
 }
 
-.lyr-docs-wrap-menus {
-  .arco-menu-inner {
-    .arco-menu-group {
-      .arco-menu-item {
-        .arco-space-item {
-          &::before {
-            content: '';
-            opacity: 0;
-            transform: scale(0) translateX(10px);
-            transition: transform 0.2s, opacity 0.2s;
-            display: inline-block;
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background-color: rgb(var(--primary-6));
-            position: absolute;
-            left: 22px;
-            top: 50%;
-            margin-top: -2.5px;
-          }
-        }
-      }
-      .arco-menu-selected .arco-space-item {
-        &::before {
-          opacity: 1;
-          transform: scale(1) translateX(0px);
-        }
-      }
-    }
-    .arco-menu-selected {
-      background-color: transparent;
-      color: rgb(var(--primary-6));
-    }
-    .arco-menu-item {
-      &:hover {
-        color: rgb(var(--primary-6));
-        background-color: transparent;
-      }
-    }
-  }
-}
+// .lyr-docs-wrap-menus {
+//   .arco-menu-inner {
+//     .arco-menu-group {
+//       .arco-menu-item {
+//         .arco-space-item {
+//           &::before {
+//             content: '';
+//             opacity: 0;
+//             transform: scale(0) translateX(10px);
+//             transition: transform 0.2s, opacity 0.2s;
+//             display: inline-block;
+//             width: 5px;
+//             height: 5px;
+//             border-radius: 50%;
+//             background-color: rgb(var(--primary-6));
+//             position: absolute;
+//             left: 22px;
+//             top: 50%;
+//             margin-top: -2.5px;
+//           }
+//         }
+//       }
+//       .arco-menu-selected .arco-space-item {
+//         &::before {
+//           opacity: 1;
+//           transform: scale(1) translateX(0px);
+//         }
+//       }
+//     }
+//     .arco-menu-selected {
+//       background-color: transparent;
+//       color: rgb(var(--primary-6));
+//     }
+//     .arco-menu-item {
+//       &:hover {
+//         color: rgb(var(--primary-6));
+//         background-color: transparent;
+//       }
+//     }
+//   }
+// }
 
 .custom-backtop {
   position: absolute;

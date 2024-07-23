@@ -6,7 +6,7 @@ import menus from '@/.lyr/menus';
 import navs from '@/.lyr/navs';
 import breadcrumbStore from '../store/breadcrumb';
 import { Outlet } from 'react-router-dom';
-import { packageName, favicon, repository } from 'lyr';
+import { favicon, repository } from 'lyr';
 import { IconSearch, IconLaunch, IconDown } from '@arco-design/web-react/icon';
 import { Input, Button, Dropdown, Menu, Tooltip } from '@arco-design/web-react';
 
@@ -39,7 +39,7 @@ export default () => {
       className="lyr-docs-wrap"
       waterMarkProps={{
         gap: [200, 200],
-        content: `${packageName}`,
+        content: "前端生态包",
         zIndex: 10,
         fontStyle: {
           color: dark ? 'rgba(255, 255, 255, .15)' : 'rgba(0, 0, 0, .15)',
@@ -56,7 +56,7 @@ export default () => {
             location.hash = '/';
           }}
         >
-          {packageName}
+          前端生态包
         </h1>
       }
       dark={dark}
