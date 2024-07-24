@@ -388,7 +388,6 @@ export default defineConfig({
         },
       ],
     },
-
     {
       label: '@yl-d/design',
       path: '/design',

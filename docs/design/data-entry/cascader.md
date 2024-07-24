@@ -47,10 +47,11 @@ export default () => {
     <Cascader
       placeholder="请选择"
       options={options}
+      getPopupContainer={() => document.querySelector('.markdown-viewer')}
       value={['anhui', 'hefei', 'lujiang']}
       style={{ width: 200 }}
       onChange={(value) => {
-        console.log(value);
+        console.log('onChange', value);
       }}
     />
   );
@@ -111,6 +112,7 @@ export default () => {
     <Cascader
       placeholder="请选择"
       fieldNames={{ label: 'name', value: 'code', children: 'items' }}
+      getPopupContainer={() => document.querySelector('.markdown-viewer')}
       options={options}
       style={{ width: 200 }}
       onChange={(value) => {

@@ -1,85 +1,107 @@
 /**
- * 标准弹窗组件
- * layer
- * Select
- * Modal
- * Message
- * AutoComplete
- * DatePicker
- * TimePicker
- * Drawer
- * Tooltip
+ * 统一弹窗容器
  */
-import { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
+import {
+  CSSProperties,
+  forwardRef,
+  ReactNode,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+} from 'react';
 
-export interface LayerProps {}
+export interface LayerProps {
+  open: boolean;
+  layerClose: Function;
+  layerClassName?: string;
+  domRef: any;
+  getPopupContainer?: () => HTMLElement;
+  content: ReactNode;
+  layerWidth?: string | number;
+}
 
-export default ({
-  children,
-  open = false,
-  close,
-  style,
-  refresh,
-  childrenClassName,
-  mask,
-}: LayerProps | any) => {
-  const className = ['yld-layer'];
-  if (!open) {
-    className.push('yld-layer-hidden');
-  }
-  if (childrenClassName) {
-    className.push(childrenClassName);
-  }
-  const [layerContainer, setlayerContainer]: any = useState();
-  /**
-   * 下拉的dom
-   */
-  useEffect(() => {
-    const layerContainer: any = document.createElement('div');
-    layerContainer.style.left = 0;
-    layerContainer.style.top = 0;
-    layerContainer.style.width = '100%';
-    layerContainer.style.position = 'absolute';
-    setlayerContainer(layerContainer);
+export default forwardRef(
+  (
+    {
+      content = null,
+      layerClassName,
+      getPopupContainer,
+      domRef,
+      open,
+      layerClose,
+      layerWidth,
+    }: LayerProps | any,
+    ref,
+  ) => {
+    const divRef = useRef<HTMLDivElement>(document.createElement('div'));
+    const className = ['yld-layer'];
+    if (layerClassName) {
+      className.push(layerClassName);
+    }
+    // clear 重新渲染下
+    useEffect(() => {
+      render();
+    }, [content]);
+    /** 渲染 layer */
+    const render = (selectHeight?: number) => {
+      if (open) {
+        divRef.current.style.width = '100%';
+        divRef.current.style.position = 'absolute';
+        divRef.current.style.top = '0px';
+        divRef.current.style.left = '0px';
+        const dom = getPopupContainer?.() || document.querySelector('body');
+        dom.appendChild(divRef.current);
+        const style: CSSProperties = {};
+        if (domRef?.current) {
+          const parentRect = dom.getBoundingClientRect();
+          const { width, height, left, top } =
+            domRef.current.getBoundingClientRect();
+          style.width = layerWidth || width;
+          style.top =
+            top + (selectHeight ? selectHeight : height) + 4 - parentRect.top;
+          style.left = left - parentRect.left;
+        }
+        ReactDOM.render(
+          <div className={className.join(' ')} style={style}>
+            {content}
+          </div>,
+          divRef.current,
+        );
+      }
+    };
+    useImperativeHandle(ref, () => {
+      return {
+        render,
+      };
+    });
+    /** 创建 wrapper */
+    useEffect(() => {
+      if (!open) {
+        divRef.current && divRef.current.remove();
+      }
+      /** 点击其他地方关闭 */
+      const handle = (e: MouseEvent) => {
+        const isOutside = !divRef.current?.contains(e.target as Node);
+        if (isOutside && open) {
+          layerClose?.();
+        }
+      };
+      window.addEventListener('click', handle);
+      return () => {
+        window.removeEventListener('click', handle);
+      };
+    }, [open]);
     // hash 改变 卸载
-    window.addEventListener(
-      'hashchange',
-      () => {
-        layerContainer && layerContainer.remove();
-      },
-      { once: true },
-    );
-  }, []);
-  const Renderlayer = () => {
-    return (
-      <>
-        <div
-          className="yld-layer-mask"
-          onClick={close}
-          style={{ background: mask ? '#00000014' : 'transparent' }}
-        />
-        <div className={className.join(' ')} style={style}>
-          {children}
-        </div>
-      </>
-    );
-  };
-  useEffect(() => {
-    if (open) {
-      /** 创建dom */
-      document.querySelector('body')?.appendChild(layerContainer);
-      ReactDOM.render(<Renderlayer />, layerContainer);
-    } else {
-      /** 删除dom */
-      layerContainer && layerContainer.remove();
-    }
-  }, [open]);
-  useEffect(() => {
-    /** 更新 */
-    if (open) {
-      ReactDOM.render(<Renderlayer />, layerContainer);
-    }
-  }, [refresh]);
-  return null;
-};
+    useEffect(() => {
+      window.addEventListener(
+        'hashchange',
+        () => {
+          divRef.current && divRef.current.remove();
+        },
+        { once: true },
+      );
+    }, []);
+    return null;
+  },
+);

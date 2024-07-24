@@ -43,6 +43,8 @@ export interface InputProps {
   suffix?: ReactNode;
   /** 是否展示计数 */
   showCount?: boolean;
+  /** 点击 */
+  onClick?: any;
 }
 
 export default ({

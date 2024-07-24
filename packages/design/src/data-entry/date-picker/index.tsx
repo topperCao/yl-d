@@ -1,5 +1,5 @@
 import { useState, useEffect, CSSProperties, ReactNode, useRef } from 'react';
-import { Select, Button, Input, Icon } from '../../index';
+import { Select, Button, Input, Icon, Layer } from '../../index';
 import DateUtil from './util';
 
 export interface DatePickerProps {
@@ -21,10 +21,13 @@ export interface DatePickerProps {
   disabled?: boolean;
   /** 禁用时间段 */
   disabledDate?: Function;
+  /** 下拉菜单的类名 */
+  layerClassName?: string;
+  /** 挂载的容器 */
+  getPopupContainer?: () => HTMLElement;
 }
 
 export default ({
-  value,
   onChange,
   placeholder,
   addonBefore,
@@ -32,23 +35,26 @@ export default ({
   style,
   allowClear = true,
   disabled = false,
+  layerClassName,
+  getPopupContainer,
+  ...rest
 }: DatePickerProps) => {
   const dateUtil = useRef(
-    new DateUtil(new Date(value || new Date().getTime()), 'YYYY-MM-DD'),
+    new DateUtil(new Date(rest.value || new Date().getTime()), 'YYYY-MM-DD'),
   ).current;
   let yearList = dateUtil.getYearList(); // 获取年列表
   let monthList = dateUtil.getMonthList(); // 获取月列表
-  const [_value, setValue] = useState(value);
+  const [value, setValue] = useState(rest.value);
   const [open, setOpen] = useState(false);
   const [year, setYear] = useState(dateUtil.date.getFullYear());
   const [month, setMonth] = useState(dateUtil.date.getMonth() + 1);
-  const [days, setDays] = useState(value);
+  const [days, setDays] = useState(rest.value);
   const [calendar, setCalendar] = useState(dateUtil.getCalendar());
   useEffect(() => {
-    let date = value || new Date().getTime();
-    setValue(value); // update
+    let date = rest.value || new Date().getTime();
+    setValue(rest.value); // update
     updateDateCalendar(date); // 更新时间
-  }, [value, open]);
+  }, [rest.value, open]);
   const renderHeader = () => {
     return ['日', '一', '二', '三', '四', '五', '六'].map((item) => {
       return (
@@ -94,10 +100,12 @@ export default ({
     setYear(dateUtil.date.getFullYear());
     setMonth(dateUtil.date.getMonth() + 1);
   };
+  const selectionRef = useRef<HTMLDivElement>();
+  const layerRef = useRef<{ render: Function }>();
   return (
     <>
       <div className="yld-date-picker" style={style}>
-        <div className="yld-date-picker-input">
+        <div className="yld-date-picker-input" ref={selectionRef}>
           <Input
             suffix={<Icon type="weimingmingwenjianjia_rili" />}
             showCount={false}
@@ -105,8 +113,13 @@ export default ({
             disabled={disabled}
             addonAfter={addonAfter}
             placeholder={placeholder}
-            value={_value}
+            value={value}
             readOnly
+            onClick={(e: any) => {
+              if (open) {
+                e.stopPropagation();
+              }
+            }}
             allowClear={allowClear}
             onAllowClear={() => {
               setValue(undefined);
@@ -116,12 +129,15 @@ export default ({
             onFocus={setOpen.bind(null, true)}
           />
         </div>
-        {open && (
-          <>
-            <div
-              className="yld-date-picker-layer"
-              onClick={setOpen.bind(null, false)}
-            />
+        <Layer
+          ref={layerRef}
+          open={open}
+          layerClose={() => setOpen(false)}
+          layerClassName={layerClassName}
+          getPopupContainer={getPopupContainer}
+          domRef={selectionRef}
+          layerWidth="fix-content"
+          content={
             <div className="yld-date-picker-body">
               <div className="yld-date-picker-body-value">
                 {days || '请选择日期'}
@@ -238,8 +254,8 @@ export default ({
                 </Button>
               </div>
             </div>
-          </>
-        )}
+          }
+        />
       </div>
     </>
   );

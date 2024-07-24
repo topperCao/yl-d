@@ -2,6 +2,7 @@ import { useState, useEffect, ReactNode, CSSProperties, useRef } from 'react';
 import { Icon, Empty } from '../../index';
 import { fieldNamesTransfrom, getLabelByValue } from './util';
 import cloneDeep from 'lodash.clonedeep';
+import Layer from '../../common/layer';
 
 export interface OptionsProps {
   label: ReactNode;
@@ -35,71 +36,61 @@ export interface CascaderProps {
   disabled?: boolean;
   /** 样式 */
   style?: CSSProperties;
-  /** 下拉层类名 */
-  dropdownClassName?: string;
-  /** 下拉层样式 */
-  dropdownStyle?: CSSProperties;
-  /** 是否打开 */
-  open?: boolean;
+  /** 下拉菜单的类名 */
+  layerClassName?: string;
+  /** 挂载的容器 */
+  getPopupContainer?: () => HTMLElement;
 }
 
 export default ({
-  options,
-  value,
   allowClear = true,
   placeholder,
   disabled = false,
   style = {},
   className,
-  dropdownClassName,
-  dropdownStyle = {},
+  layerClassName,
+  getPopupContainer,
   onChange,
-  open = false,
   fieldNames,
+  ...rest
 }: CascaderProps) => {
-  // 获得 格式化 options
+  const [open, setOpen] = useState(false);
+  // 获得格式化 options
   const optionsRef = useRef(
-    fieldNamesTransfrom(fieldNames, cloneDeep(options)),
+    fieldNamesTransfrom(fieldNames, cloneDeep(rest.options)),
   );
   // 设置数据源
-  const [_options, setOptions] = useState([
-    optionsRef.current.map((item) => {
+  const [options, setOptions] = useState([
+    optionsRef.current.map((item: any) => {
       return item;
     }),
   ]);
-  const [_value, setValue] = useState([]); // 内部存选中值容器
-
+  const [value, setValue] = useState([]); // 内部存选中值容器
   useEffect(() => {
-    setValue(value || []);
-  }, [value]);
-  const [_open, setOpen] = useState(open);
-  /**
-   * 内部状态
-   */
-  const _className = ['yld-cascader'];
-  if (_open) {
-    _className.push('yld-cascader-open');
+    setValue(rest.value || []);
+  }, [rest.value]);
+  const classNames = ['yld-cascader'];
+  if (open) {
+    classNames.push('yld-cascader-open');
   }
   if (disabled) {
-    _className.push('yld-cascader-disabled');
+    classNames.push('yld-cascader-disabled');
   }
   if (className) {
-    _className.push('className');
+    classNames.push('className');
   }
-  const dropDownClassName = dropdownClassName
-    ? `${dropdownClassName} yld-cascader-dropdown`
-    : 'yld-cascader-dropdown';
-  const label = getLabelByValue(_value, optionsRef.current);
-  /**
-   * JSX
-   */
+  const label = getLabelByValue(value, optionsRef.current);
+  const selectionRef = useRef<HTMLDivElement>();
+  const layerRef = useRef<{ render: Function }>();
+  console.log('options', options);
   return (
-    <div className={_className.join(' ')} style={style}>
+    <div className={classNames.join(' ')} style={style}>
       <div
         className="yld-cascader-selection"
+        ref={selectionRef}
         onClick={() => {
           if (disabled) return;
-          setOpen(!_open);
+          setOpen(!open);
         }}
       >
         <div className="yld-cascader-selection-selected-value" title={label}>
@@ -110,53 +101,61 @@ export default ({
           )}
         </div>
         <Icon type="xialadown" />
-        {!disabled && allowClear && _value?.length > 0 && (
+        {!disabled && allowClear && value?.length > 0 && (
           <Icon
             type="cuo"
-            onClick={(e) => {
+            onClick={(e: any) => {
               e.stopPropagation(); // 阻止冒泡
               setValue([]); // 还原
-              typeof onChange === 'function' && onChange([], null);
+              onChange?.([]);
+              setOptions([
+                optionsRef.current.map((item: any) => {
+                  return item;
+                }),
+              ]);
             }}
           />
         )}
       </div>
-      {_open && (
-        <>
-          <div
-            className="yld-cascader-mask"
-            onClick={setOpen.bind(null, false)}
-          />
-          <div style={dropdownStyle} className={dropDownClassName}>
-            {_options.length > 0 ? (
-              _options?.map((item, index) => {
+      <Layer
+        ref={layerRef}
+        open={open}
+        layerWidth="fix-content"
+        layerClose={() => setOpen(false)}
+        domRef={selectionRef}
+        layerClassName={layerClassName}
+        getPopupContainer={getPopupContainer}
+        content={
+          <div className="yld-cascader-dropdown">
+            {options.length > 0 ? (
+              options?.map((item, index) => {
+                console.log(item);
                 return (
                   <div className="yld-cascader-dropdown-col" key={index}>
-                    {item.map((option) => {
-                      let className = _value?.some(
-                        (item) => item === option.value,
-                      )
-                        ? 'yld-cascader-dropdown-menu yld-cascader-dropdown-menu-selected'
-                        : 'yld-cascader-dropdown-menu';
-                      option.disabled &&
-                        (className += ' yld-cascader-dropdown-menu-disabled');
+                    {item.map((option: any) => {
+                      const className = ['yld-cascader-dropdown-menu'];
+                      if (value?.some((item) => item === option.value)) {
+                        className.push('yld-cascader-dropdown-menu-selected');
+                      }
+                      if (option.disabled) {
+                        className.push('yld-cascader-dropdown-menu-disabled');
+                      }
                       return (
                         <div
                           key={option.key}
-                          className={className}
+                          className={className.join(' ')}
                           onClick={() => {
                             if (option.disabled) return;
-                            _value[index] = option.value;
-                            _value.splice(index + 1, 999); // 根节点切换清空后面
-                            setValue([..._value]);
+                            value[index] = option.value;
+                            value.splice(index + 1, 999); // 根节点切换清空后面
+                            setValue([...value]);
                             if (option.children) {
-                              _options[index + 1] = option.children;
-                              _options.splice(index + 2, 999); // 根节点切换清空后面
-                              setOptions([..._options]);
+                              options[index + 1] = option.children;
+                              options.splice(index + 2, 999); // 根节点切换清空后面
+                              setOptions([...options]);
                             } else {
                               setOpen(false);
-                              typeof onChange === 'function' &&
-                                onChange(_value);
+                              onChange?.(value);
                             }
                           }}
                         >
@@ -174,8 +173,8 @@ export default ({
               <Empty label="暂无数据" />
             )}
           </div>
-        </>
-      )}
+        }
+      />
     </div>
   );
 };

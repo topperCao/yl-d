@@ -22,6 +22,7 @@ export default ({
   onAllowClear,
   readOnly,
   showCount = true,
+  ...rest
 }: InputProps) => {
   let style: any = {};
   prefix && (style.paddingLeft = 30);
@@ -75,6 +76,7 @@ export default ({
             typeof onPressEnter === 'function' && onPressEnter(e);
           }
         }}
+        onClick={rest.onClick}
       />
       {_showCount && (
         <span className="yld-input-count" style={{ right: countRight }}>

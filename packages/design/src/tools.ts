@@ -42,3 +42,20 @@ const calculate: any = (
       .toString(),
   );
 };
+
+export const uuid = (size: number) => {
+  return Math.random()
+    .toString(16)
+    .substring(2, size + 2);
+};
+
+/** 计算实际高度 */
+export const getElementTop = (el) => {
+  let actualTop = el.offsetTop;
+  let current = el.offsetParent;
+  while (current !== null) {
+    actualTop += current.offsetTop;
+    current = current.offsetParent;
+  }
+  return actualTop;
+};

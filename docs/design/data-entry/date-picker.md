@@ -13,8 +13,9 @@ export default () => {
         value="2023-07-28"
         placeholder="选择日期"
         disabled={disabled}
+        getPopupContainer={() => document.querySelector('.markdown-viewer')}
         onChange={(e) => {
-          console.log('value is', e);
+          console.log('onChange', e);
         }}
       />
       <br />
@@ -23,8 +24,9 @@ export default () => {
         value={['2023-07-28', '2023-08-28']}
         placeholder="选择日期"
         disabled={disabled}
+        getPopupContainer={() => document.querySelector('.markdown-viewer')}
         onChange={(e) => {
-          console.log('value is', e);
+          console.log('onChange', e);
         }}
       />
       <br />

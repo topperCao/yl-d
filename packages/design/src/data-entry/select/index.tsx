@@ -26,17 +26,17 @@ export interface SelectProps {
   /** 样式 */
   style?: CSSProperties;
   /** 下拉层类名 */
-  dropdownClassName?: string;
-  /** 下拉层样式 */
-  dropdownStyle?: CSSProperties;
+  layerClassName?: string;
   /** 改变钩子 */
   onChange?: Function;
-  /** 是否打开 */
-  open?: boolean;
   /** 查询的钩子 */
   onSearch?: Function;
-  /** 数据过滤的钩子 */
-  filter?: Function | Boolean;
+  /** 是否支持查询 */
+  showSearch?: Boolean;
+  /** 过滤的钩子 */
+  filter?: Function;
+  /** 挂在的容器 */
+  getPopupContainer?: () => HTMLElement
 }
 
 export default ({ multiple = false, ...props }: SelectProps) => {
