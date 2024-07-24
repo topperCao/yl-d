@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { DatePicker, Space } from '../../index';
 import { DatePickerProps } from '../date-picker';
 
@@ -13,15 +13,17 @@ export interface RangeDatePickerProps
 export default ({
   value = [],
   onChange,
-  placeholder = [],
-  style = {},
+  placeholder = ['开始时间', '结束时间'],
   allowClear = true,
   disabled = false,
+  style = {},
+  ...rest
 }: RangeDatePickerProps) => {
-  const [_value, setValue] = useState(value);
-  const handelChange = (v) => {
-    setValue(v);
-    onChange(v);
+  const [innerValue, setValue] = useState(value);
+  const handelChange = (v: string[]) => {
+    const dates = v[0] > v[1] ? v.reverse() : v;
+    setValue(dates);
+    onChange(dates);
   };
   return (
     <div className="yld-date-picker-range" style={style}>
@@ -30,20 +32,22 @@ export default ({
           disabled={disabled}
           allowClear={allowClear}
           placeholder={placeholder[0]}
-          value={_value[0]}
-          onChange={(v) => {
-            handelChange([v, _value[1]]);
+          value={innerValue[0]}
+          onChange={(v: string) => {
+            handelChange([v, innerValue[1]]);
           }}
+          {...rest}
         />
         <span>-</span>
         <DatePicker
           disabled={disabled}
           allowClear={allowClear}
           placeholder={placeholder[1]}
-          value={_value[1]}
-          onChange={(v) => {
-            handelChange([_value[0], v]);
+          value={innerValue[1]}
+          onChange={(v: string) => {
+            handelChange([innerValue[0], v]);
           }}
+          {...rest}
         />
       </Space>
     </div>

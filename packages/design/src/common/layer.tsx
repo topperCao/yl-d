@@ -87,9 +87,9 @@ export default forwardRef(
           layerClose?.();
         }
       };
-      window.addEventListener('click', handle);
+      window.addEventListener('click', handle, false);
       return () => {
-        window.removeEventListener('click', handle);
+        window.removeEventListener('click', handle, false);
       };
     }, [open]);
     // hash 改变 卸载

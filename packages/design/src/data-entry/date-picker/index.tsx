@@ -1,5 +1,6 @@
+import dayjs from 'dayjs';
 import { useState, useEffect, CSSProperties, ReactNode, useRef } from 'react';
-import { Select, Button, Input, Icon, Layer } from '../../index';
+import { Button, Input, Icon, Layer, Space } from '../../index';
 import DateUtil from './util';
 
 export interface DatePickerProps {
@@ -28,10 +29,8 @@ export interface DatePickerProps {
 }
 
 export default ({
+  placeholder = "请选择",
   onChange,
-  placeholder,
-  addonBefore,
-  addonAfter,
   style,
   allowClear = true,
   disabled = false,
@@ -42,21 +41,18 @@ export default ({
   const dateUtil = useRef(
     new DateUtil(new Date(rest.value || new Date().getTime()), 'YYYY-MM-DD'),
   ).current;
-  let yearList = dateUtil.getYearList(); // 获取年列表
-  let monthList = dateUtil.getMonthList(); // 获取月列表
   const [value, setValue] = useState(rest.value);
   const [open, setOpen] = useState(false);
   const [year, setYear] = useState(dateUtil.date.getFullYear());
   const [month, setMonth] = useState(dateUtil.date.getMonth() + 1);
-  const [days, setDays] = useState(rest.value);
   const [calendar, setCalendar] = useState(dateUtil.getCalendar());
   useEffect(() => {
     let date = rest.value || new Date().getTime();
     setValue(rest.value); // update
     updateDateCalendar(date); // 更新时间
-  }, [rest.value, open]);
+  }, [rest.value]);
   const renderHeader = () => {
-    return ['日', '一', '二', '三', '四', '五', '六'].map((item) => {
+    return ['一', '二', '三', '四', '五', '六', '日'].map((item) => {
       return (
         <div className="yld-picker-header-item" key={item}>
           {item}
@@ -68,12 +64,12 @@ export default ({
     return calendar.map((row: any, index) => {
       return (
         <div className="yld-picker-calendar-row" key={index}>
-          {row.map((col) => {
+          {row.map((col: any) => {
             return (
               <div
                 key={col.dateString}
                 className={
-                  col.dateString === days
+                  col.dateString === value
                     ? 'yld-picker-calendar-row-col-active'
                     : col.current
                     ? 'yld-picker-calendar-row-col-current'
@@ -81,7 +77,11 @@ export default ({
                     ? 'yld-picker-calendar-row-col-current-month'
                     : 'yld-picker-calendar-row-col'
                 }
-                onClick={setDays.bind(null, col.dateString)}
+                onClick={() => {
+                  setValue(col.dateString);
+                  onChange?.(col.dateString);
+                  setOpen(false);
+                }}
               >
                 <div className="yld-picker-calendar-inner">{col.date}</div>
               </div>
@@ -109,9 +109,7 @@ export default ({
           <Input
             suffix={<Icon type="weimingmingwenjianjia_rili" />}
             showCount={false}
-            addonBefore={addonBefore}
             disabled={disabled}
-            addonAfter={addonAfter}
             placeholder={placeholder}
             value={value}
             readOnly
@@ -119,6 +117,7 @@ export default ({
               if (open) {
                 e.stopPropagation();
               }
+              setOpen(true)
             }}
             allowClear={allowClear}
             onAllowClear={() => {
@@ -126,7 +125,6 @@ export default ({
               updateDateCalendar(new Date()); // 更新时间
               typeof onChange === 'function' && onChange(undefined);
             }}
-            onFocus={setOpen.bind(null, true)}
           />
         </div>
         <Layer
@@ -139,100 +137,70 @@ export default ({
           layerWidth="fix-content"
           content={
             <div className="yld-date-picker-body">
-              <div className="yld-date-picker-body-value">
-                {days || '请选择日期'}
-              </div>
               <div className="yld-date-picker-body-tools">
-                <div
-                  title="上一年"
-                  className="picker-tools-before"
-                  onClick={() => {
-                    updateDateCalendar(
-                      dateUtil.date.getTime() -
-                        (dateUtil.isLeapYear() ? 366 : 355) *
-                          24 *
-                          60 *
-                          60 *
-                          1000,
-                    );
-                  }}
-                >
-                  <Icon type="icon-jiantouzuo" />
-                </div>
-                <div
-                  title="上个月"
-                  className="picker-tools-before picker-tools-before-month"
-                  onClick={() => {
-                    updateDateCalendar(
-                      dateUtil.date.getTime() -
-                        dateUtil.getDateNumberByMonth(
-                          dateUtil.date.getMonth() + 1,
-                        ) *
-                          24 *
-                          60 *
-                          60 *
-                          1000,
-                    );
-                  }}
-                >
-                  <Icon type="xiangzuoshouqi" />
-                </div>
-                <div className="picker-tools-date">
-                  <Select
-                    style={{ border: 0 }}
-                    value={year}
-                    options={yearList}
-                    onChange={(e) => {
+                <Space>
+                  <Icon
+                    type="icon-jiantouzuo"
+                    onClick={() => {
                       updateDateCalendar(
-                        `${e}-${month}-${dateUtil.date.getDate()}`,
+                        dateUtil.date.getTime() -
+                          (dateUtil.isLeapYear() ? 366 : 355) *
+                            24 *
+                            60 *
+                            60 *
+                            1000,
                       );
                     }}
                   />
-                  <Select
-                    style={{ border: 0, width: 80 }}
-                    value={month}
-                    options={monthList}
-                    onChange={(e) => {
+                  <Icon
+                    type="xiangzuoshouqi"
+                    onClick={() => {
                       updateDateCalendar(
-                        `${year}-${e}-${dateUtil.date.getDate()}`,
+                        dateUtil.date.getTime() -
+                          dateUtil.getDateNumberByMonth(
+                            dateUtil.date.getMonth() + 1,
+                          ) *
+                            24 *
+                            60 *
+                            60 *
+                            1000,
                       );
                     }}
                   />
+                </Space>
+                <div className="yld-date-picker-body-value">
+                  {year}-{month}
                 </div>
-                <div
-                  title="下个月"
-                  className="picker-tools-next picker-tools-next-month"
-                  onClick={() => {
-                    updateDateCalendar(
-                      dateUtil.date.getTime() +
-                        dateUtil.getDateNumberByMonth(
-                          dateUtil.date.getMonth() + 1,
-                        ) *
-                          24 *
-                          60 *
-                          60 *
-                          1000,
-                    );
-                  }}
-                >
-                  <Icon type="zuocedakai" />
-                </div>
-                <div
-                  title="下一年"
-                  className="picker-tools-next"
-                  onClick={() => {
-                    updateDateCalendar(
-                      dateUtil.date.getTime() +
-                        (dateUtil.isLeapYear() ? 366 : 355) *
-                          24 *
-                          60 *
-                          60 *
-                          1000,
-                    );
-                  }}
-                >
-                  <Icon type="jiantou2" />
-                </div>
+                <Space>
+                  <Icon
+                    type="zuocedakai"
+                    onClick={() => {
+                      updateDateCalendar(
+                        dateUtil.date.getTime() +
+                          dateUtil.getDateNumberByMonth(
+                            dateUtil.date.getMonth() + 1,
+                          ) *
+                            24 *
+                            60 *
+                            60 *
+                            1000,
+                      );
+                    }}
+                  />
+                  <Icon
+                    type="jiantou2"
+                    onClick={() => {
+                      updateDateCalendar(
+                        dateUtil.date.getTime() +
+                          (dateUtil.isLeapYear() ? 366 : 355) *
+                            24 *
+                            60 *
+                            60 *
+                            1000,
+                      );
+                    }}
+                  />
+                </Space>
               </div>
               <div className="yld-date-picker-body-header">
                 {renderHeader()}
@@ -242,15 +210,16 @@ export default ({
               </div>
               <div className="yld-date-picker-body-footer">
                 <Button
-                  type="primary"
+                  type="link"
                   style={{ height: 30, width: 60 }}
                   onClick={() => {
+                    const value = dayjs().format('YYYY-MM-DD');
+                    setValue(value);
+                    onChange?.(value);
                     setOpen(false);
-                    setValue(days);
-                    typeof onChange === 'function' && onChange(days);
                   }}
                 >
-                  确定
+                  今天
                 </Button>
               </div>
             </div>

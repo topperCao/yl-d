@@ -2,32 +2,19 @@
 
 ```jsx | react
 import { useState } from 'react';
-import { RangeDatePicker, DatePicker, Button, Switch } from '@yl-d/design';
+import { DatePicker, Switch } from '@yl-d/design';
 
 export default () => {
   const [disabled, setDisabled] = useState(false);
+  const [value, onChange] = useState('2024-08-24');
   return (
     <>
       <DatePicker
         style={{ width: 200 }}
-        value="2023-07-28"
-        placeholder="选择日期"
         disabled={disabled}
         getPopupContainer={() => document.querySelector('.markdown-viewer')}
-        onChange={(e) => {
-          console.log('onChange', e);
-        }}
-      />
-      <br />
-      <RangeDatePicker
-        style={{ width: 424 }}
-        value={['2023-07-28', '2023-08-28']}
-        placeholder="选择日期"
-        disabled={disabled}
-        getPopupContainer={() => document.querySelector('.markdown-viewer')}
-        onChange={(e) => {
-          console.log('onChange', e);
-        }}
+        value={value}
+        onChange={onChange}
       />
       <br />
       <Switch
@@ -37,6 +24,25 @@ export default () => {
         onChange={setDisabled.bind(null, !disabled)}
       />
     </>
+  );
+};
+```
+
+## 区间选择
+
+```jsx | react
+import { useState } from 'react';
+import { RangeDatePicker } from '@yl-d/design';
+
+export default () => {
+  const [value, onChange] = useState('2024-08-24');
+  return (
+    <RangeDatePicker
+      style={{ width: 424 }}
+      value={['2024-07-28', '2024-08-28']}
+      onChange={onChange}
+      getPopupContainer={() => document.querySelector('.markdown-viewer')}
+    />
   );
 };
 ```

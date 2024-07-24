@@ -24,7 +24,7 @@ export default class DateUtil {
         day = 31;
       case 3:
         day = 31;
-      case 4:
+      case 5:
         day = 31;
       case 7:
         day = 31;
@@ -52,8 +52,9 @@ export default class DateUtil {
     let fristDate = new Date(frist); // 本月第一天
     let lastDate = new Date(last); // 本月最后一天
     let week = fristDate.getDay(); // 本月1号是周几
-    // 获取这个月1号是周几再决定补几位
-    let before = Array.from(new Array(week).keys())
+    week = week === 0 ? 7 : week;
+    // 获取这个月1号是周几再决定前后各补几位
+    let before = Array.from(new Array(week - 1).keys())
       .map((item, index) => {
         let date = new Date(
           fristDate.getTime() - (index + 1) * 24 * 60 * 60 * 1000,
