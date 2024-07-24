@@ -101,7 +101,6 @@ export default ({
     setMonth(dateUtil.date.getMonth() + 1);
   };
   const selectionRef = useRef<HTMLDivElement>();
-  const layerRef = useRef<{ render: Function }>();
   return (
     <>
       <div className="yld-date-picker" style={style}>
@@ -128,7 +127,6 @@ export default ({
           />
         </div>
         <Layer
-          ref={layerRef}
           open={open}
           layerClose={() => setOpen(false)}
           layerClassName={layerClassName}

@@ -35,11 +35,11 @@ import { useState } from 'react';
 import { RangeDatePicker } from '@yl-d/design';
 
 export default () => {
-  const [value, onChange] = useState('2024-08-24');
+  const [value, onChange] = useState(['2024-07-28', '2024-08-28']);
   return (
     <RangeDatePicker
       style={{ width: 424 }}
-      value={['2024-07-28', '2024-08-28']}
+      value={value}
       onChange={onChange}
       getPopupContainer={() => document.querySelector('.markdown-viewer')}
     />

@@ -2,40 +2,50 @@
 
 ```jsx | react
 import { useState } from 'react';
-import { RangeTimePicker, TimePicker, Switch } from '@yl-d/design';
+import { TimePicker, Switch } from '@yl-d/design';
 
 export default () => {
-  const [disabled, setdisabled] = useState();
+  const [value, onChange] = useState('09:00:00');
+  const [disabled, setDisabled] = useState();
   return (
     <>
-      <TimePicker
-        placeholder="请选择"
-        disabled={disabled}
-        style={{ width: 120 }}
-        value="10:12:18"
-        onChange={(value) => {
-          console.log(value);
-        }}
-      />
-      <br />
-      <br />
-      <RangeTimePicker
-        placeholder="请选择"
-        disabled={disabled}
-        style={{ width: 222 }}
-        value={['10:12:18', '11:12:18']}
-        onChange={(value) => {
-          console.log(value);
-        }}
-      />
-      <br />
       <Switch
         checkedChildren="启用"
         unCheckedChildren="禁用"
         checked={!disabled}
-        onChange={setdisabled.bind(null, !disabled)}
+        onChange={setDisabled.bind(null, !disabled)}
+      />
+      <br />
+      <br />
+      <TimePicker
+        placeholder="请选择"
+        disabled={disabled}
+        style={{ width: 120 }}
+        value={value}
+        onChange={onChange}
+        getPopupContainer={() => document.querySelector('.markdown-viewer')}
       />
     </>
+  );
+};
+```
+
+## 区间选择
+
+```jsx | react
+import { useState } from 'react';
+import { RangeTimePicker } from '@yl-d/design';
+
+export default () => {
+  const [value, onChange] = useState(['09:00:00', '11:30:00']);
+  return (
+    <RangeTimePicker
+      placeholder="请选择"
+      style={{ width: 220 }}
+      value={value}
+      onChange={onChange}
+      getPopupContainer={() => document.querySelector('.markdown-viewer')}
+    />
   );
 };
 ```

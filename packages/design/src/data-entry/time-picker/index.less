@@ -68,94 +68,82 @@
     }
   }
 }
-.yld-time-picker-open {
-  .yld-time-picker-mask {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 930220;
-    width: 100vw;
-    height: 100vh;
-    background: transparent;
-    cursor: default;
+
+.yld-time-picker-dropdown {
+  background-color: #fff;
+  border-radius: var(--border-radius-base);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: 0.6s;
+  .yld-time-picker-dropdown-value {
+    height: 32px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    color: var(--text-color);
+    font-size: 12px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
   }
-  .yld-time-picker-dropdown {
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    z-index: 930226;
-    height: 212px;
-    overflow: hidden;
-    background-color: #fff;
-    border-radius: var(--border-radius-base);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    transition: 0.6s;
-    .yld-time-picker-dropdown-value {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      align-items: center;
-      height: 32px;
-      padding: 0 10px;
-      color: var(--text-color);
-      font-size: 12px;
-      background: #fff;
-      border-bottom: 1px solid #eee;
-    }
-    .yld-time-picker-dropdown-box {
-      display: flex;
-      user-select: none;
-      .yld-time-picker-dropdown-col {
-        width: 45px;
-        height: 180px;
-        padding-bottom: 150px;
-        overflow: auto;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        &::-webkit-scrollbar {
-          /*滚动条整体样式*/
-          width: 0; /*高宽分别对应横竖滚动条的尺寸*/
-          height: 0;
+  .yld-time-picker-dropdown-box {
+    display: flex;
+    user-select: none;
+    .yld-time-picker-dropdown-col {
+      width: 45px;
+      height: 180px;
+      padding-bottom: 150px;
+      overflow: auto;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      &::-webkit-scrollbar {
+        /*滚动条整体样式*/
+        width: 0; /*高宽分别对应横竖滚动条的尺寸*/
+        height: 0;
+      }
+      .yld-time-picker-dropdown-menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 30px;
+        color: var(--text-color);
+        font-size: var(--font-size-base);
+        cursor: pointer;
+        transition: 0.3s;
+        .yld-icon-duihao {
+          display: none;
+          font-size: 14px;
         }
-        .yld-time-picker-dropdown-menu {
-          position: relative;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          height: 30px;
-          color: var(--text-color);
-          font-size: var(--font-size-base);
-          cursor: pointer;
-          transition: 0.3s;
-          .yld-icon-duihao {
-            display: none;
-            font-size: 14px;
-          }
-          &:hover {
-            background-color: var(--primary-box-shadow);
-            .yld-icon-duihao {
-              display: inline;
-            }
-          }
-        }
-        .yld-time-picker-dropdown-menu-disabled {
-          color: #aaa;
-          cursor: not-allowed;
-          opacity: 0.8;
-          &:hover {
-            background-color: #fff;
-          }
-        }
-        .yld-time-picker-dropdown-menu-selected {
-          color: #333;
-          font-weight: 600;
-          background-color: #f5f5f5;
+        &:hover {
+          background-color: var(--primary-box-shadow);
           .yld-icon-duihao {
             display: inline;
-            color: var(--primary-color);
           }
         }
       }
+      .yld-time-picker-dropdown-menu-disabled {
+        color: #aaa;
+        cursor: not-allowed;
+        opacity: 0.8;
+        &:hover {
+          background-color: #fff;
+        }
+      }
+      .yld-time-picker-dropdown-menu-selected {
+        color: #333;
+        font-weight: 600;
+        background-color: #f5f5f5;
+        .yld-icon-duihao {
+          display: inline;
+          color: var(--primary-color);
+        }
+      }
     }
+  }
+  .yld-time-picker-dropdown-footer {
+    height: 32px;
+    padding: 0 2px;
+    border-top: 1px solid #f2f2f2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 }

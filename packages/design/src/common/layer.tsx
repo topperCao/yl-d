@@ -82,9 +82,11 @@ export default forwardRef(
       }
       /** 点击其他地方关闭 */
       const handle = (e: MouseEvent) => {
+        console.log(divRef.current, e.target)
         const isOutside = !divRef.current?.contains(e.target as Node);
         if (isOutside && open) {
-          layerClose?.();
+          console.log("close")
+          // layerClose?.();
         }
       };
       window.addEventListener('click', handle, false);

@@ -20,6 +20,9 @@ export default ({
   ...rest
 }: RangeDatePickerProps) => {
   const [innerValue, setValue] = useState(value);
+  useEffect(() => {
+    setValue(value); // update
+  }, [value]);
   const handelChange = (v: string[]) => {
     const dates = v[0] > v[1] ? v.reverse() : v;
     setValue(dates);
