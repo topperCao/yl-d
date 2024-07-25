@@ -1,3 +1,4 @@
+import dayjs from 'dayjs';
 import {
   useState,
   useEffect,
@@ -52,72 +53,6 @@ const timeList: any = [
     };
   }),
 ];
-
-// export default ({
-//   onChange,
-//   allowClear = true,
-//   placeholder,
-//   disabled = false,
-//   style = {},
-//   layerClassName,
-//   getPopupContainer,
-//   value,
-// }: TimePickerProps) => {
-//   /**
-//    * 数据转化 转为2维数组渲染
-//    */
-//   const [open, setOpen] = useState(false);
-//   const [times, setTimes] = useState(value ? value.split(':') : []); // 内部存选中值容器
-//   /**
-//    * value Change
-//    */
-//   useEffect(() => {
-//     setTimes(value ? value.split(':') : []);
-//   }, [value]);
-//   const classNames = ['yld-time-picker'];
-//   if (disabled) {
-//     classNames.push('yld-time-picker-disabled');
-//   }
-//   const selectionRef = useRef<HTMLDivElement>();
-//   return (
-//     <div className={classNames.join(' ')} style={style}>
-//       <div className="yld-time-picker-input" ref={selectionRef}>
-//         <Input
-//           suffix={<Icon type="time" />}
-//           disabled={disabled}
-//           placeholder={placeholder}
-//           value={times.join(':')}
-//           readOnly
-//           showCount={false}
-//           allowClear={allowClear && times.length > 0}
-//           onAllowClear={() => {
-//             onChange?.(undefined);
-//           }}
-//           onClick={(e: any) => {
-//             if (open) {
-//               e.stopPropagation();
-//             }
-//             setOpen(true);
-//           }}
-//         />
-//       </div>
-//       {open && (
-//         <Layer
-//           open={open}
-//           layerClose={() => {
-//             setTimes(value.split(':'));
-//             setOpen(false);
-//           }}
-//           layerClassName={layerClassName}
-//           getPopupContainer={getPopupContainer}
-//           domRef={selectionRef}
-//           layerWidth="fix-content"
-//           content={}
-//         />
-//       )}
-//     </div>
-//   );
-// };
 
 const TimePicker = forwardRef(
   (
@@ -185,19 +120,38 @@ const Content = ({
   timePickerRef,
   value,
 }: any) => {
-  const [times, setTimes] = useState([]);
+  const [times, setTimes] = useState(value ? value.split(':') : []);
+  const pickerRef = useRef<HTMLDivElement>();
   useEffect(() => {
-    setTimes(value ? value.split(':') : []);
+    if (value !== times.join(':')) {
+      setTimes(value ? value.split(':') : []);
+    }
+    // 滑动到顶部
+    pickerRef.current
+      .querySelectorAll('.yld-time-picker-dropdown-menu-selected')
+      .forEach((item) => {
+        item.scrollIntoView();
+      });
   }, [value]);
+  useEffect(() => {
+    // 缓慢的滑动到顶部
+    pickerRef.current
+      .querySelectorAll('.yld-time-picker-dropdown-menu-selected')
+      .forEach((item) => {
+        item.scrollIntoView({
+          behavior: 'smooth',
+        });
+      });
+  }, [times]);
   return (
-    <div className="yld-time-picker-dropdown">
+    <div className="yld-time-picker-dropdown" ref={pickerRef}>
       <div className="yld-time-picker-dropdown-box">
         {timeList.map((item: any, index: number) => {
           return (
             <div className="yld-time-picker-dropdown-col" key={index}>
               {item.map((option: any, _index: number) => {
                 let selelcted = false;
-                if (times[index] === undefined) {
+                if (times?.[index] === undefined) {
                   selelcted = _index === 0;
                 } else {
                   selelcted = times[index] === option.value;
@@ -235,7 +189,15 @@ const Content = ({
         })}
       </div>
       <div className="yld-time-picker-dropdown-footer">
-        <Button type="link">此刻</Button>
+        <Button
+          type="link"
+          onClick={() => {
+            onChange(dayjs().format('HH:mm:ss'));
+            setOpen(false);
+          }}
+        >
+          此刻
+        </Button>
         <Button
           type="link"
           onClick={() => {
@@ -277,7 +239,7 @@ export default ({
       {open && (
         <Layer
           layerClose={() => {
-            timePickerRef.current.setTimes(value.split(':'));
+            timePickerRef.current.setTimes(value?.split(':'));
             setOpen(false);
           }}
           layerClassName={layerClassName}

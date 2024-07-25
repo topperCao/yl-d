@@ -38,3 +38,20 @@ export const getLabelByValue = (values = [], options = []) => {
   });
   return label.join('/');
 };
+
+export const getInitialOptions = (values = [], options = []): any => {
+  if (Array.isArray(values) && values.length > 1) {
+    const opt = [options];
+    let tempOptions: any = options;
+    values.forEach((v) => {
+      const item = tempOptions.find((i: any) => i.value === v);
+      if (item?.children) {
+        opt.push(item.children);
+        tempOptions = item.children;
+      }
+    });
+    return opt;
+  } else {
+    return [options];
+  }
+};

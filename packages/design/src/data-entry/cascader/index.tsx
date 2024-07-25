@@ -1,6 +1,10 @@
 import { useState, useEffect, ReactNode, CSSProperties, useRef } from 'react';
 import { Icon, Empty } from '../../index';
-import { fieldNamesTransfrom, getLabelByValue } from './util';
+import {
+  fieldNamesTransfrom,
+  getInitialOptions,
+  getLabelByValue,
+} from './util';
 import cloneDeep from 'lodash.clonedeep';
 import Layer from '../../common/layer';
 
@@ -60,15 +64,16 @@ export default ({
     fieldNamesTransfrom(fieldNames, cloneDeep(rest.options)),
   );
   // 设置数据源
-  const [options, setOptions] = useState([
-    optionsRef.current.map((item: any) => {
-      return item;
-    }),
-  ]);
-  const [value, setValue] = useState([]); // 内部存选中值容器
+  const [options, setOptions] = useState([]);
+  const [value, setValue] = useState<any>(rest.value || []); // 内部存选中值容器
   useEffect(() => {
     setValue(rest.value || []);
   }, [rest.value]);
+  // 初始化 options
+  useEffect(() => {
+    open && setOptions(getInitialOptions(value, optionsRef.current));
+  }, [open]);
+
   const classNames = ['yld-cascader'];
   if (open) {
     classNames.push('yld-cascader-open');
@@ -128,7 +133,6 @@ export default ({
           <div className="yld-cascader-dropdown">
             {options.length > 0 ? (
               options?.map((item, index) => {
-                console.log(item);
                 return (
                   <div className="yld-cascader-dropdown-col" key={index}>
                     {item.map((option: any) => {
