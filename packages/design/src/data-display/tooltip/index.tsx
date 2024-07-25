@@ -1,4 +1,15 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, ReactNode, CSSProperties } from 'react';
+
+export interface TooltipProps {
+  children?: ReactNode;
+  title?: ReactNode;
+  placement?: 'top' | 'right' | 'left' | 'bottom';
+  overlayClassName?: string;
+  overlayStyle?: CSSProperties;
+  visible?: boolean;
+  onVisibleChange?: Function;
+  innerStyle?: CSSProperties;
+}
 
 export default ({
   children,
@@ -9,10 +20,9 @@ export default ({
   visible,
   onVisibleChange,
   innerStyle,
-  theme,
-}: any) => {
-  const [_open, setopen] = useState(visible);
-  const [style, setstyle]: any = useState({});
+}: TooltipProps) => {
+  const [open, setOpen] = useState(visible);
+  const [style, setStyle]: any = useState({});
   const toolTipRef: any = useRef();
   const toolTipInnerRef: any = useRef();
   // debounce 防抖
@@ -30,9 +40,9 @@ export default ({
     };
   };
   useEffect(() => {
-    setPosition();
+    updatePosition();
   }, [title]);
-  const setPosition = () => {
+  const updatePosition = () => {
     if (toolTipRef.current) {
       let style: any = {};
       let element = toolTipRef.current.firstElementChild
@@ -56,25 +66,17 @@ export default ({
         style.top = top;
         style.left = left + width / 2;
       }
-      setstyle(style);
+      setStyle(style);
     }
   };
   useEffect(() => {
-    /**
-     * 监听滚动事件
-     */
-    window.addEventListener(
-      'scroll',
-      debounce(() => {
-        setPosition();
-      }),
-    );
-    window.addEventListener(
-      'resize',
-      debounce(() => {
-        setPosition();
-      }),
-    );
+    const onResize = debounce(() => {
+      updatePosition();
+    });
+    window.addEventListener('resize', onResize);
+    return () => {
+      window.removeEventListener('resize', onResize);
+    };
   }, []);
   /**
    * 组装clasName
@@ -92,28 +94,35 @@ export default ({
   if (overlayClassName) {
     className.push(overlayClassName);
   }
-  if (theme === 'dark') {
-    className.push('yld-tooltip-dark');
-  }
   return (
-    <div className={_open || visible ? 'yld-tooltip-wrapper' : 'yld-tooltip-wrapper-hidden'}>
+    <div
+      className={open ? 'yld-tooltip-wrapper' : 'yld-tooltip-wrapper-hidden'}
+    >
       <span
         ref={toolTipRef}
         onMouseOver={() => {
-          setopen(true);
+          setOpen(true);
+          updatePosition();
           typeof onVisibleChange === 'function' && onVisibleChange(true);
         }}
         onMouseOut={() => {
-          setopen(false);
+          setOpen(false);
           typeof onVisibleChange === 'function' && onVisibleChange(false);
         }}
       >
         {children}
       </span>
-      <div style={{ ...overlayStyle, ...style }} className={className.join(' ')}>
+      <div
+        style={{ ...overlayStyle, ...style }}
+        className={className.join(' ')}
+      >
         <div className="yld-tooltip-content">
           <div className="yld-tooltip-arrow"></div>
-          <div style={innerStyle} className="yld-tooltip-inner" ref={toolTipInnerRef}>
+          <div
+            style={innerStyle}
+            className="yld-tooltip-inner"
+            ref={toolTipInnerRef}
+          >
             {title}
           </div>
         </div>

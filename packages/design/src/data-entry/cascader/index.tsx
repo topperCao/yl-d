@@ -82,7 +82,6 @@ export default ({
   const label = getLabelByValue(value, optionsRef.current);
   const selectionRef = useRef<HTMLDivElement>();
   const layerRef = useRef<{ render: Function }>();
-  console.log('options', options);
   return (
     <div className={classNames.join(' ')} style={style}>
       <div

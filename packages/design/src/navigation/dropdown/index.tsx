@@ -1,39 +1,45 @@
-import { useState, useRef, useEffect } from 'react';
+import { ReactNode, useState, useRef } from 'react';
 import { Layer } from '../../index';
 
-export default ({ overlay, children, style }: any) => {
-  const [open, setopen] = useState(false); // 默认不显示
-  const [_style, setstyle] = useState(style || {});
-  const childrenRef: any = useRef();
-  // 获取位置
-  useEffect(() => {
-    if (childrenRef && childrenRef.current) {
-      const { left, top, height, width } = childrenRef.current.getBoundingClientRect();
-      const { offsetTop, offsetLeft } = childrenRef.current;
-      setstyle({
-        left: offsetLeft,
-        top: offsetTop + height + 4,
-        width,
-        minWidth: 140,
-        height: 'max-content',
-        ...style,
-      });
-    }
-  }, []);
+export interface DropdownProps {
+  overlay: ReactNode;
+  children: ReactNode;
+  layerClassName?: string;
+  getPopupContainer?: () => HTMLElement;
+}
+
+export default ({
+  overlay,
+  children,
+  layerClassName,
+  getPopupContainer,
+}: DropdownProps) => {
+  const [open, setOpen] = useState(false); // 默认不显示
+  const selectionRef = useRef<HTMLDivElement>();
   return (
     <>
       <span
-        ref={childrenRef}
+        ref={selectionRef}
         style={{
           display: 'inline-block',
         }}
-        onClick={setopen.bind(null, true)}
+        onClick={() => {
+          setOpen(true);
+        }}
       >
         {children}
       </span>
-      <Layer style={_style} open={open} close={setopen.bind(null, false)}>
-        {overlay}
-      </Layer>
+      {open && (
+        <Layer
+          layerWidth="fix-content"
+          layerClose={() => setOpen(false)}
+          domRef={selectionRef}
+          layerClassName={layerClassName}
+          getPopupContainer={getPopupContainer}
+        >
+          {overlay}
+        </Layer>
+      )}
     </>
   );
 };

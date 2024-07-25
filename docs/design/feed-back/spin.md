@@ -5,9 +5,17 @@ import { useState } from 'react';
 import { Spin, Switch, Empty } from '@yl-d/design';
 
 export default () => {
-  const [loading, setloading] = useState(false);
+  const [loading, setloading] = useState(true);
   return (
     <>
+      <Switch
+        checkedChildren="关闭"
+        unCheckedChildren="开启"
+        checked={loading}
+        onChange={setloading.bind(null, !loading)}
+      />
+      <br />
+      <br />
       <Spin loading={loading}>
         <div style={{ width: 400, height: 200, border: '1px solid #eee' }}>
           <Empty />
@@ -25,13 +33,6 @@ export default () => {
           <Empty label="显示时间" icon="time" />
         </div>
       </Spin>
-      <br />
-      <Switch
-        checkedChildren="关闭"
-        unCheckedChildren="开启"
-        checked={loading}
-        onChange={setloading.bind(null, !loading)}
-      />
     </>
   );
 };
