@@ -276,6 +276,35 @@ body {
 .app-layout-horizontal-body-sider-menu {
   height: calc(100vh - 102px);
 }
+
+.app-layout-inline-header {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 58px;
+  z-index: 99999999;
+}
+.app-layout-inline-body-sider {
+  position: fixed;
+  top: 0;
+  padding-top: 58px;
+  z-index: 10;
+}
+.app-layout-inline-body-right {
+  padding-top: 58px;
+  padding-left: 208px;
+  width: calc(100vw);
+  min-height: calc(100vh);
+  z-index: 5;
+  background-color: var(--color-bg-1);
+  .app-layout-inline-body-right-content {
+    overflow: unset !important;
+    background-color: var(--color-bg-1);
+  }
+}
+.app-layout-inline-body-sider-menu {
+  height: calc(100vh - 102px);
+}
 .lyr-docs-wrap > .app-layout-expand-btn {
   display: none;
 }
