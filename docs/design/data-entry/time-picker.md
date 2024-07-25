@@ -40,7 +40,6 @@ export default () => {
   const [value, onChange] = useState(['09:00:00', '11:30:00']);
   return (
     <RangeTimePicker
-      placeholder="请选择"
       style={{ width: 220 }}
       value={value}
       onChange={onChange}

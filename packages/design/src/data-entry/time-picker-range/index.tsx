@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { TimePicker, Space } from '../../index';
 import { TimePickerProps } from '../time-picker';
 
@@ -13,15 +12,14 @@ export interface RangeTimePickerProps
 export default ({
   value = [],
   onChange,
-  placeholder = [],
+  placeholder = ['开始时间', '结束时间'],
   style = {},
   allowClear = true,
   disabled = false,
 }: RangeTimePickerProps) => {
-  const [_value, setValue] = useState(value);
-  const handelChange = (v) => {
-    setValue(v);
-    onChange(v);
+  const handelChange = (v: string[]) => {
+    const dates = v[0] > v[1] ? v.reverse() : v;
+    onChange(dates);
   };
   return (
     <div className="yld-time-picker-range" style={style}>
@@ -30,9 +28,9 @@ export default ({
           disabled={disabled}
           allowClear={allowClear}
           placeholder={placeholder[0]}
-          value={_value[0]}
-          onChange={(v) => {
-            handelChange([v, _value[1]]);
+          value={value[0]}
+          onChange={(v: string) => {
+            handelChange([v, value[1]]);
           }}
         />
         <span>-</span>
@@ -40,9 +38,9 @@ export default ({
           disabled={disabled}
           allowClear={allowClear}
           placeholder={placeholder[1]}
-          value={_value[1]}
-          onChange={(v) => {
-            handelChange([_value[0], v]);
+          value={value[1]}
+          onChange={(v: string) => {
+            handelChange([value[0], v]);
           }}
         />
       </Space>

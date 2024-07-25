@@ -97,15 +97,15 @@ export default ({
           />
         )}
       </div>
-      <Layer
-        ref={layerRef}
-        open={open && value !== ''}
-        layerClose={() => setOpen(false)}
-        layerClassName={layerClassName}
-        getPopupContainer={getPopupContainer}
-        domRef={selectionRef}
-        content={
-          options.length > 0 ? (
+      {open && value !== '' && (
+        <Layer
+          ref={layerRef}
+          layerClose={() => setOpen(false)}
+          layerClassName={layerClassName}
+          getPopupContainer={getPopupContainer}
+          domRef={selectionRef}
+        >
+          {options.length > 0 ? (
             options.map((option) => {
               const className = ['yld-select-dropdown-menu'];
               if (option === value) {
@@ -127,9 +127,9 @@ export default ({
             })
           ) : (
             <Empty label="暂无数据" />
-          )
-        }
-      />
+          )}
+        </Layer>
+      )}
     </div>
   );
 };

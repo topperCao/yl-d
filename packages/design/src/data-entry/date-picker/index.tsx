@@ -29,7 +29,7 @@ export interface DatePickerProps {
 }
 
 export default ({
-  placeholder = "请选择",
+  placeholder = '请选择',
   onChange,
   style,
   allowClear = true,
@@ -102,128 +102,124 @@ export default ({
   };
   const selectionRef = useRef<HTMLDivElement>();
   return (
-    <>
-      <div className="yld-date-picker" style={style}>
-        <div className="yld-date-picker-input" ref={selectionRef}>
-          <Input
-            suffix={<Icon type="weimingmingwenjianjia_rili" />}
-            showCount={false}
-            disabled={disabled}
-            placeholder={placeholder}
-            value={value}
-            readOnly
-            onClick={(e: any) => {
-              if (open) {
-                e.stopPropagation();
-              }
-              setOpen(true)
-            }}
-            allowClear={allowClear}
-            onAllowClear={() => {
-              setValue(undefined);
-              updateDateCalendar(new Date()); // 更新时间
-              typeof onChange === 'function' && onChange(undefined);
-            }}
-          />
-        </div>
+    <div className="yld-date-picker" style={style}>
+      <div className="yld-date-picker-input" ref={selectionRef}>
+        <Input
+          suffix={<Icon type="weimingmingwenjianjia_rili" />}
+          showCount={false}
+          disabled={disabled}
+          placeholder={placeholder}
+          value={value}
+          readOnly
+          onClick={(e: any) => {
+            if (open) {
+              e.stopPropagation();
+            }
+            setOpen(true);
+          }}
+          allowClear={allowClear}
+          onAllowClear={() => {
+            setValue(undefined);
+            updateDateCalendar(new Date()); // 更新时间
+            typeof onChange === 'function' && onChange(undefined);
+          }}
+        />
+      </div>
+      {open && (
         <Layer
-          open={open}
+          domRef={selectionRef}
           layerClose={() => setOpen(false)}
           layerClassName={layerClassName}
           getPopupContainer={getPopupContainer}
-          domRef={selectionRef}
           layerWidth="fix-content"
-          content={
-            <div className="yld-date-picker-body">
-              <div className="yld-date-picker-body-tools">
-                <Space>
-                  <Icon
-                    type="icon-jiantouzuo"
-                    onClick={() => {
-                      updateDateCalendar(
-                        dateUtil.date.getTime() -
-                          (dateUtil.isLeapYear() ? 366 : 355) *
-                            24 *
-                            60 *
-                            60 *
-                            1000,
-                      );
-                    }}
-                  />
-                  <Icon
-                    type="xiangzuoshouqi"
-                    onClick={() => {
-                      updateDateCalendar(
-                        dateUtil.date.getTime() -
-                          dateUtil.getDateNumberByMonth(
-                            dateUtil.date.getMonth() + 1,
-                          ) *
-                            24 *
-                            60 *
-                            60 *
-                            1000,
-                      );
-                    }}
-                  />
-                </Space>
-                <div className="yld-date-picker-body-value">
-                  {year}-{month}
-                </div>
-                <Space>
-                  <Icon
-                    type="zuocedakai"
-                    onClick={() => {
-                      updateDateCalendar(
-                        dateUtil.date.getTime() +
-                          dateUtil.getDateNumberByMonth(
-                            dateUtil.date.getMonth() + 1,
-                          ) *
-                            24 *
-                            60 *
-                            60 *
-                            1000,
-                      );
-                    }}
-                  />
-                  <Icon
-                    type="jiantou2"
-                    onClick={() => {
-                      updateDateCalendar(
-                        dateUtil.date.getTime() +
-                          (dateUtil.isLeapYear() ? 366 : 355) *
-                            24 *
-                            60 *
-                            60 *
-                            1000,
-                      );
-                    }}
-                  />
-                </Space>
-              </div>
-              <div className="yld-date-picker-body-header">
-                {renderHeader()}
-              </div>
-              <div className="yld-date-picker-body-calendar">
-                {renderContent()}
-              </div>
-              <div className="yld-date-picker-body-footer">
-                <Button
-                  type="link"
-                  style={{ height: 30, width: 60 }}
+        >
+          <div className="yld-date-picker-body">
+            <div className="yld-date-picker-body-tools">
+              <Space>
+                <Icon
+                  type="icon-jiantouzuo"
                   onClick={() => {
-                    const value = dayjs().format('YYYY-MM-DD');
-                    setValue(value);
-                    onChange?.(value);
-                    setOpen(false);
+                    updateDateCalendar(
+                      dateUtil.date.getTime() -
+                        (dateUtil.isLeapYear() ? 366 : 355) *
+                          24 *
+                          60 *
+                          60 *
+                          1000,
+                    );
                   }}
-                >
-                  今天
-                </Button>
+                />
+                <Icon
+                  type="xiangzuoshouqi"
+                  onClick={() => {
+                    updateDateCalendar(
+                      dateUtil.date.getTime() -
+                        dateUtil.getDateNumberByMonth(
+                          dateUtil.date.getMonth() + 1,
+                        ) *
+                          24 *
+                          60 *
+                          60 *
+                          1000,
+                    );
+                  }}
+                />
+              </Space>
+              <div className="yld-date-picker-body-value">
+                {year}-{month}
               </div>
+              <Space>
+                <Icon
+                  type="zuocedakai"
+                  onClick={() => {
+                    updateDateCalendar(
+                      dateUtil.date.getTime() +
+                        dateUtil.getDateNumberByMonth(
+                          dateUtil.date.getMonth() + 1,
+                        ) *
+                          24 *
+                          60 *
+                          60 *
+                          1000,
+                    );
+                  }}
+                />
+                <Icon
+                  type="jiantou2"
+                  onClick={() => {
+                    updateDateCalendar(
+                      dateUtil.date.getTime() +
+                        (dateUtil.isLeapYear() ? 366 : 355) *
+                          24 *
+                          60 *
+                          60 *
+                          1000,
+                    );
+                  }}
+                />
+              </Space>
             </div>
-          }
-        />
-      </div>
-    </>
+            <div className="yld-date-picker-body-header">{renderHeader()}</div>
+            <div className="yld-date-picker-body-calendar">
+              {renderContent()}
+            </div>
+            <div className="yld-date-picker-body-footer">
+              <Button
+                type="link"
+                style={{ height: 30, width: 60 }}
+                onClick={() => {
+                  const value = dayjs().format('YYYY-MM-DD');
+                  setValue(value);
+                  onChange?.(value);
+                  setOpen(false);
+                }}
+              >
+                今天
+              </Button>
+            </div>
+          </div>
+        </Layer>
+      )}
+    </div>
   );
 };

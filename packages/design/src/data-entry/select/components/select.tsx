@@ -33,9 +33,6 @@ export default ({
   useEffect(() => {
     setOptions(rest.options);
   }, [rest.options, open]);
-  useEffect(() => {
-    layerRef.current.render();
-  }, [options]);
   const classNames = ['yld-select'];
   if (className) {
     classNames.push(className);
@@ -43,8 +40,14 @@ export default ({
   if (disabled) {
     classNames.push('yld-select-disabled');
   }
+  useEffect(() => {
+    if (open === false) {
+      // 重制
+      setKeyword(undefined);
+      setOptions(options);
+    }
+  }, [open]);
   const selectionRef = useRef<HTMLDivElement>();
-  const layerRef = useRef<{ render: Function }>();
   return (
     <div className={classNames.join(' ')} style={style}>
       <div
@@ -63,9 +66,6 @@ export default ({
               autoFocus
               className="yld-select-selection-selected-input"
               placeholder={selected.label || placeholder}
-              onBlur={() => {
-                setKeyword(undefined); // 清空 keyword
-              }}
               onClick={(e) => {
                 if (open) {
                   e.stopPropagation();
@@ -95,7 +95,7 @@ export default ({
         {!disabled && allowClear && selected.value !== undefined && (
           <Icon
             type="cuo"
-            onClick={(e) => {
+            onClick={(e: any) => {
               e.stopPropagation(); // 阻止冒泡
               setValue(undefined);
               onChange?.(undefined, undefined);
@@ -103,15 +103,16 @@ export default ({
           />
         )}
       </div>
-      <Layer
-        ref={layerRef}
-        open={open}
-        layerClose={() => setOpen(false)}
-        domRef={selectionRef}
-        getPopupContainer={getPopupContainer}
-        layerClassName={layerClassName}
-        content={
-          options.length > 0 ? (
+      {open && (
+        <Layer
+          domRef={selectionRef}
+          layerClose={() => {
+            setOpen(false);
+          }}
+          getPopupContainer={getPopupContainer}
+          layerClassName={layerClassName}
+        >
+          {options.length > 0 ? (
             options.map((option) => {
               let className = ['yld-select-dropdown-menu'];
               if (option.value === value) {
@@ -125,12 +126,11 @@ export default ({
                   key={option.value}
                   className={className.join(' ')}
                   onClick={() => {
-                    if (option.disabled) return;
-                    setOpen(false);
-                    setKeyword(undefined); // 清空 keyword
-                    setOptions(options); // 重制 options
-                    setValue(option.value);
-                    onChange?.(option.value, option);
+                    if (!option.disabled) {
+                      setValue(option.value);
+                      onChange?.(option.value, option);
+                      setOpen(false);
+                    }
                   }}
                 >
                   {option.label}
@@ -139,9 +139,9 @@ export default ({
             })
           ) : (
             <Empty label="暂无数据" />
-          )
-        }
-      />
+          )}
+        </Layer>
+      )}
     </div>
   );
 };

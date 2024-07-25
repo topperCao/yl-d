@@ -117,15 +117,15 @@ export default ({
           />
         )}
       </div>
-      <Layer
-        ref={layerRef}
-        open={open}
-        layerWidth="fix-content"
-        layerClose={() => setOpen(false)}
-        domRef={selectionRef}
-        layerClassName={layerClassName}
-        getPopupContainer={getPopupContainer}
-        content={
+      {open && (
+        <Layer
+          ref={layerRef}
+          layerWidth="fix-content"
+          layerClose={() => setOpen(false)}
+          domRef={selectionRef}
+          layerClassName={layerClassName}
+          getPopupContainer={getPopupContainer}
+        >
           <div className="yld-cascader-dropdown">
             {options.length > 0 ? (
               options?.map((item, index) => {
@@ -173,8 +173,8 @@ export default ({
               <Empty label="暂无数据" />
             )}
           </div>
-        }
-      />
+        </Layer>
+      )}
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Icon, Empty, Layer } from '../../../index';
 import { SelectProps } from '..';
+import { promises } from 'fs-extra';
 
 export default ({
   className,
@@ -42,7 +43,7 @@ export default ({
     if (choiceRef.current) {
       const { height } = choiceRef.current.getBoundingClientRect();
       selectionRef.current.style.height = height + 'px';
-      layerRef.current.render(height);
+      layerRef.current.render();
     }
   }, [value]);
   return (
@@ -94,9 +95,11 @@ export default ({
             <Icon
               size={14}
               type="cuo"
-              onClick={(e) => {
+              onClick={async (e: any) => {
                 e.stopPropagation(); // 阻止冒泡
                 setValue([]); // clear
+                selectionRef.current.style.height = '32px';
+                await new Promise((res) => setTimeout(res, 300));
                 layerRef.current.render(); // refresh
                 typeof onChange === 'function' && onChange([], null);
               }}
@@ -104,15 +107,15 @@ export default ({
           )}
         </div>
       </div>
-      <Layer
-        open={open}
-        ref={layerRef}
-        layerClose={() => setOpen(false)}
-        layerClassName={layerClassName}
-        getPopupContainer={getPopupContainer}
-        domRef={selectionRef}
-        content={
-          options.length > 0 ? (
+      {open && (
+        <Layer
+          ref={layerRef}
+          layerClose={() => setOpen(false)}
+          layerClassName={layerClassName}
+          getPopupContainer={getPopupContainer}
+          domRef={selectionRef}
+        >
+          {options.length > 0 ? (
             options.map((option) => {
               const className = ['yld-select-dropdown-menu'];
               if (value.indexOf(option.value) > -1) {
@@ -146,9 +149,9 @@ export default ({
             })
           ) : (
             <Empty />
-          )
-        }
-      />
+          )}
+        </Layer>
+      )}
     </>
   );
 };
