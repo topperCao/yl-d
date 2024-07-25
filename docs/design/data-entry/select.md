@@ -18,7 +18,6 @@ export default () => {
       <br />
       <Select
         disabled={disabled}
-        getPopupContainer={() => document.querySelector('.markdown-viewer')}
         placeholder="请选择"
         onChange={(v) => {
           console.log('onChange', v);
@@ -61,7 +60,6 @@ export default () => {
   return (
     <Select
       showSearch
-      getPopupContainer={() => document.querySelector('.markdown-viewer')}
       placeholder="输入关键字查询"
       onSearch={(value) => {
         console.log('onSearch', value);
@@ -107,7 +105,6 @@ export default () => {
     <Select
       multiple
       style={{ width: 300 }}
-      getPopupContainer={() => document.querySelector('.markdown-viewer')}
       onChange={(v) => {
         console.log('onChange', v);
       }}
@@ -152,7 +149,6 @@ export default () => {
       onChange={(v) => {
         console.log('onChange', v);
       }}
-      getPopupContainer={() => document.querySelector('.markdown-viewer')}
       options={[
         {
           label: 'Html',

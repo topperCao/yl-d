@@ -10,13 +10,6 @@ export default () => {
       </p>
     );
   });
-  return (
-    <Dropdown
-      overlay={overlay}
-      getPopupContainer={() => document.querySelector('.markdown-viewer')}
-    >
-      Click me
-    </Dropdown>
-  );
+  return <Dropdown overlay={overlay}>Click me</Dropdown>;
 };
 ```

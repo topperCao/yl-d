@@ -23,7 +23,6 @@ export default () => {
         style={{ width: 120 }}
         value={value}
         onChange={onChange}
-        getPopupContainer={() => document.querySelector('.markdown-viewer')}
       />
     </>
   );
@@ -43,7 +42,6 @@ export default () => {
       style={{ width: 220 }}
       value={value}
       onChange={onChange}
-      getPopupContainer={() => document.querySelector('.markdown-viewer')}
     />
   );
 };

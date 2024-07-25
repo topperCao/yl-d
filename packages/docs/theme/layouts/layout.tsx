@@ -25,7 +25,7 @@ export default () => {
         breadcrumbStore.title = currentBreadcrumb.title;
         breadcrumbStore.breadcrumb = currentBreadcrumb.breadcrumb;
         /** 滚动到顶部 */
-        document.querySelector('.markdown-viewer')?.scrollIntoView({
+        document.querySelector('.app-layout-horizontal-body-right')?.scrollIntoView({
           behavior: 'smooth',
         });
       },

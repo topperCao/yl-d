@@ -12,7 +12,6 @@ export default () => {
       <DatePicker
         style={{ width: 200 }}
         disabled={disabled}
-        getPopupContainer={() => document.querySelector('.markdown-viewer')}
         value={value}
         onChange={onChange}
       />
@@ -41,7 +40,6 @@ export default () => {
       style={{ width: 424 }}
       value={value}
       onChange={onChange}
-      getPopupContainer={() => document.querySelector('.markdown-viewer')}
     />
   );
 };

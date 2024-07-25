@@ -10,7 +10,6 @@ export default () => {
     <>
       <AutoComplete
         allowClear
-        getPopupContainer={() => document.querySelector('.markdown-viewer')}
         options={['@163.com', '@qq.com', '@aliyun.com']}
         style={{ width: 200 }}
         placeholder="请输入邮箱"
