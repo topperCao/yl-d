@@ -44,7 +44,7 @@ export default () => {
 };
 ```
 
-## 自定义渲染 Footer
+## 没有底部按钮
 
 ```jsx | react
 import { Modal, Button } from '@yl-d/design';
@@ -80,7 +80,7 @@ export default () => {
 };
 ```
 
-## 自定义渲染 Footer
+## 自定义底部渲染
 
 ```jsx | react
 import { Modal, Button } from '@yl-d/design';

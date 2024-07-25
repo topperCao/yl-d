@@ -1,16 +1,20 @@
 body {
   padding: 0;
   margin: 0;
+
   div {
     box-sizing: border-box;
   }
+
   .loading {
     animation: spin 0.5s infinite linear;
   }
+
   @keyframes spin {
     0% {
       transform: rotate(0);
     }
+
     100% {
       transform: rotate(360deg);
     }
@@ -18,6 +22,7 @@ body {
 }
 
 body {
+
   div,
   span,
   td,
@@ -66,6 +71,7 @@ body {
 
 body {
   -webkit-font-smoothing: antialiased;
+
   button {
     span {
       font-weight: 600;
@@ -77,85 +83,86 @@ body {
   }
 }
 
-#root > .arco-result-is-500 {
+#root>.arco-result-is-500 {
   position: relative;
   top: 100px;
 }
 
-#root > .arco-spin > .arco-spin-icon > .arco-icon-loading {
+#root>.arco-spin>.arco-spin-icon>.arco-icon-loading {
   font-size: 40px !important;
 }
 
-.lyr-docs-wrap > .app-layout-inline-body > .app-layout-inline-body-right {
-  & > .app-layout-inline-body-right-title {
+.lyr-docs-wrap>.app-layout-inline-body>.app-layout-inline-body-right {
+  &>.app-layout-inline-body-right-title {
     display: none !important;
   }
-  & > .app-layout-inline-body-right-footer {
+
+  &>.app-layout-inline-body-right-footer {
     display: none !important;
   }
 }
 
 .lyr-docs-wrap.app-layout-collapsed {
-  & > .app-layout-expand-btn {
+  &>.app-layout-expand-btn {
     left: 0 !important;
   }
-  & > .app-layout-inline-body > .app-layout-inline-body-sider {
+
+  &>.app-layout-inline-body>.app-layout-inline-body-sider {
     background-color: var(--color-fill-1);
     border-right: 1px solid var(--color-border);
     width: 12px;
-    & > .app-layout-inline-body-sider-menu {
+
+    &>.app-layout-inline-body-sider-menu {
       display: none;
     }
-    & > .app-layout-inline-body-sider-footer {
+
+    &>.app-layout-inline-body-sider-footer {
       display: none;
     }
   }
 }
 
-.lyr-docs-wrap
-  > .app-layout-inline-body
-  > .app-layout-inline-body-right
-  > .app-layout-inline-body-right-content {
+.lyr-docs-wrap>.app-layout-inline-body>.app-layout-inline-body-right>.app-layout-inline-body-right-content {
   padding: 0 !important;
   height: 100% !important;
   position: relative;
 }
 
-.lyr-docs-wrap
-  > .app-layout-horizontal-body
-  > .app-layout-horizontal-body-right {
-  & > .app-layout-horizontal-body-right-title {
+.lyr-docs-wrap>.app-layout-horizontal-body>.app-layout-horizontal-body-right {
+  &>.app-layout-horizontal-body-right-title {
     display: none !important;
   }
-  & > .app-layout-horizontal-body-right-footer {
+
+  &>.app-layout-horizontal-body-right-footer {
     display: none !important;
   }
-  & > .app-layout-horizontal-body-right-breadcrumb {
+
+  &>.app-layout-horizontal-body-right-breadcrumb {
     display: none !important;
   }
 }
 
 .lyr-docs-wrap.app-layout-collapsed {
-  & > .app-layout-expand-btn {
+  &>.app-layout-expand-btn {
     left: 0 !important;
   }
-  & > .app-layout-horizontal-body > .app-layout-horizontal-body-sider {
+
+  &>.app-layout-horizontal-body>.app-layout-horizontal-body-sider {
     background-color: var(--color-fill-1);
     border-right: 1px solid var(--color-border);
     width: 12px;
-    & > .app-layout-horizontal-body-sider-menu {
+
+    &>.app-layout-horizontal-body-sider-menu {
       display: none;
     }
-    & > .app-layout-horizontal-body-sider-footer {
+
+    &>.app-layout-horizontal-body-sider-footer {
       display: none;
     }
   }
 }
 
-.lyr-docs-wrap
-  > .app-layout-horizontal-body
-  > .app-layout-horizontal-body-right
-  > .app-layout-horizontal-body-right-content {
+.lyr-docs-wrap>.app-layout-horizontal-body>.app-layout-horizontal-body-right>.app-layout-horizontal-body-right-content {
   padding: 0 !important;
   height: 100% !important;
   position: relative;
@@ -167,12 +174,14 @@ body {
       .arco-space-item {
         color: #aaa;
         transition: 0.2s;
+
         &:hover {
           color: rgb(var(--primary-6));
           transition: 0.2s;
         }
       }
     }
+
     .arco-menu-selected {
       .arco-space-item {
         color: rgb(var(--primary-6));
@@ -203,9 +212,11 @@ body {
 .custom-backtop:focus-visible {
   box-shadow: 0 0 0 2px var(--color-primary-light-3);
 }
+
 .markdown-viewer {
   background: var(--color-menu-light-bg);
   padding: 20px 80px;
+
   &-navs {
     width: 160px;
     position: absolute;
@@ -215,34 +226,43 @@ body {
     overflow: auto;
     background-color: var(--color-menu-light-bg);
     padding: 40px 0;
+
     .arco-menu-item {
       height: 30px;
       line-height: 30px;
       border-left: 2px solid transparent;
     }
+
     .arco-menu-item.arco-menu-selected {
       border-left: 2px solid rgb(var(--primary-6));
     }
   }
+
   &-blockquote {
     margin: 10px 0;
     background: var(--color-fill-2) !important;
+
     p {
       color: var(--color-neutral-10) !important;
     }
   }
+
   &-code {
     margin: 0 !important;
+
     &-wrap {
       border-color: var(--color-fill-3) !important;
+
       &-body {
         padding: 20px !important;
       }
+
       &-extra {
         border-color: var(--color-fill-3) !important;
       }
     }
   }
+
   img {
     width: 100%;
   }
@@ -255,12 +275,14 @@ body {
   height: 58px;
   z-index: 99999999;
 }
+
 .app-layout-horizontal-body-sider {
   position: fixed;
   top: 0;
   padding-top: 58px;
   z-index: 10;
 }
+
 .app-layout-horizontal-body-right {
   padding-top: 58px;
   padding-left: 208px;
@@ -268,11 +290,13 @@ body {
   min-height: calc(100vh);
   z-index: 5;
   background-color: var(--color-bg-1);
+
   .app-layout-horizontal-body-right-content {
     overflow: unset !important;
     background-color: var(--color-bg-1);
   }
 }
+
 .app-layout-horizontal-body-sider-menu {
   height: calc(100vh - 102px);
 }
@@ -284,12 +308,14 @@ body {
   height: 58px;
   z-index: 99999999;
 }
+
 .app-layout-inline-body-sider {
   position: fixed;
   top: 0;
   padding-top: 58px;
   z-index: 10;
 }
+
 .app-layout-inline-body-right {
   padding-top: 58px;
   padding-left: 208px;
@@ -297,14 +323,22 @@ body {
   min-height: calc(100vh);
   z-index: 5;
   background-color: var(--color-bg-1);
+
   .app-layout-inline-body-right-content {
     overflow: unset !important;
     background-color: var(--color-bg-1);
   }
 }
+
 .app-layout-inline-body-sider-menu {
   height: calc(100vh - 102px);
 }
-.lyr-docs-wrap > .app-layout-expand-btn {
+
+.lyr-docs-wrap>.app-layout-expand-btn {
   display: none;
+}
+
+.markdown-viewer-navs {
+  position: fixed;
+  top: 58px;
 }

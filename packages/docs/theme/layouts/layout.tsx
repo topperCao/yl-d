@@ -37,15 +37,6 @@ export default () => {
       layoutRef={layoutRef}
       layout="inline"
       className="lyr-docs-wrap"
-      waterMarkProps={{
-        gap: [200, 200],
-        content: `${packageName}`,
-        zIndex: 10,
-        fontStyle: {
-          color: dark ? 'rgba(255, 255, 255, .15)' : 'rgba(0, 0, 0, .15)',
-          fontSize: 12,
-        },
-      }}
       logo={favicon}
       collapsed={collapsed}
       onCollapse={setCollapsed}
