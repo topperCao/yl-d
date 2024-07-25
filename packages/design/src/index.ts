@@ -1,9 +1,6 @@
 import './index.less';
 /** common */
 export { default as Layer } from './common/layer';
-/** general */
-export { default as Icon } from './general/icon';
-export { default as Button } from './general/button';
 /** data-display */
 export { default as Carousel } from './data-display/carousel';
 export { default as Empty } from './data-display/empty';
@@ -55,3 +52,5 @@ export const notification = Notification({
 });
 /** other */
 export { default as CopyToClipboard } from './other/copy-to-clipboard';
+export { default as Icon } from './other/icon';
+export { default as Button } from './other/button';

@@ -35,3 +35,22 @@ export default () => {
   );
 };
 ```
+
+## 自动等待
+
+```jsx | react
+import { Button } from '@yl-d/design';
+
+export default () => {
+  return (
+    <Button
+      type="primary"
+      onClick={() => {
+        return new Promise((res) => setTimeout(res, 1000));
+      }}
+    >
+      提交表单
+    </Button>
+  );
+};
+```

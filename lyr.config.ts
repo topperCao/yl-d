@@ -456,7 +456,7 @@ export default defineConfig({
             },
             {
               label: 'tooltip',
-              path: '/design/data-display/Tooltip',
+              path: '/design/data-display/tooltip',
             },
             {
               label: 'Tree',
