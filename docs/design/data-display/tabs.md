@@ -1,6 +1,6 @@
 ## 基本使用
 
-```jsx | react | #f8f9fa
+```jsx | react | var(--color-fill-2)
 import { Tabs } from '@yl-d/design';
 
 export default () => {
@@ -37,7 +37,7 @@ export default () => {
 
 ## 支持关闭
 
-```jsx | react | #f8f9fa
+```jsx | react | var(--color-fill-2)
 import { Tabs } from '@yl-d/design';
 
 export default () => {

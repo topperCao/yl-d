@@ -25,9 +25,11 @@ export default () => {
         breadcrumbStore.title = currentBreadcrumb.title;
         breadcrumbStore.breadcrumb = currentBreadcrumb.breadcrumb;
         /** 滚动到顶部 */
-        document.querySelector('.app-layout-horizontal-body-right')?.scrollIntoView({
-          behavior: 'smooth',
-        });
+        document
+          .querySelector('.app-layout-horizontal-body-right')
+          ?.scrollIntoView({
+            behavior: 'smooth',
+          });
       },
     );
     return removeListener;
@@ -53,6 +55,11 @@ export default () => {
       dark={dark}
       onDarkChange={async (dark: boolean) => {
         uiStore.dark = dark;
+        if (dark) {
+          document.body.setAttribute('yld-theme', 'dark');
+        } else {
+          document.body.removeAttribute('yld-theme');
+        }
       }}
       menu={{
         className: 'lyr-docs-wrap-menus',
