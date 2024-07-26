@@ -1,6 +1,6 @@
 .yld-message {
   position: fixed;
-  top: 50;
+  top: 50px;
   left: calc(50% - 120px);
   z-index: 930226;
   display: flex;
@@ -8,10 +8,9 @@
   min-width: 120px;
   height: 38px;
   padding: 0 10px;
-  color: var(--text-color);
-  background: #fff;
+  background: var(--bg-color);
   border-radius: var(--border-radius-base);
-  box-shadow: 0 0 5px 0px #dcdcdc;
+  box-shadow: 0 0 5px 0px var(--box-shadow);
   transition: 0.4s;
   &-content {
     position: relative;
@@ -19,11 +18,23 @@
     align-items: center;
     height: 100%;
     padding-right: 30px;
-    color: #fff;
+    color: var(--text-color);
     font-size: var(--font-size-base);
     white-space: nowrap;
     &-icon {
       width: 30px;
+      .yld-icon-loading {
+        animation: msg-loading 1s linear infinite;
+        display: inline-block;
+      }
+      @keyframes msg-loading {
+        0% {
+          -webkit-transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+        }
+      }
     }
     &-message {
       width: calc(100% - 40px);
@@ -39,18 +50,6 @@
         opacity: 1;
         transition: 0.3s;
       }
-    }
-  }
-}
-
-.yld-message-dark {
-  background-color: #1e1e1e;
-  .yld-message-content {
-    &-message {
-      color: #fff;
-    }
-    &-close {
-      color: #fff;
     }
   }
 }

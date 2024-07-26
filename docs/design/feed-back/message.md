@@ -1,35 +1,35 @@
 ## 基本使用
 
 ```jsx | react
-import { message, Button, Space } from '@yl-d/design';
+import { Message, Button, Space } from '@yl-d/design';
 
 export default () => {
   return (
     <Space>
       <Button
         onClick={() => {
-          message.success('成功提示!');
+          Message.success('成功提示!');
         }}
       >
         成功提示
       </Button>
       <Button
         onClick={() => {
-          message.error('错误提示!');
+          Message.error('错误提示!');
         }}
       >
         错误提示
       </Button>
       <Button
         onClick={() => {
-          message.warning('警告提示!');
+          Message.warning('警告提示!');
         }}
       >
         警告提示
       </Button>
       <Button
         onClick={() => {
-          message.normal('信息提示!');
+          Message.normal('信息提示!');
         }}
       >
         信息提示
@@ -42,43 +42,49 @@ export default () => {
 ## 自定义配置
 
 ```jsx | react
-import { Message, Button, Space } from '@yl-d/design';
+import { Message, Button, Space, Icon } from '@yl-d/design';
 
 export default () => {
-  const message = Message({
-    duration: 1,
-    position: 'bottomRight',
-    theme: 'dark',
-  });
   return (
     <Space>
       <Button
         onClick={() => {
-          message.success('成功提示!');
+          Message.success({
+            icon: <Icon type="searchicon" color="green" />,
+            content: '正在查找...',
+          });
         }}
       >
-        成功提示
+        自定义icon
       </Button>
       <Button
         onClick={() => {
-          message.error('错误提示!');
+          Message.success({
+            closable: true,
+            content: '手动控制关闭',
+          });
         }}
       >
-        错误提示
+        手动控制关闭
       </Button>
       <Button
         onClick={() => {
-          message.warning('警告提示!');
+          const closeMsg = Message.loading('数据请求中...');
+          setTimeout(closeMsg, 2000);
         }}
       >
-        警告提示
+        加载中
       </Button>
       <Button
         onClick={() => {
-          message.normal('信息提示!');
+          Message.success({
+            position: 'bottom',
+            content: '在右下方弹出',
+            closable: true,
+          });
         }}
       >
-        信息提示
+        下方弹出
       </Button>
     </Space>
   );

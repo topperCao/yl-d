@@ -243,7 +243,7 @@ export default defineConfig({
               path: '/design/feed-back/drawer',
             },
             {
-              label: 'message',
+              label: 'Message',
               path: '/design/feed-back/message',
             },
             {

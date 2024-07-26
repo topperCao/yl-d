@@ -1,42 +1,57 @@
+import { isValidElement, MouseEventHandler, ReactNode } from 'react';
 import ReactDOM from 'react-dom';
 import { Icon } from '../../index';
 
 const $: any = document.querySelector.bind(document);
 const $$: any = document.querySelectorAll.bind(document);
+
 const typeMapping = {
   1: 'message_SendSuccessfully',
   2: 'cuo',
   3: 'info_warning',
   4: 'warning',
+  5: 'loading',
 };
 const colorMapping = {
   1: '#1ac7aa',
   2: '#d81e06',
   3: '#f4ea2a',
   4: '#39a9f4',
+  5: 'var(--primary-color)',
 };
-interface MessageProps {
+export interface MessageProps {
   /** 提示的秒数 */
   duration?: number;
   /** 提示的位置 */
-  position?: 'center' | 'bottomRight';
-  /** 主题 */
-  theme?: 'light' | 'dark';
+  position?: 'top' | 'bottom';
+  /** 显示关闭按钮 */
+  closable?: boolean;
+  /** 内容 */
+  content?: ReactNode;
+  /** 自定义icon */
+  icon?: ReactNode;
 }
 
-export default ({
-  duration = 3,
-  position = 'center',
-  theme = 'light',
-}: MessageProps) => {
-  const open = (type, content) => {
+export default () => {
+  const open = (type: number, option: ReactNode | MessageProps) => {
+    const defaultOption: MessageProps = {
+      position: 'top',
+      duration: 3,
+      closable: false,
+    };
+    if (
+      typeof option === 'object' &&
+      option !== null &&
+      !isValidElement(option)
+    ) {
+      Object.assign(defaultOption, option);
+    } else {
+      defaultOption.content = option;
+    }
     let messageContainer = document.createElement('div');
     let length = $$('.yld-message').length;
     messageContainer.className = 'yld-message';
-    if (theme === 'dark') {
-      messageContainer.className = 'yld-message yld-message-dark';
-    }
-    if (position === 'bottomRight') {
+    if (defaultOption.position === 'bottom') {
       messageContainer.style.left = 'auto';
       messageContainer.style.top = 'auto';
       messageContainer.style.bottom = 50 + length * 60 + 'px';
@@ -47,43 +62,53 @@ export default ({
     }
     $('body').appendChild(messageContainer);
     setTimeout(() => {
-      messageContainer.remove();
-    }, duration * 1000);
-    ReactDOM.render(renderMessage(type, content), messageContainer);
+      if (defaultOption.closable === false && type !== 5) {
+        messageContainer.remove();
+      }
+    }, defaultOption.duration * 1000);
+    ReactDOM.render(renderMessage(type, defaultOption), messageContainer);
+    // 返回关闭的钩子
+    return () => messageContainer.remove();
   };
-  const close = (node) => {
-    node.target.parentNode.parentNode.parentNode.remove();
-  };
-  const renderMessage = (type, content) => {
+  const renderMessage = (type: number, option: MessageProps) => {
     return (
       <div className="yld-message-content">
         <div className="yld-message-content-icon">
-          <Icon type={typeMapping[type]} color={colorMapping[type]} />
+          {option.icon ? (
+            option.icon
+          ) : (
+            <Icon type={typeMapping[type]} color={colorMapping[type]} />
+          )}
         </div>
-        <div className="yld-message-content-message">{content}</div>
-        <div className="yld-message-content-close">
-          <Icon
-            type="guanbi"
-            onClick={(e) => {
-              close(e);
-            }}
-          />
-        </div>
+        <div className="yld-message-content-message">{option.content}</div>
+        {option.closable && (
+          <div className="yld-message-content-close">
+            <Icon
+              type="guanbi"
+              onClick={(e: any) => {
+                e.target.parentNode.parentNode.parentNode.remove();
+              }}
+            />
+          </div>
+        )}
       </div>
     );
   };
   return {
-    success: (content) => {
-      open(1, content);
+    success: (option: ReactNode | MessageProps): Function => {
+      return open(1, option);
     },
-    error: (content) => {
-      open(2, content);
+    error: (option: ReactNode | MessageProps): Function => {
+      return open(2, option);
     },
-    warning: (content) => {
-      open(3, content);
+    warning: (option: ReactNode | MessageProps): Function => {
+      return open(3, option);
     },
-    normal: (content) => {
-      open(4, content);
+    normal: (option: ReactNode | MessageProps): Function => {
+      return open(4, option);
+    },
+    loading: (option: ReactNode | MessageProps): Function => {
+      return open(5, option);
     },
   };
 };
