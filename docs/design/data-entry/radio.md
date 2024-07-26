@@ -23,41 +23,51 @@ export default () => {
 
 ```jsx | react
 import { useState } from 'react';
-import { RadioGroup } from '@yl-d/design';
+import { RadioGroup, Switch } from '@yl-d/design';
 
 export default () => {
   const [value, setValue] = useState('React');
-  const options = [
-    {
-      label: 'Html',
-      value: 'Html',
-    },
-    {
-      label: 'Css',
-      value: 'Css',
-    },
-    {
-      label: 'JavaScript',
-      value: 'JavaScript',
-    },
-    {
-      label: 'React',
-      value: 'React',
-    },
-    {
-      label: 'Vue',
-      value: 'Vue',
-      disabled: true,
-    },
-  ];
+  const [disabled, setdisabled] = useState('');
   return (
-    <RadioGroup
-      options={options}
-      value={value}
-      onChange={(value) => {
-        setValue(value);
-      }}
-    />
+    <>
+      <RadioGroup
+        disabled={disabled}
+        options={[
+          {
+            label: 'Html',
+            value: 'Html',
+          },
+          {
+            label: 'Css',
+            value: 'Css',
+          },
+          {
+            label: 'JavaScript',
+            value: 'JavaScript',
+          },
+          {
+            label: 'React',
+            value: 'React',
+          },
+          {
+            label: 'Vue',
+            value: 'Vue',
+            disabled: true,
+          },
+        ]}
+        value={value}
+        onChange={(value) => {
+          setValue(value);
+        }}
+      />
+      <br />
+      <Switch
+        checkedChildren="启用"
+        unCheckedChildren="禁用"
+        checked={!disabled}
+        onChange={setdisabled.bind(null, !disabled)}
+      />
+    </>
   );
 };
 ```

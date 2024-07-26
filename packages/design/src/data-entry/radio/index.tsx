@@ -13,6 +13,8 @@ export interface RadioProps {
   style?: CSSProperties;
   /** 文本 */
   children?: ReactNode;
+  /** 单选的类型 */
+  type?: 'radio' | 'button';
 }
 
 export default ({
@@ -22,43 +24,42 @@ export default ({
   onChange,
   style = {},
   children,
+  type = 'radio',
 }: RadioProps) => {
   const [_checked, setChecked] = useState(checked);
-  const _className = ['yld-radio'];
+  const classNames = ['yld-radio'];
   if (_checked) {
-    _className.push('yld-radio-checked');
+    classNames.push('yld-radio-checked');
   }
   if (disabled) {
-    _className.push('yld-radio-disabled');
+    classNames.push('yld-radio-disabled');
   }
   if (className) {
-    _className.push(className);
+    classNames.push(className);
   }
   useEffect(() => {
     setChecked(checked);
   }, [checked]);
   return (
-    <>
-      <label className="yld-radio-wrapper">
-        <span className={_className.join(' ')}>
-          <input
-            type="radio"
-            readOnly={disabled}
-            style={style}
-            checked={_checked}
-            className="yld-radio-input"
-            onChange={(e) => {
-              if (disabled) {
-                return;
-              }
-              setChecked(e.target.checked);
-              typeof onChange === 'function' && onChange(e);
-            }}
-          />
-          <span className="yld-radio-inner"></span>
-        </span>
-        <span>{children}</span>
-      </label>
-    </>
+    <label className="yld-radio-wrapper">
+      <span className={classNames.join(' ')}>
+        <input
+          type="radio"
+          readOnly={disabled}
+          style={style}
+          checked={_checked}
+          className="yld-radio-input"
+          onChange={(e) => {
+            if (disabled) {
+              return;
+            }
+            setChecked(e.target.checked);
+            typeof onChange === 'function' && onChange(e);
+          }}
+        />
+        <span className="yld-radio-inner"></span>
+      </span>
+      <span>{children}</span>
+    </label>
   );
 };
