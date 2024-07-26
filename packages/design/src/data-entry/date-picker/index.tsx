@@ -166,7 +166,7 @@ export default ({
                 />
               </Space>
               <div className="yld-date-picker-body-value">
-                {year}-{month}
+                {year}-{month > 9 ? month : '0' + month}
               </div>
               <Space>
                 <Icon

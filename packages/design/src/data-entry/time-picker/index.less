@@ -3,24 +3,27 @@
   display: inline-block;
   width: 100%;
   min-width: 120px;
-  background-color: #fff;
-  border-radius: var(--border-radius-base);
+  background-color: var(--bg-color);
+  border-radius: 2px;
   cursor: pointer;
+
   .yld-time-picker-selection {
     &:hover {
       border-color: var(--primary-color);
       transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
     }
+
     position: relative;
     display: block;
     box-sizing: border-box;
     height: 32px;
     line-height: 30px;
     border-top-width: 1.02px;
-    border-radius: var(--border-radius-base);
+    border-radius: 2px;
     outline: none;
     transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
     user-select: none;
+
     .yld-time-picker-selection-selected-value {
       float: left;
       width: 100%;
@@ -31,6 +34,7 @@
       text-overflow: ellipsis;
       opacity: 1;
     }
+
     .yld-icon-xialadown {
       position: absolute;
       right: 10px;
@@ -38,11 +42,13 @@
       font-size: 18px;
       transition: 0.3s;
     }
+
     &:hover {
       .yld-icon-cuo {
         display: block;
       }
     }
+
     .yld-icon-cuo {
       position: absolute;
       right: 28px;
@@ -51,6 +57,7 @@
       font-size: 14px;
       cursor: pointer;
       transition: 0.3s;
+
       &:hover {
         color: #666;
         transition: 0.3s;
@@ -58,22 +65,25 @@
     }
   }
 }
+
 .yld-time-picker-disabled {
-  background: #f5f5f5;
+  background: var(--bg-color-2);
   cursor: not-allowed;
   opacity: 0.8;
+
   .yld-time-picker-selection {
     &:hover {
-      border-color: #d9d9d9;
+      border-color: var(--border-color);
     }
   }
 }
 
 .yld-time-picker-dropdown {
-  background-color: #fff;
-  border-radius: var(--border-radius-base);
+  background-color: var(--bg-color);
+  border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   transition: 0.6s;
+
   .yld-time-picker-dropdown-value {
     height: 32px;
     display: flex;
@@ -81,12 +91,14 @@
     padding: 0 10px;
     color: var(--text-color);
     font-size: 12px;
-    background: #fff;
-    border-bottom: 1px solid #eee;
+    background: var(--bg-color);
+    border-bottom: 1px solid var(--border-color);
   }
+
   .yld-time-picker-dropdown-box {
     display: flex;
     user-select: none;
+
     .yld-time-picker-dropdown-col {
       width: 45px;
       height: 180px;
@@ -94,11 +106,14 @@
       overflow: auto;
       white-space: nowrap;
       text-overflow: ellipsis;
+
       &::-webkit-scrollbar {
         /*滚动条整体样式*/
-        width: 0; /*高宽分别对应横竖滚动条的尺寸*/
+        width: 0;
+        /*高宽分别对应横竖滚动条的尺寸*/
         height: 0;
       }
+
       .yld-time-picker-dropdown-menu {
         display: flex;
         align-items: center;
@@ -108,29 +123,36 @@
         font-size: var(--font-size-base);
         cursor: pointer;
         transition: 0.3s;
+
         .yld-icon-duihao {
           display: none;
           font-size: 14px;
         }
+
         &:hover {
-          background-color: var(--box-shadow);
+          background-color: var(--bg-color-2);
+
           .yld-icon-duihao {
             display: inline;
           }
         }
       }
+
       .yld-time-picker-dropdown-menu-disabled {
         color: #aaa;
         cursor: not-allowed;
         opacity: 0.8;
+
         &:hover {
-          background-color: #fff;
+          background-color: var(--bg-color-2);
         }
       }
+
       .yld-time-picker-dropdown-menu-selected {
-        color: #333;
+        color: var(--text-color);
         font-weight: 600;
-        background-color: #f5f5f5;
+        background-color: var(--bg-color-2);
+
         .yld-icon-duihao {
           display: inline;
           color: var(--primary-color);
@@ -138,10 +160,11 @@
       }
     }
   }
+
   .yld-time-picker-dropdown-footer {
     height: 32px;
     padding: 0;
-    border-top: 1px solid #f2f2f2;
+    border-top: 1px solid var(--border-color);
     display: flex;
     align-items: center;
     justify-content: space-between;

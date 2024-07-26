@@ -6,9 +6,9 @@
   width: 280px;
   height: 300px;
   color: var(--text-color);
-  background: #fff;
-  box-shadow: 0 3px 6px -4px #0000001f, 0 6px 16px #00000014,
-    0 9px 28px 8px #0000000d;
+  background: var(--bg-color);;
+  box-shadow: 0 3px 6px -4px #0000001f, 0 6px 16px var(--box-shadow),
+    0 9px 28px 8px var(--box-shadow);
   user-select: none;
   .yld-date-picker-body-value {
     display: flex;
@@ -23,7 +23,7 @@
     justify-content: space-between;
     height: 40px;
     padding: 0 10px;
-    border-bottom: 1px solid #f2f2f2;
+    border-bottom: 1px solid var(--border-color);;
     .picker-tools-before,
     .picker-tools-next,
     .picker-tools-date {
@@ -132,7 +132,7 @@
   .yld-date-picker-body-footer {
     height: 40px;
     padding: 0 10px;
-    border-top: 1px solid #f2f2f2;
+    border-top: 1px solid var(--border-color);
     display: flex;
     align-items: center;
     justify-content: center;

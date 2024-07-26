@@ -1,9 +1,11 @@
 ## 基本使用
 
 ```jsx | react
-import { Cascader } from '@yl-d/design';
+import { useState } from 'react';
+import { Cascader, Switch } from '@yl-d/design';
 
 export default () => {
+  const [disabled, setDisabled] = useState('');
   const options = [
     {
       value: 'zhejiang',
@@ -44,15 +46,26 @@ export default () => {
     },
   ];
   return (
-    <Cascader
-      placeholder="请选择"
-      options={options}
-      value={['anhui', 'hefei', 'lujiang']}
-      style={{ width: 200 }}
-      onChange={(value) => {
-        console.log('onChange', value);
-      }}
-    />
+    <>
+      <Cascader
+        placeholder="请选择"
+        options={options}
+        disabled={disabled}
+        value={['anhui', 'hefei', 'lujiang']}
+        style={{ width: 200 }}
+        onChange={(value) => {
+          console.log('onChange', value);
+        }}
+      />
+      <br />
+      <br />
+      <Switch
+        checkedChildren="启用"
+        unCheckedChildren="禁用"
+        checked={!disabled}
+        onChange={setDisabled.bind(null, !disabled)}
+      />
+    </>
   );
 };
 ```

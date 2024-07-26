@@ -15,17 +15,17 @@
     color: inherit;
     font-size: inherit;
     border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-base);
+    border-radius: 2px;
+    background-color: var(--bg-color);
     outline: none;
     transition: 0.4s;
   }
   .yld-input-number-disabled {
-    background: var(--disabled-color);
+    background: var(--bg-color-2);
     cursor: not-allowed;
   }
   .yld-input-number:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px var(--box-shadow);
     transition: 0.4s;
   }
   .yld-input-number-suffix {
@@ -42,18 +42,18 @@
       box-sizing: border-box;
       height: 50%;
       text-align: center;
-      background: #f8f8f8;
+      background: var(--bg-color-2);
       border-bottom: 1px solid var(--border-color);
       border-left: 1px solid var(--border-color);
-      border-top-right-radius: var(--border-radius-base);
+      border-top-right-radius: 2px;
       cursor: pointer;
       &:hover {
-        background-color: #f2f2f2;
+        background-color: var(--bg-color-2);
       }
     }
     .suffix-bottom {
       border-bottom: 0;
-      border-bottom-right-radius: var(--border-radius-base);
+      border-bottom-right-radius: 2px;
     }
   }
   &:hover {

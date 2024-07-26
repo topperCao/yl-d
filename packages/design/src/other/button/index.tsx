@@ -34,30 +34,30 @@ export default ({
   className,
   children,
 }: ButtonProps) => {
-  const _className = ['yld-btn'];
+  const classNames = ['yld-btn'];
   const [loading, setLoading] = useState(false);
   if (className) {
-    _className.push(className);
+    classNames.push(className);
   }
   if (type) {
-    _className.push('yld-btn-' + type);
+    classNames.push('yld-btn-' + type);
   }
   if (ghost) {
-    _className.push('yld-btn-ghost');
+    classNames.push('yld-btn-ghost');
   }
   if (disabled) {
-    _className.push('yld-btn-disabled');
+    classNames.push('yld-btn-disabled');
   }
   if (loading) {
-    _className.push('yld-btn-loading');
+    classNames.push('yld-btn-loading');
   }
   return (
     <button
       style={style}
-      className={_className.join(' ')}
+      className={classNames.join(' ')}
       onClick={async (e: any) => {
-        setLoading(true);
         if (disabled) return;
+        setLoading(true);
         try {
           typeof onClick === 'function' && (await onClick(e));
         } catch (error) {
