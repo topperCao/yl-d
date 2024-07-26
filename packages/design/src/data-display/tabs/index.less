@@ -10,14 +10,14 @@
     display: flex;
     width: 100%;
     height: 44px;
-    background: #fff;
+    background: var(--bg-color);
     .yld-tabs-header-border {
       position: absolute;
       bottom: 0px;
       left: 0;
       width: 100%;
       height: 1px;
-      background-color: var(--border-color-base);
+      background-color: var(--border-color);
     }
     .yld-tabs-item-active-border {
       position: absolute;
@@ -57,7 +57,7 @@
         color: var(--text-color);
         border-radius: 50%;
         &:active {
-          background-color: var(--primary-box-shadow);
+          background-color: var(--box-shadow);
         }
       }
     }
@@ -75,11 +75,13 @@
     height: calc(100% - 36px);
     padding: 10px 0px;
     overflow: hidden;
-    color: #fff;
+    color: var(--text-color);
+    background-color: var(--bg-color);
     font-size: 12px;
-    .yld-tabs-content-item {
+    &-item {
       position: absolute;
       top: 10px;
+      color: var(--text-color);
       display: none;
       display: block;
       width: 100%;

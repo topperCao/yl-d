@@ -1,6 +1,9 @@
 .yld-tooltip-wrapper,
 .yld-tooltip-wrapper-hidden {
   display: inline;
+  & > span{
+    color: var(--text-color);
+  }
   .yld-tooltip-placement-top,
   .yld-tooltip-placement-bottom,
   .yld-tooltip-placement-left,
@@ -85,7 +88,7 @@
       width: 6px;
       height: 6px;
       margin: auto;
-      background-color: #fff;
+      background-color: var(--bg-color);
       content: '';
       pointer-events: auto;
     }
@@ -103,9 +106,9 @@
     text-decoration: none;
     text-overflow: ellipsis;
     word-wrap: break-word;
-    background-color: #fff;
+    background-color: var(--bg-color);
     border-radius: 4px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 8px var(--box-shadow);
   }
 }
 .yld-tooltip-placement-top {

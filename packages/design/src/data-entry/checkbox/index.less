@@ -18,7 +18,7 @@
       display: block;
       width: 16px;
       height: 16px;
-      border: 1px solid #d9d9d9;
+      border: 1px solid var(--border-color);
       transition: all 0.2s;
       &::after {
         position: absolute;
@@ -57,10 +57,10 @@
   .yld-checkbox-disabled {
     cursor: not-allowed;
     .yld-checkbox-inner {
-      background-color: #f2f2f2;
-      border-color: #d9d9d9;
+      background-color: var(--bg-color-2);
+      border-color: var(--border-color);
       &::after {
-        border-color: #aaa;
+        border-color: var(--border-color);;
       }
     }
     & + span {

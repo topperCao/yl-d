@@ -4,35 +4,35 @@
   height: 100%;
   overflow-x: auto;
   overflow-y: hidden;
-  border: 1px solid #f2f2f2;
+  border: 1px solid var(--border-color-2);
   transition: 0.3s;
   &-wrap {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: #fafafa;
+    background-color: var(--bg-color-2);
     &-header {
       align-items: center;
       width: 100%;
-      height: 45px;
-      background: #fafafa;
+      height: 42px;
+      background: var(--bg-color-2);
       .yld-table-tr {
         font-weight: 900;
         &:hover {
-          background-color: #fafafa !important;
+          background-color: var(--bg-color-2) !important;
         }
       }
     }
     &-body {
       width: fit-content;
       min-width: 100%;
-      height: calc(100% - 45px);
+      height: calc(100% - 42px);
       overflow-x: auto;
       overflow-y: auto;
-      background: #fff;
+      background: var(--bg-color);
       .yld-table-tr {
         &:first-child {
-          border-top: 1px solid #f2f2f2;
+          border-top: 1px solid var(--border-color);
         }
       }
     }
@@ -44,8 +44,8 @@
         position: relative;
         display: flex;
         align-items: center;
-        height: 45px;
-        border-bottom: 1px solid #f2f2f2;
+        height: 42px;
+        border-bottom: 1px solid var(--border-color);
         &:last-child {
           border-bottom: 0;
         }
@@ -59,7 +59,7 @@
           font-size: var(--font-size-base);
         }
         .yld-table-td-grid {
-          border-right: 1px solid #f2f2f2;
+          border-right: 1px solid var(--border-color);
           &:last-child {
             border-right: 0;
           }
@@ -94,7 +94,7 @@
   }
   .yld-table-row-operation {
     display: flex;
-    gap: 10 px;
+    gap: 10px;
     .yld-btn {
       padding-right: 16px;
       padding-left: 0;
@@ -106,11 +106,11 @@
   align-items: center;
   justify-content: flex-end;
   width: 100%;
-  height: 45px;
+  height: 42px;
   padding: 0 20px;
   overflow: auto;
-  background-color: #fafafa;
-  border: 1px solid #f2f2f2;
+  background-color: var(--bg-color-2);
+  border: 1px solid var(--border-color);
   border-top: 0;
   .yld-pagination {
     width: 100%;
@@ -143,7 +143,7 @@
     justify-content: space-between;
     width: 100%;
     height: 40px;
-    background-color: #fff;
+    background-color: var(--bg-color);
     .btn-tool {
       padding: 0 8px;
     }

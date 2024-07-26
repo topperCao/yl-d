@@ -104,7 +104,7 @@ export default ({
                 !_expandedKeys.includes(item.key) ? 'yld-tree-node-hidden' : ''
               }
             >
-              {renderTree(item.children, paddingLeft + 34)}
+              {renderTree(item.children, paddingLeft + 24)}
             </div>
           )}
         </div>
@@ -113,7 +113,7 @@ export default ({
   };
   return (
     <div className="yld-tree" style={style}>
-      {renderTree(treeData, 10)}
+      {renderTree(treeData, 0)}
     </div>
   );
 };
