@@ -71,3 +71,49 @@ export default () => {
   );
 };
 ```
+
+
+## 按钮类型
+
+```jsx | react
+import { useState } from 'react';
+import { RadioGroup } from '@yl-d/design';
+
+export default () => {
+  const [value, setValue] = useState('React');
+  return (
+    <>
+      <RadioGroup
+        type='button'
+        options={[
+          {
+            label: 'Html',
+            value: 'Html',
+          },
+          {
+            label: 'Css',
+            value: 'Css',
+          },
+          {
+            label: 'JavaScript',
+            value: 'JavaScript',
+          },
+          {
+            label: 'React',
+            value: 'React',
+          },
+          {
+            label: 'Vue',
+            value: 'Vue',
+            disabled: true,
+          },
+        ]}
+        value={value}
+        onChange={(value) => {
+          setValue(value);
+        }}
+      />
+    </>
+  );
+};
+```

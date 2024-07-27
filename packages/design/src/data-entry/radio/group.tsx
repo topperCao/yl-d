@@ -1,44 +1,45 @@
 import { useState, useEffect, CSSProperties } from 'react';
 import { OptionsProps } from '../select';
-import Option from './index';
+import Option, { RadioProps } from './index';
 
-export interface RadioGroupProps {
-  /** 类名 */
-  className?: string;
+export interface RadioGroupProps extends RadioProps{
   /** 数据源 */
   options: OptionsProps[];
-  /** 值 */
-  value?: any;
-  /** 改变的钩子 */
-  onChange?: Function;
-  /** 是否禁用 */
-  disabled?: boolean;
   /** 样式 */
   style?: CSSProperties;
+  /** 单选的类型 */
+  type?: 'radio' | 'button';
+  /** 选中值 */
+  value?: string | number;
 }
 
 export default ({
   options = [],
-  value = '',
   disabled = false,
   onChange,
   style = {},
+  type,
+  ...rest
 }: RadioGroupProps) => {
-  const [_value, setValue] = useState(value);
+  const [value, setValue] = useState(rest.value);
   useEffect(() => {
-    setValue(value);
-  }, [value]);
+    setValue(rest.value);
+  }, [rest.value]);
+  const classNames = ['yld-radio-group'];
+  if(type === 'button'){
+    classNames.push('yld-radio-group-button')
+  }
   return (
-    <div className="yld-radio-group" style={style}>
+    <div className={classNames.join(' ')} style={style}>
       {options.map((option) => {
         return (
           <Option
             key={option.value}
             disabled={disabled || option.disabled}
-            checked={option.value === _value}
+            checked={option.value === value}
             onChange={() => {
               setValue(option.value);
-              typeof onChange === 'function' && onChange(option.value);
+              onChange?.(option.value);
             }}
           >
             {option.label}
