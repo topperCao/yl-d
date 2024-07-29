@@ -43,7 +43,7 @@ export default ({
     if (choiceRef.current) {
       const { height } = choiceRef.current.getBoundingClientRect();
       selectionRef.current.style.height = height + 'px';
-      layerRef.current.render();
+      layerRef.current?.render?.();
     }
   }, [value]);
   return (
@@ -100,8 +100,8 @@ export default ({
                 setValue([]); // clear
                 selectionRef.current.style.height = '32px';
                 await new Promise((res) => setTimeout(res, 300));
-                layerRef.current.render(); // refresh
-                typeof onChange === 'function' && onChange([], null);
+                layerRef.current?.render?.(); // refresh
+                onChange?.([], null);
               }}
             />
           )}

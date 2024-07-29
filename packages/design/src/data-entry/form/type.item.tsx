@@ -22,7 +22,7 @@ export interface FormItemProps {
   /** 占据的格子数 */
   span?: 2 | 3 | 'fill';
   /** 值改变触发指定的item渲染 */
-  touchItemsRender?: {
+  notifiRender?: {
     name: string;
     clear?: boolean;
   }[];

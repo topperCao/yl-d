@@ -1,95 +1,27 @@
 ## 基本使用
 
-```jsx |react
+```jsx | react
 import { useState } from 'react';
-import { RadioGroup, Form, Button, Space } from '@yl-d/design';
-import items from './items';
+import { Switch, Form, Button } from '@yl-d/design';
+import schema from '@/design/schema.ts';
 
 export default () => {
   const form = Form.useForm();
   const [disabled, setDisabled] = useState(false);
-  const [horizontal, setHorizontal] = useState(true);
-  const [column, setColumn] = useState(2);
   return (
     <>
-      <Form
-        horizontal
-        column={3}
-        initialValues={{
-          column,
-          disabled: 0,
-          horizontal: 1,
-        }}
-        onValuesChange={(v, { disabled, horizontal, column }) => {
-          setDisabled(!!disabled);
-          setHorizontal(!!horizontal);
-          setColumn(column);
-        }}
-        items={[
-          {
-            type: 'RadioGroup',
-            label: '是否禁用',
-            name: 'disabled',
-            props: {
-              options: [
-                {
-                  label: '是',
-                  value: 1,
-                },
-                {
-                  label: '否',
-                  value: 0,
-                },
-              ],
-            },
-          },
-          {
-            type: 'RadioGroup',
-            label: '布局方式',
-            name: 'horizontal',
-            props: {
-              options: [
-                {
-                  label: '水平',
-                  value: 1,
-                },
-                {
-                  label: '垂直',
-                  value: 0,
-                },
-              ],
-            },
-          },
-          {
-            type: 'RadioGroup',
-            label: '设置排版',
-            name: 'column',
-            props: {
-              options: [
-                {
-                  label: '1等份',
-                  value: 1,
-                },
-                {
-                  label: '2等份',
-                  value: 2,
-                },
-                {
-                  label: '3等份',
-                  value: 3,
-                },
-              ],
-            },
-          },
-        ]}
+      <Switch
+        checkedChildren="启用"
+        unCheckedChildren="禁用"
+        checked={!disabled}
+        onChange={setDisabled.bind(null, !disabled)}
       />
       <br />
       <br />
       <Form
         form={form}
         disabled={disabled}
-        horizontal={horizontal}
-        column={column}
+        column={2}
         initialValues={{
           input: '2323',
           autoComplete: '2323@163.com',
@@ -101,14 +33,16 @@ export default () => {
           slider: 7,
           selectMore: [1, 2],
           cascader: ['zhejiang', 'hangzhou'],
-          datePicker: '2023-07-14',
+          datePicker: '2024-07-24',
+          datePickerRange: ['2024-07-24', '2026-07-23'],
           timePicker: '00:02:00',
+          timePickerRange: ['12:08:08', '18:08:08'],
           textarea: '2323',
         }}
         onValuesChange={(v, vs) => {
           console.log(v, vs);
         }}
-        items={items.map((i) => {
+        schema={schema.map((i) => {
           return {
             ...i,
             required: true,
@@ -133,59 +67,50 @@ export default () => {
 ## 表单项联动
 
 ```jsx | react
-import { Form, Button } from '@yl-d/design';
+import { Form } from '@yl-d/design';
 
 export default () => {
-  const form = Form.useForm();
   return (
-    <>
-      <Form
-        form={form}
-        items={[
-          {
-            type: 'Select',
-            name: 'sex',
-            label: '性别',
-            touchItemsRender: [
+    <Form
+      schema={[
+        {
+          type: 'RadioGroup',
+          name: 'sex',
+          label: '性别',
+          notifiRender: [
+            {
+              name: 'age',
+              clear: true,
+            },
+          ],
+          props: {
+            options: [
               {
-                name: 'age',
-                clear: true,
+                label: '男',
+                value: 0,
+              },
+              {
+                label: '女',
+                value: 1,
               },
             ],
-            required: true,
-            props: {
-              options: [
-                {
-                  label: '男',
-                  value: 0,
-                },
-                {
-                  label: '女',
-                  value: 1,
-                },
-              ],
+          },
+        },
+        {
+          type: 'InputNumber',
+          name: 'age',
+          label: '年龄',
+          visible({ getValues }) {
+            return getValues().sex === 0;
+          },
+          props: {
+            style: {
+              width: 180,
             },
           },
-          {
-            type: 'InputNumber',
-            name: 'age',
-            label: '年龄',
-            visible({ getValues }) {
-              return getValues().sex === 0;
-            },
-          },
-        ]}
-      />
-      <Button
-        type="primary"
-        style={{ marginTop: 24 }}
-        onClick={async () => {
-          console.log(await form.validateFields());
-        }}
-      >
-        提交
-      </Button>
-    </>
+        },
+      ]}
+    />
   );
 };
 ```
@@ -193,50 +118,38 @@ export default () => {
 ## 动态修改模型
 
 ```jsx | react
-import { Form, Button } from '@yl-d/design';
+import { Form } from '@yl-d/design';
 
 export default () => {
   const form = Form.useForm();
   return (
-    <>
-      <Form
-        form={form}
-        items={[
-          {
-            type: 'Select',
-            name: 'sex',
-            label: '性别',
-            required: true,
-            props: {
-              onChange(value, option) {
-                form.mergeItemByName('sex', {
-                  label: `性别-${option.label}`,
-                });
-              },
-              options: [
-                {
-                  label: '男',
-                  value: 0,
-                },
-                {
-                  label: '女',
-                  value: 1,
-                },
-              ],
+    <Form
+      form={form}
+      schema={[
+        {
+          type: 'RadioGroup',
+          name: 'sex',
+          label: '性别',
+          props: {
+            onChange(value, option) {
+              form.mergeItemByName('sex', {
+                label: `性别-${option.label}`,
+              });
             },
+            options: [
+              {
+                label: '男',
+                value: 0,
+              },
+              {
+                label: '女',
+                value: 1,
+              },
+            ],
           },
-        ]}
-      />
-      <Button
-        type="primary"
-        style={{ marginTop: 24 }}
-        onClick={async () => {
-          console.log(await form.validateFields());
-        }}
-      >
-        提交
-      </Button>
-    </>
+        },
+      ]}
+    />
   );
 };
 ```
@@ -244,38 +157,24 @@ export default () => {
 ## 自定义表单组件
 
 ```jsx | react
-import { Form, Button } from '@yl-d/design';
+import { Form } from '@yl-d/design';
 
 export default () => {
-  const form = Form.useForm();
   return (
-    <>
-      <Form
-        form={form}
-        initialValues={{
-          name: '自定义',
-        }}
-        items={[
-          {
-            type: ({ value, onChange }) => {
-              return <input value={value} onChange={onChange} />;
-            },
-            name: 'name',
-            label: '自定义',
-            required: true,
+    <Form
+      initialValues={{
+        name: '自定义',
+      }}
+      schema={[
+        {
+          type: ({ value, onChange }) => {
+            return <input value={value} onChange={onChange} />;
           },
-        ]}
-      />
-      <Button
-        type="primary"
-        style={{ marginTop: 24 }}
-        onClick={async () => {
-          console.log(await form.validateFields());
-        }}
-      >
-        提交
-      </Button>
-    </>
+          name: 'name',
+          label: '自定义',
+        },
+      ]}
+    />
   );
 };
 ```

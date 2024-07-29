@@ -93,10 +93,10 @@ const TimePicker = forwardRef(
             suffix={<Icon type="time" />}
             disabled={disabled}
             placeholder={placeholder}
-            value={times.join(':')}
+            value={times?.join?.(':')}
             readOnly
             showCount={false}
-            allowClear={allowClear && times.length > 0}
+            allowClear={allowClear && times?.length > 0}
             onAllowClear={() => {
               onChange?.(undefined);
             }}
@@ -123,14 +123,11 @@ const Content = ({
   const [times, setTimes] = useState(value ? value.split(':') : []);
   const pickerRef = useRef<HTMLDivElement>();
   useEffect(() => {
-    if (value !== times.join(':')) {
-      setTimes(value ? value.split(':') : []);
-    }
     // 滑动到顶部
     pickerRef.current
       .querySelectorAll('.yld-time-picker-dropdown-menu-selected')
       .forEach((item) => {
-        item.scrollIntoView();
+        item.parentElement.scrollTop = Number(item.innerHTML) * 30;
       });
   }, [value]);
   useEffect(() => {
@@ -138,11 +135,15 @@ const Content = ({
     pickerRef.current
       .querySelectorAll('.yld-time-picker-dropdown-menu-selected')
       .forEach((item) => {
-        item.scrollIntoView({
-          behavior: 'smooth',
-        });
+        item.parentElement.scrollTop = Number(item.innerHTML) * 30;
       });
   }, [times]);
+  // 同步 value
+  useEffect(() => {
+    if (value !== times?.join(':')) {
+      setTimes(value ? value.split(':') : []);
+    }
+  }, [value]);
   return (
     <div className="yld-time-picker-dropdown" ref={pickerRef}>
       <div className="yld-time-picker-dropdown-box">

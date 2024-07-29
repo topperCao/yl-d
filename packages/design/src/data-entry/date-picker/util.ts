@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 export default class DateUtil {
   date: Date;
   format: string;
-  constructor(date, format) {
+  constructor(date: Date, format: string) {
     this.date = date;
     this.format = format;
   }

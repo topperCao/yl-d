@@ -14,7 +14,7 @@ export interface FormProps {
   /** 改变的钩子 */
   onValuesChange?: Function;
   /** 表单数据模型 */
-  items: FormItemProps[];
+  schema: FormItemProps[];
   /** 是否禁用 */
   disabled?: boolean;
   /** 布局等份 */

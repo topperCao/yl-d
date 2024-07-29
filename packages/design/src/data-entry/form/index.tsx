@@ -21,7 +21,7 @@ const flexMapping = {
 const Form = ({
   initialValues = {},
   onValuesChange = () => {},
-  items = [],
+  schema = [],
   column = 1,
   className,
   horizontal = false,
@@ -81,6 +81,12 @@ const Form = ({
             errors.map((error) => {
               itemRef.current[error.field].showError(error.message);
             });
+          }
+          if (
+            Array.isArray(value) &&
+            value.filter((i) => i !== undefined).length === 0
+          ) {
+            itemRef.current[name].showError(descriptorRef.current[name].message);
           } else {
             itemRef.current[name].clearError();
           }
@@ -117,16 +123,16 @@ const Form = ({
     });
     setDone(true);
   }, []);
-  const _className = ['yld-form', `yld-form-grid-${column}`];
+  const classNames = ['yld-form', `yld-form-grid-${column}`];
   if (className) {
-    _className.push(className);
+    classNames.push(className);
   }
   if (horizontal) {
-    _className.push('yld-form-horizontal');
+    classNames.push('yld-form-horizontal');
   }
   return done ? (
-    <div className={_className.join(' ')}>
-      {items.map((item) => {
+    <div className={classNames.join(' ')}>
+      {schema.map((item) => {
         itemRef.current[item.name] = itemRef.current[item.name] || {}; // 保留之前的ref
         item.flex = item.flex || flex;
         return (
@@ -138,7 +144,7 @@ const Form = ({
             itemRef={itemRef.current[item.name]}
             descriptorRef={descriptorRef}
             value={store.current[item.name]}
-            onChange={(e, option) => {
+            onChange={(e: any, option) => {
               const value = e?.eventPhase ? e.target.value : e;
               form.setValues({
                 [item.name]: value,
@@ -159,8 +165,8 @@ const Form = ({
               // 提示该item拿最新的value去更新, 确保原子性，哪个 item 值改变，就更新 哪个 item
               itemRef.current[item.name].setValue?.(store.current[item.name]);
               /** 触发重新渲染 */
-              if (Array.isArray(item.touchItemsRender)) {
-                item.touchItemsRender.forEach(({ name, clear }) => {
+              if (Array.isArray(item.notifiRender)) {
+                item.notifiRender.forEach(({ name, clear }) => {
                   itemRef.current[name].reload();
                   // 是否清空
                   if (clear) {

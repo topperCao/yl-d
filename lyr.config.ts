@@ -227,6 +227,10 @@ export default defineConfig({
               label: 'Upload',
               path: '/design/data-entry/upload',
             },
+            {
+              label: 'Form',
+              path: '/design/data-entry/form',
+            },
           ],
         },
         {

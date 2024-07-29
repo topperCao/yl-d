@@ -42,7 +42,7 @@ export default ({
     descriptorRef.current[name] = {
       type: 'string',
       required: true,
-      message: `${label} 不能为空`,
+      message: `${label}不能为空`,
       validator: (rule, value) => !isEmpty(value),
     };
   }

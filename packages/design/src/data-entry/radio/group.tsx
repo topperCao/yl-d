@@ -39,7 +39,7 @@ export default ({
             checked={option.value === value}
             onChange={() => {
               setValue(option.value);
-              onChange?.(option.value);
+              onChange?.(option.value, option);
             }}
           >
             {option.label}
