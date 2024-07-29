@@ -1,14 +1,31 @@
+## 基础 ui 组件库
+
+- 常年维护的个人 ui 组件，写着玩
+
 ## 自定义主题
 
 ```css
-:root {
+body {
   --primary-color: #165dff;
-  --primary-box-shadow: #d8e2fc;
   --primary-spin-background: #d8e2fc52;
   --font-size-base: 12px;
-  --border-color-base: #d9d9d9;
-  --text-color: rgba(0, 0, 0, 0.65);
-  --disabled-color: rgba(0, 0, 0, 0.05);
-  --border-radius-base: 2px;
+  --text-color: #565656;
+  --bg-color: #fff;
+  --bg-color-2: #f2f2f2;
+  --bg-color-3: #d5d2d2;
+  --border-color: #e5e6ec;
+  --box-shadow: #00152914;
+}
+
+body[yld-theme='dark'] {
+  --primary-color: #165dff;
+  --primary-spin-background: #d8e2fc52;
+  --font-size-base: 12px;
+  --text-color: #eee;
+  --bg-color: #232324;
+  --bg-color-2: #333;
+  --bg-color-3: #444;
+  --border-color: rgba(255, 255, 255, 0.12);
+  --box-shadow: #17171a;
 }
 ```

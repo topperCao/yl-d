@@ -5,7 +5,7 @@
   overflow: hidden;
   color: var(--text-color);
   white-space: nowrap;
-  box-shadow: -1px 0px 20px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: -1px 0px 20px 0px var(--box-shadow);
   touch-action: pan-y;
   .yld-carousel-page {
     position: absolute;
@@ -61,14 +61,14 @@
       justify-content: center;
       height: 18px;
       padding: 0 4px;
-      background: #f2f2f2;
+      background: var(--bg-color-2);
       border-radius: 20px;
       .yld-carousel-legend-box-item,
       .yld-carousel-legend-box-item-active {
         width: 10px;
         height: 10px;
         margin: 4px;
-        background: #aaa;
+        background: var(--bg-color);
         border-radius: 10px;
         cursor: pointer;
         transition: 0.5s;

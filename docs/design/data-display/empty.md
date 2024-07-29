@@ -13,7 +13,7 @@ export default () => {
 import { Empty } from '@yl-d/design';
 
 export default () => {
-  return <Empty label={'暂无数据展示'} />;
+  return <Empty label="暂无数据，请稍后再试！" />;
 };
 ```
 
@@ -23,6 +23,6 @@ export default () => {
 import { Empty, Icon } from '@yl-d/design';
 
 export default () => {
-  return <Empty icon="searchicon" label={'查找信息为空'} />;
+  return <Empty icon="searchicon" />;
 };
 ```
