@@ -42,11 +42,8 @@ export { default as Alert } from './feed-back/alert';
 export { default as Progress } from './feed-back/progress';
 import message from './feed-back/message';
 export const Message = message();
-export { default as Notification } from './feed-back/notification';
-import Notification from './feed-back/notification';
-export const notification = Notification({
-  duration: 3,
-});
+import notification from './feed-back/notification';
+export const Notification = notification();
 /** other */
 export { default as CopyToClipboard } from './other/copy-to-clipboard';
 export { default as Icon } from './other/icon';

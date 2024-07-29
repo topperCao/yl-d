@@ -1,17 +1,16 @@
 .yld-notification {
-  left: calc(100vw - 260px);
+  left: calc(100vw - 360px);
   top: 50px;
-  height: 120px;
-  width: 200px;
+  height: 100px;
+  width: 340px;
   position: fixed;
   z-index: 930226;
   display: flex;
   align-items: center;
-  padding: 0 10px;
   color: var(--text-color);
-  background: #fff;
+  background: var(--bg-color);
   border-radius: 2px;
-  box-shadow: 0 0 5px 0px #dcdcdc;
+  box-shadow: 0 0 10px 5px var(--box-shadow);
   transition: 0.4s;
   &-content {
     position: relative;
@@ -19,9 +18,10 @@
     flex-direction: column;
     height: 100%;
     width: 100%;
-    color: #fff;
+    color: var(--text-color);
     font-size: var(--font-size-base);
     white-space: nowrap;
+    padding: 10px 20px;
     &-header {
       display: flex;
       height: 40px;
@@ -36,7 +36,8 @@
       }
       &-close {
         position: absolute;
-        right: 0;
+        right: 10px;
+        top: 6px;
         cursor: pointer;
         transition: 0.3s;
         opacity: 0.8;

@@ -251,7 +251,7 @@ export default defineConfig({
               path: '/design/feed-back/modal',
             },
             {
-              label: 'notification',
+              label: 'Notification',
               path: '/design/feed-back/notification',
             },
             {

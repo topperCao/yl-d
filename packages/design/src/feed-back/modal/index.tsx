@@ -1,10 +1,7 @@
 import { ReactNode, CSSProperties } from 'react';
 import ReactDOM from 'react-dom';
 import { Button, Icon } from '../../index';
-
-export const uuid = function uuid(size) {
-  return Math.random().toString().substr(2, size);
-};
+import { uuid } from '../../tools';
 
 export const $: any = document.querySelector.bind(document);
 
@@ -104,17 +101,17 @@ const Modal = ({
 export default (props: ModalProps) => {
   return {
     open: (options: ModalProps) => {
+      const containId = `modal_${uuid(6)}`;
       const modalProps = {
         ...props,
         ...options,
       };
-      const close = () => {
+      const closeModal = () => {
         $(`#${containId} .yld-modal`).style.top = '-9999px';
         setTimeout(() => {
           $(`#${containId}`)?.remove();
         }, 500);
       };
-      const containId = modalProps.containId || `modalId_${uuid(6)}`;
       const tag = document.createElement('div');
       tag.setAttribute('id', containId);
       tag.setAttribute('class', 'yld-modal-wrapper');
@@ -123,12 +120,12 @@ export default (props: ModalProps) => {
         <Modal
           {...modalProps}
           onClose={() => {
-            close();
+            closeModal();
             modalProps.onClose?.();
           }}
           onOk={async () => {
             await modalProps.onOk?.(); // 等待关闭 resolve
-            close();
+            closeModal();
           }}
         />,
         tag,

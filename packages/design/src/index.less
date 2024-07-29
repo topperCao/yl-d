@@ -62,15 +62,33 @@ body {
   --primary-color: #165dff;
   --primary-spin-background: #d8e2fc52;
   --font-size-base: 12px;
-  --text-color: #222;
+  --text-color: #565656;
   --bg-color: #fff;
   --bg-color-2: #f2f2f2;
   --bg-color-3: #d5d2d2;
   --border-color: #e5e6ec;
   --box-shadow: #00152914;
+  /* 自定义整个滚动条 */
+  ::-webkit-scrollbar {
+    width: 8px; /* 滚动条宽度 */
+    height: 8px;
+  }
+  /* 自定义滚动条轨道 */
+  ::-webkit-scrollbar-track {
+    background: var(--bg-color-2); /* 轨道颜色 */
+  }
+  /* 自定义滚动条的滑块（thumb） */
+  ::-webkit-scrollbar-thumb {
+    background: var(--border-color); /* 滑块颜色 */
+    border-radius: 20px;
+  }
+  /* 当hover或active状态时，自定义滑块的颜色 */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--bg-color-3);
+  }
 }
 
-body[yld-theme='dark']{
+body[yld-theme='dark'] {
   --primary-color: #165dff;
   --primary-spin-background: #d8e2fc52;
   --font-size-base: 12px;

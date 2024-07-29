@@ -1,7 +1,8 @@
 import { ReactNode, CSSProperties } from 'react';
 import ReactDOM from 'react-dom';
 import { Button, Icon } from '../../index';
-import { uuid, $ } from '../modal';
+import { uuid } from '../../tools';
+import { $ } from '../modal';
 
 export interface DrawerProps {
   containId?: string;
@@ -24,7 +25,7 @@ export interface DrawerProps {
   /** 是否展示底部 */
   footer?: boolean;
   /** 自定义渲染底部 */
-  footerRender?: (api: { onClose: any }) => ReactNode;
+  footerRender?: (api: { onClose: Function }) => ReactNode;
   /** 容器样式 */
   style?: CSSProperties;
   /** 确认文案 */
@@ -32,7 +33,7 @@ export interface DrawerProps {
   /** 取消文案 */
   cancelText?: string;
   /** 主体渲染 */
-  render: (api: { onClose: any }) => ReactNode;
+  render: (api: { onClose: Function }) => ReactNode;
 }
 
 const Drawer = ({
@@ -76,7 +77,7 @@ const Drawer = ({
       >
         <div className="yld-drawer-header">
           <div>{title}</div>
-          {closable && <Icon type="guanbi" onClick={close} />}
+          {closable && <Icon type="guanbi" onClick={onClose} />}
         </div>
         <div
           className="yld-drawer-body"
@@ -117,18 +118,18 @@ const Drawer = ({
 export default (props: DrawerProps) => {
   return {
     open: (options: DrawerProps) => {
+      const containId = `drawer_${uuid(6)}`;
       const drawerProps = {
         placement: 'right',
         ...props,
         ...options,
       } as DrawerProps;
-      const close = () => {
+      const closeDrawer = () => {
         $(`#${containId} .yld-drawer`).style[drawerProps.placement] = '-9999px';
         setTimeout(() => {
           $(`#${containId}`)?.remove();
         }, 500);
       };
-      const containId = drawerProps.containId || `drawerId_${uuid(6)}`;
       const tag = document.createElement('div');
       tag.setAttribute('id', containId);
       tag.setAttribute('class', 'yld-drawer-wrapper');
@@ -137,12 +138,12 @@ export default (props: DrawerProps) => {
         <Drawer
           {...drawerProps}
           onClose={() => {
-            close();
+            closeDrawer();
             drawerProps.onClose?.();
           }}
           onOk={async () => {
             await drawerProps.onOk?.(); // 等待关闭 resolve
-            close();
+            closeDrawer();
           }}
         />,
         tag,

@@ -7,7 +7,6 @@
   padding: 0 10px;
   color: var(--text-color);
   font-size: var(--font-size-base);
-  background: #333;
   border: 1px solid var(--border-color);
   .yld-alert-message {
     .yld-icon-message_SendSuccessfully {
@@ -37,7 +36,7 @@
   }
 }
 .yld-alert {
-  color: #333;
+  color: var(--text-color);
 }
 .yld-alert-success {
   background-color: #f6ffed;
@@ -54,4 +53,9 @@
 .yld-alert-error {
   background-color: #fff2f0;
   border: 1px solid #ffccc7;
+}
+body[yld-theme='dark']{
+  .yld-alert{
+    background-color: var(--bg-color);
+  }
 }
