@@ -141,11 +141,11 @@ export default defineConfig({
               path: '/design/data-display/table',
             },
             {
-              label: 'Tabs',
+              label: '选项卡 Tabs',
               path: '/design/data-display/tabs',
             },
             {
-              label: '标签页 Tag',
+              label: '标签 Tag',
               path: '/design/data-display/tag',
             },
             {
@@ -216,11 +216,11 @@ export default defineConfig({
               path: '/design/data-entry/time-picker',
             },
             {
-              label: 'Transfer',
+              label: '数据穿梭框 Transfer',
               path: '/design/data-entry/transfer',
             },
             {
-              label: '数据穿梭框 TreeSelect',
+              label: '树选择器 TreeSelect',
               path: '/design/data-entry/tree-select',
             },
             {
@@ -228,7 +228,7 @@ export default defineConfig({
               path: '/design/data-entry/upload',
             },
             {
-              label: 'Form',
+              label: '表单 Form',
               path: '/design/data-entry/form',
             },
           ],

@@ -11,6 +11,8 @@ export { default as Tree } from './data-display/tree';
 export { default as Table } from './data-display/table';
 export { default as Timeline } from './data-display/timeline';
 export { default as Space } from './data-display/space';
+export { default as Avatar } from './data-display/avatar';
+export { default as AvatarGroup } from './data-display/avatar/group';
 /** data-entry */
 export { default as Input } from './data-entry/input';
 export { default as InputNumber } from './data-entry/input-number';

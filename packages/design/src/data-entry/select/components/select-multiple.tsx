@@ -35,7 +35,6 @@ export default ({
   useEffect(() => {
     setOptions(rest.options);
   }, [rest.options]);
-  const layerRef = useRef<{ render: Function }>();
   const selectionRef = useRef<HTMLDivElement>();
   const choiceRef = useRef<HTMLDivElement>();
   // 更新容器的高度
@@ -43,7 +42,6 @@ export default ({
     if (choiceRef.current) {
       const { height } = choiceRef.current.getBoundingClientRect();
       selectionRef.current.style.height = height + 'px';
-      layerRef.current?.render?.();
     }
   }, [value]);
   return (
@@ -100,7 +98,6 @@ export default ({
                 setValue([]); // clear
                 selectionRef.current.style.height = '32px';
                 await new Promise((res) => setTimeout(res, 300));
-                layerRef.current?.render?.(); // refresh
                 onChange?.([], null);
               }}
             />
@@ -109,7 +106,6 @@ export default ({
       </div>
       {open && (
         <Layer
-          ref={layerRef}
           layerClose={() => setOpen(false)}
           layerClassName={layerClassName}
           getPopupContainer={getPopupContainer}

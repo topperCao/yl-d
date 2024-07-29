@@ -86,7 +86,6 @@ export default ({
   }
   const label = getLabelByValue(value, optionsRef.current);
   const selectionRef = useRef<HTMLDivElement>();
-  const layerRef = useRef<{ render: Function }>();
   return (
     <div className={classNames.join(' ')} style={style}>
       <div
@@ -123,7 +122,6 @@ export default ({
       </div>
       {open && (
         <Layer
-          ref={layerRef}
           layerWidth="fix-content"
           layerClose={() => setOpen(false)}
           domRef={selectionRef}

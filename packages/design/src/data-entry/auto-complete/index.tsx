@@ -56,7 +56,6 @@ export default ({
     classNames.push(className);
   }
   const selectionRef = useRef<HTMLDivElement>();
-  const layerRef = useRef<{ render: Function }>();
   return (
     <div className={classNames.join(' ')} style={style}>
       <div
@@ -99,7 +98,6 @@ export default ({
       </div>
       {open && value !== '' && (
         <Layer
-          ref={layerRef}
           layerClose={() => setOpen(false)}
           layerClassName={layerClassName}
           getPopupContainer={getPopupContainer}
