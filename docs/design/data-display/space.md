@@ -6,9 +6,9 @@ import { Space } from '@yl-d/design';
 export default () => {
   return (
     <Space>
-      <button>描述1</button>
-      <button>描述2</button>
-      <button>描述3</button>
+      <div>描述1</div>
+      <div>描述2</div>
+      <div>描述3</div>
     </Space>
   );
 };
@@ -22,9 +22,9 @@ import { Space } from '@yl-d/design';
 export default () => {
   return (
     <Space gap={12} direction="vertical">
-      <button>描述1</button>
-      <button>描述2</button>
-      <button>描述3</button>
+      <div>描述1</div>
+      <div>描述2</div>
+      <div>描述3</div>
     </Space>
   );
 };

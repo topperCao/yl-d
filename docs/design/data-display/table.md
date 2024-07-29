@@ -1,6 +1,6 @@
 ## 基本使用
 
-```jsx | react
+```jsx | react | var(--bg-color-2)
 import { Table, Button, Select, Switch } from '@yl-d/design';
 import axios from 'axios';
 
@@ -69,14 +69,14 @@ export default () => {
       ]}
       search={{
         column: 3,
-        items: [
+        schema: [
           {
             type: 'Input',
             name: 'userName',
             label: '用户姓名',
             flex: {
-              label: 3,
-              wrap: 7,
+              label: 2,
+              wrap: 8,
             },
           },
         ],

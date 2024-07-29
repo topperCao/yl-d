@@ -8,7 +8,8 @@ export default ({
   tableRef = useRef({}),
   columns = [],
   search = {
-    items: [],
+    schema: [],
+    column: 3,
   },
   tools = [],
   rowOperations,
@@ -70,18 +71,24 @@ export default ({
   }
   return (
     <div className="yld-table-contianer">
-      {search.items.length > 0 && (
+      {search.schema.length > 0 && (
         <Form
           horizontal
           form={form}
           {...search}
-          items={[
-            ...search.items,
+          schema={[
+            ...search.schema,
             {
+              className: "yld-table-contianer-flex-btn",
+              style: {
+                gridColumn: 3,
+              },
               type() {
                 return (
                   <Space>
                     <Button
+                      type="primary"
+                      icon="reset"
                       onClick={async () => {
                         form.clearValues({});
                         await tableRef.current.search(form.getValues());
@@ -91,6 +98,7 @@ export default ({
                     </Button>
                     <Button
                       type="primary"
+                      icon="searchicon"
                       onClick={async () => {
                         await tableRef.current.search(form.getValues());
                       }}

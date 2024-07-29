@@ -145,10 +145,6 @@ export default defineConfig({
               path: '/design/data-display/tabs',
             },
             {
-              label: '标签 Tag',
-              path: '/design/data-display/tag',
-            },
-            {
               label: '时间轴 Timeline',
               path: '/design/data-display/timeline',
             },

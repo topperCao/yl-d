@@ -27,6 +27,7 @@ export default ({
     props,
     visible,
     flex,
+    className,
   } = _item;
   const [, setRefresh] = useState(Math.random());
   const [_value, setValue] = useState(value);
@@ -72,19 +73,22 @@ export default ({
   if (typeof visible === 'function' && visible(form) === false) {
     return null;
   }
-  const className = ['yld-form-item'];
+  const classNames = ['yld-form-item'];
+  if (className) {
+    classNames.push(className);
+  }
   if (required) {
-    className.push('yld-form-item-required');
+    classNames.push('yld-form-item-required');
   }
   if (error) {
-    className.push('yld-form-item-error');
+    classNames.push('yld-form-item-error');
   }
   return (
     <div
-      className={className.join(' ')}
+      className={classNames.join(' ')}
       style={{
-        ...style,
         gridColumnStart: `span ${span === 'fill' ? column : span}`,
+        ...style,
       }}
     >
       {label && <label style={{ flex: flex.label }}>{label}</label>}
