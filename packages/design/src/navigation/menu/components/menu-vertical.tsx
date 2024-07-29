@@ -56,7 +56,7 @@ const MenuVerical = ({
     return (
       <>
         <div className={labelClassName.join(' ')}>
-          <Tooltip theme={theme} placement="right" title={item.label}>
+          <Tooltip placement="right" title={item.label}>
             <Icon
               type={item.icon}
               size={18}

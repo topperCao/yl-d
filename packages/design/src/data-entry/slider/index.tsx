@@ -90,7 +90,7 @@ export default ({
             onMouseDown={disabled ? noop : setStatus.bind(null, true)}
           />
         ) : (
-          <Tooltip title={_value} visible={tooltipVisible} theme="dark">
+          <Tooltip title={_value} visible={tooltipVisible}>
             <div
               className="yld-slider-handle"
               ref={sliderHandleRef}

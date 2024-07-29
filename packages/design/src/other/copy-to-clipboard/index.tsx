@@ -1,8 +1,4 @@
-import Message from '../../feed-back/message';
-
-const message = Message({
-  duration: 3,
-});
+import { Message } from "../..";
 
 const copyToClipBoard = async (text, tips) => {
   /** navigator clipboard 需要https等安全上下文 */
@@ -10,7 +6,7 @@ const copyToClipBoard = async (text, tips) => {
     setTimeout(async () => {
       await navigator.clipboard.writeText(text);
       if (tips) {
-        message.success('已复制到剪切板');
+        Message.success('已复制到剪切板');
       }
     });
   } else {
@@ -30,7 +26,7 @@ const copyToClipBoard = async (text, tips) => {
       textArea.remove();
     });
     if (tips && res) {
-      message.success('已复制到剪切板');
+      Message.success('已复制到剪切板');
     }
   }
 };
