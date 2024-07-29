@@ -101,43 +101,43 @@ export default defineConfig({
           group: true,
           children: [
             {
-              label: 'Avatar',
+              label: '头像 Avatar',
               path: '/design/data-display/avatar',
             },
             {
-              label: 'Badge',
+              label: '徽标 Badge',
               path: '/design/data-display/badge',
             },
             {
-              label: 'Carousel',
+              label: '图片轮播 Carousel',
               path: '/design/data-display/carousel',
             },
             {
-              label: 'Collapse',
+              label: '折叠面板 Collapse',
               path: '/design/data-display/collapse',
             },
             {
-              label: 'Descriptions',
+              label: '描述列表 Descriptions',
               path: '/design/data-display/descriptions',
             },
             {
-              label: 'Empty',
+              label: '空状态 Empty',
               path: '/design/data-display/empty',
             },
             {
-              label: 'List',
+              label: '列表 List',
               path: '/design/data-display/list',
             },
             {
-              label: 'Popover',
+              label: '气泡卡片 Popover',
               path: '/design/data-display/popover',
             },
             {
-              label: 'Space',
+              label: '间距 Space',
               path: '/design/data-display/space',
             },
             {
-              label: 'Table',
+              label: '表格 Table',
               path: '/design/data-display/table',
             },
             {
@@ -145,19 +145,19 @@ export default defineConfig({
               path: '/design/data-display/tabs',
             },
             {
-              label: 'Tag',
+              label: '标签页 Tag',
               path: '/design/data-display/tag',
             },
             {
-              label: 'Timeline',
+              label: '时间轴 Timeline',
               path: '/design/data-display/timeline',
             },
             {
-              label: 'tooltip',
+              label: '文字气泡 Tooltip',
               path: '/design/data-display/tooltip',
             },
             {
-              label: 'Tree',
+              label: '树 Tree',
               path: '/design/data-display/tree',
             },
           ],
@@ -168,51 +168,51 @@ export default defineConfig({
           group: true,
           children: [
             {
-              label: 'AutoComplete',
+              label: '自动补全 AutoComplete',
               path: '/design/data-entry/auto-complete',
             },
             {
-              label: 'Cascader',
+              label: '级联选择 Cascader',
               path: '/design/data-entry/cascader',
             },
             {
-              label: 'Checkbox',
+              label: '复选框 Checkbox',
               path: '/design/data-entry/checkbox',
             },
             {
-              label: 'DatePicker',
+              label: '日期选择 DatePicker',
               path: '/design/data-entry/date-picker',
             },
             {
-              label: 'InputNumber',
+              label: '数字输入框 InputNumber',
               path: '/design/data-entry/input-number',
             },
             {
-              label: 'Input',
+              label: '输入框 Input',
               path: '/design/data-entry/input',
             },
             {
-              label: 'Radio',
+              label: '单选按钮 Radio',
               path: '/design/data-entry/radio',
             },
             {
-              label: 'Rate',
+              label: '评分 Rate',
               path: '/design/data-entry/rate',
             },
             {
-              label: 'Select',
+              label: '下拉选 Select',
               path: '/design/data-entry/select',
             },
             {
-              label: 'Slider',
+              label: '滑块 Slider',
               path: '/design/data-entry/slider',
             },
             {
-              label: 'Switch',
+              label: '开关 Switch',
               path: '/design/data-entry/switch',
             },
             {
-              label: 'TimePicker',
+              label: '时间选择 TimePicker',
               path: '/design/data-entry/time-picker',
             },
             {
@@ -220,11 +220,11 @@ export default defineConfig({
               path: '/design/data-entry/transfer',
             },
             {
-              label: 'TreeSelect',
+              label: '数据穿梭框 TreeSelect',
               path: '/design/data-entry/tree-select',
             },
             {
-              label: 'Upload',
+              label: '文件上传 Upload',
               path: '/design/data-entry/upload',
             },
             {
@@ -239,43 +239,43 @@ export default defineConfig({
           group: true,
           children: [
             {
-              label: 'Alert',
+              label: '警告提示 Alert',
               path: '/design/feed-back/alert',
             },
             {
-              label: 'Drawer',
+              label: '抽屉 Drawer',
               path: '/design/feed-back/drawer',
             },
             {
-              label: 'Message',
+              label: '消息提示 Message',
               path: '/design/feed-back/message',
             },
             {
-              label: 'Modal',
+              label: '对话框 Modal',
               path: '/design/feed-back/modal',
             },
             {
-              label: 'Notification',
+              label: '通知 Notification',
               path: '/design/feed-back/notification',
             },
             {
-              label: 'Popconfirm',
+              label: '气泡确认框 Popconfirm',
               path: '/design/feed-back/popconfirm',
             },
             {
-              label: 'Progress',
+              label: '进度条 Progress',
               path: '/design/feed-back/progress',
             },
             {
-              label: 'Result',
+              label: '结果页 Result',
               path: '/design/feed-back/result',
             },
             {
-              label: 'Skeleton',
+              label: '骨架屏 Skeleton',
               path: '/design/feed-back/skeleton',
             },
             {
-              label: 'Spin',
+              label: '加载 Spin',
               path: '/design/feed-back/spin',
             },
           ],
@@ -286,31 +286,31 @@ export default defineConfig({
           group: true,
           children: [
             {
-              label: 'Breadcrumb',
+              label: '面包屑 Breadcrumb',
               path: '/design/navigation/breadcrumb',
             },
             {
-              label: 'Dropdown',
+              label: '下拉菜单 Dropdown',
               path: '/design/navigation/dropdown',
             },
             {
-              label: 'Grid',
+              label: '栅格 Grid',
               path: '/design/navigation/grid',
             },
             {
-              label: 'Menu',
+              label: '菜单 Menu',
               path: '/design/navigation/menu',
             },
             {
-              label: 'PageHeader',
+              label: '页头 PageHeader',
               path: '/design/navigation/page-header',
             },
             {
-              label: 'Pagination',
+              label: '分页 Pagination',
               path: '/design/navigation/pagination',
             },
             {
-              label: 'Steps',
+              label: '步骤条 Steps',
               path: '/design/navigation/steps',
             },
           ],
@@ -321,19 +321,19 @@ export default defineConfig({
           group: true,
           children: [
             {
-              label: 'BackTop',
+              label: '返回顶部 BackTop',
               path: '/design/other/back-top',
             },
             {
-              label: 'Button',
+              label: '按钮 Button',
               path: '/design/other/button',
             },
             {
-              label: 'CopyToClipboard',
+              label: '复制 CopyToClipboard',
               path: '/design/other/copy-to-clipboard',
             },
             {
-              label: 'Icon',
+              label: '图标 Icon',
               path: '/design/other/icon',
             },
           ],
