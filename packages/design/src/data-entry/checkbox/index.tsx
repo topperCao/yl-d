@@ -50,7 +50,7 @@ export default ({
             onChange={(e) => {
               if (disabled) return;
               setChecked(e.target.checked);
-              typeof onChange === 'function' && onChange(e);
+              onChange?.(e);
             }}
           />
           <span className="yld-checkbox-inner"></span>

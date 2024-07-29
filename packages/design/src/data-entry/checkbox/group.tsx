@@ -54,7 +54,7 @@ export default ({
                 __value = _value.filter((value) => value !== option.value);
               }
               setValue(__value);
-              typeof onChange === 'function' && onChange(__value);
+              onChange?.(__value);
             }}
           >
             {option.label}

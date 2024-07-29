@@ -39,7 +39,7 @@ export default ({
       currentPage = page;
     }
     setcurrentPage(currentPage);
-    typeof onChange === 'function' && onChange(currentPage);
+    onChange?.(currentPage);
   };
   const Play = () => {
     timer = setTimeout(() => {

@@ -121,7 +121,7 @@ export default ({
           onAllowClear={() => {
             setValue(undefined);
             updateDateCalendar(new Date()); // 更新时间
-            typeof onChange === 'function' && onChange(undefined);
+            onChange?.(undefined);
           }}
         />
       </div>

@@ -68,7 +68,7 @@ export default ({
           if (__value >= min && __value <= max) {
             setValue(parseInt(__value));
             let number: any = Math.round(__value);
-            typeof onChange === 'function' && onChange(parseInt(number));
+            onChange?.(parseInt(number));
           }
         }}
       >
@@ -110,7 +110,7 @@ export default ({
               if (disabled) return;
               setStatus(false);
               let number: any = Math.round(_value);
-              typeof onChange === 'function' && onChange(parseInt(number));
+              onChange?.(parseInt(number));
             }}
             onMouseMove={({ pageX }) => {
               if (disabled) return;

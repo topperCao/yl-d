@@ -138,8 +138,7 @@ export default ({
                       value.splice(index, 1);
                     }
                     setValue([...value]);
-                    typeof onChange === 'function' &&
-                      onChange([...value], option);
+                    onChange?.([...value], option);
                   }}
                 >
                   {option.label}

@@ -49,7 +49,7 @@ export default ({
           setLoading(false);
         }
         setChecked(!checked);
-        typeof onChange === 'function' && onChange(!checked, e);
+        onChange?.(!checked, e);
       }}
     >
       {loading && <Icon type="loading" size={10} />}

@@ -77,16 +77,18 @@ const Form = ({
           [name]: descriptorRef.current[name],
         });
         validator.validate({ [name]: value }, (errors) => {
+          console.log({ [name]: value }, errors);
           if (errors) {
             errors.map((error) => {
               itemRef.current[error.field].showError(error.message);
             });
-          }
-          if (
+          } else if (
             Array.isArray(value) &&
             value.filter((i) => i !== undefined).length === 0
           ) {
-            itemRef.current[name].showError(descriptorRef.current[name].message);
+            itemRef.current[name].showError(
+              descriptorRef.current[name].message,
+            );
           } else {
             itemRef.current[name].clearError();
           }

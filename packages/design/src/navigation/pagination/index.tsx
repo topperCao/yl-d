@@ -39,7 +39,7 @@ export default ({
   }, [pageSize]);
   const pageChange = (current) => {
     setCurrent(current);
-    typeof onChange === 'function' && onChange(current);
+    onChange?.(current);
   };
   let totalPage = Math.ceil(total / _pageSize);
   let page = [];
@@ -174,7 +174,7 @@ export default ({
                 if (!isNaN(current)) {
                   const pageNum = current > totalPage ? totalPage : current;
                   setCurrent(pageNum);
-                  typeof onChange === 'function' && onChange(pageNum);
+                  onChange?.(pageNum);
                 }
               }}
             />
