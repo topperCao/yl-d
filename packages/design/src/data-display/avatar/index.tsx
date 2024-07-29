@@ -1,4 +1,4 @@
-import { CSSProperties, ReactNode } from 'react';
+import { CSSProperties, ReactNode, useEffect, useRef } from 'react';
 import './index.less';
 
 export interface AvatarProps {
@@ -14,21 +14,34 @@ export default ({
   children = null,
   size = 40,
 }: AvatarProps) => {
-  let fontSize: any = 'var(--font-size-base)';
-  console.log(children)
-  if (typeof children === 'string') {
-    fontSize = children.length > 4 ? 9 : fontSize;
-  }
+  const avatarRef = useRef<HTMLDivElement>();
+  const textRef = useRef<HTMLSpanElement>();
+  // 调整大小
+  useEffect(() => {
+    if (textRef.current) {
+      const textWidth = textRef.current.clientWidth;
+      const scale = size / (textWidth + 8);
+      if (size && scale < 1) {
+        textRef.current.style.transform = `scale(${scale}) translateX(-50%)`;
+      }
+    }
+  }, []);
   return (
     <div
+      ref={avatarRef}
       style={Object.assign(style, {
         width: size,
         height: size,
-        fontSize,
       })}
       className={`yld-avatar yld-avatar-${shape}`}
     >
-      {children}
+      {typeof children === 'string' ? (
+        <span ref={textRef} className="yld-avatar-text">
+          {children}
+        </span>
+      ) : (
+        children
+      )}
     </div>
   );
 };

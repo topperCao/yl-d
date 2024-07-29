@@ -5,11 +5,20 @@
   background-color: var(--bg-color-3);
   border-radius: 4px;
   color: #fff;
+  position: relative;
   &-circle{
     border-radius: 50%;
     img{
       border-radius: 50%;
     }
+  }
+  &-text{
+    position: absolute;
+    left: 50%;
+    transform-origin: 0 center;
+    transform: translateX(-50%);
+    font-weight: 500;
+    line-height: 1;
   }
 }
 .yld-avatar-group{
