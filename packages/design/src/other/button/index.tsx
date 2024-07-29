@@ -1,4 +1,4 @@
-import { CSSProperties, ReactNode, useState } from 'react';
+import { CSSProperties, ReactNode, useEffect, useState } from 'react';
 import { Icon } from '../../index';
 
 export interface ButtonProps {
@@ -22,6 +22,8 @@ export interface ButtonProps {
   /** 类名 */
   className?: string;
   children?: ReactNode;
+  /** 加载中 */
+  loading?: boolean;
 }
 
 export default ({
@@ -33,9 +35,15 @@ export default ({
   style,
   className,
   children,
+  loading = false
 }: ButtonProps) => {
   const classNames = ['yld-btn'];
-  const [loading, setLoading] = useState(false);
+  const [spin, setSpin] = useState(loading);
+  useEffect(() => {
+    if(loading !== spin){
+      setSpin(loading);
+    }
+  }, [loading])
   if (className) {
     classNames.push(className);
   }
@@ -48,7 +56,7 @@ export default ({
   if (disabled) {
     classNames.push('yld-btn-disabled');
   }
-  if (loading) {
+  if (spin) {
     classNames.push('yld-btn-loading');
   }
   return (
@@ -57,17 +65,17 @@ export default ({
       className={classNames.join(' ')}
       onClick={async (e: any) => {
         if (disabled) return;
-        setLoading(true);
+        setSpin(true);
         try {
           typeof onClick === 'function' && (await onClick(e));
         } catch (error) {
           console.error('按钮点击异常:', error);
         } finally {
-          setLoading(false);
+          setSpin(false);
         }
       }}
     >
-      {loading && <Icon type="loading" size={12} />}
+      {spin && <Icon type="loading" size={12} />}
       {icon && <Icon type={icon} />}
       {children || ''}
     </button>

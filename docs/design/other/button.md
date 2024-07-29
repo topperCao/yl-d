@@ -14,7 +14,8 @@ export default () => {
       <Button type="primary" ghost>
         ghost
       </Button>
-       <Button disabled>Disabled</Button>
+      <Button disabled>Disabled</Button>
+      <Button type="primary" loading>Loading...</Button>
     </Space>
   );
 };
