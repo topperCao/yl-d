@@ -142,6 +142,7 @@ const Form = ({
             item={item}
             form={form}
             column={column}
+            horizontal={horizontal}
             disabled={disabled}
             itemRef={itemRef.current[item.name]}
             descriptorRef={descriptorRef}

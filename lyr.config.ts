@@ -227,6 +227,10 @@ export default defineConfig({
               label: '表单 Form',
               path: '/design/data-entry/form',
             },
+            {
+              label: '查询表单 Search',
+              path: '/design/data-entry/search',
+            },
           ],
         },
         {

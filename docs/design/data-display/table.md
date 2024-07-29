@@ -1,7 +1,7 @@
 ## 基本使用
 
 ```jsx | react | var(--bg-color-2)
-import { Table, Button, Select, Switch } from '@yl-d/design';
+import { Table } from '@yl-d/design';
 import axios from 'axios';
 
 export default () => {
@@ -55,7 +55,7 @@ export default () => {
           width: 125,
         },
       ]}
-      style={{ height: 260 }}
+      style={{ height: 360 }}
       bordered
       checkable
       tools={[
@@ -72,11 +72,24 @@ export default () => {
         schema: [
           {
             type: 'Input',
-            name: 'userName',
+            name: 'name',
             label: '用户姓名',
-            flex: {
-              label: 2,
-              wrap: 8,
+          },
+          {
+            type: 'Select',
+            name: 'sex',
+            label: '用户性别',
+            props: {
+              options: [
+                {
+                  label: '男',
+                  value: 1,
+                },
+                {
+                  label: '女',
+                  value: 2,
+                },
+              ],
             },
           },
         ],

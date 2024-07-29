@@ -1,9 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
-import { Icon, Pagination, Checkbox, Empty, Spin } from '../../index';
+import { Icon, Pagination, Checkbox, Empty, Spin, Button } from '../../index';
 import { TableProps } from './type';
 
 export default ({
   columns = [],
+  tools,
+  title,
   request = async (params) => {
     return {
       success: true,
@@ -234,6 +236,42 @@ export default ({
   return (
     <Spin loading={loading}>
       <div className="yld-table" style={style}>
+        {tools.length > 0 && (
+          <div className="yld-table-contianer-tools">
+            <h3
+              style={{
+                fontSize: 13,
+                borderLeft: '3px solid var(--primary-color)',
+                paddingLeft: 8,
+              }}
+            >
+              {title}
+            </h3>
+            <div
+              style={{
+                display: 'flex',
+                gap: 10,
+              }}
+            >
+              {tools.map((item) => {
+                return (
+                  <Button
+                    key={item.label}
+                    {...item}
+                    type={item.type}
+                    onClick={async () => {
+                      await item.onClick?.({
+                        refresh: tableRef.current.refresh,
+                      });
+                    }}
+                  >
+                    {item.label}
+                  </Button>
+                );
+              })}
+            </div>
+          </div>
+        )}
         <div className="yld-table-wrap">
           <div className="yld-table-wrap-header">
             {renderHeaderTable(columns)}

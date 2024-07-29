@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import mapping from './mapping';
 import Error from './error';
 import { isEmpty } from '../../tools';
@@ -12,6 +12,7 @@ export default ({
   item,
   column,
   disabled,
+  horizontal
 }) => {
   const [_item, setItem] = useState(item);
   useEffect(() => {
@@ -26,8 +27,8 @@ export default ({
     span = 1,
     props,
     visible,
-    flex,
     className,
+    labelWidth,
   } = _item;
   const [, setRefresh] = useState(Math.random());
   const [_value, setValue] = useState(value);
@@ -83,6 +84,14 @@ export default ({
   if (error) {
     classNames.push('yld-form-item-error');
   }
+  const labelRef = useRef<HTMLLabelElement>();
+  const wrapRef = useRef<HTMLDivElement>();
+  useEffect(() => {
+    if (labelRef.current && horizontal) {
+      const { width } = labelRef.current.getBoundingClientRect();
+      wrapRef.current.style.width = `calc(100% - ${width + 10}px)`;
+    }
+  }, [label]);
   return (
     <div
       className={classNames.join(' ')}
@@ -91,8 +100,12 @@ export default ({
         ...style,
       }}
     >
-      {label && <label style={{ flex: flex.label }}>{label}</label>}
-      <div className="yld-form-item-wrap" style={{ flex: flex.wrap }}>
+      {label && (
+        <label ref={labelRef} style={labelWidth ? { width: labelWidth } : {}}>
+          {label}
+        </label>
+      )}
+      <div className="yld-form-item-wrap" ref={wrapRef}>
         <Comp
           disabled={_disabled}
           placeholder={placeholderMapping[type]?.(label)}

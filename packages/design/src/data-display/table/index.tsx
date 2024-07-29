@@ -1,10 +1,9 @@
 import { useRef } from 'react';
-import { Button, Form, Space } from '../../index';
+import { Button, Form, Search } from '../../index';
 import { TableProps } from './type';
 import Table from './table';
 
 export default ({
-  title = '',
   tableRef = useRef({}),
   columns = [],
   search = {
@@ -35,6 +34,7 @@ export default ({
   if (useRefresh) {
     tools.push({
       icon: 'refresh',
+      type: 'primary',
       className: 'btn-tool',
       async onClick({ refresh }) {
         await refresh();
@@ -72,82 +72,18 @@ export default ({
   return (
     <div className="yld-table-contianer">
       {search.schema.length > 0 && (
-        <Form
-          horizontal
-          form={form}
+        <Search
           {...search}
-          schema={[
-            ...search.schema,
-            {
-              className: "yld-table-contianer-flex-btn",
-              style: {
-                gridColumn: 3,
-              },
-              type() {
-                return (
-                  <Space>
-                    <Button
-                      type="primary"
-                      icon="reset"
-                      onClick={async () => {
-                        form.clearValues({});
-                        await tableRef.current.search(form.getValues());
-                      }}
-                    >
-                      重置
-                    </Button>
-                    <Button
-                      type="primary"
-                      icon="searchicon"
-                      onClick={async () => {
-                        await tableRef.current.search(form.getValues());
-                      }}
-                    >
-                      查询
-                    </Button>
-                  </Space>
-                );
-              },
-            } as any,
-          ]}
-          className="yld-table-contianer-search"
+          onReset={async () => {
+            form.clearValues({});
+            await tableRef.current.search(form.getValues());
+          }}
+          onSearch={async () => {
+            await tableRef.current.search(form.getValues());
+          }}
         />
       )}
-      {tools.length > 0 && (
-        <div className="yld-table-contianer-tools">
-          <h3
-            style={{
-              fontSize: 13,
-              borderLeft: '3px solid var(--primary-color)',
-              paddingLeft: 8,
-            }}
-          >
-            {title}
-          </h3>
-          <div
-            style={{
-              display: 'flex',
-              gap: 10,
-            }}
-          >
-            {tools.map((item) => {
-              return (
-                <Button
-                  key={item.label}
-                  {...item}
-                  type={item.type}
-                  onClick={async () => {
-                    await item.onClick?.({ refresh: tableRef.current.refresh });
-                  }}
-                >
-                  {item.label}
-                </Button>
-              );
-            })}
-          </div>
-        </div>
-      )}
-      <Table tableRef={tableRef} columns={lastColums} {...rest} />
+      <Table tableRef={tableRef} columns={lastColums} {...rest} tools={tools} />
     </div>
   );
 };
