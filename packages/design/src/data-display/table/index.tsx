@@ -14,19 +14,11 @@ export default ({
   rowOperations,
   useRefresh = true,
   useFilter = true,
-  useAdjust = true,
   ...rest
 }: TableProps) => {
   if (useFilter) {
     tools.push({
       icon: 'shezhi',
-      className: 'btn-tool',
-      async onClick({ refresh }) {},
-    });
-  }
-  if (useAdjust) {
-    tools.push({
-      icon: 'da-xiao',
       className: 'btn-tool',
       async onClick({ refresh }) {},
     });
@@ -45,16 +37,17 @@ export default ({
   const form = Form.useForm();
   // 解析 cloums
   const lastColums = [...columns];
-  if (typeof rowOperations === 'function') {
+  if (rowOperations) {
+    const { width, menus } = rowOperations;
     lastColums.push({
       title: '操作',
-      width: 'fit-content',
+      width,
       dataIndex: 'yld-table-row-operation',
       fixed: 'right',
       render(e, record, index) {
         return (
           <div className="yld-table-row-operation">
-            {rowOperations({
+            {menus({
               record,
               refresh: tableRef.current.refresh,
             }).map((item) => {

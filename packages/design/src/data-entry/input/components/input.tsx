@@ -18,7 +18,7 @@ export default ({
   onBlur,
   onFocus,
   onPressEnter,
-  allowClear = false,
+  allowClear = true,
   onAllowClear,
   readOnly,
   showCount = true,

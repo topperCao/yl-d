@@ -1,5 +1,8 @@
 ## 基本使用
 
+> 在 column 中指定 fixed: "left" 或 fixed: "right"，可将列固定到左侧或右侧，设置 fixed 的列，也需要设置 width。
+注意： 要配合 scroll={{ x: number }} 使用，columns 中需要有一列不设置宽度，自适应，不然会有样式问题。
+
 ```jsx | react | var(--bg-color-2)
 import { Table } from '@yl-d/design';
 import axios from 'axios';
@@ -15,53 +18,74 @@ export default () => {
         {
           title: 'ID',
           dataIndex: 'id',
-          width: 80,
+          width: 60,
+          fixed: 'left',
         },
         {
           title: '姓名',
           dataIndex: 'username',
-          width: 125,
+          width: 120,
         },
         {
           title: '性别',
           dataIndex: 'sex',
-          width: 125,
           enums: ['男', '女'],
         },
         {
           title: '城市',
           dataIndex: 'city',
-          width: 125,
         },
         {
           title: '签名',
           dataIndex: 'sign',
-          width: 125,
           sort: true,
         },
         {
           title: '登录次数',
           dataIndex: 'logins',
-          width: 125,
         },
         {
           title: '分类',
           dataIndex: 'classify',
-          width: 125,
         },
         {
           title: '分数',
           dataIndex: 'score',
-          width: 125,
         },
       ]}
-      style={{ height: 360 }}
-      bordered
+      rowOperations={{
+        width: 160,
+        menus: ({ record, refresh }) => [
+          {
+            label: '编辑',
+            onClick() {
+              console.log(record);
+            },
+          },
+          {
+            label: '查看',
+            onClick() {
+              console.log(record);
+            },
+          },
+          {
+            label: '删除',
+            onClick() {
+              console.log(record);
+            },
+          },
+        ],
+      }}
+      scroll={{
+        x: 1200,
+        y: 300,
+      }}
       checkable
       tools={[
         {
-          label: '导出',
-          type: 'primary',
+          label: '添加',
+          type: "primary",
+          icon: 'plus',
           onClick({ refresh }) {
             console.log(tableRef);
           },
@@ -93,28 +117,6 @@ export default () => {
             },
           },
         ],
-      }}
-      rowOperations={({ record, refresh }) => {
-        return [
-          {
-            label: '编辑',
-            onClick() {
-              console.log(record);
-            },
-          },
-          {
-            label: '查看',
-            onClick() {
-              console.log(record);
-            },
-          },
-          {
-            label: '删除',
-            onClick() {
-              console.log(record);
-            },
-          },
-        ];
       }}
       paginationConfig={{
         pageSize: 10,

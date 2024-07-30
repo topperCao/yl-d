@@ -46,7 +46,10 @@ export interface TableProps {
   /** 工具配置 */
   tools?: ToolProps[];
   /** 操作列配置 */
-  rowOperations?: (api: { record: any; refresh: Function }) => ToolProps[];
+  rowOperations?: {
+    width: string | number;
+    menus: (api: { record: any; refresh: Function }) => ToolProps[];
+  };
   /** 唯一标示 */
   rowKey?: string;
   /** 样式 */
@@ -63,6 +66,9 @@ export interface TableProps {
   useRefresh?: boolean;
   /** 是否开启列过滤 */
   useFilter?: boolean;
-  /** 是否开启大小调整 */
-  useAdjust?: boolean;
+  /** 滑动 */
+  scroll?: {
+    x?: number;
+    y?: string | number;
+  };
 }

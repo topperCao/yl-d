@@ -12,7 +12,7 @@ export default ({
   item,
   column,
   disabled,
-  horizontal
+  horizontal,
 }) => {
   const [_item, setItem] = useState(item);
   useEffect(() => {
@@ -30,6 +30,14 @@ export default ({
     className,
     labelWidth,
   } = _item;
+  const labelRef = useRef<HTMLLabelElement>();
+  const wrapRef = useRef<HTMLDivElement>();
+  useEffect(() => {
+    if (labelRef.current && horizontal) {
+      const { width } = labelRef.current.getBoundingClientRect();
+      wrapRef.current.style.width = `calc(100% - ${width + 10}px)`;
+    }
+  }, [label]);
   const [, setRefresh] = useState(Math.random());
   const [_value, setValue] = useState(value);
   const [_disabled, setDisabled] = useState(disabled);
@@ -84,14 +92,6 @@ export default ({
   if (error) {
     classNames.push('yld-form-item-error');
   }
-  const labelRef = useRef<HTMLLabelElement>();
-  const wrapRef = useRef<HTMLDivElement>();
-  useEffect(() => {
-    if (labelRef.current && horizontal) {
-      const { width } = labelRef.current.getBoundingClientRect();
-      wrapRef.current.style.width = `calc(100% - ${width + 10}px)`;
-    }
-  }, [label]);
   return (
     <div
       className={classNames.join(' ')}
