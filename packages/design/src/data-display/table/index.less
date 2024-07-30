@@ -18,6 +18,11 @@
     height: 45px;
     background-color: var(--bg-color);
     padding: 2px 10px;
+    & > h3 {
+      font-size: var(--font-size-base);
+      border-left: 3px solid var(--primary-color);
+      padding-left: 8px;
+    }
     .btn-tool {
       padding: 0 8px;
     }
@@ -26,6 +31,16 @@
     height: 100%;
     overflow: auto;
     background: var(--bg-color);
+  }
+  .show-fixed-left-box-shadow {
+    .yld-table-td-fixed-left-last::after {
+      box-shadow: inset 6px 0 8px -3px var(--box-shadow);
+    }
+  }
+  .hidden-fixed-right-box-shadow {
+    .yld-table-td-fixed-right-frist::after {
+      box-shadow: none;
+    }
   }
   &-header {
     display: flex;
@@ -50,8 +65,18 @@
   &-body {
     width: fit-content;
     &-tr {
+      transition: 0.3s;
       &:first-child {
         border-top: 1px solid var(--border-color);
+      }
+      &:hover {
+        transition: 0.3s;
+        background-color: var(--bg-color-2);
+        .yld-table-td-fixed-left,
+        .yld-table-td-fixed-right {
+          transition: 0.3s;
+          background-color: var(--bg-color-2);
+        }
       }
     }
   }
@@ -81,16 +106,17 @@
         position: sticky;
         left: 0;
         z-index: 1;
+        transition: 0.3s;
         background: var(--bg-color);
       }
       .yld-table-td-fixed-right {
         position: sticky;
         right: 0;
+        transition: 0.3s;
         z-index: 1;
         background: var(--bg-color);
       }
       .yld-table-td-fixed-left-last::after {
-        box-shadow: inset 6px 0 8px -3px var(--box-shadow);
         content: '';
         top: 0;
         right: 0;
@@ -102,7 +128,7 @@
         position: absolute;
       }
       .yld-table-td-fixed-right-frist::after {
-        box-shadow: inset -6px 0 8px -3px rgba(0, 0, 0, 0.15);
+        box-shadow: inset -6px 0 8px -3px var(--box-shadow);
         content: '';
         position: absolute;
         top: 0;
@@ -144,10 +170,10 @@
   }
   .yld-table-row-operation {
     display: flex;
-    gap: 10px;
     .yld-btn {
       padding-right: 16px;
-      padding-left: 4px;
+      padding-left: 0;
+      background-color: transparent;
     }
   }
   &-footer {

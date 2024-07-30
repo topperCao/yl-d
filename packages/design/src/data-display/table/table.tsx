@@ -6,7 +6,7 @@ export default ({
   columns = [],
   tools,
   title,
-  request = async (params) => {
+  request = async (p) => {
     return {
       success: true,
       total: 0,
@@ -22,8 +22,7 @@ export default ({
   tableRef,
   scroll = {},
 }: TableProps) => {
-  // 刷新逻辑
-  const [loading, setLoading] = useState(false); // 控制loading
+  const tableWrapRef = useRef<HTMLDivElement>();
   const tableHeaderRef = useRef<HTMLTableElement>();
   const tableBodyRef = useRef<HTMLTableElement>();
   useEffect(() => {
@@ -34,7 +33,25 @@ export default ({
     if (scroll.y) {
       tableBodyRef.current.style.maxHeight = scroll.y + 'px';
     }
+    /** 处理滚动的监听 */
+    const wrapScroll = (e) => {
+      if (e.target.scrollLeft > 0) {
+        tableWrapRef.current.classList.add('show-fixed-left-box-shadow');
+      } else {
+        tableWrapRef.current.classList.remove('show-fixed-left-box-shadow');
+      }
+      if (e.target.scrollLeft === e.target.scrollWidth - e.target.clientWidth) {
+        tableWrapRef.current.classList.add('hidden-fixed-right-box-shadow');
+      } else {
+        tableWrapRef.current.classList.remove('hidden-fixed-right-box-shadow');
+      }
+    };
+    tableWrapRef.current.addEventListener('scroll', wrapScroll);
+    return () => {
+      tableWrapRef.current.removeEventListener('scroll', wrapScroll);
+    };
   }, []);
+  const [loading, setLoading] = useState(false); // 控制loading
   const innerTableRef: any = useRef({
     loading: false,
     dataSource: [],
@@ -313,15 +330,7 @@ export default ({
       <div className="yld-table" style={style}>
         {tools.length > 0 && (
           <div className="yld-table-tools">
-            <h3
-              style={{
-                fontSize: 12,
-                borderLeft: '3px solid var(--primary-color)',
-                paddingLeft: 8,
-              }}
-            >
-              {title}
-            </h3>
+            <h3>{title}</h3>
             <div
               style={{
                 display: 'flex',
@@ -347,7 +356,7 @@ export default ({
             </div>
           </div>
         )}
-        <div className="yld-table-wrap">
+        <div className="yld-table-wrap" ref={tableWrapRef}>
           <table className="yld-table-header" ref={tableHeaderRef}>
             {renderHeaderTable(columns)}
           </table>

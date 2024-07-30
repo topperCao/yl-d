@@ -23,11 +23,6 @@ export interface FormProps {
   className?: string;
   /** 是否水平布局 */
   horizontal?: boolean;
-  /** 标签和表单的比例 */
-  flex?: {
-    label: number;
-    wrap: number;
-  };
 }
 
 const Hello: React.FC<FormProps> = () => null;

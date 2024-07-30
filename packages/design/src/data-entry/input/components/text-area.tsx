@@ -5,7 +5,7 @@ export default ({
   addonBefore,
   addonAfter,
   disabled,
-  placeholder,
+  placeholder = '请输入',
   maxLength,
   onChange,
   onBlur,

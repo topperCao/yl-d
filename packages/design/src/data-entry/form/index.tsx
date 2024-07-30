@@ -26,12 +26,6 @@ const Form = ({
   className,
   horizontal = false,
   disabled = false,
-  flex = horizontal
-    ? flexMapping[column]
-    : {
-        label: 1,
-        wrap: 1,
-      },
   ...rest
 }: FormProps) => {
   const form = rest.form || Form.useForm();
@@ -136,7 +130,6 @@ const Form = ({
     <div className={classNames.join(' ')}>
       {schema.map((item) => {
         itemRef.current[item.name] = itemRef.current[item.name] || {}; // 保留之前的ref
-        item.flex = item.flex || flex;
         return (
           <Item
             item={item}

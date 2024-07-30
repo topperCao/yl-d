@@ -54,7 +54,7 @@ export default () => {
         },
       ]}
       rowOperations={{
-        width: 160,
+        width: 140,
         menus: ({ record, refresh }) => [
           {
             label: '编辑',
@@ -98,23 +98,7 @@ export default () => {
             type: 'Input',
             name: 'name',
             label: '用户姓名',
-          },
-          {
-            type: 'Select',
-            name: 'sex',
-            label: '用户性别',
-            props: {
-              options: [
-                {
-                  label: '男',
-                  value: 1,
-                },
-                {
-                  label: '女',
-                  value: 2,
-                },
-              ],
-            },
+            labelWidth: 70,
           },
         ],
       }}
