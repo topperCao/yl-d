@@ -29,14 +29,14 @@ export default ({
         onChange(e.target.value);
       }}
       onBlur={(e) => {
-        typeof onBlur === 'function' && onBlur(e);
+        onBlur?.(e);
       }}
       onFocus={(e) => {
-        typeof onFocus === 'function' && onFocus(e);
+        onFocus?.(e);
       }}
       onKeyDown={(e) => {
         if (e.keyCode === 13) {
-          typeof onPressEnter === 'function' && onPressEnter(e);
+          onPressEnter?.(e);
         }
       }}
     >

@@ -240,7 +240,7 @@ export default ({
           <div className="yld-table-contianer-tools">
             <h3
               style={{
-                fontSize: 13,
+                fontSize: 12,
                 borderLeft: '3px solid var(--primary-color)',
                 paddingLeft: 8,
               }}

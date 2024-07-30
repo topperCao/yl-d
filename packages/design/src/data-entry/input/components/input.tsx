@@ -18,7 +18,7 @@ export default ({
   onBlur,
   onFocus,
   onPressEnter,
-  allowClear = true,
+  allowClear = false,
   onAllowClear,
   readOnly,
   showCount = true,
@@ -32,7 +32,7 @@ export default ({
   addonAfter &&
     ((style.borderTopRightRadius = 0), (style.borderBottomRightRadius = 0));
   const [password, setPassword] = useState(type === 'password');
-  const _showCount = showCount && !addonAfter && !password;
+  const _showCount = showCount && type !== 'password';
   let countRight = 4;
   if (suffix) {
     countRight += 24;
@@ -66,14 +66,14 @@ export default ({
           onChange(e.target.value);
         }}
         onBlur={(e) => {
-          typeof onBlur === 'function' && onBlur(e);
+          onBlur?.(e);
         }}
         onFocus={(e) => {
-          typeof onFocus === 'function' && onFocus(e);
+          onFocus?.(e);
         }}
         onKeyDown={(e) => {
           if (e.keyCode === 13) {
-            typeof onPressEnter === 'function' && onPressEnter(e);
+            onPressEnter?.(e);
           }
         }}
         onClick={rest.onClick}
