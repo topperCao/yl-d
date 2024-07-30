@@ -122,3 +122,36 @@ export default () => {
   );
 };
 ```
+
+## 确认对话框
+
+```jsx | react
+import { Message, Button, Modal } from '@yl-d/design';
+
+export default () => {
+  return (
+    <Button
+      type="primary"
+      onClick={() => {
+        Modal.confirm({
+          title: 'Confirm deletion',
+          content:
+            'Are you sure you want to delete the 3 selected items? Once you press the delete button, the items will be deleted immediately. You can’t undo this action.',
+          onOk: () => {
+            return new Promise((resolve, reject) => {
+              setTimeout(Math.random() > 0.5 ? resolve : reject, 1000);
+            }).catch((e) => {
+              Message.error({
+                content: 'Error occurs!',
+              });
+              throw e;
+            });
+          },
+        });
+      }}
+    >
+      Confirm
+    </Button>
+  );
+};
+```

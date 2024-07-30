@@ -1,6 +1,6 @@
 import { ReactNode, CSSProperties } from 'react';
 import ReactDOM from 'react-dom';
-import { Button, Icon } from '../../index';
+import { Button, Icon, Space } from '../../index';
 import { uuid } from '../../tools';
 
 export const $: any = document.querySelector.bind(document);
@@ -33,7 +33,7 @@ export interface ModalProps {
   render: (api: { onClose: any }) => ReactNode;
 }
 
-const Modal = ({
+const ModalRender = ({
   title = '',
   closable = true,
   onClose = () => {},
@@ -61,7 +61,7 @@ const Modal = ({
     <>
       <div className="yld-modal" style={style}>
         <div className="yld-modal-header">
-          <div>{title}</div>
+          <b>{title}</b>
           <Icon type="guanbi" onClick={onClose} />
         </div>
         <div
@@ -98,7 +98,7 @@ const Modal = ({
   );
 };
 
-export default (props: ModalProps) => {
+const Modal = (props: ModalProps) => {
   return {
     open: (options: ModalProps) => {
       const containId = `modal_${uuid(6)}`;
@@ -117,7 +117,7 @@ export default (props: ModalProps) => {
       tag.setAttribute('class', 'yld-modal-wrapper');
       $('body').appendChild(tag);
       ReactDOM.render(
-        <Modal
+        <ModalRender
           {...modalProps}
           onClose={() => {
             closeModal();
@@ -133,3 +133,60 @@ export default (props: ModalProps) => {
     },
   };
 };
+
+/** confirm 提示 */
+Modal.confirm = ({
+  title = '提示',
+  content,
+  onOk,
+  onClose,
+}: {
+  title?: string;
+  content: ReactNode;
+  onOk?: Function;
+  onClose?: Function;
+}) => {
+  const containId = `confirm_${uuid(6)}`;
+  const closeConfirm = () => {
+    $(`#${containId} .yld-confirm`).style.top = '-9999px';
+    setTimeout(() => {
+      $(`#${containId}`)?.remove();
+    }, 500);
+  };
+  const tag = document.createElement('div');
+  tag.setAttribute('id', containId);
+  tag.setAttribute('class', 'yld-confirm-wrapper');
+  $('body').appendChild(tag);
+  ReactDOM.render(
+    <>
+      <div className="yld-confirm">
+        <b className="yld-confirm-title">{title}</b>
+        <div className="yld-confirm-content">{content}</div>
+        <div className="yld-confirm-footer">
+          <Space>
+            <Button
+              onClick={() => {
+                closeConfirm();
+              }}
+            >
+              取消
+            </Button>
+            <Button
+              type="primary"
+              onClick={async () => {
+                await onOk?.();
+                closeConfirm();
+              }}
+            >
+              确定
+            </Button>
+          </Space>
+        </div>
+      </div>
+      <div className="yld-modal-mask" />
+    </>,
+    tag,
+  );
+};
+
+export default Modal;

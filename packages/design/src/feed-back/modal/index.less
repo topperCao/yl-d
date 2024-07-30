@@ -55,7 +55,7 @@
     justify-content: flex-end;
     height: 50px;
     background-color: inherit;
-    border-top: 1px solid var(--border-color);;
+    border-top: 1px solid var(--border-color);
     gap: 16px;
     padding: 0 16px;
   }
@@ -90,5 +90,30 @@
   }
   100% {
     background: rgba(5, 5, 5, 0.432);
+  }
+}
+
+.yld-confirm {
+  width: 464px;
+  height: 245px;
+  padding: 24px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  position: fixed;
+  top: 100px;
+  left: 50%;
+  z-index: 930230;
+  background: var(--bg-color);
+  box-shadow: 0 10px 20px 0px var(--box-shadow);
+  transform: translate(-50%, 0%);
+  animation: modal-show 0.3s ease-in;
+  transition: 2s;
+  &-title {
+    font-size: 16px;
+  }
+  &-footer {
+    margin-top: 20px;
   }
 }
