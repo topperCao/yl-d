@@ -24,13 +24,14 @@ export default () => {
 ## 设置图标
 
 ```jsx | react
-import { Button, Icon, Space } from '@yl-d/design';
+import { Button, Space } from '@yl-d/design';
+import  { IconRefresh, IconSearch } from "@yl-d/icon";
 
 export default () => {
   return (
     <Space>
-      <Button icon="refresh" />
-      <Button type="primary" icon="searchicon">
+      <Button icon={<IconRefresh />} />
+      <Button type="primary" icon={<IconSearch />}>
         Search
       </Button>
     </Space>

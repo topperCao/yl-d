@@ -1,5 +1,5 @@
 import { CSSProperties, ReactNode, useEffect, useState } from 'react';
-import { Icon } from '../..';
+import { IconLoading } from '@yl-d/icon';
 import './index.less';
 
 export interface ButtonProps {
@@ -12,7 +12,7 @@ export interface ButtonProps {
   /** 点击事件 */
   onClick?: Function;
   /** 图标 */
-  icon?: String;
+  icon?: ReactNode;
   /** 样式 */
   style?: CSSProperties;
   /** 二次确认提示 */
@@ -76,8 +76,8 @@ export default ({
         }
       }}
     >
-      {spin && <Icon type="loading" size={12} />}
-      {icon && <Icon type={icon} />}
+      {spin && <IconLoading /> }
+      {icon}
       {children || ''}
     </button>
   );

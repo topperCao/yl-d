@@ -336,14 +336,17 @@ body {
     align-items: center;
     gap: 20px;
     border: 1px solid var(--border-color);
+    transition: .3s;
     .yld-icon{
       transition: .3s;
       font-size: 32px
     }
     &:hover{
+      transition: .3s;
+      background-color: var(--bg-color-2);
       .yld-icon{
         transition: .3s;
-        font-size: 40px !important;
+        transform: scale(1.4);
       }
     }
   }
