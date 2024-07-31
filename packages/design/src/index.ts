@@ -1,6 +1,5 @@
 import './index.less';
 export { default as Layer } from './common/layer';
-export { default as Icon } from './general/icon';
 export { default as Button } from './general/button';
 export { default as Carousel } from './data-display/carousel';
 export { default as Empty } from './data-display/empty';

@@ -61,7 +61,7 @@ function getCamelString(name) {
 }
 const svgs = glob.sync('./svg/*.svg');
 
-const indexContent = [];
+const indexContent = [`import './index.less';`];
 const docContent = [];
 
 svgs.forEach((svgPath) => {
@@ -82,8 +82,9 @@ svgs.forEach((svgPath) => {
   return ${svgContent}
 };
 
-export default ({ size = 16, ...rest }) => {
-  return <${componentName} width={size} height={size} class="yld-icon yld-icon-${name}" {...rest} />;
+export default ({ style = {}, ...rest }) => {
+  const _style = Object.assign({ fontSize: 16 }, style);
+  return <${componentName} style={_style} className="yld-icon yld-icon-${name}" {...rest} />;
 };
     `,
   );
@@ -108,7 +109,7 @@ export default () => {
         return `<CopyToClipboard message text="<${item} />">
           <div className="yld-icon-demo-wrap-icon">
             <span style={{ padding: 13 }}>${item}</span>
-            <${item} size={32} />
+            <${item} />
           </div>
         </CopyToClipboard>`;
       })
@@ -123,9 +124,23 @@ export default () => {
 import { IconCalendar } from '@yl-d/icon';
 
 export default () => {
-  return <IconCalendar size={40} color="#165dff" />
+  return <IconCalendar style={{ fontSize: 40, color: "#165dff" }} />
 };
 \`\`\`
+`,
+);
+
+fs.outputFile(
+  './src/index.less',
+  `.yld-icon {
+  display: inline-block;
+  color: inherit;
+  font-style: normal;
+  width: 1em;
+  height: 1em;
+  vertical-align: -2px;
+  stroke: currentColor;
+}
 `,
 );
 

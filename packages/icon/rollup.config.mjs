@@ -5,6 +5,7 @@ import typescript from "@rollup/plugin-typescript";
 import external from "rollup-plugin-peer-deps-external";
 import { terser } from "rollup-plugin-terser";
 import replace from 'rollup-plugin-replace'
+import less from "rollup-plugin-less";
 
 const env = process.env.NODE_ENV
 
@@ -28,6 +29,12 @@ export default defineConfig({
     external(),
     commonjs(),
     terser(),
+    less({
+      insert: true,
+      option: {
+        compress: true,
+      },
+    }),
     typescript({
       compilerOptions: {
         target: "esnext",
