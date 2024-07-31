@@ -62,6 +62,7 @@ function getCamelString(name) {
 const svgs = glob.sync('./svg/*.svg');
 
 const indexContent = [];
+const docContent = [];
 
 svgs.forEach((svgPath) => {
   const name = svgPath.slice(4, -4);
@@ -77,14 +78,56 @@ svgs.forEach((svgPath) => {
   const componentName = getCamelString(name);
   fs.outputFile(
     `./src/react-icon/${name}.tsx`,
-    `export default (props) => {
+    `const ${componentName} = (props) => {
   return ${svgContent}
-}`,
+};
+
+export default ({ size = 16, ...rest }) => {
+  return <${componentName} width={size} height={size} class="yld-icon yld-icon-${name}" {...rest} />;
+};
+    `,
   );
   indexContent.push(
     `export { default as ${componentName} } from './react-icon/${name}';`,
   );
+  docContent.push(componentName);
 });
+
+fs.outputFile(
+  './src/doc.md',
+  `## 基本用法
+
+\`\`\`jsx | pureReact
+import { CopyToClipboard } from '@yl-d/design';
+import { ${docContent.join(', ')} }  from '@yl-d/icon';
+
+export default () => {
+  return <div className="yld-icon-demo-wrap">
+    ${docContent
+      .map((item) => {
+        return `<CopyToClipboard message text="<${item} />">
+          <div className="yld-icon-demo-wrap-icon">
+            <span style={{ padding: 13 }}>${item}</span>
+            <${item} size={32} />
+          </div>
+        </CopyToClipboard>`;
+      })
+      .join('\n')}
+  </div>
+}
+\`\`\`
+
+## 设置大小和颜色
+
+\`\`\`jsx | react
+import { IconCalendar } from '@yl-d/icon';
+
+export default () => {
+  return <IconCalendar size={40} color="#165dff" />
+};
+\`\`\`
+`,
+);
 
 fs.outputFile('./src/index.ts', indexContent.join('\n'));
 
