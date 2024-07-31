@@ -1,6 +1,7 @@
 import { useState, useEffect, CSSProperties } from 'react';
 import { OptionsProps } from '../select';
 import Option from './index';
+import './index.less';
 
 export interface CheckBoxGroupProps {
   /** 类名 */

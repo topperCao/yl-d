@@ -12,7 +12,7 @@ import {
   RadioGroup,
   RangeDatePicker,
   RangeTimePicker,
-} from '../../index';
+} from '../..';
 
 export default {
   Input: Input,

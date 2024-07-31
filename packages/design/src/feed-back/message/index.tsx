@@ -1,6 +1,7 @@
-import { isValidElement, MouseEventHandler, ReactNode } from 'react';
+import { isValidElement, ReactNode } from 'react';
 import ReactDOM from 'react-dom';
-import { Icon } from '../../index';
+import { Icon } from '../..';
+import './index.less';
 
 const $: any = document.querySelector.bind(document);
 const $$: any = document.querySelectorAll.bind(document);

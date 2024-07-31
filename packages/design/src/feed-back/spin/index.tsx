@@ -1,5 +1,6 @@
 import { ReactNode, useRef, useEffect, CSSProperties } from 'react';
-import { Icon } from '../../index';
+import { Icon } from '../..';
+import './index.less';
 
 export interface SpinProps {
   loading?: Boolean;

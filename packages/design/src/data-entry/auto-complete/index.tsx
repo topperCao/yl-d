@@ -1,5 +1,6 @@
 import { useState, useEffect, CSSProperties, useRef } from 'react';
-import { Icon, Empty, Layer } from '../../index';
+import { Icon, Empty, Layer } from '../..';
+import './index.less';
 
 export interface AutoCompleteProps {
   /** 类名 */

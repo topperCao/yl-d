@@ -1,4 +1,5 @@
 import { ReactNode, CSSProperties } from 'react';
+import './index.less';
 
 export interface SpaceProps {
   style?: CSSProperties;

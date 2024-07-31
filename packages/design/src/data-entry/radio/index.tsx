@@ -1,4 +1,5 @@
 import { useState, useEffect, ReactNode } from 'react';
+import './index.less';
 
 export interface RadioProps {
   /** 是否选中 */

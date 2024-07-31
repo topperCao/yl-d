@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Icon, Tooltip } from '../../../index';
+import { Icon, Tooltip } from '../../..';
 const MenuVerical = ({
   menus,
   menuClick,

@@ -1,5 +1,5 @@
 import { useState, useEffect, ReactNode, CSSProperties, useRef } from 'react';
-import { Icon, Empty } from '../../index';
+import { Icon, Empty } from '../..';
 import {
   fieldNamesTransfrom,
   getInitialOptions,
@@ -7,6 +7,7 @@ import {
 } from './util';
 import cloneDeep from 'lodash.clonedeep';
 import Layer from '../../common/layer';
+import './index.less';
 
 export interface OptionsProps {
   label: ReactNode;

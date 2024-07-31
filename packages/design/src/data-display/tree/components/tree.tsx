@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Icon, Checkbox } from '../../../index';
+import { Icon, Checkbox } from '../../..';
 
 export default ({
   treeData = [],

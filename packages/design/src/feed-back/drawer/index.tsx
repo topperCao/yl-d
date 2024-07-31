@@ -1,8 +1,9 @@
 import { ReactNode, CSSProperties } from 'react';
 import ReactDOM from 'react-dom';
-import { Button, Icon } from '../../index';
+import { Button, Icon } from '../..';
 import { uuid } from '../../tools';
 import { $ } from '../modal';
+import './index.less';
 
 export interface DrawerProps {
   containId?: string;

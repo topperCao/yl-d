@@ -1,14 +1,18 @@
 import { useState, useEffect } from 'react';
-import { Icon } from '../../index';
+import { Icon } from '../..';
+import './index.less';
 
 export interface CarouselProps {}
+
 let swipeX = false;
+
 const position = {
   x: 0,
   y: 0,
   x1: 0,
   y1: 0,
 };
+
 export default ({
   style = {},
   pages = [],

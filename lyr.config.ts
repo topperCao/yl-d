@@ -96,6 +96,21 @@ export default defineConfig({
           group: true,
         },
         {
+          label: '通用',
+          path: '/design/general',
+          group: true,
+          children: [
+            {
+              label: '按钮 Button',
+              path: '/design/general/button',
+            },
+            {
+              label: '图标 Icon',
+              path: '/design/general/icon',
+            },
+          ],
+        },
+        {
           label: '数据展示',
           path: '/design/data-display',
           group: true,
@@ -294,10 +309,6 @@ export default defineConfig({
               path: '/design/navigation/dropdown',
             },
             {
-              label: '栅格 Grid',
-              path: '/design/navigation/grid',
-            },
-            {
               label: '菜单 Menu',
               path: '/design/navigation/menu',
             },
@@ -325,16 +336,8 @@ export default defineConfig({
               path: '/design/other/back-top',
             },
             {
-              label: '按钮 Button',
-              path: '/design/other/button',
-            },
-            {
               label: '复制 CopyToClipboard',
               path: '/design/other/copy-to-clipboard',
-            },
-            {
-              label: '图标 Icon',
-              path: '/design/other/icon',
             },
           ],
         },

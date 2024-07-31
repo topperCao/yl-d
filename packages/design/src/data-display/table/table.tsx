@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Pagination, Checkbox, Empty, Spin, Button } from '../../index';
+import { Pagination, Checkbox, Empty, Spin, Button } from '../..';
 import renderBody from './hooks/render-body';
 import renderHead from './hooks/render-head';
 import { TableProps } from './type';

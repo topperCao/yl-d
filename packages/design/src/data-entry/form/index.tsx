@@ -2,6 +2,7 @@ import { useRef, useEffect, useState } from 'react';
 import Schema from 'async-validator';
 import { FormProps, FormRefInstance } from './type.form';
 import Item from './item';
+import './index.less';
 
 const flexMapping = {
   1: {

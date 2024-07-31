@@ -1,5 +1,6 @@
 import { CSSProperties, ReactNode, useState } from 'react';
-import { Icon } from '../../index';
+import { Icon } from '../..';
+import './index.less';
 
 export interface AlertProps {
   message: ReactNode;

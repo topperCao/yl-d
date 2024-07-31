@@ -1,5 +1,6 @@
 import { useState, useEffect, CSSProperties, ReactNode } from 'react';
-import { Icon } from '../../index';
+import { Icon } from '../..';
+import './index.less';
 
 export interface SwitchProps {
   /** 值 */

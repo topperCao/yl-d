@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Select, Icon, InputNumber } from '../../index';
+import { Select, Icon, InputNumber } from '../..';
+import './index.less';
 
 interface PaginationProps {
   /** 当前页码 */

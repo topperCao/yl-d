@@ -1,8 +1,9 @@
 import { ReactNode, CSSProperties } from 'react';
 import ReactDOM from 'react-dom';
-import { Button, Icon, Space } from '../../index';
-import { ButtonProps } from '../../other/button';
+import { Button, Icon, Space } from '../..';
+import { ButtonProps } from '../../general/button';
 import { uuid } from '../../tools';
+import './index.less';
 
 export const $: any = document.querySelector.bind(document);
 

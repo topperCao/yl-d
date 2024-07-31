@@ -1,6 +1,7 @@
 import { useState, useEffect, CSSProperties } from 'react';
 import { OptionsProps } from '../select';
 import Option, { RadioProps } from './index';
+import './index.less';
 
 export interface RadioGroupProps extends RadioProps{
   /** 数据源 */

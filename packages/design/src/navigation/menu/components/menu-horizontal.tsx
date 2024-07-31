@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Dropdown, Icon } from '../../../index';
+import { Dropdown, Icon } from '../../..';
 const MenuHorizontal = ({ menus, openKey, selectKey, menuClick, theme, style = {} }) => {
   const [_openKey, setopenKey] = useState(openKey || []);
   const [_selectKey, setselectKey] = useState(selectKey || []);

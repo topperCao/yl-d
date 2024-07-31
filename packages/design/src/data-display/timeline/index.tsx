@@ -1,4 +1,5 @@
-import { Icon } from '../../index';
+import { Icon } from '../..';
+import './index.less';
 
 export default ({ items }) => {
   return (

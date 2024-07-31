@@ -1,4 +1,5 @@
 import { useState, useEffect, CSSProperties, ReactNode } from 'react';
+import './index.less';
 
 export interface CheckBoxProps {
   /** 类名 */

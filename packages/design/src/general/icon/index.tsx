@@ -1,4 +1,5 @@
 import { CSSProperties } from 'react';
+import './index.less';
 
 export interface IconProps {
   type?: String;

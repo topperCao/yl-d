@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { DatePicker, Space } from '../../index';
+import { DatePicker, Space } from '../..';
 import { DatePickerProps } from '../date-picker';
+import './index.less';
 
 export interface RangeDatePickerProps
   extends Omit<DatePickerProps, 'value' | 'placeholder'> {

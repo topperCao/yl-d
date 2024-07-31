@@ -1,7 +1,8 @@
 import { useRef } from 'react';
-import { Button, Form, Search } from '../../index';
+import { Button, Form, Search } from '../..';
 import { TableProps } from './type';
 import Table from './table';
+import './index.less';
 
 export default ({
   tableRef = useRef({}),

@@ -7,7 +7,8 @@ import {
   forwardRef,
   useImperativeHandle,
 } from 'react';
-import { Button, Icon, Input, Layer } from '../../index';
+import { Button, Icon, Input, Layer } from '../..';
+import './index.less';
 
 export interface TimePickerProps {
   /** 类名 */

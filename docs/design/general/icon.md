@@ -2,7 +2,7 @@
 
 ```jsx | react
 import { Icon, CopyToClipboard } from '@yl-d/design';
-import icons from '@/design/other/icons.ts';
+import icons from '@/design/general/icons.ts';
 
 export default () => {
   return (

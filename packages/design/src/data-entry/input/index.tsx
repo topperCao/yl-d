@@ -3,6 +3,7 @@ import AddonAfter from './components/addon-after';
 import AddonBefore from './components/addon-before';
 import Input from './components/input';
 import TextArea from './components/text-area';
+import './index.less';
 
 export interface InputProps {
   /** 样式 */

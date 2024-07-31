@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { SelectProps } from '..';
-import { Icon, Empty, Layer } from '../../../index';
+import { Icon, Empty, Layer } from '../../..';
 
 export default ({
   allowClear = true,

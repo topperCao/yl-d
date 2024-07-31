@@ -1,5 +1,5 @@
 import { ReactNode, useState, useRef } from 'react';
-import { Layer } from '../../index';
+import { Layer } from '../..';
 
 export interface DropdownProps {
   overlay: ReactNode;

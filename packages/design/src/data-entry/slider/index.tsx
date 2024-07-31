@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, CSSProperties } from 'react';
-import { Tooltip } from '../../index';
+import { Tooltip } from '../..';
+import './index.less';
 
 export interface SliderProps {
   /** 值 */

@@ -1,5 +1,6 @@
 import { CSSProperties, ReactNode, useEffect, useState } from 'react';
-import { Icon } from '../../index';
+import { Icon } from '../..';
+import './index.less';
 
 export interface ButtonProps {
   /** 类型 */

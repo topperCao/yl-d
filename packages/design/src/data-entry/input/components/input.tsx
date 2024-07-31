@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Icon } from '../../../index';
+import { Icon } from '../../..';
 import { InputProps } from '..';
 import Prefix from './prefix';
 import Suffix from './suffix';

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, ReactNode, CSSProperties } from 'react';
+import './index.less';
 
 export interface TooltipProps {
   children?: ReactNode;

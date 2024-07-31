@@ -1,6 +1,7 @@
 import { CSSProperties, ReactNode } from 'react';
 import Select from './components/select';
 import SelectMultiple from './components/select-multiple';
+import './index.less';
 
 export interface OptionsProps {
   label: ReactNode;

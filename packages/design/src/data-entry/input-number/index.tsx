@@ -1,6 +1,7 @@
 import { BigNumber } from '../../tools';
 import { useState, useEffect, CSSProperties } from 'react';
-import { Icon } from '../../index';
+import { Icon } from '../..';
+import './index.less';
 
 export interface InputNumberProps {
   /** 值 */
@@ -38,7 +39,7 @@ export default ({
   className,
   disabled = false,
   style = {},
-  placeholder,
+  placeholder = '请输入',
   maxLength,
   onChange,
   onBlur,
