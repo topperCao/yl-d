@@ -7,7 +7,6 @@
 ```css
 body {
   --primary-color: #165dff;
-  --primary-spin-background: #d8e2fc52;
   --font-size-base: 12px;
   --text-color: #565656;
   --bg-color: #fff;
@@ -19,7 +18,6 @@ body {
 
 body[yld-theme='dark'] {
   --primary-color: #165dff;
-  --primary-spin-background: #d8e2fc52;
   --font-size-base: 12px;
   --text-color: #eee;
   --bg-color: #232324;

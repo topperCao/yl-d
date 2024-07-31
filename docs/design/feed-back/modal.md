@@ -60,7 +60,6 @@ export default () => {
             width: 600,
             height: 400,
           },
-          mask: false,
           render() {
             return (
               <>
@@ -96,7 +95,6 @@ export default () => {
             width: 600,
             height: 400,
           },
-          mask: false,
           render() {
             return (
               <>
@@ -135,6 +133,9 @@ export default () => {
       onClick={() => {
         Modal.confirm({
           title: 'Confirm deletion',
+          okButtonProps: {
+            type: "danger"
+          },
           content:
             'Are you sure you want to delete the 3 selected items? Once you press the delete button, the items will be deleted immediately. You can’t undo this action.',
           onOk: () => {

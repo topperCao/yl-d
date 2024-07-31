@@ -1,6 +1,7 @@
 import { ReactNode, CSSProperties } from 'react';
 import ReactDOM from 'react-dom';
 import { Button, Icon, Space } from '../../index';
+import { ButtonProps } from '../../other/button';
 import { uuid } from '../../tools';
 
 export const $: any = document.querySelector.bind(document);
@@ -140,11 +141,15 @@ Modal.confirm = ({
   content,
   onOk,
   onClose,
+  okButtonProps = {
+    type: 'primary',
+  },
 }: {
   title?: string;
   content: ReactNode;
   onOk?: Function;
   onClose?: Function;
+  okButtonProps?: ButtonProps;
 }) => {
   const containId = `confirm_${uuid(6)}`;
   const closeConfirm = () => {
@@ -160,7 +165,10 @@ Modal.confirm = ({
   ReactDOM.render(
     <>
       <div className="yld-confirm">
-        <b className="yld-confirm-title">{title}</b>
+        <b className="yld-confirm-title">
+          <Icon type="warning" color="#ff7d00" style={{ marginRight: 10 }} />
+          {title}
+        </b>
         <div className="yld-confirm-content">{content}</div>
         <div className="yld-confirm-footer">
           <Space>
@@ -172,7 +180,7 @@ Modal.confirm = ({
               取消
             </Button>
             <Button
-              type="primary"
+              {...okButtonProps}
               onClick={async () => {
                 await onOk?.();
                 closeConfirm();

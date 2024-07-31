@@ -11,8 +11,8 @@
     display: none;
     align-items: center;
     justify-content: center;
-    background-color: var(--primary-spin-background);
-    animation: yld-spin-show 0.3s ease-in;
+    background-color: var(--bg-color-2);
+    opacity: .5;
     .yld-loading-mask-spin {
       display: inline-block;
       animation: yld-spin-move 1.2s linear infinite;
@@ -34,14 +34,6 @@
     }
     100% {
       transform: rotate(360deg);
-    }
-  }
-  @keyframes yld-spin-show {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
     }
   }
 }
