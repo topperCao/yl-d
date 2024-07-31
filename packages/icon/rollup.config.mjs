@@ -20,6 +20,16 @@ export default defineConfig({
       file: "dist/index.js",
       format: "cjs",
     },
+    {
+      file: 'dist/index.umd.js',
+      format: 'umd',
+      name: 'lyricon',
+      globals: {
+        react: 'React',
+        'react-dom': 'ReactDOM',
+        'react/jsx-runtime': 'jsxRuntime',
+      },
+    },
   ],
   plugins: [
     replace({
@@ -30,6 +40,7 @@ export default defineConfig({
     commonjs(),
     terser(),
     less({
+      output: "dist/index.min.css",
       insert: true,
       option: {
         compress: true,
