@@ -12,7 +12,7 @@ export interface SpinProps {
 
 export default ({
   loading,
-  icon = 'loading1',
+  icon = 'loading',
   style,
   message,
   children,
