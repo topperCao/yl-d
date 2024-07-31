@@ -96,7 +96,12 @@ export default ({ style = {}, ...rest }) => {
 
 fs.outputFile(
   './src/doc.md',
-  `## 基本用法
+  `## 安装
+\`\`\`js
+yarn add @yl-d/icon;
+\`\`\`
+  
+## 基本用法
 
 \`\`\`jsx | pureReact
 import { CopyToClipboard } from '@yl-d/design';

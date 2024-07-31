@@ -38,7 +38,7 @@ export default () => {
 
 ## 安装
 
-```shell
+```js
 yarn add @yl-d/code-editor
 ```
 

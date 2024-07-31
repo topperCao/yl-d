@@ -35,7 +35,7 @@ export default () => {
 
 - 在终端执行以下命令
 
-```shell
+```js
 yarn create lyr-cli new my-app
 ```
 
@@ -212,7 +212,7 @@ export interface ConfigProps {
 
 ## 开发
 
-```shell
+```js
 npm start
 ```
 
@@ -228,7 +228,7 @@ npm start
 
 ## 打包
 
-```shell
+```js
 npm run build
 ```
 

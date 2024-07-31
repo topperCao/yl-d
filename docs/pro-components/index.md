@@ -45,7 +45,7 @@ export default () => {
 
 ### 组件库本身依赖 arco.design，使用需要同时安装 arco.design
 
-```shell
+```js
 yarn add @arco-design/web-react
 yarn add @yl-d/pro-components
 ```

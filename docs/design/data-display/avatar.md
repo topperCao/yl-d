@@ -1,14 +1,15 @@
 ## 基本使用
 
 ```jsx | react
-import { Space, Avatar, Icon } from '@yl-d/design';
+import { Space, Avatar } from '@yl-d/design';
+import { IconUser } from "@yl-d/icon";
 
 export default () => {
   return (
     <Space size="large">
       <Avatar>A</Avatar>
       <Avatar style={{ backgroundColor: '#3370ff' }}>
-        <Icon type="user" />
+        <IconUser />
       </Avatar>
       <Avatar style={{ backgroundColor: '#00d0b6' }}>Design</Avatar>
       <Avatar>

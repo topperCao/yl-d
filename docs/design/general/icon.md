@@ -1,3 +1,8 @@
+## 安装
+```js
+yarn add @yl-d/icon;
+```
+
 ## 基本用法
 
 ```jsx | pureReact

@@ -11,7 +11,8 @@ export default () => {
 ## 显示文本
 
 ```jsx | react
-import { Switch, Icon, Space } from '@yl-d/design';
+import { Switch, Space } from '@yl-d/design';
+import { IconCheck, IconClose } from "@yl-d/icon";
 
 export default () => {
   return (
@@ -19,8 +20,8 @@ export default () => {
       <Switch checkedChildren="开" unCheckedChildren="关" />
       <Switch checkedChildren="1" unCheckedChildren="0" value={false} />
       <Switch
-        checkedChildren={<Icon type="duihao" />}
-        unCheckedChildren={<Icon type="guanbi" />}
+        checkedChildren={<IconCheck />}
+        unCheckedChildren={<IconClose />}
       />
     </Space>
   );

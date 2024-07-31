@@ -31,7 +31,7 @@ export default () => {
 
 - 在终端执行以下命令
 
-```shell
+```js
 yarn create lyr-cli new my-app
 ```
 

@@ -2,6 +2,7 @@
 
 ```jsx | react
 import { Badge, Icon, Space } from '@yl-d/design';
+import { IconEye } from '@yl-d/icon';
 
 export default () => {
   return (
@@ -14,10 +15,7 @@ export default () => {
         Red
       </Badge>
       <Badge dot>Dot</Badge>
-      <Badge
-        color="transparent"
-        count={<Icon color="red" type="password-visible" />}
-      >
+      <Badge color="transparent" count={<IconEye style={{ color: 'red' }} />}>
         Icon
       </Badge>
     </Space>

@@ -42,7 +42,8 @@ export default () => {
 ## 自定义配置
 
 ```jsx | react
-import { Message, Button, Space, Icon } from '@yl-d/design';
+import { Message, Button, Space } from '@yl-d/design';
+import { IconSearch } from '@yl-d/icon';
 
 export default () => {
   return (
@@ -50,7 +51,7 @@ export default () => {
       <Button
         onClick={() => {
           Message.success({
-            icon: <Icon type="searchicon" color="green" />,
+            icon: <IconSearch />,
             content: '正在查找...',
           });
         }}

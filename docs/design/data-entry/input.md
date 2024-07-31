@@ -64,16 +64,14 @@ export default () => {
 
 ```jsx | react
 import { Input, Icon } from '@yl-d/design';
+import { IconEmail, IconSearch } from '@yl-d/icon';
 
 export default () => {
   return (
     <>
-      <Input
-        placeholder="邮箱"
-        prefix={<Icon size={18} type="weimingmingwenjianjia_rili" />}
-      />
+      <Input placeholder="邮箱" prefix={<IconEmail />} />
       <br />
-      <Input placeholder="查找" suffix={<Icon type="searchicon" />} />
+      <Input placeholder="查找" suffix={<IconSearch />} />
       <br />
     </>
   );
@@ -84,6 +82,7 @@ export default () => {
 
 ```jsx | react
 import { Input, Icon } from '@yl-d/design';
+import { IconLaunch } from '@yl-d/icon';
 
 export default () => {
   return (
@@ -92,7 +91,7 @@ export default () => {
       <br />
       <Input
         placeholder="支持清除"
-        suffix={<Icon type="weimingmingwenjianjia_rili" />}
+        suffix={<IconLaunch />}
         style={{ width: 300 }}
         allowClear
       />
@@ -104,13 +103,11 @@ export default () => {
 ## 密码输入框
 
 ```jsx | react
-import { Input, Icon } from '@yl-d/design';
+import { Input } from '@yl-d/design';
 
 export default () => {
   return (
-    <>
-      <Input placeholder="输入密码" style={{ width: 300 }} type="password" />
-    </>
+    <Input placeholder="输入密码" style={{ width: 300 }} type="password" />
   );
 };
 ```

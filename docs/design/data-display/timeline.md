@@ -1,7 +1,8 @@
 ## 基本使用
 
 ```tsx | react
-import { Timeline, Icon } from '@yl-d/design';
+import { Timeline } from '@yl-d/design';
+import { IconCheck } from '@yl-d/icon';
 
 export default () => {
   return (
@@ -24,14 +25,7 @@ export default () => {
         },
         {
           title: 'Solve initial network problems 2015-09-01',
-          dot: (
-            <Icon
-              primary
-              type="message_SendSuccessfully"
-              size={14}
-              style={{ left: 2 }}
-            />
-          ),
+          dot: <IconCheck style={{ left: 2 }} />,
         },
         {
           title: 'Technical testing 2015-09-01',
