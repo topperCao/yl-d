@@ -48,7 +48,7 @@ export interface TableProps {
   /** 操作列配置 */
   rowOperations?: {
     width: string | number;
-    menus: (api: { record: any; refresh: Function }) => ToolProps[];
+    menus: (api: { record: any; refresh: Function, index: number }) => ToolProps[];
   };
   /** 唯一标示 */
   rowKey?: string;

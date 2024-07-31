@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
-import { Icon, Pagination, Checkbox, Empty, Spin, Button } from '../../index';
+import { Pagination, Checkbox, Empty, Spin, Button } from '../../index';
+import renderBody from './hooks/render-body';
+import renderHead from './hooks/render-head';
 import { TableProps } from './type';
 
 export default ({
@@ -165,166 +167,6 @@ export default ({
       columns[0] = column;
     }
   }
-  /** 渲染表头 */
-  const renderHeaderTable = (columns) => {
-    const defineColumn = columns.filter((i) => i.width);
-    const defineColumnWidth = defineColumn.reduce(
-      (a, b) => ({ width: a.width + b.width }),
-      { width: 0 },
-    )?.width;
-    const defineFixedLeft = columns.filter((i) => i.fixed === 'left');
-    const defineFixedRight = columns.filter((i) => i.fixed === 'right');
-    return (
-      <thead>
-        <tr className="yld-table-header-tr">
-          {columns.map((column, _index) => {
-            const tdStyle: any = {
-              width:
-                column.width ||
-                (scroll.x - defineColumnWidth) /
-                  (columns.length - defineColumn.length),
-            };
-            let columnClassName = ['yld-table-td'];
-            if (column.sort) {
-              columnClassName.push('yld-table-td-sort');
-            }
-            if (bordered) {
-              columnClassName.push('yld-table-td-grid');
-            }
-            if (column.fixed === 'left') {
-              columnClassName.push(`yld-table-td-fixed-left`);
-              tdStyle.left = defineFixedLeft
-                .slice(0, _index)
-                .reduce((a, b) => ({ width: a.width + b.width }), {
-                  width: 0,
-                }).width;
-            }
-            if (column.fixed === 'right') {
-              columnClassName.push(`yld-table-td-fixed-right`);
-              tdStyle.right = defineFixedRight
-                .slice(defineFixedRight.length - (columns.length - _index) + 1)
-                .reduce((a, b) => ({ width: a.width + b.width }), {
-                  width: 0,
-                }).width;
-            }
-            if (_index === defineFixedLeft.length - 1) {
-              columnClassName.push('yld-table-td-fixed-left-last');
-            }
-            if (columns.length - _index === defineFixedRight.length) {
-              columnClassName.push('yld-table-td-fixed-right-frist');
-            }
-            return (
-              <td
-                className={columnClassName.join(' ')}
-                key={column.dataIndex}
-                style={tdStyle}
-              >
-                {column.title}
-                {column.sort && (
-                  <>
-                    <Icon
-                      type="xiala1"
-                      size={12}
-                      style={{ left: 4, top: -6 }}
-                      onClick={() => {
-                        query({
-                          type: 'asc',
-                          dataIndex: column.dataIndex,
-                        });
-                      }}
-                    />
-                    <Icon
-                      type="xialadown"
-                      size={12}
-                      style={{ top: 6, right: 8 }}
-                      onClick={() => {
-                        query({
-                          type: 'desc',
-                          dataIndex: column.dataIndex,
-                        });
-                      }}
-                    />
-                  </>
-                )}
-              </td>
-            );
-          })}
-        </tr>
-      </thead>
-    );
-  };
-  /** 渲染主体表格 */
-  const renderBodyTable = (dataSource, columns) => {
-    const defineColumn = columns.filter((i) => i.width);
-    const defineColumnWidth = defineColumn.reduce(
-      (a, b) => ({ width: a.width + b.width }),
-      { width: 0 },
-    )?.width;
-    const defineFixedLeft = columns.filter((i) => i.fixed === 'left');
-    const defineFixedRight = columns.filter((i) => i.fixed === 'right');
-    return (
-      <tbody>
-        {dataSource.map((data, index) => {
-          return (
-            <tr key={data[rowKey]} className="yld-table-body-tr">
-              {columns.map((column, _index) => {
-                const tdStyle: any = {
-                  width:
-                    column.width ||
-                    (scroll.x - defineColumnWidth) /
-                      (columns.length - defineColumn.length),
-                };
-                let label = column.render
-                  ? column.render(data[column.dataIndex], data, index)
-                  : data[column.dataIndex];
-                let columnClassName = ['yld-table-td'];
-                if (column.ellipsis) {
-                  columnClassName.push('yld-table-td-ellipsis');
-                }
-                if (bordered) {
-                  columnClassName.push('yld-table-td-grid');
-                }
-                if (column.fixed === 'left') {
-                  columnClassName.push(`yld-table-td-fixed-left`);
-                  tdStyle.left = defineFixedLeft
-                    .slice(0, _index)
-                    .reduce((a, b) => ({ width: a.width + b.width }), {
-                      width: 0,
-                    }).width;
-                }
-                if (column.fixed === 'right') {
-                  columnClassName.push(`yld-table-td-fixed-right`);
-                  tdStyle.right = defineFixedRight
-                    .slice(
-                      defineFixedRight.length - (columns.length - _index) + 1,
-                    )
-                    .reduce((a, b) => ({ width: a.width + b.width }), {
-                      width: 0,
-                    }).width;
-                }
-                if (_index === defineFixedLeft.length - 1) {
-                  columnClassName.push('yld-table-td-fixed-left-last');
-                }
-                if (columns.length - _index === defineFixedRight.length) {
-                  columnClassName.push('yld-table-td-fixed-right-frist');
-                }
-                return (
-                  <td
-                    title={typeof label !== 'object' ? label : ''}
-                    key={column.dataIndex}
-                    className={columnClassName.join(' ')}
-                    style={tdStyle}
-                  >
-                    {label}
-                  </td>
-                );
-              })}
-            </tr>
-          );
-        })}
-      </tbody>
-    );
-  };
   return (
     <Spin loading={loading}>
       <div className="yld-table" style={style}>
@@ -358,13 +200,24 @@ export default ({
         )}
         <div className="yld-table-wrap" ref={tableWrapRef}>
           <table className="yld-table-header" ref={tableHeaderRef}>
-            {renderHeaderTable(columns)}
+            {renderHead({
+              scroll,
+              columns,
+              bordered,
+              query,
+            })}
           </table>
           <table className="yld-table-body" ref={tableBodyRef}>
             {innerTableRef.current.dataSource.length === 0 ? (
               <Empty />
             ) : (
-              renderBodyTable(innerTableRef.current.dataSource, columns)
+              renderBody({
+                rowKey,
+                columns,
+                scroll,
+                bordered,
+                dataSource: innerTableRef.current.dataSource,
+              })
             )}
           </table>
         </div>

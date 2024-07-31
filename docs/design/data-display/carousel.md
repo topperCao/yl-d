@@ -13,7 +13,7 @@ export default () => {
   return (
     <Carousel
       showArrow
-      style={{ width: '100%', height: 340 }}
+      style={{ width: 600, height: 240 }}
       pages={imageSrc.map((src, index) => (
         <div key={index}>
           <img src={src} style={{ width: '100%' }} />
@@ -41,7 +41,7 @@ export default () => {
       showArrow
       autoPlay
       effect="fade"
-      style={{ width: '100%', height: 340 }}
+      style={{ width: 600, height: 240 }}
       pages={imageSrc.map((src, index) => (
         <div key={index}>
           <img src={src} style={{ width: '100%' }} />

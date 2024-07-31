@@ -1,9 +1,10 @@
 ## 基本使用
 
-> 在 column 中指定 fixed: "left" 或 fixed: "right"，可将列固定到左侧或右侧，设置 fixed 的列，也需要设置 width。
-注意： 要配合 scroll={{ x: number }} 使用，columns 中需要有一列不设置宽度，自适应，不然会有样式问题。
+> 在 column 中指定 fixed: "left" 或 fixed: "right"，可将列固定到左侧或右侧，设置 fixed 的列，也需要设置 width
 
-```jsx | react | var(--bg-color-2)
+> 注意： 要配合 scroll={{ x: number }} 使用，columns 中需要有一列不设置宽度，自适应，不然会有样式问题。
+
+```jsx | react
 import { Table } from '@yl-d/design';
 import axios from 'axios';
 
@@ -14,6 +15,10 @@ export default () => {
       rowKey="id"
       tableRef={tableRef}
       title="用户信息表"
+      style={{
+        padding: 20,
+        background: 'var(--bg-color-2)',
+      }}
       columns={[
         {
           title: 'ID',
@@ -84,7 +89,7 @@ export default () => {
       tools={[
         {
           label: '添加',
-          type: "primary",
+          type: 'primary',
           icon: 'plus',
           onClick({ refresh }) {
             console.log(tableRef);
@@ -98,7 +103,6 @@ export default () => {
             type: 'Input',
             name: 'name',
             label: '用户姓名',
-            labelWidth: 70,
           },
         ],
       }}

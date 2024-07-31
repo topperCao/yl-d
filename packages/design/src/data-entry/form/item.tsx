@@ -35,6 +35,7 @@ export default ({
   useEffect(() => {
     if (labelRef.current && horizontal) {
       const { width } = labelRef.current.getBoundingClientRect();
+      labelRef.current.style.width = width + 10 + 'px';
       wrapRef.current.style.width = `calc(100% - ${width + 10}px)`;
     }
   }, [label]);

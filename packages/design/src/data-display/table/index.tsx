@@ -14,6 +14,7 @@ export default ({
   rowOperations,
   useRefresh = true,
   useFilter = true,
+  style = {},
   ...rest
 }: TableProps) => {
   if (useFilter) {
@@ -50,6 +51,7 @@ export default ({
             {menus({
               record,
               refresh: tableRef.current.refresh,
+              index,
             }).map((item) => {
               return (
                 <Button key={item.label} {...item} type={item.type || 'link'}>
@@ -63,7 +65,7 @@ export default ({
     });
   }
   return (
-    <div className="yld-table-contianer">
+    <div className="yld-table-contianer" style={style}>
       {search.schema.length > 0 && (
         <Search
           {...search}

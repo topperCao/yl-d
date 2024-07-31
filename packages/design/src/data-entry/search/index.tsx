@@ -35,7 +35,6 @@ export default ({
             return (
               <Space>
                 <Button
-                  type="primary"
                   icon="reset"
                   onClick={async () => {
                     if(loadingRef.current){
