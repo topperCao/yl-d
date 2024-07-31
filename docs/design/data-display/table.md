@@ -1,8 +1,6 @@
 ## 基本使用
 
-> 在 column 中指定 fixed: "left" 或 fixed: "right"，可将列固定到左侧或右侧，设置 fixed 的列，也需要设置 width
-
-> 注意： 要配合 scroll={{ x: number }} 使用，columns 中需要有一列不设置宽度，自适应，不然会有样式问题。
+> 在 column 中指定 fixed: "left" 或 fixed: "right"，可将列固定到左侧或右侧，设置 fixed 的列，也需要设置 width，注意： 要配合 scroll={{ x: number }} 使用，columns 中需要有一列不设置宽度，自适应，不然会有样式问题。
 
 ```jsx | react
 import { Table } from '@yl-d/design';
@@ -60,7 +58,7 @@ export default () => {
       ]}
       rowOperations={{
         width: 140,
-        menus: ({ record, refresh }) => [
+        menus: ({ record, refresh, index }) => [
           {
             label: '编辑',
             onClick() {

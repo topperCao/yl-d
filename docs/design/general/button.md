@@ -29,7 +29,7 @@ import { Button, Icon, Space } from '@yl-d/design';
 export default () => {
   return (
     <Space>
-      <Button type="primary" icon="searchicon" />
+      <Button icon="refresh" />
       <Button type="primary" icon="searchicon">
         Search
       </Button>
