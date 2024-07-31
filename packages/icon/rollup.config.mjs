@@ -2,7 +2,6 @@ import { defineConfig } from "rollup";
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
-import less from "rollup-plugin-less";
 import external from "rollup-plugin-peer-deps-external";
 import { terser } from "rollup-plugin-terser";
 import replace from 'rollup-plugin-replace'
@@ -28,12 +27,6 @@ export default defineConfig({
     resolve(),
     external(),
     commonjs(),
-    less({
-      output: "dist/index.min.css",
-      option: {
-        compress: true,
-      },
-    }),
     terser(),
     typescript({
       compilerOptions: {

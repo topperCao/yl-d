@@ -4,7 +4,7 @@
 /yarn-error.log
 /yarn.lock
 /runtime
-/packages/icon/react-icon
+/packages/icon/src/react-icon
 # production
 /dist
 /esm

@@ -1,5 +1,6 @@
 /** 自动将svg 文件夹下的文件，转为 React 组件 */
 const fs = require('fs-extra');
+const chalk = require('chalk');
 const glob = require('glob');
 const { optimize } = require('svgo');
 
@@ -75,7 +76,7 @@ svgs.forEach((svgPath) => {
     .replace(/class=/g, 'className=');
   const componentName = getCamelString(name);
   fs.outputFile(
-    `./react-icon/${name}.tsx`,
+    `./src/react-icon/${name}.tsx`,
     `export default (props) => {
   return ${svgContent}
 }`,
@@ -85,4 +86,6 @@ svgs.forEach((svgPath) => {
   );
 });
 
-fs.outputFile('index.ts', indexContent.join('\n'));
+fs.outputFile('./src/index.ts', indexContent.join('\n'));
+
+console.log(chalk.green('--- update react-icon done! ----'));
