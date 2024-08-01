@@ -8,19 +8,18 @@ export default () => {
   const [disabled, setdisabled] = useState('');
   return (
     <>
-      <Input disabled={disabled} placeholder="普通输入框" />
-      <br />
       <Input
         disabled={disabled}
         placeholder="指定宽度"
-        style={{ width: 300 }}
+        style={{ width: 400 }}
       />
       <br />
       <Input
         disabled={disabled}
         placeholder="指定长度11位"
-        style={{ width: 300 }}
-        maxLength={11}
+        style={{ width: 200 }}
+        maxLength={10}
+        showCount
       />
       <br />
       <Switch

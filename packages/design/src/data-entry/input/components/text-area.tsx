@@ -12,11 +12,6 @@ export default ({
   onFocus,
   onPressEnter,
 }: InputProps) => {
-  let style: any = {};
-  addonBefore &&
-    ((style.borderTopLeftRadius = 0), (style.borderTopRightRadius = 0));
-  addonAfter &&
-    ((style.borderBottomLeftRadius = 0), (style.borderBottomRightRadius = 0));
   return (
     <textarea
       readOnly={disabled}
@@ -24,7 +19,6 @@ export default ({
       placeholder={placeholder}
       maxLength={maxLength}
       value={value}
-      style={style}
       onChange={(e) => {
         onChange(e.target.value);
       }}

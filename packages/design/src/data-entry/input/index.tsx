@@ -59,34 +59,37 @@ export default ({
   useEffect(() => {
     setInnerValue(value || '');
   }, [value]);
-  const _className = [
+  const classNames = [
     props.type === 'textarea' ? 'yld-textarea-wrapper' : 'yld-input-wrapper',
   ];
   if (className) {
-    _className.push(className);
+    classNames.push(className);
   }
-  return (
-    <span style={props.style} className={_className.join(' ')}>
+  if (props.suffix || props.showCount) {
+    classNames.push('yld-input-suffix-wrapper');
+  }
+  return props.type === 'textarea' ? (
+    <span style={props.style} className={classNames.join(' ')}>
+      <TextArea
+        {...props}
+        value={innerValue}
+        onChange={(e) => {
+          setInnerValue(e);
+          onChange(e);
+        }}
+      />
+    </span>
+  ) : (
+    <span style={props.style} className={classNames.join(' ')}>
       <AddonBefore addon={props.addonBefore} />
-      {props.type === 'textarea' ? (
-        <TextArea
-          {...props}
-          value={innerValue}
-          onChange={(e) => {
-            setInnerValue(e);
-            onChange(e);
-          }}
-        />
-      ) : (
-        <Input
-          {...props}
-          value={innerValue}
-          onChange={(e) => {
-            setInnerValue(e);
-            onChange(e);
-          }}
-        />
-      )}
+      <Input
+        {...props}
+        value={innerValue}
+        onChange={(e) => {
+          setInnerValue(e);
+          onChange(e);
+        }}
+      />
       <AddonAfter addon={props.addonAfter} />
     </span>
   );

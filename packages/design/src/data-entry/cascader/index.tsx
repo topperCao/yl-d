@@ -80,6 +80,9 @@ export default ({
   if (open) {
     classNames.push('yld-cascader-open');
   }
+  if (allowClear) {
+    classNames.push('yld-cascader-allowClear');
+  }
   if (disabled) {
     classNames.push('yld-cascader-disabled');
   }

@@ -7,6 +7,7 @@ import { isEmpty } from '../../../tools';
 
 export default ({
   value,
+  onChange,
   prefix,
   suffix,
   addonBefore,
@@ -15,14 +16,13 @@ export default ({
   disabled,
   placeholder = '请输入',
   maxLength = 64,
-  onChange,
   onBlur,
   onFocus,
   onPressEnter,
   allowClear = true,
   onAllowClear,
   readOnly,
-  showCount = true,
+  showCount = false,
   ...rest
 }: InputProps) => {
   let style: any = {};
@@ -33,17 +33,34 @@ export default ({
   addonAfter &&
     ((style.borderTopRightRadius = 0), (style.borderBottomRightRadius = 0));
   const [password, setPassword] = useState(type === 'password');
-  const _showCount = showCount && type !== 'password';
-  let countRight = 4;
-  if (suffix) {
-    countRight += 24;
-  }
-  let cuoMarginRight = 8;
-  if (suffix) {
-    cuoMarginRight += 26;
-  }
-  if (_showCount) {
-    cuoMarginRight += 36;
+  // 多种情况
+  let suffixNode = suffix ? <Suffix>{suffix}</Suffix> : null;
+  if (type === 'password') {
+    suffixNode = (
+      <Suffix>
+        {password ? (
+          <IconEye
+            onClick={() => {
+              setPassword(false);
+            }}
+          />
+        ) : (
+          <IconEyeInvisible
+            onClick={() => {
+              setPassword(true);
+            }}
+          />
+        )}
+      </Suffix>
+    );
+  } else if (showCount) {
+    suffixNode = (
+      <Suffix>
+        <span className="yld-input-count" style={{ right: 4 }}>
+          {value?.length || 0}/{maxLength}
+        </span>
+      </Suffix>
+    );
   }
   return (
     <div
@@ -60,8 +77,9 @@ export default ({
         style={style}
         className={disabled ? 'yld-input-disabled' : 'yld-input'}
         placeholder={placeholder}
-        value={value}
+        value={value || ""}
         maxLength={maxLength}
+        disabled={disabled}
         readOnly={readOnly}
         onChange={(e) => {
           onChange(e.target.value);
@@ -79,45 +97,16 @@ export default ({
         }}
         onClick={rest.onClick}
       />
-      {_showCount && (
-        <span className="yld-input-count" style={{ right: countRight }}>
-          {value?.length || 0}/{maxLength}
-        </span>
+      {!disabled && allowClear && !isEmpty(value) && type !== 'password' && (
+        <IconClose
+          style={{ fontSize: 12 }}
+          onClick={() => {
+            onChange(undefined);
+            onAllowClear?.();
+          }}
+        />
       )}
-      {type === 'password' ? (
-        <>
-          <Suffix>
-            {password ? (
-              <IconEye
-                onClick={() => {
-                  setPassword(false);
-                }}
-              />
-            ) : (
-              <IconEyeInvisible
-                onClick={() => {
-                  setPassword(true);
-                }}
-              />
-            )}
-          </Suffix>
-        </>
-      ) : (
-        <>
-          {!disabled && allowClear && !isEmpty(value) && (
-            <Suffix style={{ marginRight: cuoMarginRight }}>
-              <IconClose
-                style={{ fontSize: 12 }}
-                onClick={() => {
-                  onChange(undefined);
-                  onAllowClear?.();
-                }}
-              />
-            </Suffix>
-          )}
-          {suffix && <Suffix>{suffix}</Suffix>}
-        </>
-      )}
+      {suffixNode}
     </div>
   );
 };
