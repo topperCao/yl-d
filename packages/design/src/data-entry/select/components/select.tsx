@@ -35,6 +35,9 @@ export default ({
     setOptions(rest.options);
   }, [rest.options, open]);
   const classNames = ['yld-select'];
+  if (open) {
+    classNames.push('yld-select-open');
+  }
   if (className) {
     classNames.push(className);
   }
@@ -95,6 +98,7 @@ export default ({
         <IconDown style={{ fontSize: 14 }} />
         {!disabled && allowClear && selected.value !== undefined && (
           <IconClose
+            className="yld-icon yld-icon-close-el"
             style={{ fontSize: 12 }}
             onClick={(e: any) => {
               e.stopPropagation(); // 阻止冒泡

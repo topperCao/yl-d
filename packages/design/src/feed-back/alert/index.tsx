@@ -1,5 +1,11 @@
 import { CSSProperties, ReactNode, useState } from 'react';
-import { Icon } from '../..';
+import {
+  IconCheckCircle,
+  IconExclamationCircle,
+  IconQuestionCircle,
+  IconCloseCircle,
+  IconClose,
+} from '@yl-d/icon';
 import './index.less';
 
 export interface AlertProps {
@@ -10,10 +16,10 @@ export interface AlertProps {
 }
 
 const iconMapping = {
-  success: 'message_SendSuccessfully',
-  info: 'warning',
-  warning: 'info_warning',
-  error: 'cuo',
+  success: <IconCheckCircle />,
+  info: <IconExclamationCircle />,
+  warning: <IconQuestionCircle />,
+  error: <IconCloseCircle />,
 };
 
 export default ({
@@ -28,11 +34,14 @@ export default ({
       {open && (
         <div className={`yld-alert yld-alert-${type}`} style={style}>
           <div className="yld-alert-message">
-            <Icon type={iconMapping[type]} />
+            {iconMapping[type]}
             <span>{message}</span>
           </div>
           {closable && (
-            <Icon type="guanbi" size={14} onClick={setopen.bind(null, false)} />
+            <IconClose
+              style={{ fontSize: 14 }}
+              onClick={setopen.bind(null, false)}
+            />
           )}
         </div>
       )}

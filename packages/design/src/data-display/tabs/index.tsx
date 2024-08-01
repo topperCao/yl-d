@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { Icon } from '../..';
+import { IconClose } from '@yl-d/icon';
 import './index.less';
 
 export default ({
@@ -65,9 +65,8 @@ export default ({
               >
                 {tab.label}
                 {closable && (
-                  <Icon
-                    type="guanbi"
-                    size={13}
+                  <IconClose
+                    style={{ fontSize: 13 }}
                     onClick={(e) => {
                       e.stopPropagation(); // 阻止往上冒泡
                       _data.splice(index, 1);

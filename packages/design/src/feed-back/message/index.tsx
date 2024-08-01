@@ -1,25 +1,26 @@
 import { isValidElement, ReactNode } from 'react';
 import ReactDOM from 'react-dom';
-import { Icon } from '../..';
+import {
+  IconClose,
+  IconCheckCircle,
+  IconCloseCircle,
+  IconExclamationCircle,
+  IconQuestionCircle,
+  IconLoading,
+} from '@yl-d/icon';
 import './index.less';
 
 const $: any = document.querySelector.bind(document);
 const $$: any = document.querySelectorAll.bind(document);
 
-const typeMapping = {
-  1: 'message_SendSuccessfully',
-  2: 'cuo',
-  3: 'info_warning',
-  4: 'warning',
-  5: 'loading',
+const iconMapping = {
+  1: <IconCheckCircle style={{ color: '#1ac7aa' }} />,
+  2: <IconCloseCircle style={{ color: '#d81e06' }} />,
+  3: <IconExclamationCircle style={{ color: '#f4ea2a' }} />,
+  4: <IconQuestionCircle style={{ color: '#39a9f4' }} />,
+  5: <IconLoading style={{ color: 'var(--primary-color)' }} />,
 };
-const colorMapping = {
-  1: '#1ac7aa',
-  2: '#d81e06',
-  3: '#f4ea2a',
-  4: '#39a9f4',
-  5: 'var(--primary-color)',
-};
+
 export interface MessageProps {
   /** 提示的秒数 */
   duration?: number;
@@ -73,24 +74,19 @@ export default () => {
   };
   const renderMessage = (type: number, option: MessageProps) => {
     return (
-      <div className="yld-message-content">
-        <div className="yld-message-content-icon">
-          {option.icon ? (
-            option.icon
-          ) : (
-            <Icon type={typeMapping[type]} color={colorMapping[type]} />
-          )}
-        </div>
+      <div
+        className="yld-message-content"
+        style={{ paddingRight: option.closable ? 20 : 0 }}
+      >
+        {option.icon ? option.icon : iconMapping[type]}
         <div className="yld-message-content-message">{option.content}</div>
         {option.closable && (
-          <div className="yld-message-content-close">
-            <Icon
-              type="guanbi"
-              onClick={(e: any) => {
-                e.target.parentNode.parentNode.parentNode.remove();
-              }}
-            />
-          </div>
+          <IconClose
+            style={{ fontSize: 14 }}
+            onClick={(e: any) => {
+              e.target.parentNode.parentNode.remove();
+            }}
+          />
         )}
       </div>
     );

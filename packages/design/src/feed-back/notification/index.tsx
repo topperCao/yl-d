@@ -1,21 +1,22 @@
-import { isValidElement, ReactNode } from 'react';
 import ReactDOM from 'react-dom';
-import { Icon } from '../..';
+import { isValidElement, ReactNode } from 'react';
+import {
+  IconClose,
+  IconCheckCircle,
+  IconCloseCircle,
+  IconExclamationCircle,
+  IconQuestionCircle,
+} from '@yl-d/icon';
 import './index.less';
 
 const $: any = document.querySelector.bind(document);
 const $$: any = document.querySelectorAll.bind(document);
-const typeMapping = {
-  1: 'message_SendSuccessfully',
-  2: 'cuo',
-  3: 'info_warning',
-  4: 'warning',
-};
-const colorMapping = {
-  1: '#1ac7aa',
-  2: '#d81e06',
-  3: '#f4ea2a',
-  4: '#39a9f4',
+
+const iconMapping = {
+  1: <IconCheckCircle style={{ fontSize: 18, color: '#1ac7aa' }} />,
+  2: <IconCloseCircle style={{ fontSize: 18, color: '#d81e06' }} />,
+  3: <IconQuestionCircle style={{ fontSize: 18, color: '#f4ea2a' }} />,
+  4: <IconExclamationCircle style={{ fontSize: 18, color: '#39a9f4' }} />,
 };
 
 export interface NotificationProps {
@@ -49,22 +50,22 @@ export default () => {
     }, defaultOption.duration * 1000);
     ReactDOM.render(renderMessage(type, defaultOption), messageContainer);
   };
-  const close = (node) => {
-    node.target.parentNode.parentNode.parentNode.parentNode.remove();
+  const closeNotify = (e) => {
+    e.target.parentNode.parentNode.parentNode.parentNode.remove();
   };
   const renderMessage = (type, option) => {
     return (
       <div className="yld-notification-content">
         <div className="yld-notification-content-header">
-          <div className="yld-notification-content-header-icon">
-            <Icon type={typeMapping[type]} color={colorMapping[type]} />
-            <span>{option.title || "提示"}</span>
+          <div className="yld-notification-content-header-title">
+            {iconMapping[type]}
+            <span>{option.title || '提示'}</span>
           </div>
           <div className="yld-notification-content-header-close">
-            <Icon
-              type="guanbi"
+            <IconClose
+              style={{ fontSize: 14 }}
               onClick={(e) => {
-                close(e);
+                closeNotify(e);
               }}
             />
           </div>

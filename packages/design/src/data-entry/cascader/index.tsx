@@ -1,5 +1,5 @@
 import { useState, useEffect, ReactNode, CSSProperties, useRef } from 'react';
-import { Icon, Empty } from '../..';
+import { Empty } from '../..';
 import {
   fieldNamesTransfrom,
   getInitialOptions,
@@ -7,6 +7,7 @@ import {
 } from './util';
 import cloneDeep from 'lodash.clonedeep';
 import Layer from '../../common/layer';
+import { IconDown, IconClose, IconRight } from '@yl-d/icon';
 import './index.less';
 
 export interface OptionsProps {
@@ -104,10 +105,10 @@ export default ({
             label
           )}
         </div>
-        <Icon type="xialadown" />
+        <IconDown style={{ fontSize: 14 }}/>
         {!disabled && allowClear && value?.length > 0 && (
-          <Icon
-            type="cuo"
+          <IconClose
+            style={{ fontSize: 12 }}
             onClick={(e: any) => {
               e.stopPropagation(); // 阻止冒泡
               setValue([]); // 还原
@@ -163,7 +164,7 @@ export default ({
                         >
                           {option.label}
                           {option.children && (
-                            <Icon type="jiantou2" size={14} />
+                            <IconRight style={{ fontSize: 14 }} />
                           )}
                         </div>
                       );

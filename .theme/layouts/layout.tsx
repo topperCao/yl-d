@@ -32,6 +32,16 @@ export default () => {
           });
       },
     );
+    setTimeout(() => {
+      document
+        .querySelector(
+          '.app-layout-horizontal-body-sider-menu .arco-menu-selected',
+        )
+        ?.scrollIntoView({
+          behavior: 'smooth',
+        });
+    }, 500);
+
     return removeListener;
   }, []);
   return (

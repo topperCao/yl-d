@@ -15,32 +15,29 @@
   &-content {
     position: relative;
     display: flex;
+    gap: 8px;
     align-items: center;
     height: 100%;
-    padding-right: 30px;
     color: var(--text-color);
     font-size: var(--font-size-base);
     white-space: nowrap;
-    &-icon {
-      width: 30px;
-      .yld-icon-loading {
-        animation: msg-loading 1s linear infinite;
-        display: inline-block;
+    .yld-icon-loading {
+      animation: msg-loading 1s linear infinite;
+      display: inline-block;
+    }
+    @keyframes msg-loading {
+      0% {
+        -webkit-transform: rotate(0deg);
       }
-      @keyframes msg-loading {
-        0% {
-          -webkit-transform: rotate(0deg);
-        }
-        100% {
-          -webkit-transform: rotate(360deg);
-        }
+      100% {
+        -webkit-transform: rotate(360deg);
       }
     }
     &-message {
-      width: calc(100% - 40px);
+      width: calc(100% - 30px);
       font-size: var(--font-size-base);
     }
-    &-close {
+    .yld-icon-close {
       position: absolute;
       right: 0;
       cursor: pointer;

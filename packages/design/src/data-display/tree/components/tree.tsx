@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Icon, Checkbox } from '../../..';
+import { IconDown } from '@yl-d/icon';
+import { Checkbox } from '../../..';
 
 export default ({
   treeData = [],
@@ -38,8 +39,8 @@ export default ({
         <div key={item.key} className={className.join(' ')}>
           <div className={labelClassName.join(' ')} style={{ paddingLeft }}>
             {item.children && (
-              <Icon
-                type="xialadown"
+              <IconDown
+                style={{ fontSize: 14 }}
                 onClick={(e) => {
                   if (item.disabled || disabled) return;
                   e.stopPropagation(); // 阻止冒泡

@@ -1,8 +1,9 @@
 import { ReactNode, CSSProperties } from 'react';
 import ReactDOM from 'react-dom';
-import { Button, Icon } from '../..';
+import { Button } from '../..';
 import { uuid } from '../../tools';
 import { $ } from '../modal';
+import { IconClose } from "@yl-d/icon"
 import './index.less';
 
 export interface DrawerProps {
@@ -78,7 +79,7 @@ const Drawer = ({
       >
         <div className="yld-drawer-header">
           <div>{title}</div>
-          {closable && <Icon type="guanbi" onClick={onClose} />}
+          {closable && <IconClose onClick={onClose} />}
         </div>
         <div
           className="yld-drawer-body"

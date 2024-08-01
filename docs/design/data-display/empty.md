@@ -12,11 +12,11 @@ export default () => {
 
 ```jsx | react
 import { Empty } from '@yl-d/design';
-import { IconLaunch } from '@yl-d/icon';
+import { IconSearch } from '@yl-d/icon';
 
 export default () => {
   return (
-    <Empty icon={<IconLaunch style={{ fontSize: 50 }} />} label="前往新窗口" />
+    <Empty icon={<IconSearch style={{ fontSize: 50 }} />} label="查询中...." />
   );
 };
 ```

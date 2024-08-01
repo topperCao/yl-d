@@ -9,23 +9,25 @@
   font-size: var(--font-size-base);
   border: 1px solid var(--border-color);
   .yld-alert-message {
-    .yld-icon-message_SendSuccessfully {
+    display: flex;
+    align-items: center;
+    .yld-icon-check-circle {
       color: #1ac7aa;
     }
-    .yld-icon-warning {
+    .yld-icon-exclamation-circle {
       color: #39a9f4;
     }
-    .yld-icon-info_warning {
+    .yld-icon-question-circle {
       color: #f4ea2a;
     }
-    .yld-icon-close {
+    .yld-icon-close-circle {
       color: #d81e06;
     }
     span {
       padding: 0 8px;
     }
   }
-  .yld-icon-guanbi {
+  .yld-icon-close {
     cursor: pointer;
     opacity: 0.6;
     transition: 0.3s;
@@ -34,9 +36,6 @@
       transition: 0.3s;
     }
   }
-}
-.yld-alert {
-  color: var(--text-color);
 }
 .yld-alert-success {
   background-color: #f6ffed;
@@ -54,8 +53,8 @@
   background-color: #fff2f0;
   border: 1px solid #ffccc7;
 }
-body[yld-theme='dark']{
-  .yld-alert{
-    background-color: var(--bg-color);
+body[yld-theme='dark'] {
+  .yld-alert {
+    background-color: var(--bg-color-2);
   }
 }

@@ -24,15 +24,10 @@ export default () => {
       <br />
       <Spin loading={loading} message="提示文案">
         <div style={{ width: 400, height: 200, border: '1px solid var(--border-color)' }}>
-          <Empty label="加载区域" icon="searchicon" />
+          <Empty label="加载区域" />
         </div>
       </Spin>
       <br />
-      <Spin loading={loading} icon="loading">
-        <div style={{ width: 400, height: 200, border: '1px solid var(--border-color)' }}>
-          <Empty label="显示时间" icon="time" />
-        </div>
-      </Spin>
     </>
   );
 };

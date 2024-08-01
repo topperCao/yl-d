@@ -51,7 +51,7 @@ export default () => {
       <Button
         onClick={() => {
           Message.success({
-            icon: <IconSearch />,
+            icon: <IconSearch style={{ color: 'var(--primary-color)' }} />,
             content: '正在查找...',
           });
         }}

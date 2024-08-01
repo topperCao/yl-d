@@ -7,7 +7,8 @@ import {
   forwardRef,
   useImperativeHandle,
 } from 'react';
-import { Button, Icon, Input, Layer } from '../..';
+import { IconCalendarClock } from '@yl-d/icon';
+import { Button, Input, Layer } from '../..';
 import './index.less';
 
 export interface TimePickerProps {
@@ -91,7 +92,7 @@ const TimePicker = forwardRef(
       <div className={classNames.join(' ')} style={style}>
         <div className="yld-time-picker-input" ref={selectionRef}>
           <Input
-            suffix={<Icon type="time" />}
+            suffix={<IconCalendarClock />}
             disabled={disabled}
             placeholder={placeholder}
             value={times?.join?.(':')}

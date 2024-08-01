@@ -1,8 +1,9 @@
 import { ReactNode, CSSProperties } from 'react';
 import ReactDOM from 'react-dom';
-import { Button, Icon, Space } from '../..';
+import { Button, Space } from '../..';
 import { ButtonProps } from '../../general/button';
 import { uuid } from '../../tools';
+import { IconClose, IconInfoCircle } from "@yl-d/icon"
 import './index.less';
 
 export const $: any = document.querySelector.bind(document);
@@ -64,7 +65,7 @@ const ModalRender = ({
       <div className="yld-modal" style={style}>
         <div className="yld-modal-header">
           <b>{title}</b>
-          <Icon type="guanbi" onClick={onClose} />
+          <IconClose onClick={onClose} />
         </div>
         <div
           className="yld-modal-body"
@@ -167,7 +168,7 @@ Modal.confirm = ({
     <>
       <div className="yld-confirm">
         <b className="yld-confirm-title">
-          <Icon type="warning" color="#ff7d00" style={{ marginRight: 10 }} />
+          <IconInfoCircle style={{ marginRight: 10, color: "#ff7d00"  }} />
           {title}
         </b>
         <div className="yld-confirm-content">{content}</div>

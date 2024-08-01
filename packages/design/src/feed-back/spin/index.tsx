@@ -1,22 +1,15 @@
 import { ReactNode, useRef, useEffect, CSSProperties } from 'react';
-import { Icon } from '../..';
+import { IconLoading } from '@yl-d/icon';
 import './index.less';
 
 export interface SpinProps {
   loading?: Boolean;
-  icon?: String;
   style?: CSSProperties;
   message?: ReactNode;
   children?: ReactNode;
 }
 
-export default ({
-  loading,
-  icon = 'loading',
-  style,
-  message,
-  children,
-}: SpinProps) => {
+export default ({ loading, style, message, children }: SpinProps) => {
   const spinMaskRef: any = useRef();
   const spinBodyRef: any = useRef();
   useEffect(() => {
@@ -47,7 +40,7 @@ export default ({
         {loading && (
           <div className="yld-loading-mask" ref={spinMaskRef}>
             <div className="yld-loading-mask-spin">
-              <Icon type={icon} />
+              <IconLoading style={{ fontSize: 14 }} />
             </div>
             {message && (
               <span className="yld-loading-mask-message">{message}</span>

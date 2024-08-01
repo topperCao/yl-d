@@ -1,19 +1,16 @@
-import { Icon } from '../..';
+import { IconRecord } from '@yl-d/icon';
 import './index.less';
 
 export default ({ items }) => {
   return (
     <div className="yld-timeline">
-      {items.map((item: any, index, arr) => {
+      {items.map((item: any, index: number, arr: any) => {
         return (
           <div className="yld-timeline-item">
             <div className="yld-timeline-item-dot">
               {item.dot || (
-                <Icon
-                  type="cc-dot-o"
-                  color={item.color || 'var(--primary-color)'}
-                  size={18}
-                  style={{ fontWeight: 600 }}
+                <IconRecord
+                  style={{ color: item.color || 'var(--primary-color)' }}
                 />
               )}
             </div>

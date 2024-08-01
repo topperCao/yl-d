@@ -1,4 +1,4 @@
-import { IconDown, IconUp } from "@yl-d/icon";
+import { IconCaretDown, IconCaretUp } from "@yl-d/icon";
 
 export default ({ scroll, columns, bordered, query }) => {
   const defineColumn = columns.filter((i) => i.width);
@@ -56,8 +56,8 @@ export default ({ scroll, columns, bordered, query }) => {
               {column.title}
               {column.sort && (
                 <>
-                  <IconUp
-                    style={{ left: 4, top: -6, fontSize: 12 }}
+                  <IconCaretUp
+                    style={{ left: 6, top: -3, fontSize: 12 }}
                     onClick={() => {
                       query({
                         type: 'asc',
@@ -65,8 +65,8 @@ export default ({ scroll, columns, bordered, query }) => {
                       });
                     }}
                   />
-                  <IconDown
-                    style={{ top: 6, right: 8, fontSize: 12 }}
+                  <IconCaretDown
+                    style={{ top: 5, right: 6, fontSize: 12 }}
                     onClick={() => {
                       query({
                         type: 'desc',

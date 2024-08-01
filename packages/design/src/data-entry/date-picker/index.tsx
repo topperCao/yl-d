@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
+import { IconDoubleLeft, IconLeft, IconRight, IconDoubleRight, IconCalendar } from "@yl-d/icon"
 import { useState, useEffect, CSSProperties, ReactNode, useRef } from 'react';
-import { Button, Input, Icon, Layer, Space } from '../..';
+import { Button, Input, Layer, Space } from '../..';
 import DateUtil from './util';
 import './index.less';
 
@@ -106,7 +107,7 @@ export default ({
     <div className="yld-date-picker" style={style}>
       <div className="yld-date-picker-input" ref={selectionRef}>
         <Input
-          suffix={<Icon type="weimingmingwenjianjia_rili" />}
+          suffix={<IconCalendar />}
           showCount={false}
           disabled={disabled}
           placeholder={placeholder}
@@ -137,8 +138,7 @@ export default ({
           <div className="yld-date-picker-body">
             <div className="yld-date-picker-body-tools">
               <Space>
-                <Icon
-                  type="icon-jiantouzuo"
+                <IconDoubleLeft 
                   onClick={() => {
                     updateDateCalendar(
                       dateUtil.date.getTime() -
@@ -150,8 +150,7 @@ export default ({
                     );
                   }}
                 />
-                <Icon
-                  type="xiangzuoshouqi"
+                <IconLeft
                   onClick={() => {
                     updateDateCalendar(
                       dateUtil.date.getTime() -
@@ -170,8 +169,7 @@ export default ({
                 {year}-{month > 9 ? month : '0' + month}
               </div>
               <Space>
-                <Icon
-                  type="zuocedakai"
+                <IconDoubleRight
                   onClick={() => {
                     updateDateCalendar(
                       dateUtil.date.getTime() +
@@ -185,8 +183,7 @@ export default ({
                     );
                   }}
                 />
-                <Icon
-                  type="jiantou2"
+                <IconRight
                   onClick={() => {
                     updateDateCalendar(
                       dateUtil.date.getTime() +

@@ -38,26 +38,23 @@
       white-space: nowrap;
       background: inherit;
       cursor: pointer;
-      &:hover {
-        .yld-icon-guanbi {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 16px;
-          height: 16px;
-          transform: translateY(-40%);
-          transition: 0.3s;
-        }
-      }
-      .yld-icon-guanbi {
+      .yld-icon-close {
         position: absolute;
-        top: 50%;
+        top: 14px;
         right: 0px;
         display: none;
         color: var(--text-color);
         border-radius: 50%;
-        &:active {
-          background-color: var(--box-shadow);
+        padding: 2px;
+        transition: .3s;
+        &:hover {
+          transition: .3s;
+          background-color: var(--bg-color-2);
+        }
+      }
+      &:hover {
+        .yld-icon-close {
+          display: inline-block;
         }
       }
     }

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Select, Icon, InputNumber } from '../..';
+import { Select, InputNumber } from '../..';
+import { IconMore, IconLeft, IconRight } from '@yl-d/icon';
 import './index.less';
 
 interface PaginationProps {
@@ -89,7 +90,7 @@ export default ({
             }
           }}
         >
-          {[-1, -2].indexOf(item) > -1 ? <Icon type="moreread" /> : item}
+          {[-1, -2].indexOf(item) > -1 ? <IconMore /> : item}
         </div>,
       );
     });
@@ -125,7 +126,7 @@ export default ({
             }
           }}
         >
-          <Icon type="icon-jiantouzuo" />
+          <IconLeft style={{ fontSize: 14 }} />
         </div>
         {page}
         <div
@@ -140,14 +141,15 @@ export default ({
             }
           }}
         >
-          <Icon type="jiantou2" />
+          <IconRight style={{ fontSize: 14 }} />
         </div>
         {pageSizeOptions && (
           <div className="yld-pagination-jump">
             <Select
               style={{ width: 104, height: 32 }}
               value={_pageSize}
-              onChange={(pageSize) => {
+              allowClear={false}
+              onChange={(pageSize: number) => {
                 setCurrent(1);
                 setPageSize(pageSize);
                 typeof onPageSizeChange === 'function' &&

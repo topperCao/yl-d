@@ -2,7 +2,7 @@
 
 ```tsx | react
 import { Timeline } from '@yl-d/design';
-import { IconCheck } from '@yl-d/icon';
+import { IconCheckCircle } from '@yl-d/icon';
 
 export default () => {
   return (
@@ -25,7 +25,7 @@ export default () => {
         },
         {
           title: 'Solve initial network problems 2015-09-01',
-          dot: <IconCheck style={{ left: 2 }} />,
+          dot: <IconCheckCircle style={{ left: 2, color: "green" }} />,
         },
         {
           title: 'Technical testing 2015-09-01',

@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Icon, Tooltip } from '../../..';
+import { MenuProps } from '..';
+import { Tooltip } from '../../..';
+import './menu-vertical.less';
+
 const MenuVerical = ({
   menus,
   menuClick,
@@ -7,9 +10,8 @@ const MenuVerical = ({
   selectKey,
   style,
   collapsed,
-  theme = 'light',
   collapsedWidth = 80,
-}: any) => {
+}: MenuProps) => {
   const [_openKey, setopenKey] = useState(openKey || []);
   const [_selectKey, setselectKey] = useState(selectKey || []);
   useEffect(() => {
@@ -34,16 +36,20 @@ const MenuVerical = ({
     return (
       <>
         <div className={labelClassName.join(' ')} style={{ paddingLeft }}>
-          <span className="yld-nav-subMenu-label-left" title={item.label}>
-            {item.icon && <Icon type={item.icon} />}
+          <span
+            className="yld-menu-vertical-subMenu-label-left"
+            title={item.label}
+          >
+            {item.icon}
             <span>{item.label}</span>
           </span>
-          {item.children && <Icon type="xialadown" />}
         </div>
-        {item.children && (
+        {Array.isArray(item.children) && (
           <div
             className={
-              !_openKey.includes(item.key) ? 'yld-nav-subMenu-hidden' : ''
+              !_openKey.includes(item.key)
+                ? 'yld-menu-vertical-subMenu-hidden'
+                : ''
             }
           >
             {renderMenus(item.children, paddingLeft + 24)}
@@ -54,20 +60,11 @@ const MenuVerical = ({
   };
   const renderCollapsedNav = (item, labelClassName) => {
     return (
-      <>
-        <div className={labelClassName.join(' ')}>
-          <Tooltip placement="right" title={item.label}>
-            <Icon
-              type={item.icon}
-              size={18}
-              style={{
-                position: 'relative',
-                left: 30,
-              }}
-            />
-          </Tooltip>
-        </div>
-      </>
+      <div className={labelClassName.join(' ')}>
+        <Tooltip placement="right" title={item.label}>
+          {item.icon}
+        </Tooltip>
+      </div>
     );
   };
   const onClick = (item) => {
@@ -91,31 +88,31 @@ const MenuVerical = ({
   };
   const renderMenus = (menus, paddingLeft) => {
     return menus.map((item) => {
-      let className = ['yld-nav-subMenu'];
+      let className = ['yld-menu-vertical-subMenu'];
       /**
        * className
        */
       if (item.children && isSelected(item.children)) {
-        className.push('yld-nav-subMenu-selected');
+        className.push('yld-menu-vertical-subMenu-selected');
       }
       if (_selectKey.includes(item.key)) {
-        className.push('yld-nav-subMenu-active');
+        className.push('yld-menu-vertical-subMenu-active');
       }
       if (item.disabled) {
-        className.push('yld-nav-subMenu-disabled');
+        className.push('yld-menu-vertical-subMenu-disabled');
       }
       /**
        * labelClassName
        */
-      let labelClassName = ['yld-nav-subMenu-label'];
+      let labelClassName = ['yld-menu-vertical-subMenu-label'];
       if (_openKey.includes(item.key)) {
-        labelClassName.push('yld-nav-subMenu-label-open');
+        labelClassName.push('yld-menu-vertical-subMenu-label-open');
       }
       if (item.children) {
-        labelClassName.push('yld-nav-subMenu-parent');
+        labelClassName.push('yld-menu-vertical-subMenu-parent');
       }
       if (collapsed) {
-        labelClassName.push('yld-nav-subMenu-collapsed');
+        labelClassName.push('yld-menu-vertical-subMenu-collapsed');
       }
       return (
         <div
@@ -133,19 +130,20 @@ const MenuVerical = ({
       );
     });
   };
-  let className = theme === 'dark' ? 'yld-nav-dark' : 'yld-nav';
+  const className = ['yld-menu-vertical'];
+  if (collapsed) {
+    className.push('yld-menu-vertical-collapsed');
+  }
   return (
-    <>
-      <div
-        className={className}
-        style={{
-          ...style,
-          width: collapsed ? collapsedWidth : style ? style.width : '100%',
-        }}
-      >
-        {renderMenus(menus, 20)}
-      </div>
-    </>
+    <div
+      className={className.join(' ')}
+      style={{
+        ...style,
+        width: collapsed ? collapsedWidth : style ? style.width : '100%',
+      }}
+    >
+      {renderMenus(menus, 20)}
+    </div>
   );
 };
 export default MenuVerical;

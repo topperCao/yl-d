@@ -1,5 +1,6 @@
 import { useState, useEffect, CSSProperties, useRef } from 'react';
-import { Icon, Empty, Layer } from '../..';
+import { Empty, Layer } from '../..';
+import { IconClose } from '@yl-d/icon';
 import './index.less';
 
 export interface AutoCompleteProps {
@@ -86,8 +87,8 @@ export default ({
           }
         </div>
         {allowClear && value !== '' && (
-          <Icon
-            type="cuo"
+          <IconClose
+            style={{ fontSize: 12 }}
             onClick={(e: any) => {
               e.stopPropagation(); // 阻止冒泡
               setValue('');
