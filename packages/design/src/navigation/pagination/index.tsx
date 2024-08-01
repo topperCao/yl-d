@@ -126,7 +126,7 @@ export default ({
             }
           }}
         >
-          <IconLeft style={{ fontSize: 14 }} />
+          <IconLeft />
         </div>
         {page}
         <div
@@ -141,7 +141,7 @@ export default ({
             }
           }}
         >
-          <IconRight style={{ fontSize: 14 }} />
+          <IconRight />
         </div>
         {pageSizeOptions && (
           <div className="yld-pagination-jump">

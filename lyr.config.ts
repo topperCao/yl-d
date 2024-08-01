@@ -5,7 +5,7 @@ export default defineConfig({
   favicon:
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/assets/user-logo.png',
   monorepo: true,
-  monorepoPackages: ['@yl-d/design', '@yl-d/icon'],
+  monorepoPackages: ['@yl-d/design'],
   link: [
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/arco.min.css',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/monaco-file-icon.css',
@@ -71,12 +71,14 @@ export default defineConfig({
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/code-editor.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/shared.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/low-code.min.js',
+    'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/icon.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/track.min.js',
   ],
   serverPath: '/apis',
   docsRequire: {
     ArcoDesign: '@arco-design/web-react',
     ArcoIcon: '@arco-design/web-react/icon',
+    yldIcon: '@yl-d/icon',
     axios: 'axios',
   },
   webpackConfig() {

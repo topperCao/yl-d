@@ -95,7 +95,7 @@ export default ({
             selected.label
           )}
         </div>
-        <IconDown style={{ fontSize: 14 }} />
+        <IconDown />
         {!disabled && allowClear && selected.value !== undefined && (
           <IconClose
             className="yld-icon yld-icon-close-el"

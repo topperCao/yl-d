@@ -39,7 +39,6 @@ export default ({
           </div>
           {closable && (
             <IconClose
-              style={{ fontSize: 14 }}
               onClick={setopen.bind(null, false)}
             />
           )}

@@ -105,7 +105,7 @@ export default ({
             label
           )}
         </div>
-        <IconDown style={{ fontSize: 14 }}/>
+        <IconDown />
         {!disabled && allowClear && value?.length > 0 && (
           <IconClose
             style={{ fontSize: 12 }}
@@ -164,7 +164,7 @@ export default ({
                         >
                           {option.label}
                           {option.children && (
-                            <IconRight style={{ fontSize: 14 }} />
+                            <IconRight />
                           )}
                         </div>
                       );

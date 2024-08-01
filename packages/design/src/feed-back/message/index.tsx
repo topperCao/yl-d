@@ -82,7 +82,6 @@ export default () => {
         <div className="yld-message-content-message">{option.content}</div>
         {option.closable && (
           <IconClose
-            style={{ fontSize: 14 }}
             onClick={(e: any) => {
               e.target.parentNode.parentNode.remove();
             }}

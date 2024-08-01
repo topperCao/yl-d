@@ -83,7 +83,7 @@ svgs.forEach((svgPath) => {
 };
 
 export default ({ style = {}, ...rest }) => {
-  const _style = Object.assign({ fontSize: 16 }, style);
+  const _style = Object.assign({ fontSize: 14 }, style);
   return <${componentName} style={_style} className="yld-icon yld-icon-${name}" {...rest} />;
 };
     `,

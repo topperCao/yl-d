@@ -63,7 +63,6 @@ export default () => {
           </div>
           <div className="yld-notification-content-header-close">
             <IconClose
-              style={{ fontSize: 14 }}
               onClick={(e) => {
                 closeNotify(e);
               }}

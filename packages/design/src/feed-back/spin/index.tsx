@@ -40,7 +40,7 @@ export default ({ loading, style, message, children }: SpinProps) => {
         {loading && (
           <div className="yld-loading-mask" ref={spinMaskRef}>
             <div className="yld-loading-mask-spin">
-              <IconLoading style={{ fontSize: 14 }} />
+              <IconLoading />
             </div>
             {message && (
               <span className="yld-loading-mask-message">{message}</span>

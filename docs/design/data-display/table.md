@@ -4,6 +4,7 @@
 
 ```jsx | react
 import { Table } from '@yl-d/design';
+import { IconPlus } from '@yl-d/icon';
 import axios from 'axios';
 
 export default () => {
@@ -88,7 +89,7 @@ export default () => {
         {
           label: '添加',
           type: 'primary',
-          icon: 'plus',
+          icon: <IconPlus />,
           onClick({ refresh }) {
             console.log(tableRef);
           },

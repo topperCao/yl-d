@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { Button, Form, Search } from '../..';
+import { IconSettings, IconRefresh } from '@yl-d/icon';
 import { TableProps } from './type';
 import Table from './table';
 import './index.less';
@@ -20,14 +21,14 @@ export default ({
 }: TableProps) => {
   if (useFilter) {
     tools.push({
-      icon: 'shezhi',
+      icon: <IconSettings />,
       className: 'btn-tool',
       async onClick({ refresh }) {},
     });
   }
   if (useRefresh) {
     tools.push({
-      icon: 'refresh',
+      icon: <IconRefresh />,
       type: 'primary',
       className: 'btn-tool',
       async onClick({ refresh }) {

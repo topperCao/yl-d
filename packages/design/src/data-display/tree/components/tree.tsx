@@ -40,7 +40,6 @@ export default ({
           <div className={labelClassName.join(' ')} style={{ paddingLeft }}>
             {item.children && (
               <IconDown
-                style={{ fontSize: 14 }}
                 onClick={(e) => {
                   if (item.disabled || disabled) return;
                   e.stopPropagation(); // 阻止冒泡
