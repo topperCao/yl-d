@@ -61,31 +61,26 @@ export default ({
   return (
     <div className={classNames.join(' ')} style={style}>
       <div
-        className="yld-auto-selection"
         ref={selectionRef}
         onClick={() => {
           if (disabled) return;
           setOpen(!open);
         }}
       >
-        <div className="yld-auto-selection-selected-value">
-          {
-            <input
-              value={value + suffix}
-              className="yld-auto-selection-selected-input"
-              placeholder={placeholder}
-              onClick={(e) => {
-                if (open) {
-                  e.stopPropagation();
-                }
-              }}
-              onChange={(e) => {
-                setValue(e.target.value);
-                setSuffix('');
-              }}
-            />
-          }
-        </div>
+        <input
+          value={value + suffix}
+          className="yld-auto-input"
+          placeholder={placeholder}
+          onClick={(e) => {
+            if (open) {
+              e.stopPropagation();
+            }
+          }}
+          onChange={(e) => {
+            setValue(e.target.value);
+            setSuffix('');
+          }}
+        />
         {allowClear && value !== '' && (
           <IconClose
             style={{ fontSize: 12 }}

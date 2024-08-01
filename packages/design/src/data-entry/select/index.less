@@ -3,19 +3,27 @@
   display: inline-block;
   width: 100%;
   min-width: 120px;
-  background-color: var(--bg-color);
   border-radius: 2px;
   cursor: pointer;
+  background-color: var(--bg-color-2);
   .yld-select-selection-multiple {
     min-height: 32px;
     padding-bottom: 3px;
     cursor: text;
     zoom: 1;
+    background-color: var(--bg-color-2);
+    transition: all 0.3s;
+    &:hover {
+      background-color: var(--bg-color-3);
+      transition: all 0.3s;
+    }
   }
   .yld-select-selection {
+    background-color: var(--bg-color-2);
+    transition: all 0.3s;
     &:hover {
-      border-color: var(--primary-color);
-      transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+      background-color: var(--bg-color-3);
+      transition: all 0.3s;
     }
     position: relative;
     display: block;
@@ -23,7 +31,7 @@
     height: 32px;
     padding: 0 10px;
     line-height: 30px;
-    border: 1px solid var(--border-color);
+    border: 1px solid transparent;
     background-color: inherit;
     border-top-width: 1.02px;
     border-radius: 2px;
@@ -121,16 +129,10 @@
   }
 }
 .yld-select-disabled {
-  background: var(--bg-color-2);
+  background: var(--bg-color-3);
   cursor: not-allowed;
-  opacity: 0.8;
-  .yld-select-selection {
-    &:hover {
-      border-color: vr(--border-color);
-    }
-  }
   .yld-select-selection-selected-input {
-    background: ar(--bg-color-2);
+    background: ar(--bg-color-3);
   }
 }
 .yld-select-open {

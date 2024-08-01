@@ -96,6 +96,14 @@ export default ({
     <div className={classNames.join(' ')} style={style}>
       <div
         className="yld-cascader-selection"
+        style={
+          open
+            ? {
+                backgroundColor: 'var(--bg-color)',
+                borderColor: 'var(--primary-color)',
+              }
+            : {}
+        }
         ref={selectionRef}
         onClick={() => {
           if (disabled) return;
@@ -167,9 +175,7 @@ export default ({
                           }}
                         >
                           {option.label}
-                          {option.children && (
-                            <IconRight />
-                          )}
+                          {option.children && <IconRight />}
                         </div>
                       );
                     })}

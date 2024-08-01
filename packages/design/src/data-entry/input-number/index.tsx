@@ -85,7 +85,8 @@ export default ({
         type="number"
         className={disabled ? 'yld-input-number-disabled' : 'yld-input-number'}
         placeholder={placeholder}
-        value={innerValue}
+        value={innerValue || ""}
+        disabled={disabled}
         maxLength={maxLength}
         onChange={(e: any) => {
           if (e.target.value === '') {
