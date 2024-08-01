@@ -38,16 +38,16 @@ export default ({
   if (type === 'password') {
     suffixNode = (
       <Suffix>
-        {password ? (
+        {!password ? (
           <IconEye
             onClick={() => {
-              setPassword(false);
+              setPassword(true);
             }}
           />
         ) : (
           <IconEyeInvisible
             onClick={() => {
-              setPassword(true);
+              setPassword(false);
             }}
           />
         )}

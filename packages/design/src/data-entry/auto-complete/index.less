@@ -14,7 +14,6 @@
     background-color: var(--bg-color-2);
     transition: 0.3s;
     outline: none;
-    cursor: default;
     &:hover {
       transition: 0.3s;
       background-color: var(--bg-color-3);
@@ -47,10 +46,8 @@
   }
 }
 .yld-auto-disabled {
-  background: var(--bg-color-2);
-  pointer-events: none;
-  cursor: not-allowed;
-  input {
-    background: var(--bg-color-2) !important;
+  .yld-auto-input {
+    cursor: not-allowed;
+    background: var(--bg-color-3);
   }
 }

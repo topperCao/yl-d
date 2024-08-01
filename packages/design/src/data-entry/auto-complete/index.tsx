@@ -19,7 +19,7 @@ export interface AutoCompleteProps {
   /** 提示文案 */
   placeholder?: string;
   /** 是否禁用 */
-  disabled?: Boolean;
+  disabled?: boolean;
   /** 样式 */
   style?: CSSProperties;
   /** 选择后钩子 */
@@ -57,42 +57,38 @@ export default ({
   if (className) {
     classNames.push(className);
   }
-  const selectionRef = useRef<HTMLDivElement>();
+  const selectionRef = useRef<HTMLInputElement>();
   return (
     <div className={classNames.join(' ')} style={style}>
-      <div
+      <input
         ref={selectionRef}
-        onClick={() => {
+        value={value + suffix}
+        className="yld-auto-input"
+        placeholder={placeholder}
+        disabled={disabled}
+        onClick={(e) => {
           if (disabled) return;
           setOpen(!open);
+          if (open) {
+            e.stopPropagation();
+          }
         }}
-      >
-        <input
-          value={value + suffix}
-          className="yld-auto-input"
-          placeholder={placeholder}
-          onClick={(e) => {
-            if (open) {
-              e.stopPropagation();
-            }
-          }}
-          onChange={(e) => {
-            setValue(e.target.value);
+        onChange={(e) => {
+          setValue(e.target.value);
+          setSuffix('');
+        }}
+      />
+      {allowClear && value !== '' && (
+        <IconClose
+          style={{ fontSize: 12 }}
+          onClick={(e: any) => {
+            e.stopPropagation(); // 阻止冒泡
+            setValue('');
             setSuffix('');
+            onChange?.('');
           }}
         />
-        {allowClear && value !== '' && (
-          <IconClose
-            style={{ fontSize: 12 }}
-            onClick={(e: any) => {
-              e.stopPropagation(); // 阻止冒泡
-              setValue('');
-              setSuffix('');
-              onChange?.('');
-            }}
-          />
-        )}
-      </div>
+      )}
       {open && value !== '' && (
         <Layer
           layerClose={() => setOpen(false)}

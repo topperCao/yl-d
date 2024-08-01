@@ -19,7 +19,6 @@ export default () => {
         }}
       />
       <br />
-      <br />
       <Switch
         checkedChildren="启用"
         unCheckedChildren="禁用"
