@@ -67,11 +67,20 @@ export default () => {
         messageContainer.remove();
       }
     }, defaultOption.duration * 1000);
-    ReactDOM.render(renderMessage(type, defaultOption), messageContainer);
+    ReactDOM.render(
+      renderMessage(type, defaultOption, () => {
+        messageContainer.remove();
+      }),
+      messageContainer,
+    );
     // 返回关闭的钩子
     return () => messageContainer.remove();
   };
-  const renderMessage = (type: number, option: MessageProps) => {
+  const renderMessage = (
+    type: number,
+    option: MessageProps,
+    closeMsg: Function,
+  ) => {
     return (
       <div
         className="yld-message-content"
@@ -79,13 +88,7 @@ export default () => {
       >
         {option.icon ? option.icon : iconMapping[type]}
         <div className="yld-message-content-message">{option.content}</div>
-        {option.closable && (
-          <IconClose
-            onClick={(e: any) => {
-              e.target.parentNode.parentNode.remove();
-            }}
-          />
-        )}
+        {option.closable && <IconClose onClick={closeMsg} />}
       </div>
     );
   };

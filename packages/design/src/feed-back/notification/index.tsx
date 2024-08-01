@@ -42,18 +42,24 @@ export default () => {
     let messageContainer = document.createElement('div');
     let length = $$('.yld-notification').length;
     messageContainer.className = 'yld-notification';
-    messageContainer.style.top = 50 + length * 140 + 'px';
-    messageContainer.style.top = 50 + length * 140 + 'px';
+    messageContainer.style.top = 30 + length * 120 + 'px';
+    messageContainer.style.top = 30 + length * 120 + 'px';
     $('body').appendChild(messageContainer);
     setTimeout(() => {
       messageContainer.remove();
     }, defaultOption.duration * 1000);
-    ReactDOM.render(renderMessage(type, defaultOption), messageContainer);
+    ReactDOM.render(
+      renderMessage(type, defaultOption, () => {
+        messageContainer.remove();
+      }),
+      messageContainer,
+    );
   };
-  const closeNotify = (e) => {
-    e.target.parentNode.parentNode.parentNode.parentNode.remove();
-  };
-  const renderMessage = (type, option) => {
+  const renderMessage = (
+    type: number,
+    option: NotificationProps,
+    closeNotify: Function,
+  ) => {
     return (
       <div className="yld-notification-content">
         <div className="yld-notification-content-header">
@@ -62,11 +68,7 @@ export default () => {
             <span>{option.title || '提示'}</span>
           </div>
           <div className="yld-notification-content-header-close">
-            <IconClose
-              onClick={(e) => {
-                closeNotify(e);
-              }}
-            />
+            <IconClose onClick={closeNotify} />
           </div>
         </div>
         <div className="yld-notification-content-info">{option.content}</div>
