@@ -1,4 +1,4 @@
-import { Icon } from '../../..';
+import { IconDown, IconUp } from "@yl-d/icon";
 
 export default ({ scroll, columns, bordered, query }) => {
   const defineColumn = columns.filter((i) => i.width);
@@ -56,10 +56,8 @@ export default ({ scroll, columns, bordered, query }) => {
               {column.title}
               {column.sort && (
                 <>
-                  <Icon
-                    type="xiala1"
-                    size={12}
-                    style={{ left: 4, top: -6 }}
+                  <IconUp
+                    style={{ left: 4, top: -6, fontSize: 12 }}
                     onClick={() => {
                       query({
                         type: 'asc',
@@ -67,10 +65,8 @@ export default ({ scroll, columns, bordered, query }) => {
                       });
                     }}
                   />
-                  <Icon
-                    type="xialadown"
-                    size={12}
-                    style={{ top: 6, right: 8 }}
+                  <IconDown
+                    style={{ top: 6, right: 8, fontSize: 12 }}
                     onClick={() => {
                       query({
                         type: 'desc',

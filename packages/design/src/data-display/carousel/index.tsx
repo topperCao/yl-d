@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Icon } from '../..';
+import { IconLeft, IconRight } from '@yl-d/icon';
 import './index.less';
 
 export interface CarouselProps {}
@@ -104,7 +104,7 @@ export default ({
                 updateCurrentPage(_currentPage - 1);
               }}
             >
-              <Icon type="icon-jiantouzuo" />
+              <IconLeft />
             </div>
             <div
               className="yld-carousel-next"
@@ -112,7 +112,7 @@ export default ({
                 updateCurrentPage(_currentPage + 1);
               }}
             >
-              <Icon type="jiantou2" />
+              <IconRight />
             </div>
           </>
         )}

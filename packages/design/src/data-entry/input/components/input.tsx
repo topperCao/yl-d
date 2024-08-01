@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { Icon } from '../../..';
 import { InputProps } from '..';
+import { IconEye, IconEyeInvisible, IconClose } from '@yl-d/icon';
 import Prefix from './prefix';
 import Suffix from './suffix';
+import { isEmpty } from '../../../tools';
 
 export default ({
   value,
@@ -86,23 +87,30 @@ export default ({
       {type === 'password' ? (
         <>
           <Suffix>
-            <Icon
-              type={password ? 'password-invisible' : 'password-visible'}
-              onClick={() => {
-                setPassword(!password);
-              }}
-            />
+            {password ? (
+              <IconEye
+                onClick={() => {
+                  setPassword(false);
+                }}
+              />
+            ) : (
+              <IconEyeInvisible
+                onClick={() => {
+                  setPassword(true);
+                }}
+              />
+            )}
           </Suffix>
         </>
       ) : (
         <>
-          {!disabled && allowClear && value !== '' && (
+          {!disabled && allowClear && !isEmpty(value) && (
             <Suffix style={{ marginRight: cuoMarginRight }}>
-              <Icon
-                type="cuo"
+              <IconClose
+                style={{ fontSize: 12 }}
                 onClick={() => {
-                  onChange('');
-                  typeof onAllowClear === 'function' && onAllowClear();
+                  onChange(undefined);
+                  onAllowClear?.();
                 }}
               />
             </Suffix>

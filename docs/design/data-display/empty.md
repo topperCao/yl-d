@@ -8,21 +8,15 @@ export default () => {
 };
 ```
 
-## 自定义文案
+## 自定义图标和文案
+
 ```jsx | react
 import { Empty } from '@yl-d/design';
+import { IconLaunch } from '@yl-d/icon';
 
 export default () => {
-  return <Empty label="暂无数据，请稍后再试！" />;
-};
-```
-
-## 自定义图标
-
-```jsx | react
-import { Empty, Icon } from '@yl-d/design';
-
-export default () => {
-  return <Empty icon="searchicon" />;
+  return (
+    <Empty icon={<IconLaunch style={{ fontSize: 50 }} />} label="前往新窗口" />
+  );
 };
 ```

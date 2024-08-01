@@ -58,22 +58,24 @@
     margin-right: 8px;
   }
   .yld-input-count {
-    color: #aaa;
+    color: var(--text-color);
     padding: 0 4px;
     position: absolute;
   }
-  .yld-icon-cuo {
+  .yld-icon-close {
     display: none;
-    color: #aaa;
+    color: var(--text-color);
     cursor: pointer;
     transition: 0.3s;
+    padding: 2px;
+    border-radius: 50%;
   }
-  .yld-icon-cuo:hover {
-    color: #666;
+  .yld-icon-close:hover {
     transition: 0.3s;
+    background-color: var(--bg-color-2);
   }
   &:hover {
-    .yld-icon-cuo {
+    .yld-icon-close {
       display: inline;
     }
   }

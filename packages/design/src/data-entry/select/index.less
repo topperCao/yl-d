@@ -77,11 +77,11 @@
         cursor: default;
         transition: padding 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
         user-select: none;
-        .yld-icon-guanbi {
+        .yld-icon-close {
           position: absolute;
           right: 4px;
+          top: 5px;
           color: #999;
-          font-size: 14px;
           cursor: pointer;
           transition: 0.3s;
           &:hover {
@@ -91,29 +91,31 @@
         }
       }
     }
-    .yld-icon-xialadown {
+    .yld-icon-down {
       position: absolute;
-      right: 10px;
-      color: #aaa;
-      font-size: 18px;
+      right: 7px;
+      top: 7px;
+      color: var(--text-color);
       transition: 0.3s;
     }
-    &:hover {
-      .yld-icon-cuo {
-        display: block;
-      }
-    }
-    .yld-icon-cuo {
+    .yld-icon-close-el {
       position: absolute;
-      right: 28px;
+      right: 26px;
+      top: 7px;
       display: none;
-      color: #aaa;
-      font-size: 12px;
       cursor: pointer;
+      color: var(--text-color);
+      padding: 2px;
+      border-radius: 50%;
       transition: 0.3s;
       &:hover {
-        color: #999;
         transition: 0.3s;
+        background-color: var(--bg-color-2);
+      }
+    }
+    &:hover {
+      .yld-icon-close-el {
+        display: block;
       }
     }
   }
@@ -127,12 +129,12 @@
       border-color: vr(--border-color);
     }
   }
-  .yld-select-selection-selected-input{
+  .yld-select-selection-selected-input {
     background: ar(--bg-color-2);
   }
 }
 .yld-select-open {
-  .yld-icon-xialadown {
+  .yld-icon-down {
     transform: rotate(180deg);
     transition: 0.3s;
   }
@@ -147,13 +149,13 @@
   background-color: var(--bg-color);
   cursor: pointer;
   transition: 0.3s;
-  .yld-icon-duihao {
+  .yld-icon-check {
     display: none;
     font-size: 14px;
   }
   &:hover {
     background-color: var(--box-shadow);
-    .yld-icon-duihao {
+    .yld-icon-check {
       display: inline;
     }
   }
@@ -170,7 +172,7 @@
   color: var(--primary-color);
   font-weight: 600;
   background-color: var(--bg-color-2);
-  .yld-icon-duihao {
+  .yld-icon-check {
     display: inline;
     color: var(--primary-color);
   }

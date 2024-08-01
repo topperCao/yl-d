@@ -81,7 +81,7 @@ export default defineConfig({
   webpackConfig() {
     return {
       externals: {
-        '@yl-d/low-code': 'lyrLowCode',
+        '@yl-d/icon': 'lyricon',
       },
     };
   },

@@ -1,10 +1,19 @@
-import { Icon } from '../..';
+import { IconEmpty } from '@yl-d/icon';
+import { ReactNode } from 'react';
 import './index.less';
 
-export default ({ label = '暂无数据', icon = 'empty' }) => {
+export interface EmptyProps {
+  label?: string;
+  icon?: ReactNode;
+}
+
+export default ({
+  label = '暂无数据',
+  icon = <IconEmpty style={{ fontSize: 50 }} />,
+}: EmptyProps) => {
   return (
     <div className="yld-empty-wrapper">
-      <Icon type={icon} size={50} />
+      {icon}
       <span className="yld-empty-wrapper-label">{label}</span>
     </div>
   );

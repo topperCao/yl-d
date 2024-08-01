@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { SelectProps } from '..';
-import { Icon, Empty, Layer } from '../../..';
+import { Empty, Layer } from '../../..';
+import { IconDown, IconClose } from '@yl-d/icon';
 
 export default ({
   allowClear = true,
@@ -91,10 +92,10 @@ export default ({
             selected.label
           )}
         </div>
-        <Icon type="xialadown" />
+        <IconDown style={{ fontSize: 14 }} />
         {!disabled && allowClear && selected.value !== undefined && (
-          <Icon
-            type="cuo"
+          <IconClose
+            style={{ fontSize: 12 }}
             onClick={(e: any) => {
               e.stopPropagation(); // 阻止冒泡
               setValue(undefined);

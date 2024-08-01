@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { Button, Form, Space } from '../..';
 import { FormProps } from '../form/type.form';
+import { IconSearch } from '@yl-d/icon';
 import './index.less';
 
 export interface SearchProps extends FormProps {
@@ -35,9 +36,8 @@ export default ({
             return (
               <Space>
                 <Button
-                  icon="reset"
                   onClick={async () => {
-                    if(loadingRef.current){
+                    if (loadingRef.current) {
                       return;
                     }
                     try {
@@ -55,10 +55,10 @@ export default ({
                 </Button>
                 <Button
                   type="primary"
-                  icon="searchicon"
+                  icon={<IconSearch />}
                   onClick={async () => {
                     try {
-                      if(loadingRef.current){
+                      if (loadingRef.current) {
                         return;
                       }
                       const values = await form.validateFields();

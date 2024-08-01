@@ -12,7 +12,7 @@ export default () => {
 
 ```jsx | react
 import { Switch, Space } from '@yl-d/design';
-import { IconCheck, IconClose } from "@yl-d/icon";
+import { IconCheck, IconClose } from '@yl-d/icon';
 
 export default () => {
   return (
@@ -20,8 +20,8 @@ export default () => {
       <Switch checkedChildren="开" unCheckedChildren="关" />
       <Switch checkedChildren="1" unCheckedChildren="0" value={false} />
       <Switch
-        checkedChildren={<IconCheck />}
-        unCheckedChildren={<IconClose />}
+        checkedChildren={<IconCheck style={{ fontSize: 13 }} />}
+        unCheckedChildren={<IconClose style={{ fontSize: 13 }} />}
       />
     </Space>
   );

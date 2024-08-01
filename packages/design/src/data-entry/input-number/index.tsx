@@ -1,6 +1,6 @@
 import { BigNumber } from '../../tools';
 import { useState, useEffect, CSSProperties } from 'react';
-import { Icon } from '../..';
+import { IconUp, IconDown } from '@yl-d/icon';
 import './index.less';
 
 export interface InputNumberProps {
@@ -36,12 +36,12 @@ export interface InputNumberProps {
 
 export default ({
   value,
+  onChange,
   className,
   disabled = false,
   style = {},
   placeholder = '请输入',
   maxLength,
-  onChange,
   onBlur,
   onFocus,
   onPressEnter,
@@ -75,12 +75,12 @@ export default ({
       setValue(value);
     }
   };
-  const _className = ['yld-input-number-wrapper'];
+  const classNames = ['yld-input-number-wrapper'];
   if (className) {
-    _className.push(className);
+    classNames.push(className);
   }
   return (
-    <div className={_className.join(' ')} style={style}>
+    <div className={classNames.join(' ')} style={style}>
       <input
         type="number"
         className={disabled ? 'yld-input-number-disabled' : 'yld-input-number'}
@@ -109,10 +109,10 @@ export default ({
       {!disabled && control && (
         <div className="yld-input-number-suffix">
           <div className="suffix-top" onClick={add}>
-            <Icon type="xiala1" size={12} />
+            <IconUp type="xiala1" style={{ fontSize: 12 }} />
           </div>
           <div className="suffix-bottom" onClick={minus}>
-            <Icon type="xialadown" size={12} />
+            <IconDown type="xialadown" style={{ fontSize: 12 }} />
           </div>
         </div>
       )}

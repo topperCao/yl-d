@@ -1,5 +1,5 @@
 import { useState, useEffect, CSSProperties, ReactNode } from 'react';
-import { Icon } from '../..';
+import { IconLoading } from '@yl-d/icon';
 import './index.less';
 
 export interface SwitchProps {
@@ -53,7 +53,7 @@ export default ({
         onChange?.(!checked, e);
       }}
     >
-      {loading && <Icon type="loading" size={10} />}
+      {loading && <IconLoading style={{ fontSize: 10 }} />}
       <span className="yld-switch-inner">{innerText}</span>
       <div className="yld-click-animating-node" />
     </button>

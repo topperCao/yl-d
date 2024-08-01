@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
-import { Icon, Empty, Layer } from '../../..';
+import { Empty, Layer } from '../../..';
 import { SelectProps } from '..';
-import { promises } from 'fs-extra';
+import { IconDown, IconClose, IconCheck } from '@yl-d/icon';
 
 export default ({
   className,
@@ -72,9 +72,8 @@ export default ({
                         key={item.value}
                       >
                         {item.label}
-                        <Icon
-                          size={12}
-                          type="guanbi"
+                        <IconClose
+                          style={{ fontSize: 12 }}
                           onClick={(e: any) => {
                             e.stopPropagation(); // 阻止冒泡
                             let v = value.filter((i) => i !== item.value);
@@ -88,11 +87,11 @@ export default ({
               </div>
             )}
           </div>
-          <Icon type="xialadown" />
+          <IconDown style={{ fontSize: 14 }} />
           {!disabled && allowClear && value.length > 0 && (
-            <Icon
-              size={14}
-              type="cuo"
+            <IconClose
+              style={{ fontSize: 12 }}
+              className="yld-icon yld-icon-close-el"
               onClick={async (e: any) => {
                 e.stopPropagation(); // 阻止冒泡
                 setValue([]); // clear
@@ -138,7 +137,7 @@ export default ({
                   }}
                 >
                   {option.label}
-                  <Icon size={12} type="duihao" />
+                  <IconCheck style={{ fontSize: 14 }} />
                 </div>
               );
             })
