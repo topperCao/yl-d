@@ -114,7 +114,7 @@ export default () => {
         return `<CopyToClipboard message text="<${item} />">
           <div className="yld-icon-demo-wrap-icon">
             <span style={{ padding: 13 }}>${item}</span>
-            <${item} />
+            <${item} style={{ fontSize: 32 }} />
           </div>
         </CopyToClipboard>`;
       })

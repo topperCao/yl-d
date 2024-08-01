@@ -1,9 +1,9 @@
 import { CSSProperties, ReactNode, useState } from 'react';
 import {
-  IconCheckCircle,
-  IconExclamationCircle,
-  IconQuestionCircle,
-  IconCloseCircle,
+  IconCheckCircleFill,
+  IconExclamationCircleFill,
+  IconQuestionCircleFill,
+  IconCloseCircleFill,
   IconClose,
 } from '@yl-d/icon';
 import './index.less';
@@ -16,10 +16,10 @@ export interface AlertProps {
 }
 
 const iconMapping = {
-  success: <IconCheckCircle />,
-  info: <IconExclamationCircle />,
-  warning: <IconQuestionCircle />,
-  error: <IconCloseCircle />,
+  success: <IconCheckCircleFill />,
+  info: <IconExclamationCircleFill />,
+  warning: <IconQuestionCircleFill />,
+  error: <IconCloseCircleFill />,
 };
 
 export default ({

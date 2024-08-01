@@ -2,10 +2,10 @@ import ReactDOM from 'react-dom';
 import { isValidElement, ReactNode } from 'react';
 import {
   IconClose,
-  IconCheckCircle,
-  IconCloseCircle,
-  IconExclamationCircle,
-  IconQuestionCircle,
+  IconCheckCircleFill,
+  IconExclamationCircleFill,
+  IconQuestionCircleFill,
+  IconCloseCircleFill,
 } from '@yl-d/icon';
 import './index.less';
 
@@ -13,10 +13,10 @@ const $: any = document.querySelector.bind(document);
 const $$: any = document.querySelectorAll.bind(document);
 
 const iconMapping = {
-  1: <IconCheckCircle style={{ fontSize: 18, color: '#1ac7aa' }} />,
-  2: <IconCloseCircle style={{ fontSize: 18, color: '#d81e06' }} />,
-  3: <IconQuestionCircle style={{ fontSize: 18, color: '#f4ea2a' }} />,
-  4: <IconExclamationCircle style={{ fontSize: 18, color: '#39a9f4' }} />,
+  1: <IconCheckCircleFill style={{ fontSize: 18, color: '#1ac7aa' }} />,
+  2: <IconCloseCircleFill style={{ fontSize: 18, color: '#d81e06' }} />,
+  3: <IconQuestionCircleFill style={{ fontSize: 18, color: '#f4ea2a' }} />,
+  4: <IconExclamationCircleFill style={{ fontSize: 18, color: '#39a9f4' }} />,
 };
 
 export interface NotificationProps {
