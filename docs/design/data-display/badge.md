@@ -1,7 +1,7 @@
 ## 基本使用
 
 ```jsx | react
-import { Badge, Icon, Space } from '@yl-d/design';
+import { Badge, Space } from '@yl-d/design';
 import { IconEye } from '@yl-d/icon';
 
 export default () => {
@@ -16,7 +16,7 @@ export default () => {
       </Badge>
       <Badge dot>Dot</Badge>
       <Badge color="transparent" count={<IconEye style={{ color: 'red' }} />}>
-        Icon
+        图标
       </Badge>
     </Space>
   );

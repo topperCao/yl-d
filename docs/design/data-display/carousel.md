@@ -1,7 +1,7 @@
 ## 基本使用
 
 ```jsx | react
-import { Carousel, Icon } from '@yl-d/design';
+import { Carousel } from '@yl-d/design';
 
 export default () => {
   const imageSrc = [
@@ -27,7 +27,7 @@ export default () => {
 ## 自动播放-渐变模式
 
 ```jsx | react
-import { Carousel, Icon } from '@yl-d/design';
+import { Carousel } from '@yl-d/design';
 
 export default () => {
   const imageSrc = [

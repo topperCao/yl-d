@@ -1,7 +1,7 @@
 ## Dropdown 下拉菜单
 
 ```jsx | react
-import { Dropdown, Icon } from '@yl-d/design';
+import { Dropdown } from '@yl-d/design';
 export default () => {
   const overlay = ['Html', 'Css', 'React', 'Vue'].map((item) => {
     return (

@@ -63,7 +63,7 @@ export default () => {
 ## 内联前后缀
 
 ```jsx | react
-import { Input, Icon } from '@yl-d/design';
+import { Input } from '@yl-d/design';
 import { IconEmail, IconSearch } from '@yl-d/icon';
 
 export default () => {
@@ -81,7 +81,7 @@ export default () => {
 ## 支持清除
 
 ```jsx | react
-import { Input, Icon } from '@yl-d/design';
+import { Input } from '@yl-d/design';
 import { IconLaunch } from '@yl-d/icon';
 
 export default () => {

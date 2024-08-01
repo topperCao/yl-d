@@ -2,7 +2,7 @@
 
 ```jsx | react
 import { useState } from 'react';
-import { Menu, Icon, Switch } from '@yl-d/design';
+import { Menu, Switch } from '@yl-d/design';
 import { IconFindReplace } from '@yl-d/icon';
 
 export default () => {

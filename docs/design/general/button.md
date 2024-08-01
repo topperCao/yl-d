@@ -25,7 +25,7 @@ export default () => {
 
 ```jsx | react
 import { Button, Space } from '@yl-d/design';
-import  { IconRefresh, IconSearch } from "@yl-d/icon";
+import { IconRefresh, IconSearch } from '@yl-d/icon';
 
 export default () => {
   return (
@@ -48,6 +48,28 @@ export default () => {
   return (
     <Button
       type="primary"
+      onClick={() => {
+        return new Promise((res) => setTimeout(res, 1000));
+      }}
+    >
+      提交表单
+    </Button>
+  );
+};
+```
+
+## 二次确认
+
+```jsx | react
+import { Button } from '@yl-d/design';
+
+export default () => {
+  return (
+    <Button
+      type="primary"
+      confirm={{
+        content: '是否确认删除该数据？',
+      }}
       onClick={() => {
         return new Promise((res) => setTimeout(res, 1000));
       }}

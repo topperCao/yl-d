@@ -168,7 +168,7 @@ Modal.confirm = ({
     <>
       <div className="yld-confirm">
         <b className="yld-confirm-title">
-          <IconInfoCircle style={{ marginRight: 10, color: "#ff7d00"  }} />
+          <IconInfoCircle style={{ fontSize: 18, marginRight: 10, color: "#ff7d00"  }} />
           {title}
         </b>
         <div className="yld-confirm-content">{content}</div>

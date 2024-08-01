@@ -1,7 +1,7 @@
 ## Pagination 分页器
 
 ```jsx | react
-import { Pagination, Icon } from '@yl-d/design';
+import { Pagination } from '@yl-d/design';
 
 export default () => {
   return (

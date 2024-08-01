@@ -3,7 +3,7 @@
 > 在 column 中指定 fixed: "left" 或 fixed: "right"，可将列固定到左侧或右侧，设置 fixed 的列，也需要设置 width，注意： 要配合 scroll={{ x: number }} 使用，columns 中需要有一列不设置宽度，自适应，不然会有样式问题。
 
 ```jsx | react
-import { Table } from '@yl-d/design';
+import { Table, Message } from '@yl-d/design';
 import { IconPlus } from '@yl-d/icon';
 import axios from 'axios';
 
@@ -74,7 +74,12 @@ export default () => {
           },
           {
             label: '删除',
-            onClick() {
+            confirm: {
+              content: `是否确认删除该数据（${record.username}）？`,
+            },
+            async onClick() {
+              await new Promise((res) => setTimeout(res, 1000));
+              Message.success('已删除!');
               console.log(record);
             },
           },

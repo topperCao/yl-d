@@ -26,7 +26,7 @@ export default () => {
 ## 设置大小
 
 ```jsx | react
-import { Space, Avatar, Icon } from '@yl-d/design';
+import { Space, Avatar } from '@yl-d/design';
 
 export default () => {
   return (
@@ -42,7 +42,7 @@ export default () => {
 ## 头像组
 
 ```jsx | react
-import { Space, AvatarGroup, Icon } from '@yl-d/design';
+import { Space, AvatarGroup } from '@yl-d/design';
 
 export default () => {
   return (

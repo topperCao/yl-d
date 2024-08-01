@@ -1,6 +1,7 @@
 import { CSSProperties, ReactNode, useEffect, useState } from 'react';
 import { IconLoading } from '@yl-d/icon';
 import './index.less';
+import { Modal } from '../..';
 
 export interface ButtonProps {
   /** 类型 */
@@ -17,7 +18,7 @@ export interface ButtonProps {
   style?: CSSProperties;
   /** 二次确认提示 */
   confirm?: {
-    title?: String;
+    title?: string;
     content: ReactNode;
   };
   /** 类名 */
@@ -36,15 +37,16 @@ export default ({
   style,
   className,
   children,
-  loading = false
+  confirm,
+  loading = false,
 }: ButtonProps) => {
   const classNames = ['yld-btn'];
   const [spin, setSpin] = useState(loading);
   useEffect(() => {
-    if(loading !== spin){
+    if (loading !== spin) {
       setSpin(loading);
     }
-  }, [loading])
+  }, [loading]);
   if (className) {
     classNames.push(className);
   }
@@ -66,17 +68,26 @@ export default ({
       className={classNames.join(' ')}
       onClick={async (e: any) => {
         if (disabled) return;
-        setSpin(true);
-        try {
-          typeof onClick === 'function' && (await onClick(e));
-        } catch (error) {
-          console.error('按钮点击异常:', error);
-        } finally {
-          setSpin(false);
+        if (confirm) {
+          Modal.confirm({
+            ...confirm,
+            async onOk() {
+              await onClick();
+            },
+          });
+        } else {
+          setSpin(true);
+          try {
+            typeof onClick === 'function' && (await onClick(e));
+          } catch (error) {
+            console.error('按钮点击异常:', error);
+          } finally {
+            setSpin(false);
+          }
         }
       }}
     >
-      {spin && <IconLoading /> }
+      {spin && <IconLoading />}
       {icon}
       {children || ''}
     </button>

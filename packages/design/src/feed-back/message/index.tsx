@@ -4,7 +4,6 @@ import {
   IconClose,
   IconCheckCircleFill,
   IconExclamationCircleFill,
-  IconQuestionCircleFill,
   IconCloseCircleFill,
   IconLoading,
 } from '@yl-d/icon';
@@ -17,7 +16,7 @@ const iconMapping = {
   1: <IconCheckCircleFill style={{ color: '#1ac7aa' }} />,
   2: <IconCloseCircleFill style={{ color: '#d81e06' }} />,
   3: <IconExclamationCircleFill style={{ color: '#f4ea2a' }} />,
-  4: <IconQuestionCircleFill style={{ color: '#39a9f4' }} />,
+  4: <IconExclamationCircleFill style={{ color: '#39a9f4' }} />,
   5: <IconLoading style={{ color: 'var(--primary-color)' }} />,
 };
 
@@ -76,7 +75,7 @@ export default () => {
     return (
       <div
         className="yld-message-content"
-        style={{ paddingRight: option.closable ? 20 : 0 }}
+        style={{ paddingRight: option.closable ? 20 : 10 }}
       >
         {option.icon ? option.icon : iconMapping[type]}
         <div className="yld-message-content-message">{option.content}</div>
