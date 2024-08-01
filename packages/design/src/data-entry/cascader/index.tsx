@@ -75,12 +75,13 @@ export default ({
   useEffect(() => {
     open && setOptions(getInitialOptions(value, optionsRef.current));
   }, [open]);
-
   const classNames = ['yld-cascader'];
   if (open) {
     classNames.push('yld-cascader-open');
   }
-  if (allowClear) {
+  // 是否展示清空按钮
+  const showAllowClear = !disabled && allowClear && value?.length > 0;
+  if (showAllowClear) {
     classNames.push('yld-cascader-allowClear');
   }
   if (disabled) {
@@ -109,7 +110,7 @@ export default ({
           )}
         </div>
         <IconDown />
-        {!disabled && allowClear && value?.length > 0 && (
+        {showAllowClear && (
           <IconClose
             style={{ fontSize: 12 }}
             onClick={(e: any) => {

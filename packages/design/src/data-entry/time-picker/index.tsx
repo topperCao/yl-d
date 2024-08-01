@@ -88,6 +88,11 @@ const TimePicker = forwardRef(
     if (disabled) {
       classNames.push('yld-time-picker-disabled');
     }
+    // 是否展示清空按钮
+    const showAllowClear = !disabled && allowClear && value !== undefined;
+    if (showAllowClear) {
+      classNames.push('yld-time-picker-allowClear');
+    }
     return (
       <div className={classNames.join(' ')} style={style}>
         <div className="yld-time-picker-input" ref={selectionRef}>

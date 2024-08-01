@@ -26,6 +26,10 @@ export default ({
   if (open) {
     classNames.push('yld-select-open');
   }
+  const showAllowClear = !disabled && allowClear && value.length > 0;
+  if (showAllowClear) {
+    classNames.push('yld-select-allowClear');
+  }
   if (disabled) {
     classNames.push('yld-select-disabled');
   }
@@ -88,7 +92,7 @@ export default ({
             )}
           </div>
           <IconDown />
-          {!disabled && allowClear && value.length > 0 && (
+          {showAllowClear && (
             <IconClose
               style={{ fontSize: 12 }}
               className="yld-icon yld-icon-close-el"

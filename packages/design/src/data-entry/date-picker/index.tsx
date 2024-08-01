@@ -1,5 +1,11 @@
 import dayjs from 'dayjs';
-import { IconDoubleLeft, IconLeft, IconRight, IconDoubleRight, IconCalendar } from "@yl-d/icon"
+import {
+  IconDoubleLeft,
+  IconLeft,
+  IconRight,
+  IconDoubleRight,
+  IconCalendar,
+} from '@yl-d/icon';
 import { useState, useEffect, CSSProperties, ReactNode, useRef } from 'react';
 import { Button, Input, Layer, Space } from '../..';
 import DateUtil from './util';
@@ -103,8 +109,14 @@ export default ({
     setMonth(dateUtil.date.getMonth() + 1);
   };
   const selectionRef = useRef<HTMLDivElement>();
+  const classNames = ['yld-date-picker'];
+  // 是否展示清空按钮
+  const showAllowClear = !disabled && allowClear && value !== undefined;
+  if (showAllowClear) {
+    classNames.push('yld-date-picker-allowClear');
+  }
   return (
-    <div className="yld-date-picker" style={style}>
+    <div className={classNames.join(' ')} style={style}>
       <div className="yld-date-picker-input" ref={selectionRef}>
         <Input
           suffix={<IconCalendar />}
@@ -138,7 +150,7 @@ export default ({
           <div className="yld-date-picker-body">
             <div className="yld-date-picker-body-tools">
               <Space>
-                <IconDoubleLeft 
+                <IconDoubleLeft
                   onClick={() => {
                     updateDateCalendar(
                       dateUtil.date.getTime() -

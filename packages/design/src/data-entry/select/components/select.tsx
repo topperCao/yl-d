@@ -35,8 +35,12 @@ export default ({
     setOptions(rest.options);
   }, [rest.options, open]);
   const classNames = ['yld-select'];
+  const showAllowClear = !disabled && allowClear && selected.value !== undefined;
   if (open) {
     classNames.push('yld-select-open');
+  }
+  if (showAllowClear) {
+    classNames.push('yld-select-allowClear');
   }
   if (className) {
     classNames.push(className);
@@ -96,7 +100,7 @@ export default ({
           )}
         </div>
         <IconDown />
-        {!disabled && allowClear && selected.value !== undefined && (
+        {showAllowClear && (
           <IconClose
             className="yld-icon yld-icon-close-el"
             style={{ fontSize: 12 }}
