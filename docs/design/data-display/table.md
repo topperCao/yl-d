@@ -80,6 +80,7 @@ export default () => {
             async onClick() {
               await new Promise((res) => setTimeout(res, 1000));
               Message.success('已删除!');
+              refresh();
               console.log(record);
             },
           },

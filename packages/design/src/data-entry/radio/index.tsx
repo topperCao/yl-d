@@ -19,6 +19,9 @@ export default ({
   children,
 }: RadioProps) => {
   const [_checked, setChecked] = useState(checked);
+  useEffect(() => {
+    setChecked(checked);
+  }, [checked]);
   const classNames = ['yld-radio'];
   if (_checked) {
     classNames.push('yld-radio-checked');
@@ -26,11 +29,15 @@ export default ({
   if (disabled) {
     classNames.push('yld-radio-disabled');
   }
-  useEffect(() => {
-    setChecked(checked);
-  }, [checked]);
+  const wrapClassName = ['yld-radio-wrapper'];
+  if (checked) {
+    wrapClassName.push('yld-radio-wrapper-checked');
+  }
+  if (disabled) {
+    wrapClassName.push('yld-radio-wrapper-disabled');
+  }
   return (
-    <label className={checked ? "yld-radio-wrapper yld-radio-wrapper-checked" : "yld-radio-wrapper"}>
+    <label className={wrapClassName.join(' ')}>
       <span className={classNames.join(' ')}>
         <input
           type="radio"

@@ -3,7 +3,7 @@ import { isValidElement, ReactNode } from 'react';
 import {
   IconClose,
   IconCheckCircleFill,
-  IconExclamationCircleFill,
+  IconInfoCircleFill,
   IconQuestionCircleFill,
   IconCloseCircleFill,
 } from '@yl-d/icon';
@@ -13,10 +13,10 @@ const $: any = document.querySelector.bind(document);
 const $$: any = document.querySelectorAll.bind(document);
 
 const iconMapping = {
-  1: <IconCheckCircleFill style={{ fontSize: 18, color: '#1ac7aa' }} />,
+  1: <IconCheckCircleFill style={{ fontSize: 18, color: '#00b42a' }} />,
   2: <IconCloseCircleFill style={{ fontSize: 18, color: '#d81e06' }} />,
-  3: <IconQuestionCircleFill style={{ fontSize: 18, color: '#f4ea2a' }} />,
-  4: <IconExclamationCircleFill style={{ fontSize: 18, color: '#39a9f4' }} />,
+  3: <IconQuestionCircleFill style={{ fontSize: 18, color: '#ff7d00' }} />,
+  4: <IconInfoCircleFill style={{ fontSize: 18, color: '#39a9f4' }} />,
 };
 
 export interface NotificationProps {
@@ -85,7 +85,7 @@ export default () => {
     warning: (option: ReactNode | NotificationProps) => {
       open(3, option);
     },
-    normal: (option: ReactNode | NotificationProps) => {
+    info: (option: ReactNode | NotificationProps) => {
       open(4, option);
     },
   };

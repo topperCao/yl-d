@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {
   IconClose,
   IconCheckCircleFill,
-  IconExclamationCircleFill,
+  IconInfoCircleFill,
   IconCloseCircleFill,
   IconLoading,
 } from '@yl-d/icon';
@@ -13,11 +13,11 @@ const $: any = document.querySelector.bind(document);
 const $$: any = document.querySelectorAll.bind(document);
 
 const iconMapping = {
-  1: <IconCheckCircleFill style={{ color: '#1ac7aa' }} />,
-  2: <IconCloseCircleFill style={{ color: '#d81e06' }} />,
-  3: <IconExclamationCircleFill style={{ color: '#f4ea2a' }} />,
-  4: <IconExclamationCircleFill style={{ color: '#39a9f4' }} />,
-  5: <IconLoading style={{ color: 'var(--primary-color)' }} />,
+  1: <IconCheckCircleFill style={{ color: '#00b42a', fontSize: 18 }} />,
+  2: <IconCloseCircleFill style={{ color: '#d81e06', fontSize: 18 }} />,
+  3: <IconInfoCircleFill style={{ color: '#ff7d00', fontSize: 18 }} />,
+  4: <IconInfoCircleFill style={{ color: '#39a9f4', fontSize: 18 }} />,
+  5: <IconLoading style={{ color: 'var(--primary-color)', fontSize: 18 }} />,
 };
 
 export interface MessageProps {
@@ -102,7 +102,7 @@ export default () => {
     warning: (option: ReactNode | MessageProps): Function => {
       return open(3, option);
     },
-    normal: (option: ReactNode | MessageProps): Function => {
+    info: (option: ReactNode | MessageProps): Function => {
       return open(4, option);
     },
     loading: (option: ReactNode | MessageProps): Function => {

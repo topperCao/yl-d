@@ -1,7 +1,7 @@
 import { CSSProperties, ReactNode, useState } from 'react';
 import {
   IconCheckCircleFill,
-  IconExclamationCircleFill,
+  IconInfoCircleFill,
   IconQuestionCircleFill,
   IconCloseCircleFill,
   IconClose,
@@ -17,7 +17,7 @@ export interface AlertProps {
 
 const iconMapping = {
   success: <IconCheckCircleFill />,
-  info: <IconExclamationCircleFill />,
+  info: <IconInfoCircleFill />,
   warning: <IconQuestionCircleFill />,
   error: <IconCloseCircleFill />,
 };

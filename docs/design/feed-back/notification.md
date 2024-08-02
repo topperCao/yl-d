@@ -7,6 +7,7 @@ export default () => {
   return (
     <Space>
       <Button
+        style={{ background: '#00b42a', color: '#fff' }}
         onClick={() => {
           Notification.success('成功提示!');
         }}
@@ -14,6 +15,7 @@ export default () => {
         成功提示
       </Button>
       <Button
+        style={{ background: '#d81e06', color: '#fff' }}
         onClick={() => {
           Notification.error('错误提示!');
         }}
@@ -21,6 +23,7 @@ export default () => {
         错误提示
       </Button>
       <Button
+        style={{ background: '#ff7d00', color: '#fff' }}
         onClick={() => {
           Notification.warning('警告提示!');
         }}
@@ -28,8 +31,9 @@ export default () => {
         警告提示
       </Button>
       <Button
+        style={{ background: '#39a9f4', color: '#fff' }}
         onClick={() => {
-          Notification.normal('信息提示!');
+          Notification.info('信息提示!');
         }}
       >
         信息提示

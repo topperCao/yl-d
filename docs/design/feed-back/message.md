@@ -7,32 +7,36 @@ export default () => {
   return (
     <Space>
       <Button
+        style={{ background: '#00b42a', color: '#fff' }}
         onClick={() => {
           Message.success('成功提示!');
         }}
       >
-        成功提示
+        Success
       </Button>
       <Button
+        style={{ background: '#d81e06', color: '#fff' }}
         onClick={() => {
           Message.error('错误提示!');
         }}
       >
-        错误提示
+        Error
       </Button>
       <Button
+        style={{ background: '#ff7d00', color: '#fff' }}
         onClick={() => {
           Message.warning('警告提示!');
         }}
       >
-        警告提示
+        Warning
       </Button>
       <Button
+        style={{ background: '#39a9f4', color: '#fff' }}
         onClick={() => {
-          Message.normal('信息提示!');
+          Message.info('信息提示!');
         }}
       >
-        信息提示
+        Info
       </Button>
     </Space>
   );
@@ -51,7 +55,7 @@ export default () => {
       <Button
         onClick={() => {
           Message.success({
-            icon: <IconSearch style={{ color: 'var(--primary-color)' }} />,
+            icon: <IconSearch style={{ color: 'var(--primary-color)', fontSize: 18 }} />,
             content: '正在查找...',
           });
         }}
