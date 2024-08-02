@@ -4,7 +4,7 @@
 import { Tabs } from '@yl-d/design';
 
 export default () => {
-  const data = [
+  const tabs = [
     {
       key: 1,
       label: <span>Tab1</span>,
@@ -30,7 +30,7 @@ export default () => {
       style={{
         height: 300,
       }}
-      data={data}
+      tabs={tabs}
       onClick={(e) => {
         console.log(e);
       }}
@@ -45,7 +45,7 @@ export default () => {
 import { Tabs } from '@yl-d/design';
 
 export default () => {
-  const data = [
+  const tabs = [
     {
       key: 1,
       label: <span>Tab1</span>,
@@ -72,7 +72,7 @@ export default () => {
         height: 300,
       }}
       closable
-      data={data}
+      tabs={tabs}
       onClick={(e) => {
         console.log(e);
       }}
@@ -87,21 +87,12 @@ export default () => {
 ## 超出范围
 
 ```jsx | react | var(--color-fill-2)
-import { Tabs, Space } from '@yl-d/design';
-import { IconMore, IconDown } from '@yl-d/icon';
+import { Tabs } from '@yl-d/design';
 
 export default () => {
-  const data = new Array(16).fill('').map((item, index) => ({
+  const tabs = new Array(16).fill('').map((item, index) => ({
     key: index,
-    label:
-      index == 10 ? (
-        <Space>
-          <IconMore />
-          <IconDown />
-        </Space>
-      ) : (
-        `Tab-${index}`
-      ),
+    label: `Tab-${index}`,
     content: <div>Content {index}</div>,
   }));
   return (
@@ -109,7 +100,7 @@ export default () => {
       style={{
         height: 300,
       }}
-      data={data}
+      tabs={tabs}
       onClick={(e) => {
         console.log(e);
       }}

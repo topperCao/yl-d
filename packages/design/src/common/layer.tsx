@@ -60,9 +60,9 @@ export default forwardRef(
           layerClick?.();
         }
       };
-      window.addEventListener('click', handle, true);
+      window.addEventListener('click', handle, false);
       return () => {
-        window.removeEventListener('click', handle, true);
+        window.removeEventListener('click', handle, false);
       };
     }, []);
     divRef.current.style.width = '100%';
