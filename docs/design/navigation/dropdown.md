@@ -3,6 +3,7 @@
 ```jsx | react
 import { Menu, Button, Space, Dropdown } from '@yl-d/design';
 import { IconDown } from '@yl-d/icon';
+import { IconUserGroup, IconLanguage, IconCodepen } from '@yl-d/icon';
 
 export default () => {
   return (
@@ -10,19 +11,24 @@ export default () => {
       <Dropdown
         droplist={
           <Menu
-            style={{ width: 200 }}
+            style={{
+              width: 180,
+            }}
             menus={[
               {
-                key: 'Beijing',
-                label: 'Beijing',
+                key: 'IconUserGroup',
+                icon: <IconUserGroup />,
+                label: 'IconUserGroup',
               },
               {
-                key: 'Shanghai',
-                label: 'Shanghai',
+                key: 'IconLanguage',
+                icon: <IconLanguage />,
+                label: 'IconLanguage',
               },
               {
-                key: 'Guangzhou',
-                label: 'Guangzhou',
+                key: 'IconCodepen',
+                icon: <IconCodepen />,
+                label: 'IconCodepen',
               },
             ]}
           />

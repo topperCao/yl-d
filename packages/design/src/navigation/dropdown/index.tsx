@@ -1,6 +1,5 @@
 import { ReactNode, useState, useRef } from 'react';
 import { Layer } from '../..';
-import { debounce } from '../../tools';
 
 export interface DropdownProps {
   droplist: ReactNode;
@@ -19,15 +18,7 @@ export default ({
   const selectionRef = useRef<HTMLDivElement>();
   return (
     <>
-      <span
-        ref={selectionRef}
-        onClick={debounce(() => {
-          setOpen(true);
-        }, 1000)}
-        // onMouseLeave={() => {
-        //   setOpen(false);
-        // }}
-      >
+      <span ref={selectionRef} onMouseEnter={() => setOpen(true)}>
         {children}
       </span>
       {open && (

@@ -8,7 +8,7 @@ export default ({
   menuClick,
   style,
   collapsed,
-  collapsedWidth = 80,
+  collapsedWidth = 48,
   ...rest
 }: MenuProps) => {
   const [openKey, setOpenKey] = useState(rest.openKey || []);
@@ -37,13 +37,8 @@ export default ({
     return (
       <>
         <div className={labelClassName.join(' ')} style={{ paddingLeft }}>
-          <span
-            className="yld-menu-vertical-subMenu-label-left"
-            title={item.label}
-          >
-            {item.icon}
-            <span>{item.label}</span>
-          </span>
+          {item.icon}
+          <span>{item.label}</span>
         </div>
         {Array.isArray(item.children) && (
           <div
@@ -73,10 +68,11 @@ export default ({
     let itemKey = selectKey;
     if (item.children) {
       if (openKey.includes(item.key)) {
+        // 删除
         openKey.splice(
           openKey.findIndex((key) => key === item.key),
           1,
-        ); // 删除
+        );
       } else {
         openKey.push(item.key);
       }
@@ -90,9 +86,7 @@ export default ({
   const renderMenus = (menus, paddingLeft) => {
     return menus.map((item) => {
       let className = ['yld-menu-vertical-subMenu'];
-      /**
-       * className
-       */
+      /** className */
       if (item.children && isSelected(item.children)) {
         className.push('yld-menu-vertical-subMenu-selected');
       }
@@ -102,9 +96,7 @@ export default ({
       if (item.disabled) {
         className.push('yld-menu-vertical-subMenu-disabled');
       }
-      /**
-       * labelClassName
-       */
+      /** labelClassName */
       let labelClassName = ['yld-menu-vertical-subMenu-label'];
       if (openKey.includes(item.key)) {
         labelClassName.push('yld-menu-vertical-subMenu-label-open');

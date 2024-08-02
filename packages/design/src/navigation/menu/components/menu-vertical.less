@@ -1,58 +1,34 @@
-.yld-menu-vertical{
+.yld-menu-vertical {
   width: 100%;
   transition: 0.5s;
   background-color: var(--bg-color);
   .yld-menu-vertical-subMenu {
     width: 100%;
     color: var(--text-color);
-    font-size: 13px;
+    font-size: var(--font-size-base);
     cursor: pointer;
-    animation: menu-expand-animation 0.3s ease-in;
     .yld-menu-vertical-subMenu-label {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      box-sizing: border-box;
       width: 100%;
       height: 40px;
       border-right: 3px solid transparent;
-      transition: 0.5s;
-      .yld-menu-vertical-subMenu-label-left {
-        display: flex;
-        align-items: center;
-        width: calc(100% - 24px);
-        transition: 0.3s;
-        .yld-icon {
-          width: 24px;
-          margin-right: 2px;
-        }
-        span {
-          position: relative;
-          width: calc(100% - 24px);
-          overflow: hidden;
-          white-space: nowrap;
-          text-overflow: ellipsis;
-        }
+      transition: 0.3s;
+      .yld-icon {
+        width: 24px;
+        margin-right: 2px;
       }
-      .yld-icon-xialadown {
-        font-weight: 900;
-        transition: 0.5s;
+      span {
+        position: relative;
+        width: calc(100% - 24px);
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
       }
       &:hover {
-        .yld-menu-vertical-subMenu-label-left,
-        .yld-icon-xialadown {
-          span {
-            color: var(--primary-color) !important;
-          }
-          color: var(--primary-color) !important;
-          transition: 0.3s;
-        }
-      }
-    }
-    .yld-menu-vertical-subMenu-label-open {
-      .yld-icon-xialadown {
-        transform: rotate(180deg);
-        transition: 0.5s;
+        transition: 0.3s;
+        background-color: var(--bg-color-2);
       }
     }
     .yld-menu-vertical-subMenu-hidden {
@@ -75,7 +51,6 @@
     .yld-menu-vertical-subMenu-collapsed {
       .yld-icon {
         color: var(--primary-color);
-        font-size: 26px;
       }
     }
     .yld-menu-vertical-subMenu-parent {
@@ -95,29 +70,16 @@
     .yld-menu-vertical-subMenu-label-left {
       color: var(--text-color) !important;
     }
-    &:hover {
-      .yld-menu-vertical-subMenu-label {
-        .yld-menu-vertical-subMenu-label-left,
-        .yld-icon-xialadown {
-          color: var(--text-color) !important;
-        }
-      }
-    }
   }
 }
-.yld-menu-vertical-collapsed{
-  .yld-menu-vertical-subMenu .yld-menu-vertical-subMenu-label{
+.yld-menu-vertical-collapsed {
+  .yld-menu-vertical-subMenu .yld-menu-vertical-subMenu-label {
     justify-content: center;
-    &:hover{
+    &:hover {
       background-color: var(--bg-color-2);
     }
-  }
-}
-@keyframes menu-expand-animation {
-  0% {
-    transform: scale(0);
-  }
-  100% {
-    transform: scale(1);
+    .yld-icon {
+      margin-right: -2px;
+    }
   }
 }

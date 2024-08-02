@@ -3,20 +3,14 @@
 ```jsx | react
 import { useState } from 'react';
 import { Menu, Switch } from '@yl-d/design';
-import {
-  IconUnorderedList,
-  IconUserGroup,
-  IconLanguage,
-  IconIdcard,
-  IconCodepen,
-} from '@yl-d/icon';
+import { IconUserGroup, IconLanguage, IconCodepen } from '@yl-d/icon';
 
 export default () => {
   const [collapsed, setcollapsed] = useState();
   const menus = [
     {
       key: '1',
-      icon: <IconUnorderedList />,
+      icon: <IconUserGroup />,
       label: 'Navigation One',
       children: [
         {
@@ -31,12 +25,23 @@ export default () => {
     },
     {
       key: '3',
-      icon: <IconIdcard />,
+      icon: <IconLanguage />,
       label: 'Navigation Three',
       children: [
         {
           key: '3-1',
           label: 'Option1',
+          icon: <IconLanguage />,
+          children: [
+            {
+              key: '3-1-1',
+              label: 'Option1-1',
+            },
+            {
+              key: '3-1-2',
+              label: 'Option1-2',
+            },
+          ],
         },
       ],
     },
@@ -53,11 +58,11 @@ export default () => {
         unCheckedChildren="收起"
         onChange={setcollapsed.bind(null, !collapsed)}
       />
+      <br />
+      <br />
       <Menu
         style={{
           width: 240,
-          margin: '10px 0',
-          background: 'var(--bg-color-2)',
         }}
         menus={menus}
         collapsed={collapsed}
@@ -65,7 +70,7 @@ export default () => {
           console.log(openkey, selectKey);
         }}
         openKey={['1']}
-        selectKey='1-2'
+        selectKey="1-2"
       />
     </>
   );
