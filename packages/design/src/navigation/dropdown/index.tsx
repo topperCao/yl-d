@@ -1,15 +1,16 @@
 import { ReactNode, useState, useRef } from 'react';
 import { Layer } from '../..';
+import { debounce } from '../../tools';
 
 export interface DropdownProps {
-  overlay: ReactNode;
+  droplist: ReactNode;
   children: ReactNode;
   layerClassName?: string;
   getPopupContainer?: () => HTMLElement;
 }
 
 export default ({
-  overlay,
+  droplist,
   children,
   layerClassName,
   getPopupContainer,
@@ -20,24 +21,25 @@ export default ({
     <>
       <span
         ref={selectionRef}
-        style={{
-          display: 'inline-block',
-        }}
-        onClick={() => {
+        onClick={debounce(() => {
           setOpen(true);
-        }}
+        }, 1000)}
+        // onMouseLeave={() => {
+        //   setOpen(false);
+        // }}
       >
         {children}
       </span>
       {open && (
         <Layer
           layerWidth="fix-content"
+          layerClick={() => setOpen(false)}
           layerClose={() => setOpen(false)}
           domRef={selectionRef}
           layerClassName={layerClassName}
           getPopupContainer={getPopupContainer}
         >
-          {overlay}
+          {droplist}
         </Layer>
       )}
     </>

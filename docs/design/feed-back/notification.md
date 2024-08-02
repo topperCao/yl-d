@@ -38,6 +38,13 @@ export default () => {
       >
         信息提示
       </Button>
+      <Button
+        onClick={() => {
+          Notification.clear();
+        }}
+      >
+        Close All
+      </Button>
     </Space>
   );
 };

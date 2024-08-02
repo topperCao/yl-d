@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, ReactNode, CSSProperties } from 'react';
+import { debounce } from '../../tools';
 import './index.less';
 
 export interface TooltipProps {
@@ -26,20 +27,6 @@ export default ({
   const [style, setStyle]: any = useState({});
   const toolTipRef: any = useRef();
   const toolTipInnerRef: any = useRef();
-  // debounce 防抖
-  const debounce = (fn, delay = 10) => {
-    if (typeof fn !== 'function') {
-      // 参数类型为函数
-      throw new TypeError('fn is not a function');
-    }
-    let timer = null;
-    return function (...args) {
-      clearTimeout(timer);
-      timer = setTimeout(() => {
-        fn.call(this, ...args);
-      }, delay);
-    };
-  };
   useEffect(() => {
     updatePosition();
   }, [title]);

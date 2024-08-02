@@ -8,7 +8,11 @@ export default () => {
     {
       key: 1,
       label: <span>Tab1</span>,
-      content: <div>Content of Tab Pane 1 Content of Tab Pane 1 Content of Tab Pane 1</div>,
+      content: (
+        <div>
+          Content of Tab Pane 1 Content of Tab Pane 1 Content of Tab Pane 1
+        </div>
+      ),
     },
     {
       key: 2,
@@ -45,7 +49,11 @@ export default () => {
     {
       key: 1,
       label: <span>Tab1</span>,
-      content: <div>Content of Tab Pane 1 Content of Tab Pane 1 Content of Tab Pane 1</div>,
+      content: (
+        <div>
+          Content of Tab Pane 1 Content of Tab Pane 1 Content of Tab Pane 1
+        </div>
+      ),
     },
     {
       key: 2,
@@ -64,6 +72,43 @@ export default () => {
         height: 300,
       }}
       closable
+      data={data}
+      onClick={(e) => {
+        console.log(e);
+      }}
+      onRemove={(e) => {
+        console.log(e);
+      }}
+    />
+  );
+};
+```
+
+## 超出范围
+
+```jsx | react | var(--color-fill-2)
+import { Tabs, Space } from '@yl-d/design';
+import { IconMore, IconDown } from '@yl-d/icon';
+
+export default () => {
+  const data = new Array(16).fill('').map((item, index) => ({
+    key: index,
+    label:
+      index == 10 ? (
+        <Space>
+          <IconMore />
+          <IconDown />
+        </Space>
+      ) : (
+        `Tab-${index}`
+      ),
+    content: <div>Content {index}</div>,
+  }));
+  return (
+    <Tabs
+      style={{
+        height: 300,
+      }}
       data={data}
       onClick={(e) => {
         console.log(e);

@@ -108,5 +108,10 @@ export default () => {
     loading: (option: ReactNode | MessageProps): Function => {
       return open(5, option);
     },
+    clear: () => {
+      $$('.yld-message')?.forEach((el) => {
+        el.remove();
+      });
+    },
   };
 };

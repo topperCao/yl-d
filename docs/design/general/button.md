@@ -79,3 +79,9 @@ export default () => {
   );
 };
 ```
+
+## API
+
+```API
+/packages/design/src/general/button/type.tsx
+```

@@ -38,6 +38,13 @@ export default () => {
       >
         Info
       </Button>
+      <Button
+        onClick={() => {
+          Message.clear();
+        }}
+      >
+        Close All
+      </Button>
     </Space>
   );
 };
@@ -55,7 +62,11 @@ export default () => {
       <Button
         onClick={() => {
           Message.success({
-            icon: <IconSearch style={{ color: 'var(--primary-color)', fontSize: 18 }} />,
+            icon: (
+              <IconSearch
+                style={{ color: 'var(--primary-color)', fontSize: 18 }}
+              />
+            ),
             content: '正在查找...',
           });
         }}

@@ -63,19 +63,21 @@ export default ({
                   }
                 }}
               >
-                {tab.label}
-                {closable && (
-                  <IconClose
-                    style={{ fontSize: 13 }}
-                    onClick={(e) => {
-                      e.stopPropagation(); // 阻止往上冒泡
-                      _data.splice(index, 1);
-                      setdata([..._data]);
-                      setindex(0);
-                      typeof onRemove === 'function' && onRemove(tab);
-                    }}
-                  />
-                )}
+                <span className="yld-tabs-header-item-label">
+                  {tab.label}
+                  {closable && (
+                    <IconClose
+                      style={{ fontSize: 12 }}
+                      onClick={(e) => {
+                        e.stopPropagation(); // 阻止往上冒泡
+                        _data.splice(index, 1);
+                        setdata([..._data]);
+                        setindex(0);
+                        typeof onRemove === 'function' && onRemove(tab);
+                      }}
+                    />
+                  )}
+                </span>
               </div>
             );
           })}

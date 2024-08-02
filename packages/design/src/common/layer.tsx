@@ -15,6 +15,7 @@ import {
 
 export interface LayerProps {
   layerClose: Function;
+  layerClick?: Function;
   layerClassName?: string;
   domRef: any;
   getPopupContainer?: () => HTMLElement;
@@ -30,6 +31,7 @@ export default forwardRef(
       getPopupContainer,
       domRef,
       layerClose,
+      layerClick,
       layerWidth,
     }: LayerProps | any,
     ref,
@@ -54,11 +56,13 @@ export default forwardRef(
         const isOutside = !divRef.current?.contains(e.target as Node);
         if (isOutside) {
           layerClose?.();
+        } else {
+          layerClick?.();
         }
       };
-      window.addEventListener('click', handle, false);
+      window.addEventListener('click', handle, true);
       return () => {
-        window.removeEventListener('click', handle, false);
+        window.removeEventListener('click', handle, true);
       };
     }, []);
     divRef.current.style.width = '100%';

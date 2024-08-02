@@ -3,29 +3,30 @@ import { MenuProps } from '..';
 import { Tooltip } from '../../..';
 import './menu-vertical.less';
 
-const MenuVerical = ({
+export default ({
   menus,
   menuClick,
-  openKey,
-  selectKey,
   style,
   collapsed,
   collapsedWidth = 80,
+  ...rest
 }: MenuProps) => {
-  const [_openKey, setopenKey] = useState(openKey || []);
-  const [_selectKey, setselectKey] = useState(selectKey || []);
+  const [openKey, setOpenKey] = useState(rest.openKey || []);
+  const [selectKey, setSelectKey] = useState(rest.selectKey);
   useEffect(() => {
-    /**update */
-    setselectKey(selectKey);
-  }, [selectKey]);
+    if (rest.selectKey !== selectKey) {
+      setSelectKey(rest.selectKey);
+    }
+  }, [rest.selectKey]);
   useEffect(() => {
-    /**update */
-    setopenKey(openKey);
-  }, [openKey]);
+    if (Array.isArray(rest.openKey)) {
+      setOpenKey(rest.openKey);
+    }
+  }, [rest.openKey]);
   const isSelected = (menus) => {
     // 判断是否有子节点选中
     return menus.some((item) => {
-      if (_selectKey.includes(item.key)) {
+      if (selectKey == item.key) {
         return true;
       } else if (item.children) {
         return isSelected(item.children);
@@ -47,7 +48,7 @@ const MenuVerical = ({
         {Array.isArray(item.children) && (
           <div
             className={
-              !_openKey.includes(item.key)
+              !openKey.includes(item.key)
                 ? 'yld-menu-vertical-subMenu-hidden'
                 : ''
             }
@@ -69,22 +70,22 @@ const MenuVerical = ({
   };
   const onClick = (item) => {
     if (item.disabled) return;
-    let selectKey = _selectKey;
+    let itemKey = selectKey;
     if (item.children) {
-      if (_openKey.includes(item.key)) {
-        _openKey.splice(
-          _openKey.findIndex((key) => key === item.key),
+      if (openKey.includes(item.key)) {
+        openKey.splice(
+          openKey.findIndex((key) => key === item.key),
           1,
         ); // 删除
       } else {
-        _openKey.push(item.key);
+        openKey.push(item.key);
       }
-      setopenKey([..._openKey]);
+      setOpenKey([...openKey]);
     } else {
-      selectKey = [item.key];
-      setselectKey(selectKey);
+      itemKey = item.key;
+      setSelectKey(item.key);
     }
-    typeof menuClick === 'function' && menuClick(_openKey, selectKey);
+    menuClick?.(openKey, itemKey);
   };
   const renderMenus = (menus, paddingLeft) => {
     return menus.map((item) => {
@@ -95,7 +96,7 @@ const MenuVerical = ({
       if (item.children && isSelected(item.children)) {
         className.push('yld-menu-vertical-subMenu-selected');
       }
-      if (_selectKey.includes(item.key)) {
+      if (selectKey == item.key) {
         className.push('yld-menu-vertical-subMenu-active');
       }
       if (item.disabled) {
@@ -105,7 +106,7 @@ const MenuVerical = ({
        * labelClassName
        */
       let labelClassName = ['yld-menu-vertical-subMenu-label'];
-      if (_openKey.includes(item.key)) {
+      if (openKey.includes(item.key)) {
         labelClassName.push('yld-menu-vertical-subMenu-label-open');
       }
       if (item.children) {
@@ -146,4 +147,3 @@ const MenuVerical = ({
     </div>
   );
 };
-export default MenuVerical;

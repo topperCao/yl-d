@@ -1,15 +1,38 @@
 ## Dropdown 下拉菜单
 
 ```jsx | react
-import { Dropdown } from '@yl-d/design';
+import { Menu, Button, Space, Dropdown } from '@yl-d/design';
+import { IconDown } from '@yl-d/icon';
+
 export default () => {
-  const overlay = ['Html', 'Css', 'React', 'Vue'].map((item) => {
-    return (
-      <p key={item} style={{ fontSize: 12, width: 100, margin: 0, padding: 8 }}>
-        {item}
-      </p>
-    );
-  });
-  return <Dropdown overlay={overlay}>Click me</Dropdown>;
+  return (
+    <Space className="dropdown-demo">
+      <Dropdown
+        droplist={
+          <Menu
+            style={{ width: 200 }}
+            menus={[
+              {
+                key: 'Beijing',
+                label: 'Beijing',
+              },
+              {
+                key: 'Shanghai',
+                label: 'Shanghai',
+              },
+              {
+                key: 'Guangzhou',
+                label: 'Guangzhou',
+              },
+            ]}
+          />
+        }
+      >
+        <Button type="link">
+          Hover me <IconDown />
+        </Button>
+      </Dropdown>
+    </Space>
+  );
 };
 ```

@@ -1,4 +1,4 @@
-import { ButtonProps } from '../../general/button';
+import { ButtonProps } from '../../general/button/type';
 import { FormProps } from '../../data-entry/form/type.form';
 import { ReactNode, CSSProperties, MutableRefObject } from 'react';
 

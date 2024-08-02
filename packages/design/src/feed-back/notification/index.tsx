@@ -88,5 +88,10 @@ export default () => {
     info: (option: ReactNode | NotificationProps) => {
       open(4, option);
     },
+    clear: () => {
+      $$('.yld-notification')?.forEach((el) => {
+        el.remove();
+      });
+    },
   };
 };

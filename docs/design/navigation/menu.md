@@ -3,19 +3,24 @@
 ```jsx | react
 import { useState } from 'react';
 import { Menu, Switch } from '@yl-d/design';
-import { IconFindReplace } from '@yl-d/icon';
+import {
+  IconUnorderedList,
+  IconUserGroup,
+  IconLanguage,
+  IconIdcard,
+  IconCodepen,
+} from '@yl-d/icon';
 
 export default () => {
   const [collapsed, setcollapsed] = useState();
   const menus = [
     {
       key: '1',
-      icon: <IconFindReplace />,
+      icon: <IconUnorderedList />,
       label: 'Navigation One',
       children: [
         {
           key: '1-1',
-          icon: <IconFindReplace />,
           label: 'Option1',
         },
         {
@@ -25,37 +30,8 @@ export default () => {
       ],
     },
     {
-      key: '2',
-      icon: <IconFindReplace />,
-      label: 'Navigation Two Navigation Two',
-      children: [
-        {
-          key: '2-1',
-          label: 'Option1',
-          children: [
-            {
-              key: '2-1-1',
-              label: 'Option1',
-              icon: <IconFindReplace />,
-              children: [
-                {
-                  key: '2-1-1-1',
-                  label: 'Option1',
-                },
-              ],
-            },
-            {
-              key: '2-1-2',
-              label: 'Option2',
-              disabled: true,
-            },
-          ],
-        },
-      ],
-    },
-    {
       key: '3',
-      icon: <IconFindReplace />,
+      icon: <IconIdcard />,
       label: 'Navigation Three',
       children: [
         {
@@ -66,15 +42,8 @@ export default () => {
     },
     {
       key: '4',
-      disabled: true,
-      icon: <IconFindReplace />,
+      icon: <IconCodepen />,
       label: 'Navigation Four',
-      children: [
-        {
-          key: '4-1',
-          label: 'Option1',
-        },
-      ],
     },
   ];
   return (
@@ -95,8 +64,8 @@ export default () => {
         menuClick={(openkey, selectKey) => {
           console.log(openkey, selectKey);
         }}
-        openKey={['1', '2', '2-1', '2-1-1']}
-        selectKey={['1-2']}
+        openKey={['1']}
+        selectKey='1-2'
       />
     </>
   );
