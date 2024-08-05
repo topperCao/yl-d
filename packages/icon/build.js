@@ -83,7 +83,7 @@ svgs.forEach((svgPath) => {
 };
 
 export default ({ style = {}, ...rest }) => {
-  const _style = Object.assign({ fontSize: 14 }, style);
+  const _style = Object.assign({}, style);
   return <${componentName} style={_style} className="yld-icon yld-icon-${name}" {...rest} />;
 };
     `,
@@ -145,6 +145,18 @@ fs.outputFile(
   height: 1em;
   vertical-align: -2px;
   stroke: currentColor;
+  font-size: 14px;
+}
+.yld-icon-loading {
+  animation: spin 1.2s linear infinite;
+}
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }
 `,
 );

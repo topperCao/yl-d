@@ -29,7 +29,7 @@ export default ({ style = {}, items = [], ...rest }: StepsProps) => {
               ) : current > index + 1 ? (
                 <div className="yld-steps-icon">
                   <IconCheck
-                    style={{ fontSize: 18, color: 'var(--primary-color)' }}
+                    style={{ color: 'var(--primary-color)' }}
                   />
                 </div>
               ) : (

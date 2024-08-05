@@ -11,18 +11,24 @@
     display: none;
     align-items: center;
     justify-content: center;
-    background-color: var(--bg-color-2);
-    opacity: .5;
+    background-color: #dadbdd52;
     .yld-loading-mask-spin {
       display: inline-block;
-      .yld-icon-loading {
+      .yld-icon {
         color: var(--primary-color);
+        font-size: 18px;
       }
     }
     .yld-loading-mask-message {
+      height: 20px;
       padding-left: 8px;
       color: var(--primary-color);
       font-size: var(--font-size);
     }
+  }
+}
+body[yld-theme='dark'] {
+  .yld-loading-mask{
+    background-color: #5a5b5c52;
   }
 }
