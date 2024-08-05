@@ -2,8 +2,7 @@
 
 ```jsx | react
 import { Menu, Button, Space, Dropdown } from '@yl-d/design';
-import { IconDown } from '@yl-d/icon';
-import { IconUserGroup, IconLanguage, IconCodepen } from '@yl-d/icon';
+import { IconDown, IconUserGroup, IconLanguage, IconCodepen } from '@yl-d/icon';
 
 export default () => {
   return (

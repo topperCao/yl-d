@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Pagination, Checkbox, Empty, Spin, Button } from '../..';
+import { Pagination, Checkbox, Empty, Button } from '../..';
 import renderBody from './hooks/render-body';
 import renderHead from './hooks/render-head';
 import { TableProps } from './type';
@@ -22,6 +22,7 @@ export default ({
   checkable = false,
   onCheck,
   tableRef,
+  setLoading,
   scroll = {},
 }: TableProps) => {
   const tableWrapRef = useRef<HTMLDivElement>();
@@ -53,9 +54,7 @@ export default ({
       tableWrapRef.current.removeEventListener('scroll', wrapScroll);
     };
   }, []);
-  const [loading, setLoading] = useState(false); // 控制loading
   const innerTableRef: any = useRef({
-    loading: false,
     dataSource: [],
     pagination:
       typeof paginationConfig === 'object'
@@ -168,7 +167,7 @@ export default ({
     }
   }
   return (
-    <Spin loading={loading}>
+    <>
       <div className="yld-table" style={style}>
         {tools.length > 0 && (
           <div className="yld-table-tools">
@@ -242,6 +241,6 @@ export default ({
           />
         </div>
       )}
-    </Spin>
+    </>
   );
 };

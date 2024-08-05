@@ -42,6 +42,7 @@ export interface TableProps {
     dataSource?: any;
     pagination?: any;
     params?: any;
+    loading?: boolean;
   }>;
   /** 工具配置 */
   tools?: ToolProps[];
@@ -71,4 +72,5 @@ export interface TableProps {
     x?: number;
     y?: string | number;
   };
+  setLoading?: Function;
 }

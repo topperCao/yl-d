@@ -61,9 +61,7 @@ export default forwardRef(
       const handleClick = (e: MouseEvent) => {
         const isContains = divRef.current?.contains(e.target as Node);
         if (isContains) {
-          setTimeout(() => {
-            layerClick?.();
-          }, 100)
+          layerClick?.();
         }
       };
       window.addEventListener('click', handleClick, true);
@@ -88,6 +86,12 @@ export default forwardRef(
       style.top = top + height + 4 - parentRect.top;
       style.left = left - parentRect.left;
     }
+    useEffect(() => {
+      // 移除dom
+      return () => {
+        divRef.current.remove();
+      };
+    }, []);
     return ReactDOM.createPortal(
       <div className={className.join(' ')} style={style}>
         {children}

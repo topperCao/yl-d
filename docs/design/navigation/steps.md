@@ -57,3 +57,9 @@ export default () => {
   );
 };
 ```
+
+## API
+
+```API
+/packages/design/src/navigation/steps/type.tsx
+```

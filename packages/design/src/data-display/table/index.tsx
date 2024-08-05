@@ -1,9 +1,36 @@
-import { useRef } from 'react';
-import { Button, Form, Search } from '../..';
+import { useRef, useState } from 'react';
+import { Button, Form, Search, Spin } from '../..';
 import { IconSettings, IconRefresh } from '@yl-d/icon';
 import { TableProps } from './type';
 import Table from './table';
 import './index.less';
+
+const Contianer = ({ search, form, tableRef, lastColums, tools, ...rest }: any) => {
+  const [loading, setLoading] = useState(false); // 控制loading
+  return (
+    <Spin loading={loading}>
+      {search.schema.length > 0 && (
+        <Search
+          {...search}
+          onReset={async () => {
+            form.clearValues({});
+            await tableRef.current.search(form.getValues());
+          }}
+          onSearch={async () => {
+            await tableRef.current.search(form.getValues());
+          }}
+        />
+      )}
+      <Table
+        tableRef={tableRef}
+        setLoading={setLoading}
+        columns={lastColums}
+        {...rest}
+        tools={tools}
+      />
+    </Spin>
+  );
+};
 
 export default ({
   tableRef = useRef({}),
@@ -68,19 +95,14 @@ export default ({
   }
   return (
     <div className="yld-table-contianer" style={style}>
-      {search.schema.length > 0 && (
-        <Search
-          {...search}
-          onReset={async () => {
-            form.clearValues({});
-            await tableRef.current.search(form.getValues());
-          }}
-          onSearch={async () => {
-            await tableRef.current.search(form.getValues());
-          }}
-        />
-      )}
-      <Table tableRef={tableRef} columns={lastColums} {...rest} tools={tools} />
+      <Contianer
+        tableRef={tableRef}
+        form={form}
+        columns={lastColums}
+        search={search}
+        {...rest}
+        tools={tools}
+      />
     </div>
   );
 };
