@@ -56,13 +56,21 @@ export default forwardRef(
         const isOutside = !divRef.current?.contains(e.target as Node);
         if (isOutside) {
           layerClose?.();
-        } else {
-          layerClick?.();
         }
       };
-      window.addEventListener('click', handle, false);
+      const handleClick = (e: MouseEvent) => {
+        const isContains = divRef.current?.contains(e.target as Node);
+        if (isContains) {
+          setTimeout(() => {
+            layerClick?.();
+          }, 100)
+        }
+      };
+      window.addEventListener('click', handleClick, true);
+      window.addEventListener('click', handle);
       return () => {
-        window.removeEventListener('click', handle, false);
+        window.removeEventListener('click', handleClick, true);
+        window.removeEventListener('click', handle);
       };
     }, []);
     divRef.current.style.width = '100%';

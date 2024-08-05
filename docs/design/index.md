@@ -1,29 +1,40 @@
-## 基础 ui 组件库
-
-> 仅学习使用
-
-## 自定义主题
-
-```css
-body {
-  --primary-color: #165dff;
-  --font-size-base: 12px;
-  --text-color: #565656;
-  --bg-color: #fff;
-  --bg-color-2: #f2f2f2;
-  --bg-color-3: #d5d2d2;
-  --border-color: #e5e6ec;
-  --box-shadow: #00152914;
-}
-
-body[yld-theme='dark'] {
-  --primary-color: #165dff;
-  --font-size-base: 12px;
-  --text-color: #eee;
-  --bg-color: #232324;
-  --bg-color-2: #333;
-  --bg-color-3: #444;
-  --border-color: rgba(255, 255, 255, 0.12);
-  --box-shadow: #17171a;
-}
+```jsx | pureReact
+export default () => {
+  return (
+    <>
+      <p
+        className="package-version"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: 20,
+          position: 'relative',
+          top: 3,
+        }}
+      >
+        <a href={`https://www.npmjs.com/package/@yl-d/design`} target="_blank">
+          <img alt="npm" src={`https://img.shields.io/npm/dt/@yl-d/design`} />
+        </a>
+        <a href={`https://www.npmjs.com/package/@yl-d/design`} target="_blank">
+          <img
+            alt="NPM downloads"
+            src={`https://img.shields.io/npm/v/@yl-d/design.svg`}
+          />
+        </a>
+      </p>
+    </>
+  );
+};
 ```
+
+## 安装
+
+```js
+yarn add @yl-d/design
+```
+
+## 说明
+
+- 满足个人日常的开发需求
+- 风格上借鉴了 `arco-design`
+- 目前尚未完善，不建议使用

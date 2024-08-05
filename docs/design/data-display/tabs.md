@@ -90,7 +90,7 @@ export default () => {
 import { Tabs } from '@yl-d/design';
 
 export default () => {
-  const tabs = new Array(16).fill('').map((item, index) => ({
+  const tabs = new Array(36).fill('').map((item, index) => ({
     key: index,
     label: `Tab-${index}`,
     content: <div>Content {index}</div>,

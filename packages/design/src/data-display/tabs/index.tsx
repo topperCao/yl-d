@@ -25,10 +25,13 @@ export default ({ style, closable, onClick, onRemove, ...rest }: TabProps) => {
       setActiveKey(activeKey);
     }
   }, [rest.activeKey]);
+  const innerRef = useRef<any>({});
   const tabsRef = useRef<HTMLDivElement>();
   const headRef = useRef<HTMLDivElement>();
   const borderRef = useRef<HTMLDivElement>();
   const activeItemRef = useRef<HTMLDivElement>();
+  /** 选中的下标 */
+  const activeIndex = tabs.findIndex((i) => i.key === activeKey);
   /**
    * 调整下划线位置
    */
@@ -41,16 +44,22 @@ export default ({ style, closable, onClick, onRemove, ...rest }: TabProps) => {
         tabsRef.current.getBoundingClientRect().left +
         'px';
     }
-  }, [activeKey]);
+  }, [activeKey, activeIndex, splitIndex]);
   useEffect(() => {
     const adjustTabs = () => {
       const headerWidth = headRef.current.getBoundingClientRect()?.width;
       /** 遍历tab，是否超出范围 */
       let itemWidth = 0;
-      const items = headRef.current.querySelectorAll('.yld-tabs-header-item');
+      if (!innerRef.current.items) {
+        innerRef.current.items = Array.from(
+          headRef.current.getElementsByClassName('yld-tabs-header-item'),
+        ).map((item) => {
+          return item.getBoundingClientRect()?.width;
+        });
+      }
+      const { items } = innerRef.current;
       for (let i = 0; i < items.length; i++) {
-        const tab = items[i];
-        itemWidth += tab.getBoundingClientRect()?.width;
+        itemWidth += items[i];
         /** 超出范围需要做 DropDown */
         if (itemWidth + 78 > headerWidth) {
           setSplitIndex(i);
@@ -59,9 +68,11 @@ export default ({ style, closable, onClick, onRemove, ...rest }: TabProps) => {
       }
     };
     adjustTabs();
+    // window.addEventListener('resize', adjustTabs);
+    // return () => {
+    //   window.removeEventListener('resize', adjustTabs);
+    // };
   }, []);
-  /** 选中的下标 */
-  const activeIndex = tabs.findIndex((i) => i.key === activeKey);
   return (
     <>
       <div className="yld-tabs" style={style} ref={tabsRef}>
@@ -108,6 +119,7 @@ export default ({ style, closable, onClick, onRemove, ...rest }: TabProps) => {
                 <Menu
                   style={{
                     width: 100,
+                    height: 160,
                   }}
                   menus={tabs.slice(splitIndex) as any}
                   menuClick={(openkey, selectKey) => {
@@ -116,7 +128,14 @@ export default ({ style, closable, onClick, onRemove, ...rest }: TabProps) => {
                 />
               }
             >
-              <div className="yld-tabs-header-item">
+              <div
+                ref={activeIndex >= splitIndex ? activeItemRef : null}
+                className={
+                  activeIndex >= splitIndex
+                    ? 'yld-tabs-header-item yld-tabs-header-item-active'
+                    : 'yld-tabs-header-item'
+                }
+              >
                 <span className="yld-tabs-header-item-label">
                   <Space>
                     <IconMore />
