@@ -32,6 +32,7 @@ export { default as Search } from './data-entry/search';
 export { default as Pagination } from './navigation/pagination';
 export { default as Dropdown } from './navigation/dropdown';
 export { default as Menu } from './navigation/menu';
+export { default as Steps } from './navigation/steps';
 export { default as Drawer } from './feed-back/drawer';
 export { default as Modal } from './feed-back/modal';
 export { default as Spin } from './feed-back/spin';

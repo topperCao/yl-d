@@ -133,6 +133,7 @@ export default defineConfig({
             {
               label: '折叠面板 Collapse',
               path: '/design/data-display/collapse',
+              disabled: true,
             },
             {
               label: '描述列表 Descriptions',

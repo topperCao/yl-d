@@ -10,7 +10,7 @@ body {
   button {
     box-sizing: border-box;
   }
-  [class^="yld-"]{
+  [class^="yld-"], [class^="arco-"]{
     font-weight: var(--text-weight);
   }
   a{
@@ -46,6 +46,18 @@ body {
   /* 当hover或active状态时，自定义滑块的颜色 */
   ::-webkit-scrollbar-thumb:hover {
     background: var(--border-color);
+  }
+  .yld-icon-loading {
+    display: inline-block;
+    animation: spin 1.2s linear infinite;
+  }
+  @keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
   }
 }
 
