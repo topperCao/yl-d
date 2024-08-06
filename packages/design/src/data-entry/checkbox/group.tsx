@@ -1,61 +1,58 @@
-import { useState, useEffect, CSSProperties } from 'react';
-import { OptionsProps } from '../select';
+import { useState, useEffect, useMemo } from 'react';
 import Option from './index';
+import { CheckGroupProps } from './type';
 import './index.less';
-
-export interface CheckBoxGroupProps {
-  /** 类名 */
-  className?: string;
-  /** 数据源 */
-  options: OptionsProps[];
-  /** 值 */
-  value?: any;
-  /** 改变的钩子 */
-  onChange?: Function;
-  /** 是否禁用 */
-  disabled?: boolean;
-  /** 样式 */
-  style?: CSSProperties;
-}
 
 export default ({
   disabled = false,
   options = [],
-  value = undefined, // 不能为引用类型不然造成死循环
   onChange,
   style = {},
-}: CheckBoxGroupProps) => {
-  const [_value, setValue] = useState(Array.isArray(value) ? value : []);
-  const _options = options.map((option) => {
-    return {
-      key: Math.random(),
-      label: typeof option === 'string' ? option : option.label,
-      value: typeof option === 'string' ? option : option.value,
-      disabled: typeof option === 'string' ? false : option.disabled,
-    };
-  });
+  direction = 'horizontal',
+  ...rest
+}: CheckGroupProps) => {
+  const items = useMemo(
+    () =>
+      options.map((option) => {
+        return {
+          key: Math.random(),
+          label: typeof option === 'string' ? option : option.label,
+          value: typeof option === 'string' ? option : option.value,
+          disabled: typeof option === 'string' ? false : option.disabled,
+        };
+      }),
+    [options],
+  );
+  const [value, setValue] = useState(
+    Array.isArray(rest.value) ? rest.value : [],
+  );
   useEffect(() => {
-    setValue(Array.isArray(value) ? value : []);
-  }, [value]);
+    setValue(Array.isArray(rest.value) ? rest.value : []);
+  }, [rest.value]);
+  /** 类名 */
+  const classNames = ['yld-checkbox-group'];
+  if (direction === 'vertical') {
+    classNames.push('yld-checkbox-group-vertical');
+  }
   return (
-    <div className="yld-checkbox-group" style={style}>
-      {_options.map((option: any) => {
+    <div className={classNames.join(' ')} style={style}>
+      {items.map((option: any) => {
         return (
           <Option
             key={option.key}
             disabled={disabled || option.disabled}
             checked={
-              Array.isArray(_value) ? _value.includes(option.value) : false
+              Array.isArray(value) ? value.includes(option.value) : false
             }
             onChange={(e) => {
-              let __value = [..._value];
+              let newValue = [...value];
               if (e.target.checked) {
-                __value.push(option.value);
+                newValue.push(option.value);
               } else {
-                __value = _value.filter((value) => value !== option.value);
+                newValue = value.filter((value) => value !== option.value);
               }
-              setValue(__value);
-              onChange?.(__value);
+              setValue(newValue);
+              onChange?.(newValue);
             }}
           >
             {option.label}

@@ -1,4 +1,4 @@
-# 基本使用
+## 基本使用
 
 ```jsx | react
 import { useState } from 'react';
@@ -61,4 +61,114 @@ export default () => {
     />
   );
 };
+```
+
+## 垂直方向
+
+```jsx | react
+import { useState } from 'react';
+import { CheckGroup } from '@yl-d/design';
+
+export default () => {
+  const [value, setValue] = useState(['React']);
+  const options = [
+    {
+      label: 'Html',
+      value: 'Html',
+    },
+    {
+      label: 'Css',
+      value: 'Css',
+    },
+    {
+      label: 'JavaScript',
+      value: 'JavaScript',
+    },
+    {
+      label: 'React',
+      value: 'React',
+    },
+    {
+      label: 'Vue',
+      value: 'Vue',
+      disabled: true,
+    },
+  ];
+  console.log('checkbox value is: ', value);
+  return (
+    <CheckGroup
+      options={options}
+      direction="vertical"
+      value={value}
+      onChange={(value) => {
+        setValue(value);
+      }}
+    />
+  );
+};
+```
+
+## 全选
+
+> 通过 indeterminate 属性可以实现半选效果。
+
+```jsx | react
+import { useState } from 'react';
+import { Checkbox, CheckGroup } from '@yl-d/design';
+
+export default () => {
+  const [value, setValue] = useState([]);
+  const options = [
+    {
+      label: 'Html',
+      value: 'Html',
+    },
+    {
+      label: 'Css',
+      value: 'Css',
+    },
+    {
+      label: 'JavaScript',
+      value: 'JavaScript',
+    },
+    {
+      label: 'React',
+      value: 'React',
+    },
+  ];
+  console.log(value.length);
+  return (
+    <>
+      <Checkbox
+        checked={value.length === 4}
+        onChange={(e) => {
+          if (e.target.checked) {
+            setValue(options.map((i) => i.value));
+          } else {
+            setValue([]);
+          }
+        }}
+        indeterminate={value.length > 0 && value.length < 4}
+      >
+        全选
+      </Checkbox>
+      <br />
+      <br />
+      <CheckGroup
+        options={options}
+        value={value}
+        onChange={(value) => {
+          console.log(value);
+          setValue(value);
+        }}
+      />
+    </>
+  );
+};
+```
+
+## API
+
+```API
+/packages/design/src/data-entry/checkbox/type.tsx
 ```
