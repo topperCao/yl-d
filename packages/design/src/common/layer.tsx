@@ -16,6 +16,8 @@ import {
 export interface LayerProps {
   layerClose: Function;
   layerClick?: Function;
+  layerMouseLeave?: Function;
+  layerMouseEnter?: Function;
   layerClassName?: string;
   domRef: any;
   getPopupContainer?: () => HTMLElement;
@@ -32,6 +34,8 @@ export default forwardRef(
       domRef,
       layerClose,
       layerClick,
+      layerMouseLeave,
+      layerMouseEnter,
       layerWidth,
     }: LayerProps | any,
     ref,
@@ -54,7 +58,7 @@ export default forwardRef(
       /** 点击其他地方关闭 */
       const handleClick = (e: MouseEvent) => {
         const isContains = divRef.current?.contains(e.target as Node);
-        if (!isContains) {
+        if (!isContains && typeof layerMouseLeave !== 'function') {
           layerClose?.();
         }
       };
@@ -80,15 +84,21 @@ export default forwardRef(
     }
     useEffect(() => {
       // 移除dom
-      divRef.current.addEventListener("click", () => {
+      divRef.current.addEventListener('click', () => {
         layerClick?.();
-      })
+        layerMouseLeave?.();
+      });
       return () => {
         divRef.current.remove();
       };
     }, []);
     return ReactDOM.createPortal(
-      <div className={className.join(' ')} style={style}>
+      <div
+        style={style}
+        className={className.join(' ')}
+        onMouseEnter={layerMouseEnter}
+        onMouseLeave={layerMouseLeave}
+      >
         {children}
       </div>,
       divRef.current,
