@@ -19,7 +19,7 @@ export default ({
   onBlur,
   onFocus,
   onPressEnter,
-  allowClear = true,
+  allowClear,
   onAllowClear,
   readOnly,
   showCount = false,
@@ -97,7 +97,7 @@ export default ({
         }}
         onClick={rest.onClick}
       />
-      {!disabled && allowClear && !isEmpty(value) && type !== 'password' && (
+      {!disabled && allowClear && !isEmpty(value) && (
         <IconClose
           style={{ fontSize: 12 }}
           onClick={() => {

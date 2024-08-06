@@ -52,6 +52,7 @@ export default ({
   className,
   value,
   onChange = () => {},
+  allowClear = true,
   ...props
 }: InputProps) => {
   const [innerValue, setInnerValue] = useState(value);
@@ -62,17 +63,20 @@ export default ({
   const classNames = [
     props.type === 'textarea' ? 'yld-textarea-wrapper' : 'yld-input-wrapper',
   ];
+  // 是否展示清空按钮
+  const showAllowClear = !props.disabled && allowClear && innerValue?.length > 0;
+  if (showAllowClear) {
+    classNames.push('yld-input-allowClear');
+  }
   if (className) {
     classNames.push(className);
-  }
-  if (props.suffix || props.showCount) {
-    classNames.push('yld-input-suffix-wrapper');
   }
   return props.type === 'textarea' ? (
     <span style={props.style} className={classNames.join(' ')}>
       <TextArea
         {...props}
         value={innerValue}
+        allowClear={allowClear}
         onChange={(e) => {
           setInnerValue(e);
           onChange(e);
@@ -85,6 +89,7 @@ export default ({
       <Input
         {...props}
         value={innerValue}
+        allowClear={allowClear}
         onChange={(e) => {
           setInnerValue(e);
           onChange(e);
