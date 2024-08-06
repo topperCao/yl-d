@@ -122,7 +122,7 @@ export default ({ style, closable, onClick, onRemove, ...rest }: TabProps) => {
                     height: 160,
                   }}
                   menus={tabs.slice(splitIndex) as any}
-                  menuClick={(openkey, selectKey) => {
+                  menuClick={(a, selectKey) => {
                     setActiveKey(selectKey);
                   }}
                 />

@@ -52,23 +52,15 @@ export default forwardRef(
     /** 创建 wrapper */
     useEffect(() => {
       /** 点击其他地方关闭 */
-      const handle = (e: MouseEvent) => {
-        const isOutside = !divRef.current?.contains(e.target as Node);
-        if (isOutside) {
+      const handleClick = (e: MouseEvent) => {
+        const isContains = divRef.current?.contains(e.target as Node);
+        if (!isContains) {
           layerClose?.();
         }
       };
-      const handleClick = (e: MouseEvent) => {
-        const isContains = divRef.current?.contains(e.target as Node);
-        if (isContains) {
-          layerClick?.();
-        }
-      };
-      window.addEventListener('click', handleClick, true);
-      window.addEventListener('click', handle);
+      window.addEventListener('click', handleClick, false);
       return () => {
-        window.removeEventListener('click', handleClick, true);
-        window.removeEventListener('click', handle);
+        window.removeEventListener('click', handleClick, false);
       };
     }, []);
     divRef.current.style.width = '100%';
@@ -88,6 +80,9 @@ export default forwardRef(
     }
     useEffect(() => {
       // 移除dom
+      divRef.current.addEventListener("click", () => {
+        layerClick?.();
+      })
       return () => {
         divRef.current.remove();
       };
