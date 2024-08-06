@@ -36,5 +36,5 @@ yarn add @yl-d/design
 ## 说明
 
 - 满足个人日常的开发需求
-- 风格上借鉴了 `arco-design`
-- 目前尚未完善，不建议使用
+- 样式风格上借鉴 [arco-design](https://arco.design/react/components/button)
+- 目前尚未完善，不建议在真实项目上使用

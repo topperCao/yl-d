@@ -65,6 +65,8 @@ export default () => {
 
 ## 垂直方向
 
+> 通过 direction="vertical" 设置为垂直方向
+
 ```jsx | react
 import { useState } from 'react';
 import { CheckGroup } from '@yl-d/design';
