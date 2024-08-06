@@ -25,15 +25,15 @@ export default ({
   children = null,
 }: CheckBoxProps) => {
   const [_checked, setChecked] = useState(checked);
-  const _className = ['yld-checkbox'];
+  const classNames = ['yld-checkbox'];
   if (_checked) {
-    _className.push('yld-checkbox-checked');
+    classNames.push('yld-checkbox-checked');
   }
   if (disabled) {
-    _className.push('yld-checkbox-disabled');
+    classNames.push('yld-checkbox-disabled');
   }
   if (className) {
-    _className.push(className);
+    classNames.push(className);
   }
   useEffect(() => {
     setChecked(checked);
@@ -41,7 +41,7 @@ export default ({
   return (
     <>
       <label className="yld-checkbox-wrapper">
-        <span className={_className.join(' ')}>
+        <span className={classNames.join(' ')}>
           <input
             type="checkbox"
             readOnly={disabled}
@@ -54,7 +54,8 @@ export default ({
               onChange?.(e);
             }}
           />
-          <span className="yld-checkbox-inner"></span>
+          <span className="yld-checkbox-inner" />
+          <span className="yld-checkbox-hover" />
         </span>
         <span>{children}</span>
       </label>

@@ -1995,10 +1995,17 @@ export default () => {
 
 ## 设置大小和颜色
 
-```jsx | react
-import { IconCalendar } from '@yl-d/icon';
+```jsx | reactExpand
+import { Space } from '@yl-d/design';
+import { IconAlipayCircle } from '@yl-d/icon';
 
 export default () => {
-  return <IconCalendar style={{ fontSize: 40, color: '#165dff' }} />;
+  return (
+    <Space>
+      <IconAlipayCircle style={{ fontSize: 40, color: '#165dff' }} />
+      <IconAlipayCircle style={{ fontSize: 30, color: '#16cdff' }} />
+      <IconAlipayCircle style={{ fontSize: 20, color: '#ff7716' }} />
+    </Space>
+  );
 };
 ```
