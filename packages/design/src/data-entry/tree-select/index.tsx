@@ -43,32 +43,43 @@ export default ({
     classNames.push('yld-tree-select-disabled');
   }
   if (className) {
-    classNames.push('className');
+    classNames.push(className);
   }
-  const title = getLabelByValue(value, optionsRef.current);
+  /** 展示选中的 tag */
+  const tags = getLabelByValue(value, optionsRef.current);
+  const tagRender = Array.isArray(tags)
+    ? tags.map((tag) => {
+        return (
+          <div key={tag.key} className="yld-tree-select-selection-value-tag">
+            {tag.title}
+            <IconClose
+              style={{ fontSize: 12 }}
+              onClick={(e: any) => {
+                e.stopPropagation(); // 阻止冒泡
+                let v = value.filter((i) => i !== tag.key);
+                setValue([...v]);
+                onChange?.(v);
+              }}
+            />
+          </div>
+        );
+      })
+    : tags;
   return (
     <div className={classNames.join(' ')} style={style}>
       <div
-        className="yld-tree-select-selection"
-        style={
-          open
-            ? {
-                backgroundColor: 'var(--bg-color)',
-                borderColor: 'var(--primary-color)',
-              }
-            : {}
-        }
         ref={selectionRef}
+        className="yld-tree-select-selection"
         onClick={() => {
           if (disabled) return;
           setOpen(!open);
         }}
       >
-        <div className="yld-tree-select-selection-selected-value" title={title}>
-          {title === undefined ? (
+        <div className="yld-tree-select-selection-value">
+          {tags === undefined ? (
             <span style={{ color: '#aaa' }}>{placeholder}</span>
           ) : (
-            title
+            tagRender
           )}
         </div>
         <IconDown />
@@ -103,11 +114,6 @@ export default ({
                 {...rest}
                 selectedKey={value}
                 checkedKeys={value}
-                style={{
-                  width: '100%',
-                  height: 180,
-                  overflow: 'auto',
-                }}
                 treeData={options}
                 onSelected={(v) => {
                   setValue(v);

@@ -1,6 +1,15 @@
 .yld-tree {
   width: 100%;
   transition: 0.5s;
+  .yld-tree-node-not-selectable {
+    cursor: not-allowed !important;
+    .yld-tree-node-label-left {
+      opacity: .7;
+      &:hover {
+        background-color: var(--bg-color) !important;
+      }
+    }
+  }
   .yld-tree-node {
     width: 100%;
     color: var(--text-color);
@@ -82,6 +91,9 @@
       .yld-icon-caret-right {
         transition: 0.3s;
         border-radius: 50%;
+        &:hover{
+          background-color: var(--bg-color-2);
+        }
       }
     }
     .yld-tree-node-label-open {

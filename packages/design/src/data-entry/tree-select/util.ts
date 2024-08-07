@@ -23,20 +23,26 @@ export const fieldNamesTransfrom = (fieldNames: any, treeData: any) => {
   return treeData;
 };
 
-export const getLabelByValue = (key: string, treeData = []) => {
+export const getLabelByValue = (key: string | string[], treeData = []) => {
   if (key === undefined) {
     return undefined;
   }
-  let title: string;
+  const values = typeof key === 'string' ? [key] : key;
+  let title = [];
   const loop = (options = []) => {
     options.forEach((item) => {
-      if (item.key === key) {
-        title = item.title;
-      } else if (Array.isArray(item.children)) {
+      if (values.includes(item.key)) {
+        title.push(item);
+      }
+      if (Array.isArray(item.children)) {
         loop(item.children);
       }
     });
   };
   loop(treeData);
-  return title;
+  return typeof key === 'string'
+    ? title[0]?.title
+    : title?.length > 0
+    ? title
+    : undefined;
 };

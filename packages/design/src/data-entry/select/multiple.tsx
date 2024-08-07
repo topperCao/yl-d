@@ -54,14 +54,6 @@ export default ({
         <div
           ref={selectionRef}
           className="yld-select-selection yld-select-selection-multiple"
-          style={
-            open
-              ? {
-                  backgroundColor: 'var(--bg-color)',
-                  borderColor: 'var(--primary-color)',
-                }
-              : {}
-          }
           onClick={() => {
             if (disabled) return;
             setOpen(!open);

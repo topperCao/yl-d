@@ -141,6 +141,13 @@
     transform: rotate(180deg);
     transition: 0.3s;
   }
+  .yld-select-selection {
+    background-color: var(--bg-color);
+    border-color: var(--primary-color);
+    &:hover {
+      background-color: var(--bg-color);
+    }
+  }
 }
 .yld-select-dropdown-menu {
   position: relative;
@@ -181,7 +188,7 @@
   }
 }
 .yld-select-allowClear {
-  &:hover{
+  &:hover {
     .yld-icon-down {
       display: none;
     }

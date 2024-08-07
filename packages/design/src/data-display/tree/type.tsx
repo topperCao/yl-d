@@ -3,6 +3,7 @@ import { CSSProperties } from 'react';
 export type TreeNode = {
   key: string;
   title: string;
+  selectable?: boolean;
   disabled?: boolean;
   children?: TreeNode[];
 };

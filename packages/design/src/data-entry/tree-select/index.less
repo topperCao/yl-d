@@ -19,7 +19,7 @@
       border-color: var(--primary-color);
       transition: all 0.3s;
     }
-    .yld-tree-select-selection-selected-value {
+    .yld-tree-select-selection-value {
       float: left;
       width: 100%;
       padding-right: 30px;
@@ -29,6 +29,40 @@
       white-space: nowrap;
       text-overflow: ellipsis;
       opacity: 1;
+      display: flex;
+      height: 100%;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 4px;
+      &-tag{
+        position: relative;
+        float: left;
+        max-width: 99%;
+        height: 24px;
+        padding: 0 20px 0 10px;
+        overflow: hidden;
+        color: var(--text-color);
+        line-height: 22px;
+        background-color: var(--bg-color);
+        border: 1px solid var(--border-color);
+        border-radius: 2px;
+        cursor: default;
+        transition: padding 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+        user-select: none;
+        .yld-icon-close {
+          position: absolute;
+          right: 2px;
+          top: 3px;
+          color: #999;
+          cursor: pointer;
+          display: block;
+          transition: 0.3s;
+          &:hover {
+            color: #666;
+            transition: 0.3s;
+          }
+        }
+      }
     }
     .yld-icon-down {
       position: absolute;
@@ -81,7 +115,13 @@
     transform: rotate(180deg);
     transition: 0.3s;
   }
+  .yld-tree-select-selection{
+    background-color: var(--bg-color);
+    border-color: var(--primary-color);
+  }
 }
 .yld-tree-select-dropdown{
   padding: 4px 4px 4px 10px;
+  height: 180px;
+  overflow: auto;
 }

@@ -30,6 +30,9 @@ export default ({
       if (item.children) {
         labelClassName.push('yld-tree-node-parent');
       }
+      if (item.selectable === false) {
+        labelClassName.push('yld-tree-node-not-selectable');
+      }
       return (
         <div key={item.key} className={className.join(' ')}>
           <div className={labelClassName.join(' ')}>
@@ -63,7 +66,7 @@ export default ({
             <span className="yld-tree-node-label-left" title={item.title}>
               {checkable ? (
                 <Checkbox
-                  disabled={item.disabled || disabled}
+                  disabled={item.disabled || disabled || item.selectable === false}
                   checked={checkedKeys.includes(item.key)}
                   onChange={() => {
                     let findIndex = checkedKeys.findIndex((key) => {
@@ -90,7 +93,8 @@ export default ({
                       : 'yld-tree-node-label-left-text-active'
                   }
                   onClick={() => {
-                    if (item.disabled || disabled) return;
+                    if (item.disabled || disabled || item.selectable === false)
+                      return;
                     setSelectedKeys(item.key);
                     onSelected?.(item.key);
                   }}

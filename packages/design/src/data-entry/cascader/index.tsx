@@ -22,6 +22,7 @@ export default ({
   fieldNames,
   ...rest
 }: CascaderProps) => {
+  const selectionRef = useRef<HTMLDivElement>();
   const [open, setOpen] = useState(false);
   // 获得格式化 options
   const optionsRef = useRef(
@@ -50,22 +51,13 @@ export default ({
     classNames.push('yld-cascader-disabled');
   }
   if (className) {
-    classNames.push('className');
+    classNames.push(className);
   }
   const label = getLabelByValue(value, optionsRef.current);
-  const selectionRef = useRef<HTMLDivElement>();
   return (
     <div className={classNames.join(' ')} style={style}>
       <div
         className="yld-cascader-selection"
-        style={
-          open
-            ? {
-                backgroundColor: 'var(--bg-color)',
-                borderColor: 'var(--primary-color)',
-              }
-            : {}
-        }
         ref={selectionRef}
         onClick={() => {
           if (disabled) return;

@@ -8,6 +8,7 @@ export default () => {
     {
       title: 'Trunk 0-0',
       key: '0-0',
+      selectable: false,
       children: [
         {
           title: 'Branch 0-0-2',
@@ -127,8 +128,8 @@ export default () => {
       }}
       treeData={treeData}
       checkable
-      expandedKeys={['0-0']}
-      checkedKeys={['0-0-2']}
+      expandedKeys={['0-0', '0-0-2']}
+      checkedKeys={['0-0-2-1']}
       onChecked={(e) => {
         console.log('onChecked', e);
       }}

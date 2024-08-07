@@ -10,6 +10,7 @@ export default () => {
     {
       key: 'node1',
       title: 'Trunk',
+      selectable: false,
       children: [
         {
           key: 'node2',
@@ -20,6 +21,7 @@ export default () => {
     {
       key: 'node3',
       title: 'Trunk2',
+      selectable: false,
       children: [
         {
           key: 'node4',
@@ -92,12 +94,12 @@ export default () => {
   return (
     <TreeSelect
       checkable
-      value={['node2']}
+      value={['node1', 'node2']}
       expandedKeys={['node1']}
       treeData={treeData}
       style={{ width: 200 }}
       onChange={(value) => {
-        console.log(value);
+        console.log('onChange', value);
       }}
     />
   );
