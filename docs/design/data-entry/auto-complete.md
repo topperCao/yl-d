@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { AutoComplete, Switch } from '@yl-d/design';
 
 export default () => {
-  const [disabled, setDisabled] = useState('');
+  const [disabled, setDisabled] = useState(false);
   return (
     <>
       <AutoComplete

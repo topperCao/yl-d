@@ -74,3 +74,6 @@ export interface TableProps {
   };
   setLoading?: Function;
 }
+
+
+export default (props: TableProps) => null;
