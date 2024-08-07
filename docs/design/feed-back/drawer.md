@@ -87,7 +87,7 @@ export default () => {
       onClick={() => {
         Drawer({
           title: '指定高度',
-          top: 64,
+          top: 58,
           onClose() {
             console.log('onClose');
           },

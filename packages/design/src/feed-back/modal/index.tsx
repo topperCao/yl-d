@@ -1,7 +1,7 @@
 import { ReactNode, CSSProperties } from 'react';
 import ReactDOM from 'react-dom';
 import { Button, Space } from '../..';
-import { ButtonProps } from '../../general/button';
+import { ButtonProps } from '../../general/button/type';
 import { uuid } from '../../tools';
 import { IconClose, IconInfoCircle } from "@yl-d/icon"
 import './index.less';
@@ -113,7 +113,7 @@ const Modal = (props: ModalProps) => {
         $(`#${containId} .yld-modal`).style.top = '-9999px';
         setTimeout(() => {
           $(`#${containId}`)?.remove();
-        }, 500);
+        }, 200);
       };
       const tag = document.createElement('div');
       tag.setAttribute('id', containId);
@@ -158,7 +158,7 @@ Modal.confirm = ({
     $(`#${containId} .yld-confirm`).style.top = '-9999px';
     setTimeout(() => {
       $(`#${containId}`)?.remove();
-    }, 500);
+    }, 200);
   };
   const tag = document.createElement('div');
   tag.setAttribute('id', containId);

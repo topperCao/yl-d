@@ -8,7 +8,7 @@
   height: 100%;
   background: var(--bg-color);
   box-shadow: 0 10px 20px 0px var(--box-shadow);
-  animation: drawer-move-right 0.3s ease-in;
+  animation: drawer-move-right 0.2s;
   transition: 2s;
   .yld-drawer-header {
     position: relative;
@@ -30,10 +30,10 @@
       border-radius: 50%;
       padding: 2px;
       cursor: pointer;
-      transition: 0.3s;
+      transition: 0.2s;
       &:hover {
         background-color: var(--box-shadow);
-        transition: 0.3s;
+        transition: 0.2s;
       }
     }
   }
@@ -69,7 +69,7 @@
   background: rgba(5, 5, 5, 0.432);
 }
 .yld-drawer-mask {
-  animation: modal-show-mask 0.3s ease-in;
+  animation: modal-show-mask 0.2s;
 }
 .yld-drawer-mask-none {
   background: transparent;
@@ -77,7 +77,7 @@
 .yld-drawer-left {
   right: auto;
   left: 0;
-  animation: drawer-move-left 0.3s linear;
+  animation: drawer-move-left 0.2s;
 }
 @keyframes drawer-move-left {
   0% {

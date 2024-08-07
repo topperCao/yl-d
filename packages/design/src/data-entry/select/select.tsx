@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
-import { SelectProps } from '..';
-import { Empty, Layer } from '../../..';
+import { SelectProps } from './type';
+import { Empty, Layer } from '../..';
 import { IconDown, IconClose } from '@yl-d/icon';
 
 export default ({

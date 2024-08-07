@@ -130,7 +130,7 @@ export default (props: DrawerProps) => {
         $(`#${containId} .yld-drawer`).style[drawerProps.placement] = '-9999px';
         setTimeout(() => {
           $(`#${containId}`)?.remove();
-        }, 500);
+        }, 200);
       };
       const tag = document.createElement('div');
       tag.setAttribute('id', containId);
