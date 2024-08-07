@@ -2,7 +2,7 @@ import { CSSProperties } from 'react';
 
 export type TreeNode = {
   key: string;
-  label: string;
+  title: string;
   disabled?: boolean;
   children?: TreeNode[];
 };
@@ -16,8 +16,10 @@ export interface TreeProps {
   expandedKeys?: string[];
   /** 是否可选择 */
   checkable?: boolean;
-  /** 选择节点 */
+  /** 多选选择节点 */
   checkedKeys?: string[];
+  /** 单一选择节点 */
+  selectedKey?: string;
   /** 是否禁用 */
   disabled?: boolean;
   /** 选中的回调 */

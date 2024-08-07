@@ -1,29 +1,27 @@
-import { CSSProperties, ReactNode } from 'react';
+import { CSSProperties, ReactNode } from "react";
 
-export interface treeDataProps {
-  key: string;
-  title: ReactNode;
+export interface OptionsProps {
+  label: ReactNode;
+  value: number | string;
   disabled?: boolean;
-  children: treeDataProps[];
+  children: OptionsProps[];
 }
 
-export interface TreeSelectProps{
+export interface CascaderProps {
   /** 别名 */
   fieldNames?: {
     label?: string;
     value?: string;
     children?: string;
   };
-  /** 展开节点 */
-  expandedKeys?: string[];
-  /** 开启多选 */
-  checkable?: boolean;
   /** 类名 */
   className?: string;
+  /** 多选模式 */
+  multiple?: boolean;
   /** 数据源 */
-  treeData?: treeDataProps[];
+  options?: OptionsProps[];
   /** 值 */
-  value?: string | string[];
+  value?: number[] | string[];
   /** 改变钩子 */
   onChange?: Function;
   /** 是否清空 */
@@ -40,4 +38,4 @@ export interface TreeSelectProps{
   getPopupContainer?: () => HTMLElement;
 }
 
-export default (props: TreeSelectProps) => null;
+export default (props: CascaderProps) => null;

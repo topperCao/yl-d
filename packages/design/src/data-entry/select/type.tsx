@@ -30,7 +30,7 @@ export interface SelectProps {
   /** 查询的钩子 */
   onSearch?: Function;
   /** 是否支持查询 */
-  showSearch?: Boolean;
+  showSearch?: boolean;
   /** 过滤的钩子 */
   filter?: Function;
   /** 挂在的容器 */

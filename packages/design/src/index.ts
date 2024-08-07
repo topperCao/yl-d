@@ -28,6 +28,7 @@ export { default as RangeTimePicker } from './data-entry/time-picker-range';
 export { default as Cascader } from './data-entry/cascader';
 export { default as Slider } from './data-entry/slider';
 export { default as Rate } from './data-entry/rate';
+export { default as TreeSelect } from './data-entry/tree-select';
 export { default as Form } from './data-entry/form';
 export { default as Search } from './data-entry/search';
 export { default as Pagination } from './navigation/pagination';

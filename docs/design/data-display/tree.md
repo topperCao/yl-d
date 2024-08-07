@@ -6,55 +6,47 @@ import { Tree } from '@yl-d/design';
 export default () => {
   const treeData = [
     {
-      key: '1',
-      label: 'Parent1',
+      title: 'Trunk 0-0',
+      key: '0-0',
       children: [
         {
-          key: '1-1',
-          label: 'node1',
+          title: 'Branch 0-0-2',
+          key: '0-0-2',
+          selectable: false,
           children: [
             {
-              key: '1-2-1',
-              label: 'sub-node1',
-              disabled: true,
-            },
-            {
-              key: '1-2-2',
-              label: 'sub-node2',
+              title: 'Leaf',
+              key: '0-0-2-1',
+              children: [
+                {
+                  title: 'Leafsss 0-0-2',
+                  key: '0-0-2-1-0',
+                  children: [
+                    {
+                      title: 'Leaf',
+                      key: '0-0-2-1-0-0',
+                    },
+                  ],
+                },
+              ],
             },
           ],
         },
-        {
-          key: '1-2',
-          label: 'node2',
-        },
       ],
     },
     {
-      key: '2',
-      label: 'Parent2',
+      title: 'Trunk 0-1',
+      key: '0-1',
       children: [
         {
-          key: '2-1',
-          label: 'node1',
-        },
-        {
-          key: '2-2',
-          label: 'node2',
-        },
-      ],
-    },
-    {
-      key: '3',
-      label: 'Parent3',
-      children: [
-        {
-          key: '3-1',
-          label: 'node1',
-        },
-        {
-          key: '3-2',
-          label: 'node2',
+          title: 'Branch 0-1-1',
+          key: '0-1-1',
+          children: [
+            {
+              title: 'Leaf',
+              key: '0-1-1-0',
+            },
+          ],
         },
       ],
     },
@@ -65,7 +57,8 @@ export default () => {
         width: 200,
       }}
       treeData={treeData}
-      expandedKeys={['1']}
+      expandedKeys={['0-0']}
+      selectedKey="0-0-2"
       onSelected={(e) => {
         console.log('onSelected', e);
       }}
@@ -74,7 +67,7 @@ export default () => {
 };
 ```
 
-## 可选择
+## 支持多选
 
 ```jsx | react
 import { Tree } from '@yl-d/design';
@@ -82,55 +75,47 @@ import { Tree } from '@yl-d/design';
 export default () => {
   const treeData = [
     {
-      key: '1',
-      label: 'Parent1',
+      title: 'Trunk 0-0',
+      key: '0-0',
       children: [
         {
-          key: '1-1',
-          label: 'node1',
+          title: 'Branch 0-0-2',
+          key: '0-0-2',
+          selectable: false,
           children: [
             {
-              key: '1-2-1',
-              label: 'sub-node1',
-              disabled: true,
-            },
-            {
-              key: '1-2-2',
-              label: 'sub-node2',
+              title: 'Leaf',
+              key: '0-0-2-1',
+              children: [
+                {
+                  title: 'Leafsss 0-0-2',
+                  key: '0-0-2-1-0',
+                  children: [
+                    {
+                      title: 'Leaf',
+                      key: '0-0-2-1-0-0',
+                    },
+                  ],
+                },
+              ],
             },
           ],
         },
-        {
-          key: '1-2',
-          label: 'node2',
-        },
       ],
     },
     {
-      key: '2',
-      label: 'Parent2',
+      title: 'Trunk 0-1',
+      key: '0-1',
       children: [
         {
-          key: '2-1',
-          label: 'node1',
-        },
-        {
-          key: '2-2',
-          label: 'node2',
-        },
-      ],
-    },
-    {
-      key: '3',
-      label: 'Parent3',
-      children: [
-        {
-          key: '3-1',
-          label: 'node1',
-        },
-        {
-          key: '3-2',
-          label: 'node2',
+          title: 'Branch 0-1-1',
+          key: '0-1-1',
+          children: [
+            {
+              title: 'Leaf',
+              key: '0-1-1-0',
+            },
+          ],
         },
       ],
     },
@@ -142,8 +127,8 @@ export default () => {
       }}
       treeData={treeData}
       checkable
-      expandedKeys={['1']}
-      checkedKeys={['1-2']}
+      expandedKeys={['0-0']}
+      checkedKeys={['0-0-2']}
       onChecked={(e) => {
         console.log('onChecked', e);
       }}
@@ -151,7 +136,6 @@ export default () => {
   );
 };
 ```
-
 
 ## API
 

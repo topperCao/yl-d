@@ -16,7 +16,7 @@ export default ({
 }: TreeProps) => {
   const [expandedKeys, setExpandedKeys] = useState(rest.expandedKeys || []);
   const [checkedKeys, setCheckedKeys] = useState(rest.checkedKeys || []);
-  const [selectedKeys, setSelectedKeys] = useState('');
+  const [selectedKeys, setSelectedKeys] = useState(rest.selectedKey);
   const renderTree = (treeData: TreeNode[], level = 0) => {
     return treeData.map((item) => {
       let className = ['yld-tree-node'];
@@ -60,7 +60,7 @@ export default ({
                 />
               )}
             </div>
-            <span className="yld-tree-node-label-left" title={item.label}>
+            <span className="yld-tree-node-label-left" title={item.title}>
               {checkable ? (
                 <Checkbox
                   disabled={item.disabled || disabled}
@@ -79,7 +79,7 @@ export default ({
                   }}
                 >
                   <span className="yld-tree-node-label-left-text">
-                    {item.label}
+                    {item.title}
                   </span>
                 </Checkbox>
               ) : (
@@ -95,7 +95,7 @@ export default ({
                     onSelected?.(item.key);
                   }}
                 >
-                  {item.label}
+                  {item.title}
                 </span>
               )}
             </span>
