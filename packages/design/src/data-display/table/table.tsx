@@ -17,7 +17,9 @@ export default ({
   },
   rowKey = 'id',
   style = {},
-  paginationConfig = false,
+  paginationConfig = {
+    pageSize: 10
+  },
   bordered = false,
   checkable = false,
   onCheck,
@@ -204,6 +206,7 @@ export default ({
               columns,
               bordered,
               query,
+              width: tableHeaderRef.current?.getBoundingClientRect()?.width,
             })}
           </table>
           <table className="yld-table-body" ref={tableBodyRef}>
@@ -216,6 +219,7 @@ export default ({
                 scroll,
                 bordered,
                 dataSource: innerTableRef.current.dataSource,
+                width: tableBodyRef.current?.getBoundingClientRect()?.width,
               })
             )}
           </table>

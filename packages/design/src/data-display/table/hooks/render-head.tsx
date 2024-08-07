@@ -1,6 +1,6 @@
 import { IconCaretDown, IconCaretUp } from "@yl-d/icon";
 
-export default ({ scroll, columns, bordered, query }) => {
+export default ({ scroll, columns, bordered, query, width }) => {
   const defineColumn = columns.filter((i) => i.width);
   const defineColumnWidth = defineColumn.reduce(
     (a, b) => ({ width: a.width + b.width }),
@@ -15,7 +15,7 @@ export default ({ scroll, columns, bordered, query }) => {
           const tdStyle: any = {
             width:
               column.width ||
-              (scroll.x - defineColumnWidth) /
+              ((scroll.x || width) - defineColumnWidth) /
                 (columns.length - defineColumn.length),
           };
           let columnClassName = ['yld-table-td'];
@@ -25,27 +25,29 @@ export default ({ scroll, columns, bordered, query }) => {
           if (bordered) {
             columnClassName.push('yld-table-td-grid');
           }
-          if (column.fixed === 'left') {
-            columnClassName.push(`yld-table-td-fixed-left`);
-            tdStyle.left = defineFixedLeft
-              .slice(0, _index)
-              .reduce((a, b) => ({ width: a.width + b.width }), {
-                width: 0,
-              }).width;
-          }
-          if (column.fixed === 'right') {
-            columnClassName.push(`yld-table-td-fixed-right`);
-            tdStyle.right = defineFixedRight
-              .slice(defineFixedRight.length - (columns.length - _index) + 1)
-              .reduce((a, b) => ({ width: a.width + b.width }), {
-                width: 0,
-              }).width;
-          }
-          if (_index === defineFixedLeft.length - 1) {
-            columnClassName.push('yld-table-td-fixed-left-last');
-          }
-          if (columns.length - _index === defineFixedRight.length) {
-            columnClassName.push('yld-table-td-fixed-right-frist');
+          if(scroll?.x){
+            if (column.fixed === 'left') {
+              columnClassName.push(`yld-table-td-fixed-left`);
+              tdStyle.left = defineFixedLeft
+                .slice(0, _index)
+                .reduce((a, b) => ({ width: a.width + b.width }), {
+                  width: 0,
+                }).width;
+            }
+            if (column.fixed === 'right') {
+              columnClassName.push(`yld-table-td-fixed-right`);
+              tdStyle.right = defineFixedRight
+                .slice(defineFixedRight.length - (columns.length - _index) + 1)
+                .reduce((a, b) => ({ width: a.width + b.width }), {
+                  width: 0,
+                }).width;
+            }
+            if (_index === defineFixedLeft.length - 1) {
+              columnClassName.push('yld-table-td-fixed-left-last');
+            }
+            if (columns.length - _index === defineFixedRight.length) {
+              columnClassName.push('yld-table-td-fixed-right-frist');
+            }
           }
           return (
             <td

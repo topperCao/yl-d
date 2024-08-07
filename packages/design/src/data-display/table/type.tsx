@@ -16,8 +16,8 @@ export interface ToolProps extends ButtonProps {
 
 export interface PaginationProps {
   pageSize: number;
-  pageNum: number;
-  total: number;
+  pageNum?: number;
+  total?: number;
   onChange?: Function;
   onPageSizeChange?: Function;
 }
