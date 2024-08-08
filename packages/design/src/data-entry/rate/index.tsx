@@ -17,7 +17,7 @@ export default ({
   allowHalf = false,
   disabled = false,
   grading = false,
-  allowClear = false,
+  allowClear = true,
   character = <IconStarFill />,
   onHoverChange,
   onChange,
@@ -47,8 +47,8 @@ export default ({
       setValue(newValue);
       onChange?.(newValue);
     } else if (allowClear) {
-      setValue(0);
-      onChange?.(0);
+      setValue(undefined);
+      onChange?.(undefined);
       resetHoverIndex();
     }
   };

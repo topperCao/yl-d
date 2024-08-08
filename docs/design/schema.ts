@@ -70,9 +70,6 @@ export default [
     type: 'Rate',
     name: 'rate',
     label: '评分',
-    props: {
-      allowHalf: true,
-    },
   },
   {
     type: 'Slider',
