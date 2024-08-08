@@ -10,8 +10,9 @@ export interface BreadcrumbProps{
   onClick?: Function;
   /** 数据源 */
   items: {
-    title: string,
-    href?: string,
+    icon?: ReactNode;
+    path?: string,
+    breadcrumbName: string,
   }[],
 }
 

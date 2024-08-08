@@ -35,6 +35,7 @@ export { default as Pagination } from './navigation/pagination';
 export { default as Breadcrumb } from './navigation/breadcrumb';
 export { default as Dropdown } from './navigation/dropdown';
 export { default as Menu } from './navigation/menu';
+export { default as Layout } from './navigation/layout';
 export { default as Steps } from './navigation/steps';
 export { default as Drawer } from './feed-back/drawer';
 export { default as Modal } from './feed-back/modal';

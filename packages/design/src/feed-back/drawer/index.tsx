@@ -35,7 +35,7 @@ export interface DrawerProps {
   /** 取消文案 */
   cancelText?: string;
   /** 主体渲染 */
-  render: (api: { onClose: Function }) => ReactNode;
+  render?: (api: { onClose: Function }) => ReactNode;
 }
 
 const Drawer = ({

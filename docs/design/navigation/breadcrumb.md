@@ -8,13 +8,13 @@ export default () => {
     <Breadcrumb
       items={[
         {
-          title: 'Home',
+          breadcrumbName: 'Home',
         },
         {
-          title: 'Channel',
+          breadcrumbName: 'Channel',
         },
         {
-          title: 'News',
+          breadcrumbName: 'News',
         },
       ]}
     />
@@ -26,7 +26,7 @@ export default () => {
 
 ```jsx | react
 import { Breadcrumb } from '@yl-d/design';
-import { IconHome, IconRight } from "@yl-d/icon";
+import { IconHome, IconRight } from '@yl-d/icon';
 
 export default () => {
   return (
@@ -34,20 +34,20 @@ export default () => {
       separator={<IconRight />}
       items={[
         {
-          title: <IconHome />,
+          icon: <IconHome />,
+          breadcrumbName: 'Home',
         },
         {
-          title: 'Channel',
+          breadcrumbName: 'Channel',
         },
         {
-          title: 'News',
+          breadcrumbName: 'News',
         },
       ]}
     />
   );
 };
 ```
-
 
 ## API
 

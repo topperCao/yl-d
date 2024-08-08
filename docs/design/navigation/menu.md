@@ -9,36 +9,36 @@ export default () => {
   const [collapsed, setcollapsed] = useState();
   const menus = [
     {
-      key: '1',
+      path: '1',
       icon: <IconUserGroup />,
       label: 'Navigation One',
       children: [
         {
-          key: '1-1',
+          path: '1-1',
           label: 'Option1',
         },
         {
-          key: '1-2',
+          path: '1-2',
           label: 'Option2',
         },
       ],
     },
     {
-      key: '3',
+      path: '3',
       icon: <IconLanguage />,
       label: 'Navigation Three',
       children: [
         {
-          key: '3-1',
+          path: '3-1',
           label: 'Option1',
           icon: <IconLanguage />,
           children: [
             {
-              key: '3-1-1',
+              path: '3-1-1',
               label: 'Option1-1',
             },
             {
-              key: '3-1-2',
+              path: '3-1-2',
               label: 'Option1-2',
             },
           ],
@@ -46,7 +46,7 @@ export default () => {
       ],
     },
     {
-      key: '4',
+      path: '4',
       icon: <IconCodepen />,
       label: 'Navigation Four',
     },

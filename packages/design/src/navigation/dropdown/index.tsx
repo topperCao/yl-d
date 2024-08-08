@@ -24,7 +24,6 @@ export default ({
     }
   };
   const onMouseEnter = () => {
-    console.log("onMouseEnter");
     if (trigger === 'hover') {
       hoverRef.current = true;
       setTimeout(() => {
