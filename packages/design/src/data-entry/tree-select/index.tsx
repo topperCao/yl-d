@@ -104,8 +104,8 @@ export default ({
             style={{ fontSize: 12 }}
             onClick={(e: any) => {
               e.stopPropagation(); // 阻止冒泡
-              setValue([]); // 还原
-              onChange?.([]);
+              setValue(checkable ? [] : undefined); // 还原
+              onChange?.(checkable ? [] : undefined);
               setOpen(false);
               setOptions(
                 optionsRef.current.map((item: any) => {
