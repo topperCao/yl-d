@@ -64,7 +64,11 @@ export default ({
     props.type === 'textarea' ? 'yld-textarea-wrapper' : 'yld-input-wrapper',
   ];
   // 是否展示清空按钮
-  const showAllowClear = !props.disabled && allowClear && innerValue?.length > 0;
+  const showAllowClear =
+    !props.disabled &&
+    allowClear &&
+    innerValue?.length > 0 &&
+    props.type !== 'password';
   if (showAllowClear) {
     classNames.push('yld-input-allowClear');
   }

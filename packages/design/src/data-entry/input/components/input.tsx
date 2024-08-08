@@ -77,7 +77,7 @@ export default ({
         style={style}
         className={disabled ? 'yld-input-disabled' : 'yld-input'}
         placeholder={placeholder}
-        value={value || ""}
+        value={value || ''}
         maxLength={maxLength}
         disabled={disabled}
         readOnly={readOnly}
@@ -97,7 +97,7 @@ export default ({
         }}
         onClick={rest.onClick}
       />
-      {!disabled && allowClear && !isEmpty(value) && (
+      {!disabled && allowClear && !isEmpty(value) && type !== 'password' && (
         <IconClose
           style={{ fontSize: 12 }}
           onClick={() => {
