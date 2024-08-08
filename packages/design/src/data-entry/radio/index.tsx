@@ -1,16 +1,6 @@
-import { useState, useEffect, ReactNode } from 'react';
+import { useState, useEffect } from 'react';
+import { RadioProps } from './type';
 import './index.less';
-
-export interface RadioProps {
-  /** 是否选中 */
-  checked?: boolean;
-  /** 改变的钩子 */
-  onChange?: Function;
-  /** 是否禁用 */
-  disabled?: boolean;
-  /** 文本 */
-  children?: ReactNode;
-}
 
 export default ({
   checked = false,

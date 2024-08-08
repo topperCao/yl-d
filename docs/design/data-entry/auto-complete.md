@@ -31,7 +31,7 @@ export default () => {
   return (
     <>
       <AutoComplete
-        allowClear
+        prefix="@"
         options={options}
         style={{ width: 200 }}
         placeholder="请输入邮箱"
@@ -51,7 +51,6 @@ export default () => {
   );
 };
 ```
-
 
 ### API
 

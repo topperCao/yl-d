@@ -1,23 +1,13 @@
-import { useState, useEffect, CSSProperties } from 'react';
-import { OptionsProps } from '../select/type';
-import Option, { RadioProps } from './index';
+import { useState, useEffect } from 'react';
+import Option from './index';
+import { RadioGroupProps } from './type';
 import './index.less';
-
-export interface RadioGroupProps extends RadioProps{
-  /** 数据源 */
-  options: OptionsProps[];
-  /** 样式 */
-  style?: CSSProperties;
-  /** 单选的类型 */
-  type?: 'radio' | 'button';
-  /** 选中值 */
-  value?: string | number;
-}
 
 export default ({
   options = [],
   disabled = false,
   onChange,
+  direction = 'horizontal',
   style = {},
   type,
   ...rest
@@ -27,8 +17,11 @@ export default ({
     setValue(rest.value);
   }, [rest.value]);
   const classNames = ['yld-radio-group'];
-  if(type === 'button'){
-    classNames.push('yld-radio-group-button')
+  if (type === 'button') {
+    classNames.push('yld-radio-group-button');
+  }
+  if (direction === 'vertical' && type !== 'button') {
+    classNames.push('yld-radio-group-vertical');
   }
   return (
     <div className={classNames.join(' ')} style={style}>

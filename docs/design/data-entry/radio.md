@@ -19,7 +19,7 @@ export default () => {
 };
 ```
 
-## 多个选项
+## 选项组
 
 ```jsx | react
 import { useState } from 'react';
@@ -72,6 +72,45 @@ export default () => {
 };
 ```
 
+## 垂直布局
+
+> 通过 direction="vertical" 设置为垂直方向
+
+```jsx | react
+import { RadioGroup } from '@yl-d/design';
+
+export default () => {
+  return (
+    <RadioGroup
+      value="Html"
+      direction="vertical"
+      options={[
+        {
+          label: 'Html',
+          value: 'Html',
+        },
+        {
+          label: 'Css',
+          value: 'Css',
+        },
+        {
+          label: 'JavaScript',
+          value: 'JavaScript',
+        },
+        {
+          label: 'React',
+          value: 'React',
+        },
+        {
+          label: 'Vue',
+          value: 'Vue',
+          disabled: true,
+        },
+      ]}
+    />
+  );
+};
+```
 
 ## 按钮类型
 
@@ -84,7 +123,7 @@ export default () => {
   return (
     <>
       <RadioGroup
-        type='button'
+        type="button"
         options={[
           {
             label: 'Html',
@@ -116,4 +155,10 @@ export default () => {
     </>
   );
 };
+```
+
+## API
+
+```API
+/packages/design/src/data-entry/radio/type.tsx
 ```

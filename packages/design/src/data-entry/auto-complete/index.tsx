@@ -9,6 +9,7 @@ export default ({
   options,
   allowClear = true,
   placeholder = '请输入',
+  prefix = '@',
   disabled = false,
   style = {},
   layerClassName,
@@ -33,13 +34,13 @@ export default ({
     <div className={classNames.join(' ')} style={style}>
       <input
         ref={selectionRef}
-        value={value || ""}
+        value={value || ''}
         className="yld-auto-input"
         placeholder={placeholder}
         disabled={disabled}
         onChange={(e) => {
           setValue(e.target.value || undefined);
-          if (e.target.value?.endsWith('@')) {
+          if (e.target.value?.endsWith(prefix)) {
             setOpen(true);
           } else {
             setOpen(false);

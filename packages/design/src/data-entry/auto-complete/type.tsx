@@ -7,6 +7,8 @@ export interface AutoCompleteProps {
   layerClassName?: string;
   /** 挂载的容器 */
   getPopupContainer?: () => HTMLElement;
+  /** 触发的字符 */
+  prefix?: string;
   /** 数据源 */
   options: {
     label: ReactNode;
