@@ -3,7 +3,7 @@
 ```jsx | react
 import { useState } from 'react';
 import { Switch, Form, Button } from '@yl-d/design';
-import schema from '@/design/schema.ts';
+import schema from '@/design/schema.tsx';
 
 export default () => {
   const form = Form.useForm();

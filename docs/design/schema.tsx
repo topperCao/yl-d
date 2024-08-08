@@ -1,3 +1,6 @@
+import { Space } from '@yl-d/design';
+import { IconQq, IconEmail } from '@yl-d/icon';
+
 export default [
   {
     type: 'Input',
@@ -18,8 +21,26 @@ export default [
     name: 'autoComplete',
     label: '邮箱',
     props: {
-      options: ['@163.com', '@qq.com', '@aliyun.com'],
-      allowClear: true,
+      options: [
+        {
+          value: '163.com',
+          label: (
+            <Space>
+              <IconEmail style={{ color: '#1e80ff' }} />
+              <span>163.com</span>
+            </Space>
+          ),
+        },
+        {
+          value: 'qq.com',
+          label: (
+            <Space>
+              <IconQq style={{ color: '#1e80ff' }} />
+              <span>qq.com</span>
+            </Space>
+          ),
+        },
+      ],
     },
   },
   {
@@ -27,7 +48,6 @@ export default [
     name: 'select',
     label: '下拉选',
     props: {
-      allowClear: true,
       options: [
         { label: '选项1', value: 1 },
         { label: '选项2', value: 2 },
@@ -82,7 +102,6 @@ export default [
     label: '下拉多选',
     props: {
       multiple: true,
-      allowClear: true,
       options: [
         { label: '选项1', value: 1 },
         { label: '选项2', value: 2 },

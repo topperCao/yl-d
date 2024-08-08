@@ -1,30 +1,8 @@
-import { useState, useEffect, CSSProperties, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Empty, Layer } from '../..';
 import { IconClose } from '@yl-d/icon';
+import { AutoCompleteProps } from './type';
 import './index.less';
-
-export interface AutoCompleteProps {
-  /** 类名 */
-  className?: string;
-  /** 下拉菜单的类名 */
-  layerClassName?: string;
-  /** 挂载的容器 */
-  getPopupContainer?: () => HTMLElement;
-  /** 数据源 */
-  options: string[];
-  /** 值 */
-  value?: string;
-  /** 是否可清空 */
-  allowClear?: Boolean;
-  /** 提示文案 */
-  placeholder?: string;
-  /** 是否禁用 */
-  disabled?: boolean;
-  /** 样式 */
-  style?: CSSProperties;
-  /** 选择后钩子 */
-  onChange?: Function;
-}
 
 export default ({
   className,
@@ -38,17 +16,11 @@ export default ({
   onChange,
   ...rest
 }: AutoCompleteProps) => {
+  const selectionRef = useRef<HTMLInputElement>();
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState(rest.value || '');
-  const [suffix, setSuffix] = useState('');
+  const [value, setValue] = useState(rest.value);
   useEffect(() => {
-    let suffix = options.find((item) => rest.value?.endsWith(item)); // 拆分 value / suffix
-    if (suffix) {
-      setValue(rest.value.substr(0, rest.value.lastIndexOf(suffix)));
-      setSuffix(suffix);
-    } else {
-      setValue(rest.value || '');
-    }
+    setValue(rest.value);
   }, [rest.value]);
   const classNames = ['yld-auto'];
   if (disabled) {
@@ -57,39 +29,35 @@ export default ({
   if (className) {
     classNames.push(className);
   }
-  const selectionRef = useRef<HTMLInputElement>();
   return (
     <div className={classNames.join(' ')} style={style}>
       <input
         ref={selectionRef}
-        value={value + suffix}
+        value={value || ""}
         className="yld-auto-input"
         placeholder={placeholder}
         disabled={disabled}
-        onClick={(e) => {
-          if (disabled) return;
-          setOpen(!open);
-          if (open) {
-            e.stopPropagation();
+        onChange={(e) => {
+          setValue(e.target.value || undefined);
+          if (e.target.value?.endsWith('@')) {
+            setOpen(true);
+          } else {
+            setOpen(false);
           }
         }}
-        onChange={(e) => {
-          setValue(e.target.value);
-          setSuffix('');
-        }}
       />
-      {allowClear && value !== '' && (
+      {allowClear && value !== undefined && (
         <IconClose
           style={{ fontSize: 12 }}
           onClick={(e: any) => {
             e.stopPropagation(); // 阻止冒泡
-            setValue('');
-            setSuffix('');
-            onChange?.('');
+            setValue(undefined);
+            onChange?.(undefined);
+            setOpen(false);
           }}
         />
       )}
-      {open && value !== '' && (
+      {open && (
         <Layer
           layerClose={() => setOpen(false)}
           layerClassName={layerClassName}
@@ -99,20 +67,20 @@ export default ({
           {options.length > 0 ? (
             options.map((option) => {
               const className = ['yld-select-dropdown-menu'];
-              if (option === value) {
+              if (option.value === value) {
                 className.push('yld-select-dropdown-menu-selected');
               }
               return (
                 <div
-                  key={option}
+                  key={option.value}
                   className={className.join(' ')}
                   onClick={() => {
                     setOpen(false);
-                    setSuffix(option);
-                    onChange?.(value + option);
+                    setValue?.(value + option.value);
+                    onChange?.(value + option.value);
                   }}
                 >
-                  {value + option}
+                  {option.label}
                 </div>
               );
             })
