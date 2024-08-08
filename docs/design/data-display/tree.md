@@ -60,7 +60,7 @@ export default () => {
       treeData={treeData}
       expandedKeys={['0-0']}
       selectedKey="0-0-2"
-      onSelected={(e) => {
+      onSelect={(e) => {
         console.log('onSelected', e);
       }}
     />

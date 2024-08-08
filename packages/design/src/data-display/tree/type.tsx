@@ -28,7 +28,7 @@ export interface TreeProps {
   /** 展开的回调 */
   onExpand?: Function;
   /** 选择的回调 */
-  onSelected?: Function;
+  onSelect?: Function;
   /** 样式 */
   style?: CSSProperties;
 }

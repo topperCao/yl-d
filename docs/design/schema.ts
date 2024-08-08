@@ -67,6 +67,14 @@ export default [
     },
   },
   {
+    type: 'Rate',
+    name: 'rate',
+    label: '评分',
+    props: {
+      allowHalf: true,
+    },
+  },
+  {
     type: 'Slider',
     name: 'slider',
     label: '滑块组件',
@@ -85,6 +93,42 @@ export default [
         { label: '选项4', value: 4 },
         { label: '选项5', value: 5 },
         { label: '选项6', value: 6 },
+      ],
+    },
+  },
+  {
+    type: 'TreeSelect',
+    name: 'treeSelect',
+    label: '下拉树组件',
+    props: {
+      expandedKeys: ['node1', 'node3'],
+      treeData: [
+        {
+          key: 'node1',
+          title: 'Trunk',
+          selectable: false,
+          children: [
+            {
+              key: 'node2',
+              title: 'Leaf1',
+            },
+          ],
+        },
+        {
+          key: 'node3',
+          title: 'Trunk2',
+          selectable: false,
+          children: [
+            {
+              key: 'node4',
+              title: 'Leaf2',
+            },
+            {
+              key: 'node5',
+              title: 'Leaf3',
+            },
+          ],
+        },
       ],
     },
   },

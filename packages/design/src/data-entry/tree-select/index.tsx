@@ -16,9 +16,11 @@ export default ({
   getPopupContainer,
   onChange,
   fieldNames,
+  checkable = false,
   ...rest
 }: TreeSelectProps) => {
   const selectionRef = useRef<HTMLDivElement>();
+  const choiceRef = useRef<HTMLDivElement>();
   const [open, setOpen] = useState(false);
   // 获得格式化 options
   const optionsRef = useRef(
@@ -65,6 +67,15 @@ export default ({
         );
       })
     : tags;
+  // 更新容器的高度
+  useEffect(() => {
+    if (choiceRef.current && checkable) {
+      const { height } = choiceRef.current.getBoundingClientRect();
+      selectionRef.current.style.height = height + 8 + 'px';
+    } else {
+      selectionRef.current.style.height = '32px';
+    }
+  }, [value]);
   return (
     <div className={classNames.join(' ')} style={style}>
       <div
@@ -79,7 +90,12 @@ export default ({
           {tags === undefined ? (
             <span style={{ color: '#aaa' }}>{placeholder}</span>
           ) : (
-            tagRender
+            <div
+              className="yld-select-selection-choice-warpper"
+              ref={choiceRef}
+            >
+              {tagRender}
+            </div>
           )}
         </div>
         <IconDown />
@@ -102,20 +118,19 @@ export default ({
       </div>
       {open && (
         <Layer
-          layerWidth="fix-content"
           layerClose={() => setOpen(false)}
           domRef={selectionRef}
           layerClassName={layerClassName}
           getPopupContainer={getPopupContainer}
         >
-          <div className="yld-tree-select-dropdown" style={style}>
+          <div className="yld-tree-select-dropdown">
             {options.length > 0 ? (
               <Tree
                 {...rest}
                 selectedKey={value}
                 checkedKeys={value}
                 treeData={options}
-                onSelected={(v) => {
+                onSelect={(v) => {
                   setValue(v);
                   onChange(v);
                   setOpen(false);

@@ -10,7 +10,7 @@ export default ({
   disabled = false,
   onCheck,
   onExpand,
-  onSelected,
+  onSelect,
   style = {},
   ...rest
 }: TreeProps) => {
@@ -58,7 +58,7 @@ export default ({
                       expandedKeys.push(item.key);
                     }
                     setExpandedKeys([...expandedKeys]);
-                    onExpand?.(expandedKeys);
+                    onExpand?.([...expandedKeys]);
                   }}
                 />
               )}
@@ -78,7 +78,7 @@ export default ({
                       checkedKeys.push(item.key);
                     }
                     setCheckedKeys([...checkedKeys]);
-                    onCheck?.(checkedKeys);
+                    onCheck?.([...checkedKeys]);
                   }}
                 >
                   <span className="yld-tree-node-label-left-text">
@@ -96,7 +96,7 @@ export default ({
                     if (item.disabled || disabled || item.selectable === false)
                       return;
                     setSelectedKeys(item.key);
-                    onSelected?.(item.key);
+                    onSelect?.(item.key);
                   }}
                 >
                   {item.title}

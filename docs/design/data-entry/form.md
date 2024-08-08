@@ -38,6 +38,8 @@ export default () => {
           timePicker: '00:02:00',
           timePickerRange: ['12:08:08', '18:08:08'],
           textarea: '2323',
+          rate: 2.5,
+          treeSelect: 'node2'
         }}
         onValuesChange={(v, vs) => {
           console.log(v, vs);
