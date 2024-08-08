@@ -3,7 +3,8 @@ import RightContentRender from '../right-content-render';
 import './vertical.less';
 
 export default ({
-  menu,
+  menus,
+  menuClick,
   title,
   pageTitle,
   logo,
@@ -12,7 +13,6 @@ export default ({
   extra,
   rightContentProps,
   openKeys,
-  menuClick,
   selectedKey,
   content,
   collapsed,
@@ -41,7 +41,7 @@ export default ({
             style={{ width: 208 }}
             openKey={openKeys}
             selectKey={selectedKey}
-            menus={menu.items}
+            menus={menus}
             menuClick={menuClick}
           />
         </div>

@@ -1,5 +1,5 @@
 import { MutableRefObject, ReactNode } from 'react';
-import type { PageHeaderProps, MenuProps } from '@arco-design/web-react';
+import { MenuProps } from '../menu/type';
 import { RightProps } from './right.type';
 
 export interface LayoutProps {
@@ -24,15 +24,8 @@ export interface LayoutProps {
   /** 切换主题 */
   onDarkChange?: (dark: boolean) => void;
   /** 菜单属性 */
-  menu: MenuProps & {
-    items: {
-      icon?: ReactNode;
-      path: string;
-      label: ReactNode;
-      children?: [];
-    }[];
-    onClick?: Function;
-  };
+  menus: MenuProps[];
+  menuClick?: Function;
   /** 应用标题 */
   title?: ReactNode;
   /** 渲染logo */
@@ -42,7 +35,7 @@ export interface LayoutProps {
   /** 水印配置 */
   waterMarkProps?: any;
   /** 页面头属性 */
-  pageHeaderProps?: PageHeaderProps;
+  pageHeaderProps?: any;
   /** 顶部右侧配置 */
   rightContentProps?: RightProps;
   /** 底部渲染 */

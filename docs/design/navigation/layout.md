@@ -41,15 +41,13 @@ export default () => {
         pageHeaderProps={pageHeaderProps}
         logo="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/assets/favicon.ico"
         title="中后台通用模版"
-        menu={{
-          items: menus,
-          onClick: ({ path, currentBreadcrumb }) => {
-            setPathName(path);
-            setPageHeaderProps({
-              ...currentBreadcrumb,
-              extra: <Button type="primary">添加</Button>,
-            });
-          },
+        menus={menus}
+        menuClick={({ path, currentBreadcrumb }) => {
+          setPathName(path);
+          setPageHeaderProps({
+            ...currentBreadcrumb,
+            extra: <Button type="primary">添加</Button>,
+          });
         }}
         footerRender={() => <div>这个是底部的说明</div>}
         siderFooterRender={(collapsed) =>
@@ -90,17 +88,15 @@ export default () => {
 
 ```tsx
 useEffect(() => {
-  const removeListener = layoutRef.current.listenHashChange(
-    ({ currentBreadcrumb }) => {
-      /** 设置当前路由的默认面包屑 */
-      breadcrumbDispatch.update(currentBreadcrumb);
-    },
-  );
+  const removeListener = layoutRef.current.listenHashChange(({ currentBreadcrumb }) => {
+    breadcrumbStore.title = currentBreadcrumb.title;
+    breadcrumbStore.breadcrumb = currentBreadcrumb.breadcrumb;
+  });
   return removeListener;
 }, []);
 
 menu={{
-  items: menus,
+  menus,
   onClick: ({ path, currentBreadcrumb }) => {
     location.hash = path // 接入项目的时候，只需要这行代码，改变 hash 即可
   },

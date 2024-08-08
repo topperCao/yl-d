@@ -23,9 +23,8 @@ export default ({
   onDarkChange = () => {},
   collapsed = false,
   onCollapse = () => {},
-  menu = {
-    items: [],
-  },
+  menus = [],
+  menuClick = () => {},
   pageHeaderProps = {},
   breadcrumbClick,
   dark = false,
@@ -50,11 +49,11 @@ export default ({
   const [topKey, setTopKey] = useState('');
   const [openKeys, setOpenKeys] = useState(['']);
   /** 扩展菜单点击 */
-  const menuClick = (openKeys: string[], path: string) => {
-    menu.onClick?.({
+  const onMenuClick = (openKeys: string[], path: string) => {
+    menuClick?.({
       path,
       currentBreadcrumb: getBreadcrumbByMenus(
-        menu.items,
+        menus,
         path.split('/').filter(Boolean),
       ),
     } as any);
@@ -70,7 +69,7 @@ export default ({
     setSelectedKey(`/${clearPath.join('/')}`);
     setOpenKeys(clearPath.slice(0, clearPath.length - 1).map((i) => `/${i}`)); // 自动打开父级菜单
     setTopKey(`/${clearPath[0]}`);
-    return getBreadcrumbByMenus(menu.items, clearPath);
+    return getBreadcrumbByMenus(menus, clearPath);
   };
   // 监听外部传入的地址
   useEffect(() => {
@@ -108,7 +107,8 @@ export default ({
   const IconBtn = collapsed ? IconRight : IconLeft;
   /** 右侧渲染逻辑 */
   const restProps = {
-    menu,
+    menus,
+    menuClick: onMenuClick,
     title,
     logo,
     dark,
@@ -123,7 +123,6 @@ export default ({
       onSetting,
     },
     openKeys,
-    menuClick,
     selectedKey,
     collapsed,
     siderFooterRender,
