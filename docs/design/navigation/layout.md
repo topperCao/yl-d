@@ -95,11 +95,9 @@ useEffect(() => {
   return removeListener;
 }, []);
 
-menu={{
-  menus,
-  onClick: ({ path, currentBreadcrumb }) => {
-    location.hash = path // 接入项目的时候，只需要这行代码，改变 hash 即可
-  },
+// 接入项目的时候，只需要这行代码，改变 hash 即可
+menuClick={({ path, currentBreadcrumb }) => {
+  location.hash = path 
 }}
 ```
 

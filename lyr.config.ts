@@ -317,8 +317,8 @@ export default defineConfig({
               path: '/design/navigation/menu',
             },
             {
-              label: '页头 PageHeader',
-              path: '/design/navigation/page-header',
+              label: '基础布局 Layout',
+              path: '/design/navigation/layout',
             },
             {
               label: '分页 Pagination',
