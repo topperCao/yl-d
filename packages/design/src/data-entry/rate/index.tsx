@@ -83,14 +83,14 @@ export default ({
     const leftProps = disabled
       ? {}
       : {
-          onMouseEnter: onMouseEnter.bind(this, index, true),
-          onClick: onClick.bind(this, index, true),
+          onMouseEnter: () => onMouseEnter(index, true),
+          onClick: () => onClick(index, true),
         };
     const rightProps = disabled
       ? {}
       : {
-          onMouseEnter: onMouseEnter.bind(this, index, false),
-          onClick: onClick.bind(this, index, false),
+          onMouseEnter: () => onMouseEnter(index, false),
+          onClick: () => onClick(index, false),
         };
     const CharacterWrapper = Fragment;
 

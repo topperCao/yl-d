@@ -1,5 +1,5 @@
 import { useState, useEffect, CSSProperties } from 'react';
-import { OptionsProps } from '../select';
+import { OptionsProps } from '../select/type';
 import Option, { RadioProps } from './index';
 import './index.less';
 
