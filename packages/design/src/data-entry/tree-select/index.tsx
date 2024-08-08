@@ -127,6 +127,7 @@ export default ({
             {options.length > 0 ? (
               <Tree
                 {...rest}
+                checkable={checkable}
                 selectedKey={value}
                 checkedKeys={value}
                 treeData={options}
