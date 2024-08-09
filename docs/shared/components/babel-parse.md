@@ -55,13 +55,13 @@ export default () => {
 
 ```tsx | react
 import { babelParse } from '@yl-d/shared';
-import * as arco from '@arco-design/web-react';
+import * as lyrDesign from '@yl-d/design';
 
 const code = `interface UserProps{
   name: string
 };
 
-import { Button } from "@arco-design/web-react";
+import { Button } from "@yl-d/design";
 
 export default (props: UserProps) => {
   return <Button type="primary" >{props.name}</Button>
@@ -71,7 +71,7 @@ export default () => {
   const Comp = babelParse({
     code,
     require: {
-      '@arco-design/web-react': arco,
+      '@yl-d/design': lyrDesign,
     },
   });
   return <Comp name="Hello World" />;

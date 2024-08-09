@@ -11,7 +11,7 @@
 ```tsx | react
 import { useState } from 'react';
 import { BigNumber } from '@yl-d/shared';
-import { Button } from '@arco-design/web-react';
+import { Button } from '@yl-d/design';
 
 export default () => {
   const [total, setTotal] = useState(null);
@@ -35,7 +35,7 @@ export default () => {
 ```tsx | react
 import { useState } from 'react';
 import { BigNumber } from '@yl-d/shared';
-import { Button } from '@arco-design/web-react';
+import { Button } from '@yl-d/design';
 
 export default () => {
   const [total, setTotal] = useState(null);
@@ -59,7 +59,7 @@ export default () => {
 ```tsx | react
 import { useState } from 'react';
 import { BigNumber } from '@yl-d/shared';
-import { Button } from '@arco-design/web-react';
+import { Button } from '@yl-d/design';
 
 export default () => {
   const [total, setTotal] = useState(null);
@@ -83,7 +83,7 @@ export default () => {
 ```tsx | react
 import { useState } from 'react';
 import { BigNumber } from '@yl-d/shared';
-import { Button } from '@arco-design/web-react';
+import { Button } from '@yl-d/design';
 
 export default () => {
   const [total, setTotal] = useState(null);

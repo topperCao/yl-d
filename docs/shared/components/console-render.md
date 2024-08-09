@@ -22,7 +22,7 @@
 ```tsx | react
 import { useEffect, useMemo } from 'react';
 import { ConsoleRender } from '@yl-d/shared';
-import { Button } from '@arco-design/web-react';
+import { Button } from '@yl-d/design';
 
 export default () => {
   const { listener, destory, clear } = useMemo(

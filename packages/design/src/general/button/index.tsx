@@ -65,7 +65,7 @@ export default ({
     >
       {spin && <IconLoading />}
       {icon}
-      {children || ''}
+      {children}
     </button>
   );
 };

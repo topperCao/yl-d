@@ -4,7 +4,7 @@
 
 ```tsx | react
 import { downloadFile } from '@yl-d/shared';
-import { Button } from '@yl-d/pro-components';
+import { Button } from '@yl-d/design';
 
 export default () => {
   return (
@@ -28,7 +28,7 @@ export default () => {
 
 ```tsx | react
 import { downloadJson } from '@yl-d/shared';
-import { Button } from '@arco-design/web-react';
+import { Button } from '@yl-d/design';
 
 export default () => {
   return (

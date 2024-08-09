@@ -5,7 +5,7 @@
 ```tsx | react
 import { useState } from "react";
 import { getUrlSearchParams } from "@yl-d/shared";
-import { Input } from "@arco-design/web-react";
+import { Input } from "@yl-d/design";
 
 export default () => {
   const [value, setValue] = useState(

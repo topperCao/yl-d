@@ -5,13 +5,14 @@ export default defineConfig({
   favicon:
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/assets/user-logo.png',
   monorepo: true,
-  monorepoPackages: ['@yl-d/design'],
+  monorepoPackages: ['@yl-d/shared'],
   link: [
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/arco.min.css',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/monaco-file-icon.css',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/luna-object-viewer.min.css',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/luna-console.min.css',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/pro-components.min.css',
+    'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/design.min.css',
   ],
   devScript: [
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/axios.min.js',
@@ -37,6 +38,7 @@ export default defineConfig({
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/docxtemplater.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/luna-object-viewer.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/luna-console.min.js',
+    'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/design.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/pro-components.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/code-editor.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/shared.min.js',
@@ -86,7 +88,6 @@ export default defineConfig({
     return {
       externals: {
         '@yl-d/icon': 'lyricon',
-        '@yl-d/design': 'lyrDesign',
       },
     };
   },

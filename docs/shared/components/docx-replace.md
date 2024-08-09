@@ -13,7 +13,7 @@
 
 ```tsx | react
 import { downloadFile, docxReplace } from '@yl-d/shared';
-import { Button } from '@arco-design/web-react';
+import { Button } from '@yl-d/design';
 
 const data = {
   field1: 'zhangsan',

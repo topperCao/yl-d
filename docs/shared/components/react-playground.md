@@ -10,16 +10,16 @@
 
 ```jsx | react | var(--color-fill-2)
 import { ReactPlayground } from '@yl-d/shared';
-import * as ArcoDesign from '@arco-design/web-react';
+import * as lyrDesign from '@yl-d/design';
 
 export default () => {
   return (
     <ReactPlayground
       style={{ width: '100%', height: 400 }}
       require={{
-        '@arco-design/web-react': ArcoDesign,
+        '@yl-d/design': lyrDesign,
       }}
-      code={`import { Input } from "@arco-design/web-react";
+      code={`import { Input } from "@yl-d/design";
 
 export default () => {
   return <Input placeholder="请输入信息" />
@@ -34,7 +34,7 @@ export default () => {
 
 ```jsx | react | var(--color-fill-2)
 import { ReactPlayground } from '@yl-d/shared';
-import * as ArcoDesign from '@arco-design/web-react';
+import * as ArcoDesign from '@yl-d/design';
 
 export default () => {
   return (
@@ -42,7 +42,7 @@ export default () => {
       showLogo
       style={{ width: '100%', height: 400 }}
       require={{
-        '@arco-design/web-react': ArcoDesign,
+        '@yl-d/design': ArcoDesign,
       }}
       code={`import App from "app.tsx";
 
@@ -52,7 +52,7 @@ export default () => {
 `}
       dependencies={{
         'app.tsx': `import { useState } from "react";
-import { Button } from "@arco-design/web-react";
+import { Button } from "@yl-d/design";
 
 export default () => {
   const [count, setCount] = useState(0);
@@ -75,7 +75,7 @@ export default () => {
 
 ```jsx | react | var(--color-fill-2)
 import { ReactPlayground } from '@yl-d/shared';
-import * as ArcoDesign from '@arco-design/web-react';
+import * as ArcoDesign from '@yl-d/design';
 
 export default () => {
   return (
@@ -83,10 +83,10 @@ export default () => {
       showConsole
       style={{ width: '100%', height: 400 }}
       require={{
-        '@arco-design/web-react': ArcoDesign,
+        '@yl-d/design': ArcoDesign,
       }}
       code={`import { useEffect } from "react";
-import { Input } from "@arco-design/web-react";
+import { Input } from "@yl-d/design";
 
 export default () => {
   useEffect(() => {

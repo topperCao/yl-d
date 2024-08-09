@@ -20,6 +20,17 @@ export default defineConfig({
       file: "dist/index.js",
       format: "cjs",
     },
+    {
+      file: 'dist/index.umd.js',
+      format: 'umd',
+      name: 'lyrDesign',
+      globals: {
+        react: 'React',
+        'react-dom': 'ReactDOM',
+        'react/jsx-runtime': 'jsxRuntime',
+        '@yl-d/icon': "lyricon"
+      },
+    },
   ],
   plugins: [
     replace({

@@ -30,12 +30,12 @@ export default () => {
 \`\`\`
 ## 脚本
 \`\`\`bash
-yarn add @arco-design/web-react
+yarn add @yl-d/design
 yarn add @yl-d/shared
 \`\`\`
 ## 样式
 \`\`\`\less
-@import "@arco-design/web-react/dist/css/arco.css";
+@import "@yl-d/design/dist/index.min.css";
 \`\`\`
 `}
     />

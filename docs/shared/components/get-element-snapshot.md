@@ -10,12 +10,11 @@
 
 ```tsx | react
 import { getElementSnapshot } from '@yl-d/shared';
-import { Space, Button, Table } from '@arco-design/web-react';
+import { Space, Button, Table } from '@yl-d/design';
 
 export default () => {
-  const { printImg, downloadImg, getDataURL, copyImg } = getElementSnapshot(
-    '.arco-table-demos',
-  );
+  const { printImg, downloadImg, getDataURL, copyImg } =
+    getElementSnapshot('.yld-table-demos');
   const [base64, setBase64] = React.useState();
   return (
     <div>
@@ -45,9 +44,8 @@ export default () => {
       </Space>
       <br />
       <br />
-      <div>
+      <div className="yld-table-demos">
         <Table
-          className="arco-table-demos"
           columns={[
             {
               title: 'Name',
@@ -66,43 +64,49 @@ export default () => {
               dataIndex: 'email',
             },
           ]}
-          data={[
-            {
-              key: '1',
-              name: 'Jane Doe',
-              salary: 23000,
-              address: '32 Park Road, London',
-              email: 'jane.doe@example.com',
-            },
-            {
-              key: '2',
-              name: 'Alisa Ross',
-              salary: 25000,
-              address: '35 Park Road, London',
-              email: 'alisa.ross@example.com',
-            },
-            {
-              key: '3',
-              name: 'Kevin Sandra',
-              salary: 22000,
-              address: '31 Park Road, London',
-              email: 'kevin.sandra@example.com',
-            },
-            {
-              key: '4',
-              name: 'Ed Hellen',
-              salary: 17000,
-              address: '42 Park Road, London',
-              email: 'ed.hellen@example.com',
-            },
-            {
-              key: '5',
-              name: 'William Smith',
-              salary: 27000,
-              address: '62 Park Road, London',
-              email: 'william.smith@example.com',
-            },
-          ]}
+          request={async () => {
+            return {
+              success: true,
+              total: 5,
+              data: [
+                {
+                  key: '1',
+                  name: 'Jane Doe',
+                  salary: 23000,
+                  address: '32 Park Road, London',
+                  email: 'jane.doe@example.com',
+                },
+                {
+                  key: '2',
+                  name: 'Alisa Ross',
+                  salary: 25000,
+                  address: '35 Park Road, London',
+                  email: 'alisa.ross@example.com',
+                },
+                {
+                  key: '3',
+                  name: 'Kevin Sandra',
+                  salary: 22000,
+                  address: '31 Park Road, London',
+                  email: 'kevin.sandra@example.com',
+                },
+                {
+                  key: '4',
+                  name: 'Ed Hellen',
+                  salary: 17000,
+                  address: '42 Park Road, London',
+                  email: 'ed.hellen@example.com',
+                },
+                {
+                  key: '5',
+                  name: 'William Smith',
+                  salary: 27000,
+                  address: '62 Park Road, London',
+                  email: 'william.smith@example.com',
+                },
+              ],
+            };
+          }}
         />
       </div>
       <br />
