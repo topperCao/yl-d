@@ -173,20 +173,23 @@ export default forwardRef(
                       {
                         title: '描述',
                         dataIndex: 'description',
-                        width: 180,
+                        width: 120,
                       },
                       {
                         title: '类型',
                         dataIndex: 'type',
-                        width: 120,
                         render(type) {
                           return (
                             <code
+                              title={type}
                               style={{
                                 padding: '2px 5px',
                                 color: '#d56161',
-                                background: ' var(--bg-color-2)',
+                                background: ' var(--bg-color-3)',
                                 borderRadius: 2,
+                                whiteSpace: 'nowrap',
+                                overflow: 'hidden',
+                                textOverflow: 'ellipsis',
                               }}
                             >
                               {type}
@@ -197,7 +200,7 @@ export default forwardRef(
                       {
                         title: '默认值',
                         dataIndex: 'defaultValue',
-                        width: 120,
+                        width: 100,
                         render(defaultValue) {
                           return defaultValue ? (
                             <code
@@ -224,6 +227,7 @@ export default forwardRef(
                             <span
                               style={{
                                 background: '#35cd4b',
+                                color: "#fff",
                                 padding: 4,
                               }}
                             >
@@ -233,6 +237,7 @@ export default forwardRef(
                             <span
                               style={{
                                 background: '#fdbc40',
+                                color: "#fff",
                                 padding: 4,
                               }}
                             >

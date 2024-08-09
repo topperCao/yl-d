@@ -116,7 +116,7 @@ export default () => {
         ),
         avatarRender: () => {
           return (
-            <Tooltip title="Github">
+            <Tooltip title="Github" placement='bottom'>
               <Button
                 style={{
                   borderRadius: '50%',

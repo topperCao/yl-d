@@ -154,7 +154,7 @@ export default ({ style, closable, onClick, onRemove, ...rest }: TabProps) => {
           )}
         </div>
         <div className="yld-tabs-content">
-          {tabs &&
+          {/* {tabs &&
             tabs.map((tab, index) => {
               return (
                 <div
@@ -167,7 +167,10 @@ export default ({ style, closable, onClick, onRemove, ...rest }: TabProps) => {
                   {tab.content}
                 </div>
               );
-            })}
+            })} */}
+          <div className={'yld-tabs-content-item'}>
+            {tabs[activeIndex].content}
+          </div>
         </div>
       </div>
     </>

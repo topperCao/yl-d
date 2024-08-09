@@ -26,6 +26,7 @@ export default () => {
   });
   return (
     <Layout
+      style={{ transform: "scale(1)" }}
       layout={layout}
       collapsed={collapsed}
       onCollapse={setCollapsed}

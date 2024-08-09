@@ -1,8 +1,9 @@
-import { MutableRefObject, ReactNode } from 'react';
+import { CSSProperties, MutableRefObject, ReactNode } from 'react';
 import { MenuProps } from '../menu/type';
 import { RightProps } from './right.type';
 
 export interface LayoutProps {
+  style?: CSSProperties;
   /** 
    * 布局方式
    * @default vertical

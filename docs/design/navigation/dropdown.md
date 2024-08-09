@@ -11,17 +11,17 @@ const droplist = (
     }}
     menus={[
       {
-        key: 'IconUserGroup',
+        path: 'IconUserGroup',
         icon: <IconUserGroup />,
         label: 'IconUserGroup',
       },
       {
-        key: 'IconLanguage',
+        path: 'IconLanguage',
         icon: <IconLanguage />,
         label: 'IconLanguage',
       },
       {
-        key: 'IconCodepen',
+        path: 'IconCodepen',
         icon: <IconCodepen />,
         label: 'IconCodepen',
       },
@@ -60,17 +60,17 @@ const droplist = (
     }}
     menus={[
       {
-        key: 'IconUserGroup',
+        path: 'IconUserGroup',
         icon: <IconUserGroup />,
         label: 'IconUserGroup',
       },
       {
-        key: 'IconLanguage',
+        path: 'IconLanguage',
         icon: <IconLanguage />,
         label: 'IconLanguage',
       },
       {
-        key: 'IconCodepen',
+        path: 'IconCodepen',
         icon: <IconCodepen />,
         label: 'IconCodepen',
       },

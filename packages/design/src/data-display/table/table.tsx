@@ -53,7 +53,7 @@ export default ({
     };
     tableWrapRef.current.addEventListener('scroll', wrapScroll);
     return () => {
-      tableWrapRef.current.removeEventListener('scroll', wrapScroll);
+      tableWrapRef.current?.removeEventListener('scroll', wrapScroll);
     };
   }, []);
   const innerTableRef: any = useRef({

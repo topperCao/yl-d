@@ -17,6 +17,7 @@ const getOpenKeyByPathName = (path: string): string[] =>
     .filter(Boolean);
 
 export default ({
+  style = {},
   pathname = '/',
   layout = 'vertical',
   className,
@@ -140,7 +141,7 @@ export default ({
     footerRender,
   };
   return (
-    <div className={classNames.join(' ')}>
+    <div className={classNames.join(' ')} style={style}>
       {layout === 'vertical' ? (
         <Vertical
           {...restProps}

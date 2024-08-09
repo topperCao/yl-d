@@ -140,6 +140,7 @@ export default defineConfig({
             {
               label: '描述列表 Descriptions',
               path: '/design/data-display/descriptions',
+              disabled: true,
             },
             {
               label: '空状态 Empty',
@@ -152,6 +153,7 @@ export default defineConfig({
             {
               label: '气泡卡片 Popover',
               path: '/design/data-display/popover',
+              disabled: true,
             },
             {
               label: '间距 Space',
@@ -235,6 +237,7 @@ export default defineConfig({
             {
               label: '数据穿梭框 Transfer',
               path: '/design/data-entry/transfer',
+              disabled: true,
             },
             {
               label: '树选择器 TreeSelect',
@@ -243,6 +246,7 @@ export default defineConfig({
             {
               label: '文件上传 Upload',
               path: '/design/data-entry/upload',
+              disabled: true,
             },
             {
               label: '表单 Form',
@@ -282,6 +286,7 @@ export default defineConfig({
             {
               label: '气泡确认框 Popconfirm',
               path: '/design/feed-back/popconfirm',
+              disabled: true,
             },
             {
               label: '进度条 Progress',
@@ -290,10 +295,12 @@ export default defineConfig({
             {
               label: '结果页 Result',
               path: '/design/feed-back/result',
+              disabled: true,
             },
             {
               label: '骨架屏 Skeleton',
               path: '/design/feed-back/skeleton',
+              disabled: true,
             },
             {
               label: '加载 Spin',
@@ -340,6 +347,7 @@ export default defineConfig({
             {
               label: '返回顶部 BackTop',
               path: '/design/other/back-top',
+              disabled: true,
             },
             {
               label: '复制 CopyToClipboard',
