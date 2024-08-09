@@ -1,4 +1,4 @@
-import { Message } from '@arco-design/web-react';
+import { Message } from '@yl-d/design';
 
 /** 拷贝到剪切板 */
 const CopyToClipBoard = async (text: string) => {

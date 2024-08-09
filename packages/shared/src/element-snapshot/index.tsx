@@ -1,5 +1,5 @@
 import { useReactToPrint } from 'react-to-print';
-import { Message } from '@arco-design/web-react';
+import { Message } from '@yl-d/design';
 
 /** 获取元素快照 */
 export default (

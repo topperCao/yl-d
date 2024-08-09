@@ -29,7 +29,7 @@ export default defineConfig({
         react: "React",
         "react-dom": "ReactDOM",
         "react/jsx-runtime": "jsxRuntime",
-        "@arco-design/web-react": "arco",
+        "@yl-d/design": "lyrDesign",
       },
     },
   ],

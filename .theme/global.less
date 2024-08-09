@@ -12,16 +12,16 @@ body {
   }
 }
 .markdown-viewer {
-  background: var(--color-menu-light-bg);
+  background: var(--bg-color);
   padding: 20px 80px;
   &-navs {
     width: 160px;
     position: fixed;
     right: 20px;
-    top: 58px;
+    top: 98px;
     height: 100%;
     overflow: auto;
-    background-color: var(--color-menu-light-bg);
+    background: var(--bg-color);
     padding: 40px 0;
     .arco-menu-item {
       height: 30px;
@@ -29,25 +29,25 @@ body {
       border-left: 2px solid transparent;
     }
     .arco-menu-item.arco-menu-selected {
-      border-left: 2px solid rgb(var(--primary-6));
+      border-left: 2px solid var(--primary-color);
     }
   }
   &-blockquote {
     margin: 10px 0;
-    background: var(--color-fill-2) !important;
+    background: var(--bg-color-2) !important;
     p {
-      color: var(--color-neutral-10) !important;
+      color: var(--text-color) !important;
     }
   }
   &-code {
     margin: 0 !important;
     &-wrap {
-      border-color: var(--color-fill-3) !important;
+      border-color: var(--border-color) !important;
       &-body {
         padding: 20px !important;
       }
       &-extra {
-        border-color: var(--color-fill-3) !important;
+        border-color: var(--border-color) !important;
       }
     }
   }
@@ -55,13 +55,18 @@ body {
     width: 100%;
   }
 }
-.yld-layout-horizontal-body-right-breadcrumb{
-  display: none;
+.yld-layout-horizontal-body-right{
+  padding-top: 78px !important;
 }
 .yld-layout-horizontal-body-right-content{
   position: relative;
-  padding: 0;
+  padding: 0 !important;
+  background-color: var(--bg-color) !important;
 }
 .yld-layout-horizontal-body-right-breadcrumb{
-  border-bottom: 1px solid var(--border-color);
+  position: fixed !important;
+  top: 58px;
+  width: 100%;
+  background: var(--bg-color);
+  z-index: 9;
 }

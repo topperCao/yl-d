@@ -2,7 +2,7 @@ import { forwardRef, useImperativeHandle, useMemo, ReactNode } from 'react';
 import babelParse from '../babel-parse';
 import ComponentWrap from './component-wrap';
 import SyntaxHighlight from './syntax-highlight';
-import { Table, Tag } from '@arco-design/web-react';
+import { Table } from '@yl-d/design';
 import remarkGfm from 'remark-gfm';
 import './index.less';
 
@@ -136,7 +136,7 @@ export default forwardRef(
               // 仅 渲染 React 组件
               if ((node?.data?.meta as string)?.startsWith?.('| pureReact')) {
                 const Comp = babelParse({
-                  code: (children[0] as string),
+                  code: children[0] as string,
                   require,
                 });
                 const style: any = {};
@@ -154,9 +154,16 @@ export default forwardRef(
                   typesAPI[(children[0] as string).replaceAll('\n', '')];
                 return (
                   <Table
-                    pagination={false}
-                    data={data}
-                    border
+                    paginationConfig={false}
+                    useFilter={false}
+                    useRefresh={false}
+                    request={async () => {
+                      return {
+                        total: data.length,
+                        data,
+                        success: true
+                      }
+                    }}
                     columns={[
                       {
                         title: '属性名',
@@ -178,7 +185,7 @@ export default forwardRef(
                               style={{
                                 padding: '2px 5px',
                                 color: '#d56161',
-                                background: ' #f0f4f8',
+                                background: ' var(--bg-color-2)',
                                 borderRadius: 2,
                               }}
                             >
@@ -197,7 +204,7 @@ export default forwardRef(
                               style={{
                                 padding: '2px 5px',
                                 color: '#d56161',
-                                background: 'var(--color-fill-2)',
+                                background: ' var(--bg-color-2)',
                                 borderRadius: 2,
                               }}
                             >
@@ -212,16 +219,25 @@ export default forwardRef(
                         title: '是否必选',
                         dataIndex: 'required',
                         width: 100,
-                        align: 'right',
                         render(required) {
                           return required ? (
-                            <Tag color="#35cd4b" size="small">
+                            <span
+                              style={{
+                                background: '#35cd4b',
+                                padding: 4,
+                              }}
+                            >
                               是
-                            </Tag>
+                            </span>
                           ) : (
-                            <Tag color="#fdbc40" size="small">
+                            <span
+                              style={{
+                                background: '#fdbc40',
+                                padding: 4,
+                              }}
+                            >
                               否
-                            </Tag>
+                            </span>
                           );
                         },
                       },

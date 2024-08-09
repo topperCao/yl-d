@@ -47,18 +47,18 @@ yarn add @yl-d/shared
 
 ```tsx | react
 import { MarkdownViewer } from '@yl-d/shared';
-import * as ArcoDesign from '@arco-design/web-react';
+import * as lyrDesign from '@yl-d/design';
 
 export default () => {
   return (
     <MarkdownViewer
       require={{
-        '@arco-design/web-react': ArcoDesign,
+        '@yl-d/design': lyrDesign,
       }}
       content={`
 ## 渲染组件
-\`\`\`\jsx | react | var(--color-fill-2)
-import { Tree } from '@arco-design/web-react';
+\`\`\`\jsx | react | var(--bg-color-2)
+import { Tree } from '@yl-d/design';
 
 export default () => {
   return <Tree
@@ -98,8 +98,6 @@ export default () => {
         key: '0-1',
       },
     ]}
-    autoExpandParent
-    showLine
   />
 }
 `}

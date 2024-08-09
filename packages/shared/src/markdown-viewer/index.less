@@ -4,7 +4,7 @@
   width: 100%;
 }
 .markdown-viewer-code-wrap {
-  border: 1px solid var(--color-fill-3);
+  border: 1px solid var(--border-color) !important;
   height: 100%;
 }
 .markdown-viewer-code-wrap-body {
@@ -14,7 +14,7 @@
 }
 .markdown-viewer-code-wrap-extra {
   height: 36px;
-  border-top: 1px solid var(--color-fill-3);
+  border-top: 1px solid var(--border-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,15 +22,15 @@
   gap: 10px;
 }
 .markdown-viewer-code-wrap-footer {
-  border-top: 1px dashed var(--color-fill-3);
+  border-top: 1px dashed var(--border-color);
   height: fit-content;
   position: relative;
-  .arco-tabs-content {
-    padding: 0;
-  }
-  .arco-tabs-pane {
-    pre {
-      margin: 0;
+  .yld-tabs{
+    .yld-tabs-content{
+      padding-top: 0;
+      .yld-tabs-content-item{
+        padding: 0;
+      }
     }
   }
 }
@@ -47,19 +47,19 @@
   margin-bottom: 6px;
 }
 .markdown-viewer-h3 {
-  border-left: 4px solid rgb(var(--primary-6));
+  border-left: 4px solid var(--primary-color);
   padding-left: 10px;
 }
 .markdown-viewer-strong {
   padding: 1px;
-  color: rgb(var(--primary-6));
+  color: var(--primary-color);
   font-weight: 600;
   font-size: 13px;
 }
 .markdown-viewer-blockquote {
   padding: 6px 10px;
   color: #555;
-  border-left: 4px solid rgb(var(--primary-6));
+  border-left: 4px solid var(--primary-color);;
   background: #fff9f9;
   font-size: 1rem;
 }
@@ -68,16 +68,16 @@
 }
 .markdown-viewer-table {
   width: 100%;
-  border: 1px solid var(--color-fill-3);
+  border: 1px solid var(--border-color);
 }
 .markdown-viewer-table thead {
-  background-color: var(--color-bg-5);
+  background-color: var(--bg-color-2);
   height: 30px;
 }
 .markdown-viewer-table th,
 .markdown-viewer-table td {
   text-align: left;
   padding-left: 10px;
-  border: 1px solid var(--color-fill-3);
+  border: 1px solid var(--border-color);
   height: 32px;
 }
