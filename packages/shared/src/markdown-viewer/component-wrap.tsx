@@ -1,8 +1,8 @@
 import { useMemo, useState } from 'react';
+import { IconCode } from '@yl-d/icon';
 import { Tabs, Tooltip } from '@yl-d/design';
 import SyntaxHighlight from './syntax-highlight';
 import babelParse from '../babel-parse';
-import { IconCode } from '@yl-d/icon';
 
 export default ({
   style = {},
