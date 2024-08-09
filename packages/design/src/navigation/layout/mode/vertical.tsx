@@ -21,8 +21,8 @@ export default ({
   /** 右侧渲染逻辑 */
   return (
     <>
-      <div className="app-layout-vertical-left">
-        <div className="app-layout-vertical-left-logo">
+      <div className="yld-layout-vertical-left">
+        <div className="yld-layout-vertical-left-logo">
           <a>
             <img
               src={logo}
@@ -36,7 +36,7 @@ export default ({
             <h1 hidden={collapsed}>{title}</h1>
           </a>
         </div>
-        <div className="app-layout-left-menu">
+        <div className="yld-layout-left-menu">
           <Menu
             style={{ width: 208 }}
             openKey={openKeys}
@@ -46,8 +46,8 @@ export default ({
           />
         </div>
       </div>
-      <div className="app-layout-vertical-right">
-        <div className="app-layout-vertical-right-header">
+      <div className="yld-layout-vertical-right">
+        <div className="yld-layout-vertical-right-header">
           <div
             style={{
               display: 'flex',
@@ -60,17 +60,17 @@ export default ({
           </div>
           <RightContentRender {...rightContentProps} />
         </div>
-        <div className="app-layout-vertical-right-body">
-          <div className="app-layout-vertical-right-body-title">
+        <div className="yld-layout-vertical-right-body">
+          <div className="yld-layout-vertical-right-body-title">
             <h3>{pageTitle}</h3>
-            <div className="app-layout-vertical-right-body-title-extra">
+            <div className="yld-layout-vertical-right-body-title-extra">
               {extra}
             </div>
           </div>
-          <div className="app-layout-vertical-right-body-content">
+          <div className="yld-layout-vertical-right-body-content">
             {content}
           </div>
-          <div className="app-layout-vertical-right-body-footer">
+          <div className="yld-layout-vertical-right-body-footer">
             {footerRender()}
           </div>
         </div>

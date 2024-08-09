@@ -9,6 +9,7 @@ export default () => {
   const [pathname, setPathName] = React.useState('/workbench/my');
   const [layout, setLayout] = React.useState('vertical');
   const [themeColor, setThemeColor] = React.useState('#165dff');
+  const [dark, setDark] = React.useState(false);
   const [collapsed, setCollapsed] = React.useState(false);
   const [pageHeaderProps, setPageHeaderProps] = React.useState({
     title: '我的工作台',
@@ -48,6 +49,10 @@ export default () => {
             ...currentBreadcrumb,
             extra: <Button type="primary">添加</Button>,
           });
+        }}
+        dark={dark}
+        onDarkChange={(dark) => {
+          setDark(dark);
         }}
         footerRender={() => <div>这个是底部的说明</div>}
         siderFooterRender={(collapsed) =>
@@ -97,7 +102,7 @@ useEffect(() => {
 
 // 接入项目的时候，只需要这行代码，改变 hash 即可
 menuClick={({ path, currentBreadcrumb }) => {
-  location.hash = path 
+  location.hash = path
 }}
 ```
 

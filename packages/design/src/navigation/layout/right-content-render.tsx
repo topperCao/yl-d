@@ -1,4 +1,5 @@
 import { IconMoonFill, IconSettings, IconSunFill } from '@yl-d/icon';
+import { useState } from 'react';
 import { Tooltip, Avatar, Dropdown, Space, Button, Drawer, Form } from '../..';
 import { RightProps } from './right.type';
 
@@ -20,6 +21,7 @@ export default ({
   layout,
   onSetting,
 }: RightProps) => {
+  console.log('dark', dark)
   return (
     <div style={{ display: 'flex', gap: 20 }}>
       {extra}
@@ -58,26 +60,42 @@ export default ({
                     <Form
                       initialValues={{
                         layout,
+                        themeColor,
                       }}
                       schema={[
-                        // {
-                        //   type: 'ColorPicker',
-                        //   label: '系统主题色',
-                        //   name: 'themeColor',
-                        //   props: {
-                        //     onChange(themeColor: string) {
-                        //       onSetting({
-                        //         themeColor,
-                        //       });
-                        //     },
-                        //   },
-                        // },
+                        {
+                          label: '系统主题色',
+                          name: 'themeColor',
+                          type: ({ value }) => {
+                            const [color, setColor] = useState(value);
+                            return (
+                              <input
+                                type="color"
+                                style={{
+                                  border: 'none',
+                                  width: 30,
+                                  height: 30,
+                                  outline: 'none',
+                                  cursor: 'pointer',
+                                  backgroundColor: 'var(--bg-color-2)',
+                                }}
+                                value={color}
+                                onChange={(e) => {
+                                  setColor(e.target.value);
+                                  onSetting({
+                                    themeColor: e.target.value,
+                                  });
+                                }}
+                              />
+                            );
+                          },
+                        },
                         {
                           type: 'RadioGroup',
                           label: '布局风格',
                           name: 'layout',
                           props: {
-                            type: "button",
+                            type: 'button',
                             options: [
                               {
                                 label: 'horizontal',
