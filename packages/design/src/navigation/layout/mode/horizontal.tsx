@@ -61,6 +61,7 @@ export default ({
             <Menu
               selectKey={selectedKey}
               openKey={openKeys}
+              collapsed={collapsed}
               menuClick={menuClick}
               menus={
                 (menus?.find((item) => item?.path === topKey) as any)?.children || []

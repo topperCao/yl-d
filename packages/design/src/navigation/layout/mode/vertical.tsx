@@ -41,6 +41,7 @@ export default ({
             style={{ width: 208 }}
             openKey={openKeys}
             selectKey={selectedKey}
+            collapsed={collapsed}
             menus={menus}
             menuClick={menuClick}
           />

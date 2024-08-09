@@ -20,9 +20,23 @@
     background: var(--bg-color);
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 10px 0 var(--box-shadow);
-    transition: all 0.3s;
+    transition: all 0.2s;
     &:hover {
       transform: scale(1.1);
+    }
+  }
+  &-collapsed{
+    .yld-layout-inline-body-sider{
+      width: 48px;
+      transition: 0.2s;
+    }
+    .yld-layout-inline-body-right{
+      padding-left: 48px;
+      transition: 0.2s;
+    }
+    .yld-layout-expand-btn{
+      left: 36px;
+      transition: 0.2s;
     }
   }
 }

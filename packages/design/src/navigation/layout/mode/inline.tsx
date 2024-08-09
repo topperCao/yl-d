@@ -50,11 +50,11 @@ export default ({
       <div className="yld-layout-inline-body">
         <div className="yld-layout-inline-body-sider">
           <div className="yld-layout-inline-body-sider-menu">
-            {/* 这里渲染当前一级菜单下面的子菜单 */}
             <Menu
               menuClick={menuClick}
               selectKey={selectedKey}
               openKey={openKeys}
+              collapsed={collapsed}
               menus={menus}
             />
           </div>
