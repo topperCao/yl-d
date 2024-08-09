@@ -97,7 +97,8 @@ useEffect(() => {
   const removeListener = layoutRef.current.listenHashChange(
     ({ currentBreadcrumb }) => {
       /** 设置当前路由的默认面包屑 */
-      breadcrumbDispatch.update(currentBreadcrumb);
+      breadcrumbStore.title = currentBreadcrumb.title;
+      breadcrumbStore.breadcrumb = currentBreadcrumb.breadcrumb;
     },
   );
   return removeListener;

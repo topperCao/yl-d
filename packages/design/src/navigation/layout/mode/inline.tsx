@@ -1,19 +1,16 @@
-import { Menu } from '@arco-design/web-react';
-import { Breadcrumb } from '../../..';
+import { Menu, Breadcrumb } from '../../..';
 import RightContentRender from '../right-content-render';
 import './inline.less';
 
 export default ({
-  menu,
+  menus,
+  menuClick,
   title,
   pageTitle,
   logo,
   extra,
   rightContentProps,
-  RenderMenus,
   openKeys,
-  menuClick,
-  subMenuClick,
   selectedKey,
   collapsed,
   dark,
@@ -25,8 +22,8 @@ export default ({
   /** 右侧渲染逻辑 */
   return (
     <>
-      <div className="app-layout-inline-header">
-        <div className="app-layout-inline-header-logo">
+      <div className="yld-layout-inline-header">
+        <div className="yld-layout-inline-header-logo">
           <a>
             <img
               src={logo}
@@ -38,10 +35,10 @@ export default ({
             <h1>{title}</h1>
           </a>
         </div>
-        <div className="app-layout-inline-header-menu">
+        <div className="yld-layout-inline-header-menu">
           <Breadcrumb items={breadcrumb} />
         </div>
-        <div className="app-layout-inline-header-right">
+        <div className="yld-layout-inline-header-right">
           <RightContentRender
             {...{
               dark,
@@ -50,35 +47,30 @@ export default ({
           />
         </div>
       </div>
-      <div className="app-layout-inline-body">
-        <div className="app-layout-inline-body-sider">
-          <div className="app-layout-inline-body-sider-menu">
+      <div className="yld-layout-inline-body">
+        <div className="yld-layout-inline-body-sider">
+          <div className="yld-layout-inline-body-sider-menu">
             {/* 这里渲染当前一级菜单下面的子菜单 */}
             <Menu
-              onClickMenuItem={menuClick}
-              onClickSubMenu={subMenuClick}
-              selectedKeys={[selectedKey]}
-              openKeys={openKeys}
-              collapse={collapsed}
-              theme={dark ? 'dark' : 'light'}
-              className={menu.className}
-            >
-              {RenderMenus(menu.items, collapsed)}
-            </Menu>
+              menuClick={menuClick}
+              selectKey={selectedKey}
+              openKey={openKeys}
+              menus={menus}
+            />
           </div>
-          <div className="app-layout-inline-body-sider-footer">
+          <div className="yld-layout-inline-body-sider-footer">
             {siderFooterRender(collapsed)}
           </div>
         </div>
-        <div className="app-layout-inline-body-right">
-          <div className="app-layout-inline-body-right-title">
+        <div className="yld-layout-inline-body-right">
+          <div className="yld-layout-inline-body-right-title">
             <h3>{pageTitle}</h3>
-            <div className="app-layout-vertical-right-body-title-extra">
+            <div className="yld-layout-vertical-right-body-title-extra">
               {extra}
             </div>
           </div>
-          <div className="app-layout-inline-body-right-content">{content}</div>
-          <div className="app-layout-inline-body-right-footer">
+          <div className="yld-layout-inline-body-right-content">{content}</div>
+          <div className="yld-layout-inline-body-right-footer">
             {footerRender()}
           </div>
         </div>

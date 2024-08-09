@@ -59,7 +59,6 @@ export default ({
     } as any);
     setOpenKeys(openKeys);
   };
-  console.log(openKeys);
   // 监听 hash
   const listenHash = () => {
     const path = location.hash.substring(1);

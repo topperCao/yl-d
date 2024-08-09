@@ -7,7 +7,7 @@ import menus from '@/design/menus.tsx';
 
 export default () => {
   const [pathname, setPathName] = React.useState('/workbench/my');
-  const [layout, setLayout] = React.useState('vertical');
+  const [layout, setLayout] = React.useState('inline');
   const [themeColor, setThemeColor] = React.useState('#165dff');
   const [dark, setDark] = React.useState(false);
   const [collapsed, setCollapsed] = React.useState(false);
@@ -25,66 +25,64 @@ export default () => {
     ],
   });
   return (
-    <div style={{ width: '100vw' }}>
-      <Layout
-        layout={layout}
-        collapsed={collapsed}
-        onCollapse={setCollapsed}
-        themeColor={themeColor}
-        onSetting={(value) => {
-          if (value.themeColor) {
-            setThemeColor(value.themeColor);
-          } else if (value.layout) {
-            setLayout(value.layout);
-          }
-        }}
-        pathname={pathname}
-        pageHeaderProps={pageHeaderProps}
-        logo="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/assets/favicon.ico"
-        title="中后台通用模版"
-        menus={menus}
-        menuClick={({ path, currentBreadcrumb }) => {
-          setPathName(path);
-          setPageHeaderProps({
-            ...currentBreadcrumb,
-            extra: <Button type="primary">添加</Button>,
-          });
-        }}
-        dark={dark}
-        onDarkChange={(dark) => {
-          setDark(dark);
-        }}
-        footerRender={() => <div>这个是底部的说明</div>}
-        siderFooterRender={(collapsed) =>
-          collapsed ? null : <div>这个 sider 说明</div>
+    <Layout
+      layout={layout}
+      collapsed={collapsed}
+      onCollapse={setCollapsed}
+      themeColor={themeColor}
+      onSetting={(value) => {
+        if (value.themeColor) {
+          setThemeColor(value.themeColor);
+        } else if (value.layout) {
+          setLayout(value.layout);
         }
-        rightContentProps={{
-          extra: <h4>自定义渲染区域</h4>,
-          userName: '测试用户',
-          droplist: (
-            <Menu
-              style={{
-                width: 120,
-              }}
-              menus={[
-                {
-                  path: 'logout',
-                  icon: <IconUser />,
-                  label: '退出登录',
-                },
-              ]}
-              menuClick={(openkey, selectKey) => {
-                console.log('退出登录');
-              }}
-            />
-          ),
-          avatarUrl:
-            'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/assets/user-logo.png',
-        }}
-      >
-        {pathname}
-      </Layout>
-    </div>
+      }}
+      pathname={pathname}
+      pageHeaderProps={pageHeaderProps}
+      logo="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/assets/favicon.ico"
+      title="中后台通用模版"
+      menus={menus}
+      menuClick={({ path, currentBreadcrumb }) => {
+        setPathName(path);
+        setPageHeaderProps({
+          ...currentBreadcrumb,
+          extra: <Button type="primary">添加</Button>,
+        });
+      }}
+      dark={dark}
+      onDarkChange={(dark) => {
+        setDark(dark);
+      }}
+      footerRender={() => <div>这个是底部的说明</div>}
+      siderFooterRender={(collapsed) =>
+        collapsed ? null : <div>这个 sider 说明</div>
+      }
+      rightContentProps={{
+        extra: <h4>自定义渲染区域</h4>,
+        userName: '测试用户',
+        droplist: (
+          <Menu
+            style={{
+              width: 120,
+            }}
+            menus={[
+              {
+                path: 'logout',
+                icon: <IconUser />,
+                label: '退出登录',
+              },
+            ]}
+            menuClick={(openkey, selectKey) => {
+              console.log('退出登录');
+            }}
+          />
+        ),
+        avatarUrl:
+          'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/assets/user-logo.png',
+      }}
+    >
+      {pathname}
+    </Layout>
   );
 };
 ```

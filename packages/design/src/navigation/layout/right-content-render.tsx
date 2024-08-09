@@ -21,7 +21,6 @@ export default ({
   layout,
   onSetting,
 }: RightProps) => {
-  console.log('dark', dark)
   return (
     <div style={{ display: 'flex', gap: 20 }}>
       {extra}
