@@ -13,7 +13,7 @@ const runEsmBuild = () =>
     bundle: true,
     minify: true,
     logLevel: 'info',
-    entryPoints: ['packages/shared/src/index.ts'],
+    entryPoints: ['packages/design/src/index.ts'],
     plugins: [
       lessLoader(),
       externalGlobalPlugin({

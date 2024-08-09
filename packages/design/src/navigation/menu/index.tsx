@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Avatar } from '../../..';
 import { MenuProps } from './type';
 import './index.less';
 
@@ -9,6 +8,7 @@ export default ({
   style,
   collapsed,
   collapsedWidth = 48,
+  openMenu = false,
   ...rest
 }: MenuProps) => {
   const [openKey, setOpenKey] = useState(rest.openKey || []);
@@ -43,9 +43,9 @@ export default ({
         {Array.isArray(item.children) && (
           <div
             className={
-              !openKey.includes(item.path)
-                ? 'yld-menu-vertical-subMenu-hidden'
-                : ''
+              openKey.includes(item.path) || openMenu
+                ? ''
+                : 'yld-menu-vertical-subMenu-hidden'
             }
           >
             {renderMenus(item.children, paddingLeft + 24)}
@@ -96,7 +96,7 @@ export default ({
       }
       /** labelClassName */
       let labelClassName = ['yld-menu-vertical-subMenu-label'];
-      if (openKey.includes(item.path)) {
+      if (openKey.includes(item.path) || openMenu) {
         labelClassName.push('yld-menu-vertical-subMenu-label-open');
       }
       if (item.children) {

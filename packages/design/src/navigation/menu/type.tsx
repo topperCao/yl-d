@@ -10,6 +10,7 @@ interface SubMenus {
 export interface MenuProps {
   menus: SubMenus[];
   openKey?: string[];
+  openMenu?: boolean;
   selectKey?: string;
   menuClick?: Function;
   style?: CSSProperties;

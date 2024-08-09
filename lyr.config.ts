@@ -85,6 +85,7 @@ export default defineConfig({
     return {
       externals: {
         '@yl-d/icon': 'lyricon',
+        '@yl-d/design': 'lyrDesign',
       },
     };
   },

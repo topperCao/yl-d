@@ -24,6 +24,7 @@ export interface LayoutProps {
   /** 切换主题 */
   onDarkChange?: (dark: boolean) => void;
   /** 菜单属性 */
+  openMenu?: boolean;
   menus: MenuProps[];
   menuClick?: Function;
   /** 应用标题 */

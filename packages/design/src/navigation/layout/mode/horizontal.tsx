@@ -7,6 +7,7 @@ export default ({
   topKey,
   menus,
   menuClick,
+  openMenu,
   title,
   logo,
   breadcrumb,
@@ -62,6 +63,7 @@ export default ({
               selectKey={selectedKey}
               openKey={openKeys}
               collapsed={collapsed}
+              openMenu={openMenu}
               menuClick={menuClick}
               menus={
                 (menus?.find((item) => item?.path === topKey) as any)?.children || []
@@ -81,9 +83,6 @@ export default ({
           </div>
           <div className="yld-layout-horizontal-body-right-content">
             {content}
-          </div>
-          <div className="yld-layout-horizontal-body-right-footer">
-            {footerRender()}
           </div>
         </div>
       </div>

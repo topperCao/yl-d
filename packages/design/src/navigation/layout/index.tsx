@@ -25,6 +25,7 @@ export default ({
   collapsed = false,
   onCollapse = () => {},
   menus = [],
+  openMenu = false,
   menuClick = () => {},
   pageHeaderProps = {},
   breadcrumbClick,
@@ -66,7 +67,15 @@ export default ({
     const pathName = index === -1 ? path : path.substring(0, index);
     const clearPath: string[] = pathName.split('/').filter(Boolean);
     setSelectedKey(`/${clearPath.join('/')}`);
-    setOpenKeys(clearPath.slice(0, clearPath.length - 1).map((i) => `/${i}`)); // 自动打开父级菜单
+    // 保留之前打开的菜单
+    setOpenKeys(
+      Array.from(
+        new Set([
+          ...openKeys,
+          ...clearPath.slice(0, clearPath.length - 1).map((i) => `/${i}`),
+        ]),
+      ),
+    );
     setTopKey(`/${clearPath[0]}`);
     return getBreadcrumbByMenus(menus, clearPath);
   };
@@ -74,7 +83,7 @@ export default ({
   useEffect(() => {
     const clearPath = pathname.split('/').filter(Boolean);
     setSelectedKey(`/${clearPath.join('/')}`);
-    // 保留之前的菜单
+    // 保留之前打开的菜单
     setOpenKeys(
       Array.from(new Set([...openKeys, ...getOpenKeyByPathName(pathname)])),
     ); // 自动打开父级菜单
@@ -107,6 +116,7 @@ export default ({
   /** 右侧渲染逻辑 */
   const restProps = {
     menus,
+    openMenu,
     menuClick: onMenuClick,
     title,
     logo,
