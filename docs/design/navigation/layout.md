@@ -7,7 +7,7 @@ import menus from '@/design/menus.tsx';
 
 export default () => {
   const [pathname, setPathName] = React.useState('/workbench/my');
-  const [layout, setLayout] = React.useState('inline');
+  const [layout, setLayout] = React.useState('vertical');
   const [themeColor, setThemeColor] = React.useState('#165dff');
   const [dark, setDark] = React.useState(false);
   const [collapsed, setCollapsed] = React.useState(false);

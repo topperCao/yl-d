@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Tooltip } from '../../..';
+import { Avatar } from '../../..';
 import { MenuProps } from './type';
 import './index.less';
 
@@ -57,9 +57,7 @@ export default ({
   const renderCollapsedNav = (item, labelClassName) => {
     return (
       <div className={labelClassName.join(' ')}>
-        <Tooltip placement="right" title={item.label}>
-          {item.icon}
-        </Tooltip>
+        {item.icon ? item.icon : item.label.substr(0, 1)}
       </div>
     );
   };

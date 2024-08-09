@@ -26,13 +26,19 @@
     }
   }
   &-collapsed{
+    .yld-layout-vertical-left,
+    .yld-layout-horizontal-body-sider,
     .yld-layout-inline-body-sider{
       width: 48px;
       transition: 0.2s;
     }
+    .yld-layout-horizontal-body-right,
     .yld-layout-inline-body-right{
       padding-left: 48px;
       transition: 0.2s;
+    }
+    .yld-layout-vertical-right{
+      width: calc(100% - 48px);
     }
     .yld-layout-expand-btn{
       left: 36px;
