@@ -5,7 +5,7 @@ export default defineConfig({
   favicon:
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/assets/user-logo.png',
   monorepo: true,
-  monorepoPackages: ['@yl-d/code-editor'],
+  monorepoPackages: ['@yl-d/design'],
   link: [
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/arco.min.css',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/monaco-file-icon.css',
@@ -82,7 +82,6 @@ export default defineConfig({
     ArcoDesign: '@arco-design/web-react',
     ArcoIcon: '@arco-design/web-react/icon',
     yldIcon: '@yl-d/icon',
-    yldDesign: '@yl-d/design',
     axios: 'axios',
   },
   webpackConfig() {

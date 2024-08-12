@@ -45,7 +45,7 @@ export default ({
           readOnly: true,
           renderSideBySide: true,
           scrollBeyondLastLine: false,
-          fontSize: 14,
+          fontSize: 12,
           fontWeight: '600',
           minimap: {
             enabled: false,
