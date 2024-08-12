@@ -18,6 +18,7 @@ export default ({
   siderFooterRender,
   content,
   breadcrumb,
+  openMenu
 }: any) => {
   /** 右侧渲染逻辑 */
   return (
@@ -54,6 +55,7 @@ export default ({
               menuClick={menuClick}
               selectKey={selectedKey}
               openKey={openKeys}
+              openMenu={openMenu}
               collapsed={collapsed}
               menus={menus}
             />
