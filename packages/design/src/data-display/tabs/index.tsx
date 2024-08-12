@@ -73,7 +73,6 @@ export default ({ style, closable, onClick, onRemove, ...rest }: TabProps) => {
     //   window.removeEventListener('resize', adjustTabs);
     // };
   }, []);
-  console.log('tabs[activeIndex]', tabs, activeIndex);
   return (
     <>
       <div className="yld-tabs" style={style} ref={tabsRef}>
@@ -122,7 +121,12 @@ export default ({ style, closable, onClick, onRemove, ...rest }: TabProps) => {
                     width: 100,
                     height: 160,
                   }}
-                  menus={tabs.slice(splitIndex) as any}
+                  menus={(tabs.slice(splitIndex) as any).map(item => {
+                    return {
+                      path: item.key,
+                      ...item
+                    }
+                  })}
                   menuClick={(a, selectKey) => {
                     setActiveKey(selectKey);
                   }}
