@@ -107,7 +107,7 @@ export const CodeEditor = memo(
         selectOnLineNumbers: true,
         automaticLayout: true,
         tabSize: 2,
-        fontSize: 14,
+        fontSize: 12,
         fontWeight: '600',
         minimap: {
           enabled: minimapEnabled,

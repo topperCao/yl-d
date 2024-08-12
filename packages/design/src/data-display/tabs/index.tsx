@@ -21,7 +21,7 @@ export default ({ style, closable, onClick, onRemove, ...rest }: TabProps) => {
   const [splitIndex, setSplitIndex] = useState(0);
   const [activeKey, setActiveKey] = useState(rest.activeKey || tabs[0]?.key);
   useEffect(() => {
-    if (rest.activeKey !== activeKey) {
+    if (rest.activeKey !== undefined && rest.activeKey !== activeKey) {
       setActiveKey(rest.activeKey);
     }
   }, [rest.activeKey]);
@@ -73,6 +73,7 @@ export default ({ style, closable, onClick, onRemove, ...rest }: TabProps) => {
     //   window.removeEventListener('resize', adjustTabs);
     // };
   }, []);
+  console.log('tabs[activeIndex]', tabs, activeIndex);
   return (
     <>
       <div className="yld-tabs" style={style} ref={tabsRef}>

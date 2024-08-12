@@ -178,7 +178,7 @@ export default () => {
 
 ```tsx | react
 import { FileEditor } from '@yl-d/code-editor';
-import { Button } from '@arco-design/web-react';
+import { Button } from '@yl-d/design';
 
 const files = [
   {

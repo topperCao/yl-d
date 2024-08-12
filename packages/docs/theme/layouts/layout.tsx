@@ -46,7 +46,7 @@ export default () => {
   return (
     <Layout
       layoutRef={layoutRef}
-      layout="horizontal"
+      layout="inline"
       className="lyr-docs-wrap"
       logo={favicon}
       collapsed={collapsed}

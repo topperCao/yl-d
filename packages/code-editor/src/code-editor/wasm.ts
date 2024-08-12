@@ -10,6 +10,8 @@ const OssUrl = 'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/monaco';
 
 let hasLoadOnigasm = false;
 
+const grammarsCache = {};
+
 export const loadVscodeTheme = async (monaco, editor, language) => {
   // 加载onigasm的WebAssembly文件
   if (!hasLoadOnigasm) {
@@ -28,7 +30,6 @@ export const loadVscodeTheme = async (monaco, editor, language) => {
       javascript: 'source.js',
       // typescriptreact: 'source.ts.tsx',
       // javascriptreact: 'source.js.jsx',
-     
     }[language],
   );
   // 创建一个注册表，可以从作用域名称创建语法
@@ -44,10 +45,17 @@ export const loadVscodeTheme = async (monaco, editor, language) => {
         // 'source.js.jsx': 'JavaScriptReact.tmLanguage.json',
         // 'source.ts.tsx': 'TypeScriptReact.tmLanguage.json',
       }[scopeName];
+      let content = grammarsCache[path];
+      if (content === undefined) {
+        grammarsCache[path] = await (
+          await fetch(`${OssUrl}/grammars/${path}`)
+        ).text();
+        content = grammarsCache[path];
+      }
       return path
         ? {
             format: 'json',
-            content: await (await fetch(`${OssUrl}/grammars/${path}`)).text(),
+            content,
           }
         : null;
     },

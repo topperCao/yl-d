@@ -1,4 +1,5 @@
-import { Typography } from '@arco-design/web-react';
+import { CopyToClipboard } from '@yl-d/design';
+import { IconCopy } from '@yl-d/icon';
 import CodeEditor from '..';
 import './index.less';
 
@@ -12,11 +13,9 @@ export default ({ value, language }: HighlightProps) => {
   return (
     <div className="monaco-component monaco-editor-syntax-highlight">
       <div className="monaco-editor-syntax-highlight-header">
-        <Typography.Paragraph
-          copyable={{
-            text: value,
-          }}
-        />
+        <CopyToClipboard text={value} message>
+          <IconCopy style={{ color: '#aaa' }} />
+        </CopyToClipboard>
       </div>
       <div className="monaco-editor-syntax-highlight-body">
         <CodeEditor
@@ -27,7 +26,7 @@ export default ({ value, language }: HighlightProps) => {
               : language
           }
           minimapEnabled={false}
-          style={{ height: value.split('\n').length * 21 }}
+          style={{ height: value.split('\n').length * 18 }}
           scrollBeyondLastLine={false}
           lineNumbers="off"
           folding={false}

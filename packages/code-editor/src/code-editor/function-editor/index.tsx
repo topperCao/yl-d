@@ -18,7 +18,6 @@ export default ({
   ...rest
 }: CodeProps) => {
   const [errorInfo, setErrorInfo] = useState('');
-  const [fullScreen, setFullScreen] = useState(false);
   const valueRef = useRef(value);
   useEffect(() => {
     valueRef.current = value;
@@ -41,15 +40,12 @@ export default ({
   }, []);
   return (
     <div
-      className={fullScreen ? 'function-data-box-full' : 'function-data-box'}
+      className='function-data-box'
       style={style}
     >
       {errorInfo && <div className="function-data-error-info">{errorInfo}</div>}
-      <div
+      {/* <div
         className="function-data-box-full-screen"
-        onClick={() => {
-          setFullScreen(!fullScreen);
-        }}
       >
         {!fullScreen ? (
           <svg viewBox="0 0 1024 1024" width="20" height="20">
@@ -68,7 +64,7 @@ export default ({
             ></path>
           </svg>
         )}
-      </div>
+      </div> */}
       <CodeEditor
         value={decrypt(value, false) || defaultCode}
         minimapEnabled={false}

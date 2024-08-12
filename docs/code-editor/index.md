@@ -125,7 +125,7 @@ export default () => {
       originalValue={`import ReactDom from 'react-dom';
 import { Button } from 'antd';
 `}
-      value={`import { Button } from '@arco-design/web-react';
+      value={`import { Button } from '@yl-d/design';
 import ReactDom from 'react-dom';
 `}
     />
@@ -136,7 +136,7 @@ import ReactDom from 'react-dom';
 ## 使用 JSON 模式
 
 ```tsx | react
-import { Button } from '@arco-design/web-react';
+import { Button } from '@yl-d/design';
 import { CodeEditor } from '@yl-d/code-editor';
 
 export default () => {
@@ -174,7 +174,7 @@ export default () => {
 ## 使用 Function 模式
 
 ```tsx | react
-import { Button } from '@arco-design/web-react';
+import { Button } from '@yl-d/design';
 import { CodeEditor } from '@yl-d/code-editor';
 
 export default () => {
@@ -209,7 +209,7 @@ export default () => {
 ## 导出默认对象
 
 ```tsx | react
-import { Button } from '@arco-design/web-react';
+import { Button } from '@yl-d/design';
 import { CodeEditor } from '@yl-d/code-editor';
 
 export default () => {
@@ -246,7 +246,7 @@ export default () => {
 ## 导出多个对象
 
 ```tsx | react
-import { Button } from '@arco-design/web-react';
+import { Button } from '@yl-d/design';
 import { CodeEditor } from '@yl-d/code-editor';
 
 export default () => {
@@ -286,7 +286,7 @@ export const user2 = {
 ## 使用第三方依赖包
 
 ```tsx | react
-import { Button } from '@arco-design/web-react';
+import { Button } from '@yl-d/design';
 import { CodeEditor } from '@yl-d/code-editor';
 
 export default () => {
@@ -329,7 +329,7 @@ export const add = () => {
 ## Es6 => Es5
 
 ```tsx | react
-import { Grid, Button } from '@arco-design/web-react';
+import { Space, Button } from '@yl-d/design';
 import { CodeEditor } from '@yl-d/code-editor';
 
 export default () => {
@@ -353,27 +353,23 @@ export default () => {
       </Button>
       <br />
       <br />
-      <Grid.Row>
+      <Space style={{ width: '100%' }} gap={0}>
         <div id="test-demo" style={{ display: 'none' }} />
-        <Grid.Col span={12}>
-          <CodeEditor
-            mode="function"
-            codeRef={codeRef1}
-            onChange={(codeString, res) => {
-              console.log(codeString, res);
-            }}
-            style={{ width: '100%', height: 500 }}
-            value={`export default {}`}
-          />
-        </Grid.Col>
-        <Grid.Col span={12}>
-          <CodeEditor
-            readOnly
-            codeRef={codeRef2}
-            style={{ width: '100%', height: 500 }}
-          />
-        </Grid.Col>
-      </Grid.Row>
+        <CodeEditor
+          mode="function"
+          codeRef={codeRef1}
+          onChange={(codeString, res) => {
+            console.log(codeString, res);
+          }}
+          style={{ width: '50%', height: 500 }}
+          value={`export default {}`}
+        />
+        <CodeEditor
+          readOnly
+          codeRef={codeRef2}
+          style={{ width: '50%', height: 500 }}
+        />
+      </Space>
     </>
   );
 };
@@ -382,7 +378,7 @@ export default () => {
 ## less => css
 
 ```tsx | react
-import { Grid, Button } from '@arco-design/web-react';
+import { Space, Button } from '@yl-d/design';
 import { CodeEditor } from '@yl-d/code-editor';
 
 export default () => {
@@ -403,14 +399,13 @@ export default () => {
       </Button>
       <br />
       <br />
-      <Grid.Row>
+      <Space style={{ width: '100%' }} gap={0}>
         <div id="test-demo" style={{ display: 'none' }} />
-        <Grid.Col span={12}>
-          <CodeEditor
-            mode="less"
-            codeRef={codeRef1}
-            style={{ width: '100%', height: 500 }}
-            value={`.app{
+        <CodeEditor
+          mode="less"
+          codeRef={codeRef1}
+          style={{ width: '50%', height: 500 }}
+          value={`.app{
   .header{
     .title{
       font-size: 12px;
@@ -421,17 +416,14 @@ export default () => {
   }
 }
             `}
-          />
-        </Grid.Col>
-        <Grid.Col span={12}>
-          <CodeEditor
-            readOnly
-            codeRef={codeRef2}
-            language="css"
-            style={{ width: '100%', height: 500 }}
-          />
-        </Grid.Col>
-      </Grid.Row>
+        />
+        <CodeEditor
+          readOnly
+          codeRef={codeRef2}
+          language="css"
+          style={{ width: '50%', height: 500 }}
+        />
+      </Space>
     </>
   );
 };

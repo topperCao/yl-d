@@ -29,8 +29,8 @@ export default defineConfig({
         react: "React",
         "react-dom": "ReactDOM",
         "react/jsx-runtime": "jsxRuntime",
+        "@yl-d/icon": "lyricon",
         "@yl-d/design": "lyrDesign",
-        "@yl-d/icon": "lyricon"
       },
     },
   ],

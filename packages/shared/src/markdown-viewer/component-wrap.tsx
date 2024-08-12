@@ -43,7 +43,7 @@ export default ({
       <div className="markdown-viewer-code-wrap-extra">
         <Tooltip title="查看代码">
           <IconCode
-            style={{ cursor: 'pointer', fontSize: 16 }}
+            style={{ cursor: 'pointer' }}
             onClick={() => {
               setExpandCode(!expandCode);
             }}

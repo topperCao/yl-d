@@ -42,7 +42,7 @@ export default () => {
         ?.scrollIntoView({
           behavior: 'smooth',
         });
-    }, 500);
+    }, 2000);
 
     return removeListener;
   }, []);
