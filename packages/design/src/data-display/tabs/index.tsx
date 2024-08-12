@@ -22,7 +22,7 @@ export default ({ style, closable, onClick, onRemove, ...rest }: TabProps) => {
   const [activeKey, setActiveKey] = useState(rest.activeKey || tabs[0]?.key);
   useEffect(() => {
     if (rest.activeKey !== activeKey) {
-      setActiveKey(activeKey);
+      setActiveKey(rest.activeKey);
     }
   }, [rest.activeKey]);
   const innerRef = useRef<any>({});
@@ -169,7 +169,7 @@ export default ({ style, closable, onClick, onRemove, ...rest }: TabProps) => {
               );
             })} */}
           <div className={'yld-tabs-content-item'}>
-            {tabs[activeIndex].content}
+            {tabs[activeIndex]?.content}
           </div>
         </div>
       </div>

@@ -22,10 +22,13 @@ export default () => {
       ({ currentBreadcrumb }) => {
         /** 设置当前路由的默认面包屑 */
         breadcrumbStore.title = currentBreadcrumb.title;
-        breadcrumbStore.breadcrumb = currentBreadcrumb.breadcrumb;
+        breadcrumbStore.breadcrumb = [
+          { path: '/', breadcrumbName: '我的前端生态包' },
+          ...currentBreadcrumb.breadcrumb,
+        ];
         /** 滚动到顶部 */
         document
-          .querySelector('.app-layout-horizontal-body-right')
+          .querySelector('.yld-layout-horizontal-body-right')
           ?.scrollIntoView({
             behavior: 'smooth',
           });
@@ -34,7 +37,7 @@ export default () => {
     setTimeout(() => {
       document
         .querySelector(
-          '.app-layout-horizontal-body-sider-menu .arco-menu-selected',
+          '.yld-layout-horizontal-body-sider-menu .yld-menu-vertical-subMenu-active',
         )
         ?.scrollIntoView({
           behavior: 'smooth',
@@ -46,6 +49,7 @@ export default () => {
   return (
     <Layout
       layoutRef={layoutRef}
+      pathname={location.hash.substring(1)}
       layout="horizontal"
       className="lyr-docs-wrap"
       logo={favicon}
@@ -53,7 +57,7 @@ export default () => {
       onCollapse={setCollapsed}
       title={
         <h1
-          style={{ cursor: 'pointer', color: 'var(--color-text-1)' }}
+          style={{ cursor: 'pointer', color: 'var(--text-color)' }}
           onClick={() => {
             location.hash = '/';
           }}
@@ -116,7 +120,7 @@ export default () => {
         ),
         avatarRender: () => {
           return (
-            <Tooltip title="Github" placement='bottom'>
+            <Tooltip title="Github" placement="bottom">
               <Button
                 style={{
                   borderRadius: '50%',

@@ -4,6 +4,6 @@ import { useRouteError } from 'react-router-dom';
 export default () => {
   const error = useRouteError();
   return (
-    <h5 style={{ color: 'red', padding: 10, margin: 0 }}>{String(error)}</h5>
+    <h4 style={{ color: 'red', padding: 10, margin: 0 }}>{String(error)}</h4>
   );
 };

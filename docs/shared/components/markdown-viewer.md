@@ -156,7 +156,6 @@ export default () => {
             name: 'onChange',
             required: false,
             type: 'Function',
-            defaultValue: '() => null',
             description: '改变的钩子',
           },
           {

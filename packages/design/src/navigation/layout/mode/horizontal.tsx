@@ -18,7 +18,6 @@ export default ({
   selectedKey,
   content,
   collapsed,
-  footerRender,
 }: any) => {
   /** 右侧渲染逻辑 */
   return (

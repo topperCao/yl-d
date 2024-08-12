@@ -46,6 +46,7 @@ export default () => {
       <br />
       <div className="yld-table-demos">
         <Table
+          title="User Table"
           columns={[
             {
               title: 'Name',

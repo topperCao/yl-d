@@ -24,7 +24,6 @@ export default ({ github, updateTime, ...rest }: any) => {
       setReload(Math.random());
     }, 300);
   }, [rest.content]);
-  console.log(mdRef.current.getNavs?.());
   return (
     <div
       style={{ display: 'flex', backgroundColor: 'var(--color-menu-light-bg)' }}
@@ -99,7 +98,7 @@ export default ({ github, updateTime, ...rest }: any) => {
         <Menu
           selectKey={defaultSelectedKeys}
           style={{ borderLeft: '1px solid var(--border-color)' }}
-          menuClick={(nav) => {
+          menuClick={(e, nav) => {
             document.getElementById(nav)?.scrollIntoView({
               behavior: 'smooth',
             });

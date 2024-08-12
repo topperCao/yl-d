@@ -1,14 +1,13 @@
 /* eslint-disable @typescript-eslint/restrict-plus-operands */
 import React, { useEffect, useRef } from 'react';
-import { AppLayout } from '@yl-d/pro-components';
+import { Input, Button, Dropdown, Menu, Tooltip, Layout } from '@yl-d/design';
 import uiStore from '../store/ui';
 import menus from '@/.lyr/menus';
 import navs from '@/.lyr/navs';
 import breadcrumbStore from '../store/breadcrumb';
 import { Outlet } from 'react-router-dom';
 import { packageName, favicon, repository } from 'lyr';
-import { IconSearch, IconLaunch, IconDown } from '@arco-design/web-react/icon';
-import { Input, Button, Dropdown, Menu, Tooltip } from '@arco-design/web-react';
+import { IconSearch, IconLaunch, IconDown } from '@yl-d/icon';
 
 export default () => {
   const layoutRef: any = useRef({});
@@ -25,24 +24,36 @@ export default () => {
         breadcrumbStore.title = currentBreadcrumb.title;
         breadcrumbStore.breadcrumb = currentBreadcrumb.breadcrumb;
         /** 滚动到顶部 */
-        document.querySelector('.app-layout-horizontal-body-right')?.scrollIntoView({
-          behavior: 'smooth',
-        });
+        document
+          .querySelector('.yld-layout-horizontal-body-right')
+          ?.scrollIntoView({
+            behavior: 'smooth',
+          });
       },
     );
+    setTimeout(() => {
+      document
+        .querySelector(
+          '.yld-layout-horizontal-body-sider-menu .yld-menu-vertical-subMenu-active',
+        )
+        ?.scrollIntoView({
+          behavior: 'smooth',
+        });
+    }, 500);
+
     return removeListener;
   }, []);
   return (
-    <AppLayout
+    <Layout
       layoutRef={layoutRef}
-      layout="inline"
+      layout="horizontal"
       className="lyr-docs-wrap"
       logo={favicon}
       collapsed={collapsed}
       onCollapse={setCollapsed}
       title={
         <h1
-          style={{ cursor: 'pointer', color: 'var(--color-text-1)' }}
+          style={{ cursor: 'pointer', color: 'var(--text-color)' }}
           onClick={() => {
             location.hash = '/';
           }}
@@ -54,12 +65,10 @@ export default () => {
       onDarkChange={async (dark: boolean) => {
         uiStore.dark = dark;
       }}
-      menu={{
-        className: "lyr-docs-wrap-menus",
-        items: menus.map((i: any) => ({ ...i, group: true })) as any,
-        onClick: ({ path }: any) => {
-          location.hash = path;
-        },
+      openMenu
+      menus={menus}
+      menuClick={({ path }: any) => {
+        location.hash = path;
       }}
       themeColor={primaryColor}
       onSetting={(value: any) => {
@@ -86,27 +95,15 @@ export default () => {
                 <Dropdown
                   key={nav.title}
                   droplist={
-                    <Menu>
-                      {nav.children?.map((item) => {
-                        return (
-                          <Menu.Item
-                            key={item.title}
-                            onClick={() => {
-                              window.open(item.path);
-                            }}
-                          >
-                            <h4 style={{ margin: 0 }}>{item.title}</h4>
-                          </Menu.Item>
-                        );
-                      })}
-                    </Menu>
+                    <Menu
+                      menus={nav}
+                      menuClick={(item) => {
+                        window.open(item.path);
+                      }}
+                    />
                   }
                 >
-                  <Button
-                    type="text"
-                    size="small"
-                    style={{ color: 'var(--color-text-1)' }}
-                  >
+                  <Button type="link" style={{ color: 'var(--text-color)' }}>
                     {nav.title}
                     <IconDown
                       style={{ marginLeft: 4, position: 'relative', top: 1 }}
@@ -119,10 +116,10 @@ export default () => {
         ),
         avatarRender: () => {
           return (
-            <Tooltip content="Github">
+            <Tooltip title="Github" placement="bottom">
               <Button
                 style={{
-                  borderRadius: 'var(--border-radius-circle)',
+                  borderRadius: '50%',
                   padding: 0,
                   height: 30,
                   width: 30,
@@ -134,7 +131,8 @@ export default () => {
                       width: 20,
                       height: 20,
                       position: 'relative',
-                      top: 2,
+                      top: 1,
+                      left: 4,
                     }}
                     alt="avatar"
                     src={`https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/image/github-${
@@ -160,7 +158,6 @@ export default () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            borderTop: '1px solid var(--color-fill-3)',
           }}
         >
           @ design by
@@ -178,6 +175,6 @@ export default () => {
       )}
     >
       <Outlet />
-    </AppLayout>
+    </Layout>
   );
 };
