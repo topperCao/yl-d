@@ -26,7 +26,7 @@ export default ({ github, updateTime, ...rest }: any) => {
   }, [rest.content]);
   return (
     <div
-      style={{ display: 'flex', backgroundColor: 'var(--color-menu-light-bg)' }}
+      style={{ display: 'flex', backgroundColor: 'var(--bg-color)' }}
     >
       <div style={{ width: 'calc(100% - 180px)' }}>
         {useMemo(

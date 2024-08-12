@@ -22,9 +22,11 @@ export default (config: ConfigProps) =>
       'react-router-dom': 'ReactRouterDOM',
       '@arco-design/web-react': 'arco',
       '@arco-design/web-react/icon': 'arcoicon',
+      '@yl-d/icon': 'lyricon',
+      '@yl-d/design': 'lyrDesign',
       '@yl-d/pro-components': 'lyr',
-      '@yl-d/shared': "lyrShared",
-      '@yl-d/code-editor': "lyrCodeEditor",
+      '@yl-d/shared': 'lyrShared',
+      '@yl-d/code-editor': 'lyrCodeEditor',
     },
     resolve: {
       extensions: ['.ts', '.tsx', '.js', '.jsx', '.md'],
@@ -89,9 +91,11 @@ export default (config: ConfigProps) =>
     },
     optimization: {
       minimize: true,
-      minimizer: [new TerserPlugin({
-        extractComments: false
-      })],
+      minimizer: [
+        new TerserPlugin({
+          extractComments: false,
+        }),
+      ],
     },
     plugins: [
       config.bundleAnalyzer && config.mode === 'development'
