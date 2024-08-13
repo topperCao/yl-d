@@ -30,7 +30,7 @@ export default () => {
 ## 安装
 
 ```js
-yarn add @yl-d/low-code
+pnpm install @yl-d/low-code
 ```
 
 ## umd 版本

@@ -30,7 +30,7 @@ export default () => {
 ## 安装
 
 ```js
-yarn add @yl-d/hooks
+pnpm install @yl-d/hooks
 ```
 
 ## create 全局状态管理库

@@ -30,7 +30,7 @@ export default () => {
 ## 安装
 
 ```js
-yarn add @yl-d/shared
+pnpm install @yl-d/shared
 ```
 
 ## 使用 cdn

@@ -30,8 +30,8 @@ export default () => {
 \`\`\`
 ## 脚本
 \`\`\`bash
-yarn add @yl-d/design
-yarn add @yl-d/shared
+pnpm install @yl-d/design
+pnpm install @yl-d/shared
 \`\`\`
 ## 样式
 \`\`\`\less

@@ -30,7 +30,7 @@ export default () => {
 ## 安装
 
 ```js
-yarn add @yl-d/design
+pnpm install @yl-d/design
 ```
 
 ## 说明

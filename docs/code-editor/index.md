@@ -39,7 +39,7 @@ export default () => {
 ## 安装
 
 ```js
-yarn add @yl-d/code-editor
+pnpm install @yl-d/code-editor
 ```
 
 ## umd 版本

@@ -1,7 +1,7 @@
 ## 安装
 
 ```js
-yarn add @yl-d/icon;
+pnpm install @yl-d/icon;
 ```
 
 ## 基本用法

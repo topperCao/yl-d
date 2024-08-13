@@ -7,7 +7,7 @@
 > 组件库本身依赖 arco.design，使用需要先安装 arco.design
 
 ```shell
-yarn add @yl-d/pro-components
+pnpm install @yl-d/pro-components
 ```
 
 ```less
