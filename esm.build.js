@@ -22,30 +22,10 @@ const runEsmBuild = () => {
       }),
     ],
   });
-
-  build({
-    target: 'esnext',
-    format: 'esm',
-    platform: 'browser',
-    outdir: 'www/dev/esm/shared',
-    bundle: true,
-    minify: true,
-    logLevel: 'info',
-    entryPoints: ['packages/shared/src/index.ts'],
-    plugins: [
-      lessLoader(),
-      externalGlobalPlugin({
-        react: 'window.React',
-        'react-dom': 'window.ReactDOM',
-        '@arco-design/web-react': 'window.arco',
-        '@arco-design/web-react/icon': 'arcoicon',
-      }),
-    ],
-  });
 }
   
 /** 监听 src 文件改动 */
-const watcher = chokidar.watch([`packages/shared/src/**/*`], {
+const watcher = chokidar.watch([`packages/design/src/**/*`], {
   ignored: /node_modules/,
   ignoreInitial: true,
 });

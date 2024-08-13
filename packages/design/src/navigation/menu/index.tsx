@@ -5,7 +5,7 @@ import './index.less';
 export default ({
   menus,
   menuClick,
-  style,
+  style = {},
   collapsed,
   collapsedWidth = 48,
   openMenu = false,

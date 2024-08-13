@@ -115,20 +115,18 @@ export default ({ style, closable, onClick, onRemove, ...rest }: TabProps) => {
           {/** 展示 Dropdown */}
           {splitIndex > 0 && (
             <Dropdown
+              trigger="click"
               droplist={
                 <Menu
-                  style={{
-                    width: 100,
-                    height: 160,
-                  }}
-                  menus={(tabs.slice(splitIndex) as any).map(item => {
+                  menus={(tabs.slice(splitIndex) as any).map((item) => {
                     return {
                       path: item.key,
-                      ...item
-                    }
+                      ...item,
+                    };
                   })}
                   menuClick={(a, selectKey) => {
                     setActiveKey(selectKey);
+                    onClick?.(selectKey);
                   }}
                 />
               }

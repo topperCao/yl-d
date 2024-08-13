@@ -86,9 +86,11 @@ export default defineConfig({
   },
   webpackConfig() {
     return {
-      externals: {
-        '@yl-d/icon': 'lyricon',
-        '@yl-d/design': 'lyrDesign',
+      resolve: {
+        // 添加fallback配置
+        fallback: {
+          path: 'path-browserify',
+        },
       },
     };
   },
