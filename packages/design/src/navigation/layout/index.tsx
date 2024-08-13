@@ -26,7 +26,7 @@ export default ({
   collapsed = false,
   onCollapse = () => {},
   menus = [],
-  openMenu = false,
+  openMenu = true,
   menuClick = () => {},
   pageHeaderProps = {},
   breadcrumbClick,

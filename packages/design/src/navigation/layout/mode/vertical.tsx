@@ -5,6 +5,7 @@ import './vertical.less';
 export default ({
   menus,
   menuClick,
+  openMenu,
   title,
   pageTitle,
   logo,
@@ -40,6 +41,7 @@ export default ({
           <Menu
             style={{ width: 208 }}
             openKey={openKeys}
+            openMenu={openMenu}
             selectKey={selectedKey}
             collapsed={collapsed}
             menus={menus}
