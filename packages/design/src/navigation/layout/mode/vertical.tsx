@@ -39,7 +39,6 @@ export default ({
         </div>
         <div className="yld-layout-left-menu">
           <Menu
-            style={{ width: 208 }}
             openKey={openKeys}
             openMenu={openMenu}
             selectKey={selectedKey}

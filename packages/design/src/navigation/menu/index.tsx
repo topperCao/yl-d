@@ -7,7 +7,7 @@ export default ({
   menuClick,
   style = {},
   collapsed,
-  collapsedWidth = 48,
+  collapsedWidth = 47,
   openMenu = false,
   ...rest
 }: MenuProps) => {
@@ -130,7 +130,7 @@ export default ({
       className={className.join(' ')}
       style={{
         ...style,
-        width: collapsed ? collapsedWidth : style ? style.width : '100%',
+        width: collapsed ? collapsedWidth : style ? (style as any).width : '100%',
       }}
     >
       {renderMenus(menus, 20)}
