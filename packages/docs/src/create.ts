@@ -54,7 +54,7 @@ const getIndexHtml = ({
 ${script}
 <script type="module">
   var script = document.createElement("script");
-  script.src = \`/${mode === 'dev' ? '/dev/index.js' : './index.js'}\`;
+  script.src = \`${mode === 'dev' ? '/dev/index.js' : './index.js'}\`;
   document.body.appendChild(script);
 </script>
 </html>`;
