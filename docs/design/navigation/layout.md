@@ -1,6 +1,6 @@
 ## 基本使用
 
-```tsx | react | var(--color-fill-2)
+```tsx | react | var(--bg-color-2)
 import { Radio, Space, Menu, Layout, Button } from '@yl-d/design';
 import { IconUser } from '@yl-d/icon';
 import menus from '@/design/menus.tsx';

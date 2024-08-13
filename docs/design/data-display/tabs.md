@@ -1,6 +1,6 @@
 ## 基本使用
 
-```jsx | react | var(--color-fill-2)
+```jsx | react | var(--bg-color-2)
 import { Tabs } from '@yl-d/design';
 
 export default () => {
@@ -86,7 +86,7 @@ export default () => {
 
 ## 超出范围
 
-```jsx | react | var(--color-fill-2)
+```jsx | react | var(--bg-color-2)
 import { Tabs } from '@yl-d/design';
 
 export default () => {
