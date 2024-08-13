@@ -12,7 +12,6 @@ import AuthRouter from './auth';
 import { ConfigProps } from './type';
 import axios, { AxiosRequestConfig } from 'axios';
 import breadcrumbStore from '@/store/breadcrumb';
-import { PageHeaderProps } from '@arco-design/web-react';
 
 import '@/global.less';
 
@@ -92,7 +91,9 @@ export const defineConfig = (props: ConfigProps) => {
   return props;
 };
 
-interface BreadCrumbHeaderProps extends Omit<PageHeaderProps, "breadcrumb">{
+interface BreadCrumbHeaderProps {
+  title?: ReactNode;
+  extra?: ReactNode[];
   breadcrumb?: {
     icon?: ReactNode;
     path?: string;
@@ -149,8 +150,7 @@ export default defineConfig({
   title: '${packageName}',
   favicon: 'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/assets/favicon.ico',
   link: [
-    'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/arco.min.css',
-    'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/pro-components.min.css',
+    'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/design.min.css',
   ],
   devScript: [
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/react.development.min.js',
@@ -160,10 +160,7 @@ export default defineConfig({
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/react-router-dom.development.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/axios.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/jsx-runtime.polyfill.js',
-    'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/arco.min.js',
-    'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/arco-icon.min.js',
-    'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/aliyun-oss-sdk.min.js',
-    'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/pro-components.min.js',
+    'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/design.min.js',
   ],
   buildScript: [
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/react.development.min.js',
@@ -173,10 +170,7 @@ export default defineConfig({
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/react-router-dom.development.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/axios.min.js',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/jsx-runtime.polyfill.js',
-    'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/arco.min.js',
-    'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/arco-icon.min.js',
-    'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/aliyun-oss-sdk.min.js',
-    'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/pro-components.min.js',
+    'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/@yl-d/design.min.js',
   ],
 });
 `;

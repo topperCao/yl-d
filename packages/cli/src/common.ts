@@ -17,11 +17,10 @@ export default (config: ConfigProps) =>
     externals: {
       axios: 'axios',
       react: 'React',
-      '@yl-d/pro-components': 'lyr',
       'react-dom': 'ReactDOM',
       'react-router-dom': 'ReactRouterDOM',
-      '@arco-design/web-react': 'arco',
-      '@arco-design/web-react/icon': 'arcoicon',
+      '@yl-d/icon': 'lyricon',
+      '@yl-d/design': 'lyrDesign',
     },
     resolve: {
       extensions: ['.ts', '.tsx', '.js', '.jsx'],

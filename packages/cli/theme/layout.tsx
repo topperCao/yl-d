@@ -1,10 +1,8 @@
 import React from 'react';
-import { AppLayout } from '@yl-d/pro-components';
-import { Menu } from '@arco-design/web-react';
+import { Menu, Layout } from '@yl-d/design';
 import uiStore from '@/store/ui';
 import userStore from '@/store/user';
 import breadcrumbStore from '@/store/breadcrumb';
-import Footer from './footer';
 import { outLogin } from '@/services';
 import { useEffect, useRef } from 'react';
 import { Outlet } from 'react-router-dom';
@@ -13,7 +11,8 @@ import { logo } from 'lyr';
 export default ({ routerInterceptors }) => {
   const layoutRef: any = useRef({});
   const breadcrumb = breadcrumbStore.useSnapshot();
-  const { dark, title, collapsed, primaryColor, layout } = uiStore.useSnapshot();
+  const { dark, title, collapsed, primaryColor, layout } =
+    uiStore.useSnapshot();
   const { name, avatarUrl, menus } = userStore.useSnapshot();
   const setCollapsed = (v: boolean) => {
     uiStore.collapsed = v;
@@ -31,7 +30,7 @@ export default ({ routerInterceptors }) => {
   }, []);
   const VNode = routerInterceptors?.();
   return (
-    <AppLayout
+    <Layout
       layoutRef={layoutRef}
       layout={layout}
       themeColor={primaryColor}
@@ -39,17 +38,8 @@ export default ({ routerInterceptors }) => {
         if (value.themeColor) {
           uiStore.primaryColor = value.themeColor;
         } else if (value.layout) {
-          uiStore.layout = value.layout
-        };
-      }}
-      waterMarkProps={{
-        gap: [200, 200],
-        content: `welcome-${name}`,
-        zIndex: 10,
-        fontStyle: {
-          color: dark ? 'rgba(255, 255, 255, .15)' : 'rgba(0, 0, 0, .15)',
-          fontSize: 12,
-        },
+          uiStore.layout = value.layout;
+        }
       }}
       logo={logo}
       collapsed={collapsed}
@@ -61,28 +51,31 @@ export default ({ routerInterceptors }) => {
         (window as any).monacoTheme = dark ? 'vs-dark' : 'vs';
         (window as any).monaco?.editor?.setTheme?.((window as any).monacoTheme);
       }}
-      menu={{
-        items: menus,
-        onClick: ({ path }: any) => {
-          location.hash = path;
-        },
+      menus={menus}
+      menuClick={({ path }: any) => {
+        location.hash = path;
       }}
       rightContentProps={{
         userName: name,
         droplist: (
-          <Menu>
-            <Menu.Item key="logout" onClick={outLogin}>
-              切换用户
-            </Menu.Item>
-          </Menu>
+          <Menu
+            menuClick={() => {
+              outLogin();
+            }}
+            menus={[
+              {
+                path: 'logout',
+                label: '切换用户',
+              },
+            ]}
+          />
         ),
         avatarUrl,
       }}
       pageHeaderProps={breadcrumb}
-      footerRender={() => <Footer />}
       siderFooterRender={() => null}
     >
       {VNode ? VNode : <Outlet />}
-    </AppLayout>
+    </Layout>
   );
 };

@@ -38,8 +38,8 @@ export default ({
         <div className="yld-layout-horizontal-header-menu">
           <Tabs
             activeKey={topKey}
-            onClick={(key: string) => {
-              menuClick([], { path: key });
+            onClick={(path: string) => {
+              menuClick([], { path });
             }}
             tabs={menus?.map((item: any) => {
               return {
