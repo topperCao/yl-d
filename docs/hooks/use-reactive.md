@@ -1,9 +1,9 @@
-# useReactive
+## useReactive
 
-## 提供一种数据响应式的操作体验，定义数据状态不需要写 useState，直接修改属性即可刷新视图。
+> 提供一种数据响应式的操作体验，定义数据状态不需要写 useState，直接修改属性即可刷新视图。
 
 ```tsx | react
-import { Button, useReactive } from '@yl-d/pro-components';
+import { useReactive } from '@yl-d/hooks';
 
 export default () => {
   const state = useReactive({
@@ -20,35 +20,35 @@ export default () => {
   return (
     <>
       <div>
-        <Button
+        <button
           onClick={() => {
             state.count++;
           }}
         >
           +1
-        </Button>
+        </button>
         &nbsp; &nbsp; count: {state.count}
       </div>
       <br />
       <div>
-        <Button
+        <button
           onClick={() => {
             state.user.baseInfo.age++;
           }}
         >
           +1
-        </Button>
+        </button>
         &nbsp; &nbsp; age: {state.user.baseInfo.age}
       </div>
       <br />
       <div>
-        <Button
+        <button
           onClick={() => {
             state.list.push(100);
           }}
         >
           push
-        </Button>
+        </button>
         &nbsp; &nbsp; list: {state.list.toString()}
       </div>
     </>

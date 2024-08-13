@@ -39,7 +39,7 @@ export default () => {
           timePickerRange: ['12:08:08', '18:08:08'],
           textarea: '2323',
           rate: 2,
-          treeSelect: 'node2'
+          treeSelect: 'node2',
         }}
         onValuesChange={(v, vs) => {
           console.log(v, vs);
@@ -127,27 +127,62 @@ export default () => {
   return (
     <Form
       form={form}
+      initialValues={{
+        type: 1,
+      }}
       schema={[
         {
           type: 'RadioGroup',
-          name: 'sex',
-          label: '性别',
+          label: '类型',
+          name: 'type',
           props: {
-            onChange(value, option) {
-              form.mergeItemByName('sex', {
-                label: `性别-${option.label}`,
-              });
-            },
+            type: 'button',
             options: [
               {
-                label: '男',
-                value: 0,
-              },
-              {
-                label: '女',
+                label: '类型 A',
                 value: 1,
               },
+              {
+                label: '类型 B',
+                value: 2,
+              },
             ],
+            onChange(value) {
+              form.setValues({
+                age: undefined, // clean
+              });
+              // 修改表单模型
+              form.mergeItemByName(
+                'age',
+                value === 1
+                  ? {
+                      type: 'Input',
+                    }
+                  : {
+                      type: 'CheckGroup',
+                      props: {
+                        options: [
+                          {
+                            label: '选项 1',
+                            value: 1,
+                          },
+                          {
+                            label: '选项 2',
+                            value: 2,
+                          },
+                        ],
+                      },
+                    },
+              );
+            },
+          },
+        },
+        {
+          type: 'Input',
+          label: '年龄',
+          name: 'age',
+          style: {
+            width: 300,
           },
         },
       ]}

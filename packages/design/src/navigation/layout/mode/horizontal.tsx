@@ -39,7 +39,7 @@ export default ({
           <Tabs
             activeKey={topKey}
             onClick={(key: string) => {
-              menuClick([], key);
+              menuClick([], { path: key });
             }}
             tabs={menus?.map((item: any) => {
               return {

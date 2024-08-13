@@ -29,7 +29,11 @@ export default ({
           <Tooltip title="点击切换亮色模式" placement="bottom">
             <Button
               style={{ width: 30, height: 30, borderRadius: '50%' }}
-              icon={<IconSunFill style={{ position: 'absolute', right: 7, fontSize: 16 }} />}
+              icon={
+                <IconSunFill
+                  style={{ position: 'absolute', right: 7, fontSize: 16 }}
+                />
+              }
               onClick={() => {
                 onDarkChange(false);
                 document.body.removeAttribute('yld-theme');
@@ -40,7 +44,11 @@ export default ({
           <Tooltip title="点击切换暗黑模式" placement="bottom">
             <Button
               style={{ width: 30, height: 30, borderRadius: '50%' }}
-              icon={<IconMoonFill style={{ position: 'absolute', right: 7, fontSize: 16 }} />}
+              icon={
+                <IconMoonFill
+                  style={{ position: 'absolute', right: 7, fontSize: 16 }}
+                />
+              }
               onClick={() => {
                 onDarkChange(true);
                 document.body.setAttribute('yld-theme', 'dark');
@@ -51,7 +59,11 @@ export default ({
         <Tooltip title="页面设置" placement="bottom">
           <Button
             style={{ width: 30, height: 30, borderRadius: '50%' }}
-            icon={<IconSettings style={{ position: 'absolute', right: 7, fontSize: 16 }} />}
+            icon={
+              <IconSettings
+                style={{ position: 'absolute', right: 7, fontSize: 16 }}
+              />
+            }
             onClick={() => {
               Drawer({ title: '页面设置', footer: false }).open({
                 render() {
@@ -81,6 +93,11 @@ export default ({
                                 value={color}
                                 onChange={(e) => {
                                   setColor(e.target.value);
+                                  // 修改主题
+                                  document.body.style.setProperty(
+                                    '--primary-color',
+                                    e.target.value,
+                                  );
                                   onSetting({
                                     themeColor: e.target.value,
                                   });

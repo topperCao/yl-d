@@ -5,7 +5,7 @@ export default defineConfig({
   favicon:
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/assets/user-logo.png',
   monorepo: true,
-  monorepoPackages: ['@yl-d/design'],
+  monorepoPackages: ['@yl-d/design', '@yl-d/hooks'],
   link: [
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/arco.min.css',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/monaco-file-icon.css',
@@ -470,43 +470,35 @@ export default defineConfig({
           ],
         },
         {
-          label: '状态管理',
-          path: '/pro-components/state',
-          group: true,
-          children: [
-            {
-              label: 'createStore',
-              path: '/pro-components/state/create-store',
-            },
-          ],
-        },
-        {
-          label: '自定义 hooks',
-          path: '/pro-components/hooks',
-          group: true,
-          children: [
-            {
-              label: 'useRefesh',
-              path: '/pro-components/hooks/use-refresh',
-            },
-            {
-              label: 'useUpdateEffect',
-              path: '/pro-components/hooks/use-update-effect',
-            },
-            {
-              label: 'useFullscreen',
-              path: '/pro-components/hooks/use-fullscreen',
-            },
-            {
-              label: 'useReactive',
-              path: '/pro-components/hooks/use-reactive',
-            },
-          ],
-        },
-        {
           label: '更新日志',
           path: '/pro-components/logs',
           group: true,
+        },
+      ],
+    },
+    {
+      label: '@yl-d/hooks',
+      path: '/hooks',
+      children: [
+        {
+          label: 'create',
+          path: '/hooks/create',
+        },
+        {
+          label: 'useRefesh',
+          path: '/hooks/use-refresh',
+        },
+        {
+          label: 'useUpdateEffect',
+          path: '/hooks/use-update-effect',
+        },
+        {
+          label: 'useFullscreen',
+          path: '/hooks/use-fullscreen',
+        },
+        {
+          label: 'useReactive',
+          path: '/hooks/use-reactive',
         },
       ],
     },
