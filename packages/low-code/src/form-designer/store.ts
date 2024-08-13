@@ -1,4 +1,4 @@
-import { CardFormProps, SchemaProps, createStore } from '@yl-d/pro-components';
+import { CardFormProps, SchemaProps } from '@yl-d/pro-components';
 import {
   encrypt,
   getStandardSchema as getFormStandardSchema,
@@ -6,6 +6,7 @@ import {
 } from '../util';
 import materialConfig from '../material-config';
 import { ReactElement } from 'react';
+import { create } from '@yl-d/hooks';
 
 interface DesignerSchemaProps extends SchemaProps {
   key: string;
@@ -21,7 +22,7 @@ export interface CustomWidgetsProps {
   };
 }
 
-export default createStore<{
+export default create<{
   /** 表单属性 */
   formProps: CardFormProps;
   /** 内置组件 */

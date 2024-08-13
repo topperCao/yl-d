@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/method-signature-style */
-import { SchemaProps, TableProps, createStore } from '@yl-d/pro-components';
+import { SchemaProps, TableProps } from '@yl-d/pro-components';
 import { SearchProps } from '@yl-d/pro-components/dist/search/type';
 import { TableColumnType } from '@yl-d/pro-components/dist/table/column.type';
 import { getStandardSchema as getTableStandardSchema } from './util';
 import { encrypt, recursionFind } from '../util';
 import { ReactNode } from 'react';
 import materialConfig from '../material-config';
+import { create } from '@yl-d/hooks';
 
 interface DesignerSchemaProps extends SchemaProps {
   key: string;
@@ -21,7 +22,7 @@ export interface CustomWidgetsProps {
   };
 }
 
-export default createStore<{
+export default create<{
   /** 表单属性 */
   formProps: SearchProps;
   /** 表单模型 */

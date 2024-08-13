@@ -1,8 +1,9 @@
 import ReactDOM from 'react-dom';
 import DrawerForm from '../form-submit/drawer-form';
 import { useEffect } from 'react';
-import { createStore, DrawerFormProps } from '../index';
+import { DrawerFormProps } from '../index';
 import { uuid } from '../util';
+import { create } from '@yl-d/hooks';
 
 const closeModal = (containId: string, store: any) => {
   store.visible = false;
@@ -58,7 +59,7 @@ export const CreateDrawerForm = (props) => {
 
 export default (options: DrawerFormProps) => {
   const containId = `drawerId_${uuid(6)}`;
-  const store = createStore({
+  const store = create({
     visible: false,
   });
   return {

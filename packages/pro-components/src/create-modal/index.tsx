@@ -1,8 +1,9 @@
 import ReactDOM from 'react-dom';
 import ModalForm from '../form-submit/modal-form';
 import { useEffect } from 'react';
-import { createStore, ModalFormProps } from '../index';
+import { ModalFormProps } from '../index';
 import { uuid } from '../util';
+import { create } from '@yl-d/hooks';
 
 const $: any = document.querySelector.bind(document);
 
@@ -50,7 +51,7 @@ const CreateModalForm = (props) => {
 
 export default (options: ModalFormProps) => {
   const containId = `modalId_${uuid(6)}`;
-  const store = createStore({
+  const store = create({
     visible: false,
   });
   return {
