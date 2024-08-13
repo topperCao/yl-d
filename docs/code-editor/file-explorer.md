@@ -14,7 +14,7 @@
 
 ```tsx | react
 import { FileExplorer } from '@yl-d/code-editor';
-import files from '@/code-editor/components/files.ts';
+import files from '@/code-editor/files.ts';
 
 export default () => {
   const explorerRef = React.useRef({});
@@ -55,7 +55,7 @@ export default () => {
 
 ```tsx | react
 import { FileExplorer } from '@yl-d/code-editor';
-import files from '@/code-editor/components/files-git.ts';
+import files from '@/code-editor/files-git.ts';
 
 export default () => {
   const explorerRef = React.useRef({});

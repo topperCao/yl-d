@@ -5,7 +5,7 @@ export default defineConfig({
   favicon:
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/assets/user-logo.png',
   monorepo: true,
-  monorepoPackages: ['@yl-d/design', '@yl-d/hooks'],
+  monorepoPackages: ['@yl-d/design'],
   link: [
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/arco.min.css',
     'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/monaco-file-icon.css',
@@ -361,6 +361,143 @@ export default defineConfig({
       ],
     },
     {
+      label: '@yl-d/hooks',
+      path: '/hooks',
+      children: [
+        {
+          label: 'create',
+          path: '/hooks/create',
+        },
+        {
+          label: 'useRefesh',
+          path: '/hooks/use-refresh',
+        },
+        {
+          label: 'useUpdateEffect',
+          path: '/hooks/use-update-effect',
+        },
+        {
+          label: 'useFullscreen',
+          path: '/hooks/use-fullscreen',
+        },
+        {
+          label: 'useReactive',
+          path: '/hooks/use-reactive',
+        },
+      ],
+    },
+    {
+      label: '@yl-d/shared',
+      path: '/shared',
+      children: [
+        {
+          label: '介绍',
+          path: '/shared',
+          group: true,
+        },
+        {
+          label: 'asyncLoad',
+          path: '/shared/async-load',
+        },
+        {
+          label: 'BigNumber',
+          path: '/shared/big-number',
+        },
+        {
+          label: 'babelParse',
+          path: '/shared/babel-parse',
+        },
+        {
+          label: 'ConsoleRender',
+          path: '/shared/console-render',
+        },
+        {
+          label: 'copyToClipBoard',
+          path: '/shared/copy-to-clip-board',
+        },
+        {
+          label: 'docxReplace',
+          path: '/shared/docx-replace',
+        },
+        {
+          label: 'downloadFile',
+          path: '/shared/download-file',
+        },
+        {
+          label: 'getElementSnapshot',
+          path: '/shared/get-element-snapshot',
+        },
+        {
+          label: 'getUrlSearchParams',
+          path: '/shared/get-url-search-params',
+        },
+        {
+          label: 'MarkdownViewer',
+          path: '/shared/markdown-viewer',
+        },
+        {
+          label: 'ReactPlayground',
+          path: '/shared/react-playground',
+        },
+      ],
+    },
+    {
+      label: '@yl-d/code-editor',
+      path: '/code-editor',
+      children: [
+        {
+          label: '介绍',
+          path: '/code-editor',
+          group: true,
+        },
+        {
+          label: 'FileExplorer 目录展示',
+          path: '/code-editor/file-explorer',
+        },
+        {
+          label: 'FileEditor 内容展示',
+          path: '/code-editor/file-editor',
+        },
+        {
+          label: 'FileSearch 文件查找',
+          path: '/code-editor/file-search',
+        },
+        {
+          label: 'GitManager 源代码管理',
+          path: '/code-editor/git-manager',
+        },
+      ],
+    },
+    {
+      label: '@yl-d/low-code',
+      path: '/low-code',
+      children: [
+        {
+          label: '介绍',
+          path: '/low-code',
+          group: true,
+        },
+
+        {
+          label: 'DesignerForm',
+          path: '/low-code/designer-form',
+        },
+        {
+          label: 'DesignerTable',
+          path: '/low-code/designer-table',
+        },
+        {
+          label: 'DesignerPage',
+          path: '/low-code/designer-page',
+        },
+        {
+          label: 'CrudModelRender',
+          path: '/low-code/crud-model-render',
+        },
+      ],
+    },
+
+    {
       label: '@yl-d/pro-components',
       path: '/pro-components',
       children: [
@@ -473,162 +610,6 @@ export default defineConfig({
           label: '更新日志',
           path: '/pro-components/logs',
           group: true,
-        },
-      ],
-    },
-    {
-      label: '@yl-d/hooks',
-      path: '/hooks',
-      children: [
-        {
-          label: 'create',
-          path: '/hooks/create',
-        },
-        {
-          label: 'useRefesh',
-          path: '/hooks/use-refresh',
-        },
-        {
-          label: 'useUpdateEffect',
-          path: '/hooks/use-update-effect',
-        },
-        {
-          label: 'useFullscreen',
-          path: '/hooks/use-fullscreen',
-        },
-        {
-          label: 'useReactive',
-          path: '/hooks/use-reactive',
-        },
-      ],
-    },
-    {
-      label: '@yl-d/shared',
-      path: '/shared',
-      children: [
-        {
-          label: '介绍',
-          path: '/shared',
-          group: true,
-        },
-        {
-          label: '组件',
-          path: '/shared/components',
-          group: true,
-          children: [
-            {
-              label: 'asyncLoad',
-              path: '/shared/components/async-load',
-            },
-            {
-              label: 'BigNumber',
-              path: '/shared/components/big-number',
-            },
-            {
-              label: 'babelParse',
-              path: '/shared/components/babel-parse',
-            },
-            {
-              label: 'ConsoleRender',
-              path: '/shared/components/console-render',
-            },
-            {
-              label: 'copyToClipBoard',
-              path: '/shared/components/copy-to-clip-board',
-            },
-            {
-              label: 'docxReplace',
-              path: '/shared/components/docx-replace',
-            },
-            {
-              label: 'downloadFile',
-              path: '/shared/components/download-file',
-            },
-            {
-              label: 'getElementSnapshot',
-              path: '/shared/components/get-element-snapshot',
-            },
-            {
-              label: 'getUrlSearchParams',
-              path: '/shared/components/get-url-search-params',
-            },
-            {
-              label: 'MarkdownViewer',
-              path: '/shared/components/markdown-viewer',
-            },
-            {
-              label: 'ReactPlayground',
-              path: '/shared/components/react-playground',
-            },
-          ],
-        },
-      ],
-    },
-    {
-      label: '@yl-d/code-editor',
-      path: '/code-editor',
-      children: [
-        {
-          label: '介绍',
-          path: '/code-editor',
-          group: true,
-        },
-        {
-          label: '组件',
-          path: '/code-editor/components',
-          group: true,
-          children: [
-            {
-              label: 'FileExplorer 目录展示',
-              path: '/code-editor/components/file-explorer',
-            },
-            {
-              label: 'FileEditor 内容展示',
-              path: '/code-editor/components/file-editor',
-            },
-            {
-              label: 'FileSearch 文件查找',
-              path: '/code-editor/components/file-search',
-            },
-            {
-              label: 'GitManager 源代码管理',
-              path: '/code-editor/components/git-manager',
-            },
-          ],
-        },
-      ],
-    },
-    {
-      label: '@yl-d/low-code',
-      path: '/low-code',
-      children: [
-        {
-          label: '介绍',
-          path: '/low-code',
-          group: true,
-        },
-        {
-          label: '组件',
-          path: '/low-code/components',
-          group: true,
-          children: [
-            {
-              label: 'DesignerForm',
-              path: '/low-code/components/designer-form',
-            },
-            {
-              label: 'DesignerTable',
-              path: '/low-code/components/designer-table',
-            },
-            {
-              label: 'DesignerPage',
-              path: '/low-code/components/designer-page',
-            },
-            {
-              label: 'CrudModelRender',
-              path: '/low-code/components/crud-model-render',
-            },
-          ],
         },
       ],
     },

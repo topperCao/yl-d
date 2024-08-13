@@ -1,6 +1,6 @@
-import { createStore } from '@yl-d/pro-components';
+import { create } from '@yl-d/hooks';
 
-export default createStore({
+export default create({
   title: '@yl-d/cli',
   primaryColor: '#165dff',
   collapsed: false,
