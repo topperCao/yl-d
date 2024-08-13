@@ -20,12 +20,10 @@ const getIndexHtml = ({
   .loading {
     animation: spin 0.5s infinite linear;
   }
-
   @keyframes spin {
     0% {
       transform: rotate(0);
     }
-
     100% {
       transform: rotate(360deg);
     }
@@ -34,9 +32,9 @@ const getIndexHtml = ({
   script,
   link,
   liveReload,
+  mode,
 }) => `<!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="${favicon}" />
@@ -45,13 +43,17 @@ const getIndexHtml = ({
   ${liveReload}
   ${link}
 </head>
-
 <body>
   <div id="root">
     ${spin}
   <div>
 </body>
 ${script}
+<script type="module">
+  var script = document.createElement("script");
+  script.src = \`./${mode}/index.js\`;
+  document.body.appendChild(script);
+</script>
 </html>`;
 const encodeStr = (str) => `#_#${str}#_#`;
 const decodeStr = (str) => str.replaceAll('"#_#', '').replaceAll('#_#"', '');
@@ -153,7 +155,7 @@ export const createIndexHtml = async function (
 ) {
   const mode = config.mode === 'development' ? 'dev' : 'build';
   const cdn = mode === 'dev' ? config.devScript : config.buildScript;
-  const script = [...(cdn || []), `/${mode}/index.js`];
+  const script = [...(cdn || [])];
   const link = [...(config.link || []), `/${mode}/index.css`];
   // 开启 liveReload
   let liveReload = '';
@@ -198,6 +200,7 @@ export const createIndexHtml = async function (
       .map((i) => `<script crossorigin src="${i}"></script>`)
       .join('\n'),
     liveReload,
+    mode,
   });
   fs.outputFile(`${rootPath}/www/${mode}/index.html`, content);
   console.log(chalk.green('=> create index.html done.'));
