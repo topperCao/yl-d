@@ -78,7 +78,6 @@ export default () => {
       onSetting={(value: any) => {
         if (value.themeColor) {
           uiStore.primaryColor = value.themeColor;
-          document.body.style.setProperty('--primary-color', value.themeColor); // 修改主题
         }
       }}
       rightContentProps={{
