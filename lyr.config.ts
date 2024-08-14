@@ -187,7 +187,7 @@ export default defineConfig({
           ],
         },
         {
-          label: '表单相关',
+          label: '表单元素',
           path: '/design/data-entry',
           group: true,
           children: [
@@ -253,13 +253,32 @@ export default defineConfig({
               path: '/design/data-entry/upload',
               disabled: true,
             },
+          ],
+        },
+        {
+          label: '表单容器',
+          path: '/design/form-submit',
+          group: true,
+          children: [
             {
               label: '表单 Form',
-              path: '/design/data-entry/form',
+              path: '/design/form-submit/form',
             },
             {
               label: '查询表单 Search',
-              path: '/design/data-entry/search',
+              path: '/design/form-submit/search',
+            },
+            {
+              label: '提交 CardForm',
+              path: '/design/form-submit/card-form',
+            },
+            {
+              label: '抽屉表单 DrawerForm',
+              path: '/design/form-submit/drawer-form',
+            },
+            {
+              label: '弹框表单 ModalForm',
+              path: '/design/form-submit/modal-form',
             },
           ],
         },
@@ -498,7 +517,6 @@ export default defineConfig({
         },
       ],
     },
-
     {
       label: '@yl-d/pro-components',
       path: '/pro-components',

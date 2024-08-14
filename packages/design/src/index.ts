@@ -1,6 +1,8 @@
 import './index.less';
 export { default as Layer } from './common/layer';
+/** 通用展示 */
 export { default as Button } from './general/button';
+export { type ButtonProps } from './general/button/type';
 export { default as Carousel } from './data-display/carousel';
 export { default as Empty } from './data-display/empty';
 export { default as Tooltip } from './data-display/tooltip';
@@ -12,6 +14,7 @@ export { default as Timeline } from './data-display/timeline';
 export { default as Space } from './data-display/space';
 export { default as Avatar } from './data-display/avatar';
 export { default as AvatarGroup } from './data-display/avatar/group';
+/** 表单元素 */
 export { default as Input } from './data-entry/input';
 export { default as InputNumber } from './data-entry/input-number';
 export { default as Checkbox } from './data-entry/checkbox';
@@ -29,14 +32,23 @@ export { default as Cascader } from './data-entry/cascader';
 export { default as Slider } from './data-entry/slider';
 export { default as Rate } from './data-entry/rate';
 export { default as TreeSelect } from './data-entry/tree-select';
-export { default as Form } from './data-entry/form';
-export { default as Search } from './data-entry/search';
+/** 表单容器 */
+export { default as Form } from './form-submit/form';
+export { type FormProps } from './form-submit/form/type.form';
+export { type FormItemProps } from './form-submit/form/type.item';
+export { type FormInstance } from './form-submit/form/type.instance';
+export { default as Search } from './form-submit/search';
+export { default as CardForm } from './form-submit/card-form';
+export { default as DrawerForm } from './form-submit/drawer-form';
+export { default as ModalForm } from './form-submit/modal-form';
+/** 导航相关 */
 export { default as Pagination } from './navigation/pagination';
 export { default as Breadcrumb } from './navigation/breadcrumb';
 export { default as Dropdown } from './navigation/dropdown';
 export { default as Menu } from './navigation/menu';
 export { default as Layout } from './navigation/layout';
 export { default as Steps } from './navigation/steps';
+/** 反馈提示 */
 export { default as Drawer } from './feed-back/drawer';
 export { default as Modal } from './feed-back/modal';
 export { default as Spin } from './feed-back/spin';

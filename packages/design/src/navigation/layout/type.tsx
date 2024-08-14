@@ -41,8 +41,6 @@ export interface LayoutProps {
   /** 顶部右侧配置 */
   rightContentProps?: RightProps;
   /** 底部渲染 */
-  footerRender?: () => ReactNode;
-  /** 底部渲染 */
   siderFooterRender?: (v: boolean) => ReactNode;
   /** 实例引用 */
   layoutRef?: MutableRefObject<{

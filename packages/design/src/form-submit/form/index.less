@@ -5,7 +5,8 @@
   &-item {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    position: relative;
+    gap: 6px;
     &-required {
       & > label::before {
         top: 3px;
@@ -60,6 +61,7 @@
   .yld-form-item {
     flex-direction: row;
     align-items: center;
+    position: relative;
     > label {
       &::after {
         content: ':';

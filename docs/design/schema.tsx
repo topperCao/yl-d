@@ -6,6 +6,7 @@ export default [
     type: 'Input',
     name: 'input',
     label: '输入框',
+    required: true,
   },
   {
     type: 'InputNumber',

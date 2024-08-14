@@ -12,7 +12,7 @@ import './index.less';
 
 export default ({
   allowClear = true,
-  placeholder,
+  placeholder = '请选择',
   disabled = false,
   style = {},
   className,
