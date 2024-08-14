@@ -14,7 +14,6 @@ export default ({
   selectedKey,
   collapsed,
   dark,
-  footerRender,
   siderFooterRender,
   content,
   breadcrumb,
@@ -72,9 +71,6 @@ export default ({
             </div>
           </div>
           <div className="yld-layout-inline-body-right-content">{content}</div>
-          <div className="yld-layout-inline-body-right-footer">
-            {footerRender()}
-          </div>
         </div>
       </div>
     </>

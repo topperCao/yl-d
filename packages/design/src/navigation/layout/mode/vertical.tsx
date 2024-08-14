@@ -17,7 +17,6 @@ export default ({
   selectedKey,
   content,
   collapsed,
-  footerRender,
 }: any) => {
   /** 右侧渲染逻辑 */
   return (
@@ -71,9 +70,6 @@ export default ({
           </div>
           <div className="yld-layout-vertical-right-body-content">
             {content}
-          </div>
-          <div className="yld-layout-vertical-right-body-footer">
-            {footerRender()}
           </div>
         </div>
       </div>

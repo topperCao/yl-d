@@ -3,6 +3,10 @@ import {
   IconLanguage,
   IconUser,
   IconThunderbolt,
+  IconUserGroup,
+  IconUserAdd,
+  IconStorage,
+  IconDesktop,
 } from '@yl-d/icon';
 
 export default [
@@ -12,6 +16,7 @@ export default [
     path: '/workbench',
     children: [
       {
+        icon: <IconDesktop />,
         path: '/workbench/my',
         label: '我的工作台',
       },
@@ -28,10 +33,12 @@ export default [
         path: '/user/list',
         children: [
           {
+            icon: <IconUserGroup />,
             label: '子用户列表',
             path: '/user/list/sub-list',
           },
           {
+            icon: <IconUserAdd />,
             label: '添加子管理',
             path: '/user/list/sub-add',
           },
@@ -45,6 +52,7 @@ export default [
     path: '/dict',
     children: [
       {
+        icon: <IconStorage />,
         path: '/dict/list',
         label: '字典列表',
       },

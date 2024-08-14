@@ -1,4 +1,4 @@
-import { Menu, Breadcrumb, Tabs } from '../../..';
+import { Menu, Breadcrumb, Tabs, Space } from '../../..';
 import RightContentRender from '../right-content-render';
 import './horizontal.less';
 
@@ -45,6 +45,10 @@ export default ({
               return {
                 ...item,
                 key: item.path,
+                label: <Space>
+                  <span>{item.icon}</span>
+                  <span>{item.label}</span>
+                </Space>,
                 children: undefined,
               };
             })}
