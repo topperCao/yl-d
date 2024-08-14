@@ -1,40 +1,12 @@
-import { ReactNode, CSSProperties } from 'react';
 import ReactDOM from 'react-dom';
-import { Button, Space } from '../..';
-import { ButtonProps } from '../../general/button/type';
+import { ReactNode } from 'react';
+import { ButtonProps, Button, Space } from '../..';
 import { uuid } from '../../tools';
-import { IconClose, IconInfoCircle } from "@yl-d/icon"
+import { IconClose, IconInfoCircle } from '@yl-d/icon';
+import { ModalProps } from './type';
 import './index.less';
 
 export const $: any = document.querySelector.bind(document);
-
-export interface ModalProps {
-  containId?: string;
-  /** 标题 */
-  title?: ReactNode;
-  /** 是否有遮罩 */
-  mask?: boolean;
-  /** 点击遮罩是否带关闭 */
-  closable?: boolean;
-  /** 关闭的钩子 */
-  onClose?: Function;
-  /** 确认的钩子 */
-  onOk?: Function;
-  /** 底部按钮配置 */
-  actions?: any[];
-  /** 是否展示底部 */
-  footer?: boolean;
-  /** 自定义渲染底部 */
-  footerRender?: (api: { onClose: any }) => ReactNode;
-  /** 容器样式 */
-  style?: CSSProperties;
-  /** 确认文案 */
-  okText?: string;
-  /** 取消文案 */
-  cancelText?: string;
-  /** 主体渲染 */
-  render: (api: { onClose: any }) => ReactNode;
-}
 
 const ModalRender = ({
   title = '',
@@ -101,7 +73,7 @@ const ModalRender = ({
   );
 };
 
-const Modal = (props: ModalProps) => {
+const Modal = ({ className, ...props }: ModalProps) => {
   return {
     open: (options: ModalProps) => {
       const containId = `modal_${uuid(6)}`;
@@ -117,7 +89,11 @@ const Modal = (props: ModalProps) => {
       };
       const tag = document.createElement('div');
       tag.setAttribute('id', containId);
-      tag.setAttribute('class', 'yld-modal-wrapper');
+      const classNames = ['yld-modal-wrapper'];
+      if (className) {
+        classNames.push(className);
+      }
+      tag.setAttribute('class', classNames.join(' '));
       $('body').appendChild(tag);
       ReactDOM.render(
         <ModalRender
@@ -168,7 +144,9 @@ Modal.confirm = ({
     <>
       <div className="yld-confirm">
         <b className="yld-confirm-title">
-          <IconInfoCircle style={{ fontSize: 18, marginRight: 10, color: "#ff7d00"  }} />
+          <IconInfoCircle
+            style={{ fontSize: 18, marginRight: 10, color: '#ff7d00' }}
+          />
           {title}
         </b>
         <div className="yld-confirm-content">{content}</div>

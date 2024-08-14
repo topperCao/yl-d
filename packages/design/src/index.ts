@@ -50,7 +50,9 @@ export { default as Layout } from './navigation/layout';
 export { default as Steps } from './navigation/steps';
 /** 反馈提示 */
 export { default as Drawer } from './feed-back/drawer';
+export { type DrawerProps } from './feed-back/drawer/type';
 export { default as Modal } from './feed-back/modal';
+export { type ModalProps } from './feed-back/modal/type';
 export { default as Spin } from './feed-back/spin';
 export { default as Alert } from './feed-back/alert';
 export { default as Progress } from './feed-back/progress';

@@ -187,7 +187,7 @@ export default defineConfig({
           ],
         },
         {
-          label: '表单元素',
+          label: '表单项',
           path: '/design/data-entry',
           group: true,
           children: [
@@ -261,7 +261,7 @@ export default defineConfig({
           group: true,
           children: [
             {
-              label: '表单 Form',
+              label: '基础表单 Form',
               path: '/design/form-submit/form',
             },
             {
@@ -269,7 +269,7 @@ export default defineConfig({
               path: '/design/form-submit/search',
             },
             {
-              label: '提交 CardForm',
+              label: '卡片表单 CardForm',
               path: '/design/form-submit/card-form',
             },
             {

@@ -33,7 +33,6 @@ export default ({
       onClick: onSubmit,
     },
   ];
-  console.log('form', form);
   /** validatorForm */
   const validatorForm = async () => {
     try {

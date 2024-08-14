@@ -1,42 +1,10 @@
-import { ReactNode, CSSProperties } from 'react';
 import ReactDOM from 'react-dom';
 import { Button } from '../..';
 import { uuid } from '../../tools';
 import { $ } from '../modal';
-import { IconClose } from "@yl-d/icon"
+import { IconClose } from '@yl-d/icon';
+import { DrawerProps } from './type';
 import './index.less';
-
-export interface DrawerProps {
-  containId?: string;
-  /** 方向 */
-  placement?: 'left' | 'right';
-  /** 距离顶部距离 */
-  top?: number;
-  /** 标题 */
-  title?: ReactNode;
-  /** 是否有遮罩 */
-  mask?: boolean;
-  /** 点击遮罩是否带关闭 */
-  closable?: boolean;
-  /** 关闭的钩子 */
-  onClose?: Function;
-  /** 确认的钩子 */
-  onOk?: Function;
-  /** 底部按钮配置 */
-  actions?: any[];
-  /** 是否展示底部 */
-  footer?: boolean;
-  /** 自定义渲染底部 */
-  footerRender?: (api: { onClose: Function }) => ReactNode;
-  /** 容器样式 */
-  style?: CSSProperties;
-  /** 确认文案 */
-  okText?: string;
-  /** 取消文案 */
-  cancelText?: string;
-  /** 主体渲染 */
-  render?: (api: { onClose: Function }) => ReactNode;
-}
 
 const Drawer = ({
   title = '',
@@ -44,6 +12,7 @@ const Drawer = ({
   placement = 'right',
   style = {},
   top = 0,
+  width = 500,
   onClose = () => {},
   onOk = () => {},
   footer = true,
@@ -74,6 +43,7 @@ const Drawer = ({
         className={className.join(' ')}
         style={{
           ...style,
+          width,
           height: `calc(100vh - ${top}px)`,
         }}
       >
@@ -117,10 +87,10 @@ const Drawer = ({
   );
 };
 
-export default (props: DrawerProps) => {
+export default ({ className, ...props }: DrawerProps) => {
+  const containId = `drawer_${uuid(6)}`;
   return {
     open: (options: DrawerProps) => {
-      const containId = `drawer_${uuid(6)}`;
       const drawerProps = {
         placement: 'right',
         ...props,
@@ -134,7 +104,11 @@ export default (props: DrawerProps) => {
       };
       const tag = document.createElement('div');
       tag.setAttribute('id', containId);
-      tag.setAttribute('class', 'yld-drawer-wrapper');
+      const classNames = ['yld-drawer-wrapper'];
+      if (className) {
+        classNames.push(className);
+      }
+      tag.setAttribute('class', classNames.join(' '));
       $('body').appendChild(tag);
       ReactDOM.render(
         <Drawer
@@ -150,6 +124,11 @@ export default (props: DrawerProps) => {
         />,
         tag,
       );
+    },
+    close: () => {
+      setTimeout(() => {
+        $(`#${containId}`)?.remove();
+      }, 200);
     },
   };
 };
