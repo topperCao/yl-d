@@ -74,9 +74,9 @@ const ModalRender = ({
 };
 
 const Modal = ({ className, ...props }: ModalProps) => {
+  const containId = `modal_${uuid(6)}`;
   return {
     open: (options: ModalProps) => {
-      const containId = `modal_${uuid(6)}`;
       const modalProps = {
         ...props,
         ...options,
@@ -110,6 +110,12 @@ const Modal = ({ className, ...props }: ModalProps) => {
         tag,
       );
     },
+    close(){
+      $(`#${containId} .yld-modal`).style.top = '-9999px';
+      setTimeout(() => {
+        $(`#${containId}`)?.remove();
+      }, 200);
+    }
   };
 };
 
