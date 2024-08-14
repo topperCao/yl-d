@@ -22,7 +22,7 @@ export default defineConfig({
       format: 'cjs',
     },
     {
-      file: 'dist/index.umd.js',
+      file: 'dist/low-code.min.js',
       format: 'umd',
       name: 'lyrLowCode',
       globals: {
@@ -48,7 +48,7 @@ export default defineConfig({
     }),
     less({
       insert: true,
-      output: 'dist/index.min.css',
+      output: 'dist/low-code.min.css',
       option: {
         compress: true,
       },

@@ -21,7 +21,7 @@ export default defineConfig({
       format: "cjs",
     },
     {
-      file: 'dist/index.umd.js',
+      file: 'dist/design.min.js',
       format: 'umd',
       name: 'lyrDesign',
       globals: {
@@ -40,7 +40,7 @@ export default defineConfig({
     external(),
     commonjs(),
     less({
-      output: "dist/index.min.css",
+      output: "dist/design.min.css",
       option: {
         compress: true,
       },

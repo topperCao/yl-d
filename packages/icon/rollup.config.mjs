@@ -21,7 +21,7 @@ export default defineConfig({
       format: "cjs",
     },
     {
-      file: 'dist/index.umd.js',
+      file: 'dist/icon.min.js',
       format: 'umd',
       name: 'lyricon',
       globals: {
@@ -40,7 +40,7 @@ export default defineConfig({
     commonjs(),
     terser(),
     less({
-      output: "dist/index.min.css",
+      output: "dist/icon.min.css",
       insert: true,
       option: {
         compress: true,

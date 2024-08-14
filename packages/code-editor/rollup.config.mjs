@@ -22,7 +22,7 @@ export default defineConfig({
       format: 'cjs',
     },
     {
-      file: 'dist/index.umd.js',
+      file: 'dist/code-editor.min.js',
       format: 'umd',
       name: 'lyrCodeEditor',
       globals: {
@@ -44,7 +44,7 @@ export default defineConfig({
     }),
     less({
       insert: true,
-      output: 'dist/index.min.css',
+      output: 'dist/code-editor.min.css',
       option: {
         compress: true,
       },

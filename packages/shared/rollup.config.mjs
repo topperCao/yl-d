@@ -22,7 +22,7 @@ export default defineConfig({
       format: "cjs",
     },
     {
-      file: "dist/index.umd.js",
+      file: "dist/shared.min.js",
       format: "umd",
       name: "lyrShared",
       globals: {
@@ -44,7 +44,7 @@ export default defineConfig({
     }),
     less({
       insert: true,
-      output: "dist/index.min.css",
+      output: "dist/shared.min.css",
       option: {
         compress: true,
       },
