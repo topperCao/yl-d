@@ -16,6 +16,13 @@ export default () => {
       <br />
       <Input
         disabled={disabled}
+        placeholder="指定高度"
+        autoFocus
+        style={{ height: 40 }}
+      />
+      <br />
+      <Input
+        disabled={disabled}
         placeholder="指定长度11位"
         style={{ width: 200 }}
         maxLength={10}

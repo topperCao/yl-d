@@ -80,6 +80,55 @@ export default () => {
 };
 ```
 
+
+## 和弹出层整合
+
+```tsx | react
+import { Message, Space, Button } from '@yl-d/design';
+import schema from '@/design/schema.tsx';
+
+const delay = (ms) => new Promise((res) => setTimeout(res, ms, true));
+
+export default () => {
+  const onSubmit = async (values) => {
+    await delay(400);
+    Message.success('保存成功');
+  };
+  return (
+    <Space>
+      <Button
+        modalFormProps={{
+          title: '添加用户',
+          schema,
+          onSubmit,
+          bodyStyle: {
+            height: 500,
+            overflow: 'auto',
+          },
+        }}
+        type="primary"
+      >
+        打开 ModalForm
+      </Button>
+      <Button
+        spin
+        drawerFormProps={async () => {
+          await new Promise((res) => setTimeout(res, 2000));
+          return {
+            title: '添加用户',
+            width: 600,
+            schema,
+            onSubmit,
+          };
+        }}
+      >
+        打开 DrawerForm 支持异步
+      </Button>
+    </Space>
+  );
+};
+```
+
 ## API
 
 ```API

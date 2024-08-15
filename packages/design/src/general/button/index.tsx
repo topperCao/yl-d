@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { IconLoading } from '@yl-d/icon';
-import { Modal } from '../..';
+import { DrawerForm, Modal } from '../..';
 import { ButtonProps } from './type';
 import './index.less';
 
@@ -15,6 +15,8 @@ export default ({
   children,
   confirm,
   loading = false,
+  modalFormProps,
+  drawerFormProps,
 }: ButtonProps) => {
   const classNames = ['yld-btn'];
   const [spin, setSpin] = useState(loading);
@@ -51,6 +53,36 @@ export default ({
               await onClick();
             },
           });
+        } else if (modalFormProps) {
+          if (typeof modalFormProps === 'function') {
+            setSpin(true);
+            const rest = await modalFormProps();
+            setSpin(false);
+            // 打开
+            DrawerForm({
+              ...rest,
+            }).open({});
+          } else {
+            // 打开
+            DrawerForm({
+              ...modalFormProps,
+            }).open({});
+          }
+        } else if (drawerFormProps) {
+          if (typeof drawerFormProps === 'function') {
+            setSpin(true);
+            const rest = await drawerFormProps();
+            setSpin(false);
+            // 打开抽屉
+            DrawerForm({
+              ...rest,
+            }).open({});
+          } else {
+            // 打开抽屉
+            DrawerForm({
+              ...drawerFormProps,
+            }).open({});
+          }
         } else {
           setSpin(true);
           try {

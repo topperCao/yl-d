@@ -22,6 +22,7 @@ export default ({
   allowClear,
   onAllowClear,
   readOnly,
+  autoFocus = false,
   showCount = false,
   ...rest
 }: InputProps) => {
@@ -69,12 +70,14 @@ export default ({
         alignItems: 'center',
         position: 'relative',
         width: '100%',
+        height: '100%',
       }}
     >
       {prefix && <Prefix>{prefix}</Prefix>}
       <input
         type={password ? 'password' : 'text'}
         style={style}
+        autoFocus={autoFocus}
         className={disabled ? 'yld-input-disabled' : 'yld-input'}
         placeholder={placeholder}
         value={value || ''}

@@ -1,4 +1,5 @@
-import { CSSProperties, ReactNode} from 'react';
+import { CSSProperties, ReactNode } from 'react';
+import { DrawerFormProps, ModalFormProps } from '../..';
 
 export interface ButtonProps {
   /** 类型 */
@@ -23,6 +24,14 @@ export interface ButtonProps {
   /** 加载中 */
   loading?: boolean;
   children?: ReactNode;
+  /**
+   * 绑定 弹出层
+   */
+  modalFormProps?: ModalFormProps | (() => Promise<ModalFormProps>);
+  /**
+   * 绑定 抽屉
+   */
+  drawerFormProps?: DrawerFormProps | (() => Promise<DrawerFormProps>);
 }
 
 export default (props: ButtonProps) => null;

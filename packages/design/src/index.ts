@@ -39,8 +39,12 @@ export { type FormItemProps } from './form-submit/form/type.item';
 export { type FormInstance } from './form-submit/form/type.instance';
 export { default as Search } from './form-submit/search';
 export { default as CardForm } from './form-submit/card-form';
+export { type CardFormProps } from './form-submit/card-form/type';
 export { default as DrawerForm } from './form-submit/drawer-form';
+export { type DrawerFormProps } from './form-submit/drawer-form/type';
 export { default as ModalForm } from './form-submit/modal-form';
+export { type ModalFormProps } from './form-submit/modal-form/type';
+
 /** 导航相关 */
 export { default as Pagination } from './navigation/pagination';
 export { default as Breadcrumb } from './navigation/breadcrumb';

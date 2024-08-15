@@ -46,6 +46,8 @@ export interface InputProps {
   showCount?: boolean;
   /** 点击 */
   onClick?: any;
+  /** 聚焦 */
+  autoFocus?: boolean;
 }
 
 export default ({
