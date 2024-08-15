@@ -95,7 +95,9 @@
     "webpack-bundle-analyzer": "4.10.1",
     "webpack-cli": "5.1.4",
     "webpackbar": "5.0.2",
-    "ws": "8.16.0"
+    "ws": "8.16.0",
+    "commander": "^5.0.0",
+    "inquirer": "^7.1.0"
   },
   "license": "MIT",
   "repository": {
