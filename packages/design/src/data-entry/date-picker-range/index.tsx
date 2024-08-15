@@ -17,20 +17,16 @@ export default ({
   allowClear = true,
   disabled = false,
   style = {},
+  value = [],
   ...rest
 }: RangeDatePickerProps) => {
-  const [value, setValue]: any = useState(rest.value);
-  useEffect(() => {
-    setValue(rest.value); // update
-  }, [rest.value]);
   const handelChange = (v: string[]) => {
     const dates = v[0] > v[1] ? v.reverse() : v;
-    setValue(dates);
     onChange(dates);
   };
   return (
     <div className="yld-date-picker-range" style={style}>
-      <Space>
+      <Space style={{ width: '100%' }}>
         <DatePicker
           disabled={disabled}
           allowClear={allowClear}

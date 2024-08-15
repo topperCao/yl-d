@@ -24,7 +24,7 @@ export default ({
   };
   return (
     <div className="yld-time-picker-range" style={style}>
-      <Space>
+      <Space style={{ width: '100%' }}>
         <TimePicker
           disabled={disabled}
           allowClear={allowClear}
