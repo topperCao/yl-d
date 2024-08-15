@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { IconLoading } from '@yl-d/icon';
-import { DrawerForm, Modal } from '../..';
+import { ModalForm, DrawerForm, Modal } from '../..';
 import { ButtonProps } from './type';
 import './index.less';
 
@@ -59,14 +59,14 @@ export default ({
             const rest = await modalFormProps();
             setSpin(false);
             // 打开
-            DrawerForm({
+            ModalForm({
               ...rest,
-            }).open({});
+            }).open();
           } else {
             // 打开
-            DrawerForm({
+            ModalForm({
               ...modalFormProps,
-            }).open({});
+            }).open();
           }
         } else if (drawerFormProps) {
           if (typeof drawerFormProps === 'function') {
@@ -76,12 +76,12 @@ export default ({
             // 打开抽屉
             DrawerForm({
               ...rest,
-            }).open({});
+            }).open();
           } else {
             // 打开抽屉
             DrawerForm({
               ...drawerFormProps,
-            }).open({});
+            }).open();
           }
         } else {
           setSpin(true);

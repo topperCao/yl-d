@@ -26,5 +26,5 @@ export interface ModalProps {
   cancelText?: string;
   className?: string;
   /** 主体渲染 */
-  render: (api: { onClose: any }) => ReactNode;
+  render?: (api: { onClose: any }) => ReactNode;
 }

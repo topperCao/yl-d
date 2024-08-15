@@ -76,7 +76,7 @@ const ModalRender = ({
 const Modal = ({ className, ...props }: ModalProps) => {
   const containId = `modal_${uuid(6)}`;
   return {
-    open: (options: ModalProps) => {
+    open: (options?: ModalProps) => {
       const modalProps = {
         ...props,
         ...options,

@@ -90,7 +90,7 @@ const Drawer = ({
 export default ({ className, ...props }: DrawerProps) => {
   const containId = `drawer_${uuid(6)}`;
   return {
-    open: (options: DrawerProps) => {
+    open: (options?: DrawerProps) => {
       const drawerProps = {
         placement: 'right',
         ...props,
