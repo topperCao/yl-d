@@ -3,14 +3,14 @@
   "name": "create-lyr-cli",
   "version": "0.0.19",
   "author": "yunliang-ding",
-  "main": "./index.js",
+  "main": "./bin/index.js",
   "description": "快速安装项目",
   "repository": {
     "type": "git",
     "url": "https://github.com/yunliang-ding/create-lyr-cli"
   },
   "bin": {
-    "create-lyr-cli": "index.js"
+    "create-lyr-cli": "./bin/index.js"
   },
   "dependencies": {
     "chalk": "^4.0.0",

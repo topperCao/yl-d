@@ -81,7 +81,7 @@ const createFileRouter = async function (
   if (config.docsMode !== true) {
     /** 多包模式这里需要解析 packages 文件夹下的所有包 */
     if (config.monorepo) {
-      const pkgs = `${rootPath}/packages/**/package.json`;
+      const pkgs = `${rootPath}/packages/*/package.json`;
       const pkgList = glob.sync(pkgs);
       pkgList
         .filter((pkg: string) => {

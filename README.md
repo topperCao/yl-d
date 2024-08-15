@@ -31,5 +31,6 @@ npm run build
 - @yl-d/shared 工具库
 - @yl-d/code-editor 代码编辑组件
 - @yl-d/low-code 低代码相关
+- @yl-d/create-lyr-cli 快速选择项目模版
 - @yl-d/cli 工程脚手架
 - @yl-d/docs 组件库文档脚手架
