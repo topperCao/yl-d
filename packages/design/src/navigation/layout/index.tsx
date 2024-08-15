@@ -40,7 +40,6 @@ export default ({
     avatarUrl:
       'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/assets/user-logo.png',
   },
-  footerRender = () => null,
   siderFooterRender = () => null,
   layoutRef = useRef<any>({}),
   children = null,
@@ -138,7 +137,6 @@ export default ({
     siderFooterRender,
     topKey,
     content: children,
-    footerRender,
   };
   return (
     <div className={classNames.join(' ')} style={style}>

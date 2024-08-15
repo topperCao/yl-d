@@ -1,6 +1,5 @@
-import { ButtonProps } from '../../general/button/type';
-import { FormProps } from '../../data-entry/form/type.form';
 import { ReactNode, CSSProperties, MutableRefObject } from 'react';
+import { FormProps, ButtonProps } from '../..';
 
 export interface columnProps {
   title?: ReactNode;
@@ -45,11 +44,15 @@ export interface TableProps {
     loading?: boolean;
   }>;
   /** 工具配置 */
-  tools?: ToolProps[];
+  tools?: ToolProps[] | ((api: { refresh: Function }) => ToolProps[]);
   /** 操作列配置 */
   rowOperations?: {
     width: string | number;
-    menus: (api: { record: any; refresh: Function, index: number }) => ToolProps[];
+    menus: (api: {
+      record: any;
+      refresh: Function;
+      index: number;
+    }) => ToolProps[];
   };
   /** 唯一标示 */
   rowKey?: string;
@@ -74,6 +77,5 @@ export interface TableProps {
   };
   setLoading?: Function;
 }
-
 
 export default (props: TableProps) => null;

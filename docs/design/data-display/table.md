@@ -250,7 +250,6 @@ export default () => {
 };
 ```
 
-
 ## 固定左右列
 
 > 只有配置了 scroll.x 属性才生效
@@ -379,7 +378,7 @@ export default () => {
       useFilter={false}
       checkable
       onCheck={(e) => {
-        console.log(e)
+        console.log(e);
       }}
       columns={[
         {
@@ -435,13 +434,62 @@ export default () => {
 };
 ```
 
-
-## 配置查询条件
+## 配置 CRUD
 
 ```jsx | react
 import { Table, Message } from '@yl-d/design';
 import { IconPlus } from '@yl-d/icon';
 import axios from 'axios';
+
+const schema = [
+  {
+    type: 'Input',
+    label: '姓名',
+    name: 'username',
+  },
+  {
+    type: 'Select',
+    label: '性别',
+    name: 'sex',
+    props: {
+      options: [
+        {
+          label: '男',
+          value: 0,
+        },
+        {
+          label: '女',
+          value: 1,
+        },
+      ],
+    },
+  },
+  {
+    type: 'Input',
+    label: '城市',
+    name: 'city',
+  },
+  {
+    type: 'Input',
+    label: '签名',
+    name: 'sign',
+  },
+  {
+    type: 'Input',
+    label: '职业',
+    name: 'classify',
+  },
+  {
+    type: 'Input',
+    label: '分数',
+    name: 'score',
+  },
+  {
+    type: 'Input',
+    label: '登录次数',
+    name: 'logins',
+  },
+];
 
 export default () => {
   return (
@@ -496,8 +544,17 @@ export default () => {
         menus: ({ record, refresh, index }) => [
           {
             label: '编辑',
-            onClick() {
-              console.log(record);
+            drawerFormProps: {
+              title: '编辑用户',
+              initialValues: {
+                ...record,
+              },
+              schema,
+              onSubmit: async (values) => {
+                console.log(values);
+                Message.success('编辑完成');
+                refresh();
+              },
             },
           },
           {
@@ -524,13 +581,19 @@ export default () => {
         x: 1200,
         y: 300,
       }}
-      tools={[
+      tools={(api) => [
         {
           label: '添加',
           type: 'primary',
           icon: <IconPlus />,
-          onClick({ refresh }) {
-            console.log(tableRef);
+          drawerFormProps: {
+            title: '添加用户',
+            initialValues: {},
+            schema,
+            onSubmit: async (values) => {
+              Message.success('添加完成');
+              api.refresh();
+            },
           },
         },
       ]}

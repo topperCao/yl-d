@@ -18,7 +18,7 @@ export default ({
   rowKey = 'id',
   style = {},
   paginationConfig = {
-    pageSize: 10
+    pageSize: 10,
   },
   bordered = false,
   checkable = false,
@@ -180,7 +180,7 @@ export default ({
                 gap: 10,
               }}
             >
-              {tools.map((item) => {
+              {(tools as any).map((item) => {
                 return (
                   <Button
                     key={item.label}

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Button, Space } from '../..';
+import { Button, Space } from '..';
 
 export default ({ actions = [], actionClick, validatorForm, form }) => {
   const [disabled, setDisabled]: any = useState(false); // 设置底部按钮禁用

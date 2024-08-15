@@ -46,15 +46,18 @@ export default ({
   style = {},
   ...rest
 }: TableProps) => {
+  let innerTools: any = tools;
+  if(typeof tools === "function"){
+    innerTools = tools(tableRef.current as any);
+  }
   if (useFilter) {
-    tools.push({
+    innerTools.push({
       icon: <IconSettings />,
       className: 'btn-tool',
-      async onClick({ refresh }) {},
     });
   }
   if (useRefresh) {
-    tools.push({
+    innerTools.push({
       icon: <IconRefresh />,
       type: 'primary',
       className: 'btn-tool',
@@ -101,7 +104,7 @@ export default ({
         columns={lastColums}
         search={search}
         {...rest}
-        tools={tools}
+        tools={innerTools}
       />
     </div>
   );
