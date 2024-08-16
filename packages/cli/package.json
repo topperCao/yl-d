@@ -24,6 +24,7 @@
     "@yl-d/hooks": "^0.0.1",
     "@yl-d/icon": "^0.0.3",
     "axios": "1.6.3",
+    "ali-oss": "^6.21.0",
     "babel-preset-env": "1.7.0",
     "chalk": "^4.0.0",
     "chokidar": "3.5.3",
