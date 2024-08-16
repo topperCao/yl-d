@@ -23,6 +23,7 @@ export interface LayerProps {
   getPopupContainer?: () => HTMLElement;
   children: ReactNode;
   layerWidth?: string | number;
+  layerHeight?: number;
 }
 
 export default forwardRef(
@@ -37,6 +38,7 @@ export default forwardRef(
       layerMouseLeave,
       layerMouseEnter,
       layerWidth,
+      layerHeight,
     }: LayerProps | any,
     ref,
   ) => {
@@ -73,12 +75,15 @@ export default forwardRef(
     divRef.current.style.left = '0px';
     const dom = getPopupContainer?.() || document.querySelector('body');
     dom.appendChild(divRef.current);
-    const style: CSSProperties = {};
+    const style: any = {};
     if (domRef?.current) {
       const parentRect = dom.getBoundingClientRect();
       const { width, height, left, top } =
         domRef.current.getBoundingClientRect();
       style.width = layerWidth || width;
+      if (layerHeight) {
+        style.height = layerHeight;
+      }
       style.top = top + height + 4 - parentRect.top;
       style.left = left - parentRect.left;
     }

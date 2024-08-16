@@ -52,7 +52,7 @@ export default ({
       Number(
         100 /
           (sliderRailRef.current.getBoundingClientRect().width ||
-            (style && style.width)),
+            (style && (style as any).width)),
       ).toFixed(2),
     );
   }, [_value]);

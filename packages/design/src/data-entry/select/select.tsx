@@ -120,6 +120,7 @@ export default ({
           }}
           getPopupContainer={getPopupContainer}
           layerClassName={layerClassName}
+          layerHeight={200}
         >
           {options.length > 0 ? (
             options.map((option) => {
