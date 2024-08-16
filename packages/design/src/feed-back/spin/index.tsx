@@ -1,4 +1,4 @@
-import { ReactNode, useRef, useEffect, CSSProperties, useState } from 'react';
+import { ReactNode, CSSProperties } from 'react';
 import { IconLoading } from '@yl-d/icon';
 import './index.less';
 
@@ -10,19 +10,11 @@ export interface SpinProps {
 }
 
 export default ({ loading, style = {}, message, children }: SpinProps) => {
-  const spinRef = useRef<HTMLDivElement>();
-  const spinBodyRef = useRef<HTMLDivElement>();
-  useEffect(() => {
-    spinRef.current.style.width =
-      spinBodyRef.current.firstElementChild.getBoundingClientRect().width +
-      'px';
-  }, [loading]);
   return (
     <>
-      <div className="yld-loading" style={style} ref={spinRef}>
+      <div className="yld-loading" style={style}>
         <div
           className="yld-loading-body"
-          ref={spinBodyRef}
           style={{
             filter: loading ? 'blur(1px)' : 'none',
           }}

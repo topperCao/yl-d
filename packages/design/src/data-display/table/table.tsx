@@ -209,7 +209,11 @@ export default ({
               width: tableHeaderRef.current?.getBoundingClientRect()?.width,
             })}
           </table>
-          <table className="yld-table-body" ref={tableBodyRef}>
+          <table
+            className="yld-table-body"
+            ref={tableBodyRef}
+            style={{ height: scroll.y }}
+          >
             {innerTableRef.current.dataSource.length === 0 ? (
               <Empty />
             ) : (

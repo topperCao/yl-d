@@ -16,17 +16,30 @@ export default () => {
       />
       <br />
       <br />
-      <Spin loading={loading}>
-        <div style={{ width: 400, height: 200, border: '1px solid var(--border-color)' }}>
+      <div
+        style={{
+          width: 400,
+          height: 200,
+          border: '1px solid var(--border-color)',
+        }}
+      >
+        <Spin loading={loading}>
           <Empty />
-        </div>
-      </Spin>
+        </Spin>
+      </div>
       <br />
-      <Spin loading={loading} message="提示文案">
-        <div style={{ width: 400, height: 200, border: '1px solid var(--border-color)' }}>
-          <Empty label="加载区域" />
-        </div>
-      </Spin>
+      <div
+        style={{
+          width: 400,
+          height: 200,
+          border: '1px solid var(--border-color)',
+        }}
+      >
+        <Spin loading={loading} message="加载中...">
+          <Empty label="提示文案" />
+        </Spin>
+      </div>
+
       <br />
     </>
   );
