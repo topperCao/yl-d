@@ -1,11 +1,6 @@
 import { IconEmpty } from '@yl-d/icon';
-import { ReactNode } from 'react';
+import { EmptyProps } from './type';
 import './index.less';
-
-export interface EmptyProps {
-  label?: string;
-  icon?: ReactNode;
-}
 
 export default ({
   label = '暂无数据',

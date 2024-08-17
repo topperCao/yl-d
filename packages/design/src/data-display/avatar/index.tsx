@@ -1,12 +1,6 @@
-import { CSSProperties, ReactNode, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
+import { AvatarProps } from './types';
 import './index.less';
-
-export interface AvatarProps {
-  style?: CSSProperties;
-  shape?: 'circle' | 'square';
-  children?: ReactNode | ReactNode[];
-  size?: number;
-}
 
 export default ({
   style = {},

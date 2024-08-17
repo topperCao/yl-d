@@ -1,22 +1,10 @@
-import { useState, useRef, useEffect, CSSProperties, ReactNode } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { IconMore, IconClose, IconDown } from '@yl-d/icon';
 import { Dropdown, Menu, Space } from '../..';
+import { TabsProps } from './type';
 import './index.less';
 
-export interface TabProps {
-  style?: CSSProperties;
-  closable?: boolean;
-  onClick?: Function;
-  onRemove?: Function;
-  activeKey?: string;
-  tabs: {
-    key: string;
-    label: ReactNode;
-    content?: ReactNode;
-  }[];
-}
-
-export default ({ style, closable, onClick, onRemove, ...rest }: TabProps) => {
+export default ({ style, closable, onClick, onRemove, ...rest }: TabsProps) => {
   const [tabs, setTabs] = useState(Array.isArray(rest.tabs) ? rest.tabs : []);
   const [splitIndex, setSplitIndex] = useState(0);
   const [activeKey, setActiveKey] = useState(rest.activeKey || tabs[0]?.key);

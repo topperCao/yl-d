@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { IconLeft, IconRight } from '@yl-d/icon';
 import './index.less';
-
-export interface CarouselProps {}
+import { CarouselProps } from './type';
 
 let swipeX = false;
 
@@ -25,7 +24,7 @@ export default ({
   legend = true,
   loop = true,
   swipe = true,
-}: CarouselProps | any) => {
+}: CarouselProps) => {
   let timer: any;
   /** update */
   useEffect(() => {

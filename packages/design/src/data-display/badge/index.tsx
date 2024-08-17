@@ -1,6 +1,5 @@
 import './index.less';
-
-export interface BadgeProps {}
+import { BadgeProps } from './type';
 
 export default ({
   color,

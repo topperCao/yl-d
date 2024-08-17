@@ -1,7 +1,8 @@
 import { IconRecord } from '@yl-d/icon';
+import { TimelineProps } from './type';
 import './index.less';
 
-export default ({ items }) => {
+export default ({ items }: TimelineProps) => {
   return (
     <div className="yld-timeline">
       {items.map((item: any, index: number, arr: any) => {

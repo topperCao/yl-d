@@ -1,17 +1,7 @@
-import { useState, useEffect, useRef, ReactNode, CSSProperties } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { debounce } from '../../tools';
+import { TooltipProps } from './type';
 import './index.less';
-
-export interface TooltipProps {
-  children?: ReactNode;
-  title?: ReactNode;
-  placement?: 'top' | 'right' | 'left' | 'bottom';
-  overlayClassName?: string;
-  overlayStyle?: CSSProperties;
-  visible?: boolean;
-  onVisibleChange?: Function;
-  innerStyle?: CSSProperties;
-}
 
 export default ({
   children,

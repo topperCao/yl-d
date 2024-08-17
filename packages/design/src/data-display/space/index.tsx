@@ -1,12 +1,5 @@
-import { ReactNode, CSSProperties } from 'react';
+import { SpaceProps } from './types';
 import './index.less';
-
-export interface SpaceProps {
-  style?: CSSProperties;
-  gap?: number;
-  children: ReactNode;
-  direction?: 'vertical' | 'horizontal';
-}
 
 export default ({
   style = {},
