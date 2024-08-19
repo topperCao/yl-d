@@ -10,9 +10,9 @@ export interface FormItemProps {
   /** 表单项类型 */
   type: string | ((props: ItemTypeProps) => ReactNode);
   /** 名称 */
-  name: string;
+  name?: string;
   /** 标签 */
-  label: ReactNode;
+  label?: ReactNode;
   /** 是否必填 */
   required?: boolean;
   /** 小标题 */
