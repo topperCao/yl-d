@@ -1,13 +1,6 @@
-import { ReactNode, CSSProperties } from 'react';
 import { IconLoading } from '@yl-d/icon';
+import { SpinProps } from './type';
 import './index.less';
-
-export interface SpinProps {
-  loading?: Boolean;
-  style?: CSSProperties;
-  message?: ReactNode;
-  children?: ReactNode;
-}
 
 export default ({ loading, style = {}, message, children }: SpinProps) => {
   return (

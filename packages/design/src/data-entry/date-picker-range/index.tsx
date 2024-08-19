@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react';
-import { DatePicker, Space } from '../..';
-import { DatePickerProps } from '../date-picker';
+import { DatePicker, DatePickerProps, Space } from '../..';
 import './index.less';
 
 export interface RangeDatePickerProps

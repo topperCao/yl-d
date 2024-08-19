@@ -7,6 +7,7 @@
     "declaration": true,
     "jsx": "react-jsx",
     "strict": false,
+    "resolveJsonModule": true,
     "sourceMap": false,
     "skipLibCheck": true,
     "outDir": "./dist",

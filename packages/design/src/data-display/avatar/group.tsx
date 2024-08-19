@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
-import Avatar, { AvatarProps } from '.';
+import Avatar from '.';
+import { AvatarProps } from './type';
 import './index.less';
 
 export interface AvatarGroupProps {

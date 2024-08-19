@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { InputProps } from '..';
 import { IconEye, IconEyeInvisible, IconClose } from '@yl-d/icon';
 import Prefix from './prefix';
 import Suffix from './suffix';
 import { isEmpty } from '../../../tools';
+import { InputProps } from '../type';
 
 export default ({
   value,

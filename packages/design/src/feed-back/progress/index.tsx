@@ -1,17 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
+import { ProgressProps } from './type';
 import './index.less';
-
-export interface ProgressProps {
-  percent: number;
-  strokeColor: string;
-  active?: boolean;
-  progressRef?: {
-    current: {
-      setPercent?: (p) => void;
-      percent?: number;
-    };
-  };
-}
 
 export default ({
   percent = 0,

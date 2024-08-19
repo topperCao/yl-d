@@ -1,4 +1,4 @@
-import { CSSProperties, ReactNode, useState } from 'react';
+import { useState } from 'react';
 import {
   IconCheckCircleFill,
   IconInfoCircleFill,
@@ -7,15 +7,9 @@ import {
   IconClose,
 } from '@yl-d/icon';
 import './index.less';
+import { AlertProps } from './type';
 
-export interface AlertProps {
-  message: ReactNode;
-  closable?: Boolean;
-  type?: keyof typeof iconMapping;
-  style?: CSSProperties;
-}
-
-const iconMapping = {
+export const iconMapping = {
   success: <IconCheckCircleFill />,
   info: <IconInfoCircleFill />,
   warning: <IconQuestionCircleFill />,

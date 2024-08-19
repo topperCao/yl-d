@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { AvatarProps } from './types';
+import { AvatarProps } from './type';
 import './index.less';
 
 export default ({

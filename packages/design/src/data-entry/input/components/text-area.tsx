@@ -1,9 +1,7 @@
-import { InputProps } from '..';
+import { InputProps } from "../type";
 
 export default ({
   value,
-  addonBefore,
-  addonAfter,
   disabled,
   placeholder = '请输入',
   maxLength,

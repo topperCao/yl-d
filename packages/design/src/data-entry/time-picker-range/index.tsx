@@ -1,5 +1,4 @@
-import { TimePicker, Space } from '../..';
-import { TimePickerProps } from '../time-picker';
+import { TimePicker, Space, TimePickerProps } from '../..';
 import './index.less';
 
 export interface RangeTimePickerProps

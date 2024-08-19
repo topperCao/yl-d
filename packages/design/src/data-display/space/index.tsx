@@ -1,4 +1,4 @@
-import { SpaceProps } from './types';
+import { SpaceProps } from './type';
 import './index.less';
 
 export default ({
