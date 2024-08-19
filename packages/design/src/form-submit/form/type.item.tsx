@@ -15,6 +15,8 @@ export interface FormItemProps {
   label?: ReactNode;
   /** 是否必填 */
   required?: boolean;
+  /** 是否禁用 */
+  disabled?: boolean;
   /** 小标题 */
   tooltip?: ReactNode;
   /** 描述信息 */
