@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { Empty, Layer } from '../..';
-import { SelectProps } from './type';
+import { SimpleSelectProps } from './type';
 import { IconDown, IconClose, IconCheck } from '@yl-d/icon';
 
 export default ({
@@ -13,7 +13,7 @@ export default ({
   onChange,
   getPopupContainer,
   ...rest
-}: SelectProps) => {
+}: SimpleSelectProps) => {
   const [open, setOpen] = useState(false);
   const [options, setOptions] = useState(rest.options || []);
   const [value, setValue] = useState(

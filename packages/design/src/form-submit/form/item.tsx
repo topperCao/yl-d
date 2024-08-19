@@ -25,6 +25,7 @@ export default ({
     type,
     style = {},
     span = 1,
+    hidden = false,
     props,
     visible,
     className,
@@ -92,6 +93,9 @@ export default ({
   if (required) {
     classNames.push('yld-form-item-required');
   }
+  if (hidden) {
+    classNames.push('yld-form-item-hidden');
+  }
   if (error) {
     classNames.push('yld-form-item-error');
   }
@@ -112,6 +116,7 @@ export default ({
         <Comp
           disabled={_disabled}
           {...props}
+          form={form}
           /** 注入属性 value 和 onChange */
           value={_value}
           onChange={onChange}

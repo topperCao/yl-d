@@ -7,7 +7,7 @@ export interface DrawerProps {
   /** 距离顶部距离 */
   top?: number;
   /** 宽度 */
-  width?: number;
+  width?: number | string;
   /** 标题 */
   title?: ReactNode;
   /** 是否有遮罩 */

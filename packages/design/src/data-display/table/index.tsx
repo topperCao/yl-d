@@ -5,7 +5,7 @@ import { TableProps } from './type';
 import Table from './table';
 import './index.less';
 
-const Contianer = ({ search, form, tableRef, lastColums, tools, ...rest }: any) => {
+const Contianer = ({ search, form, tableRef, lastColums, ...rest }: any) => {
   const [loading, setLoading] = useState(false); // 控制loading
   return (
     <Spin loading={loading}>
@@ -26,7 +26,6 @@ const Contianer = ({ search, form, tableRef, lastColums, tools, ...rest }: any) 
         setLoading={setLoading}
         columns={lastColums}
         {...rest}
-        tools={tools}
       />
     </Spin>
   );
@@ -46,23 +45,19 @@ export default ({
   style = {},
   ...rest
 }: TableProps) => {
-  let innerTools: any = tools;
-  if(typeof tools === "function"){
-    innerTools = tools(tableRef.current as any);
-  }
   if (useFilter) {
-    innerTools.push({
+    tools.push({
       icon: <IconSettings />,
       className: 'btn-tool',
     });
   }
   if (useRefresh) {
-    innerTools.push({
+    tools.push({
       icon: <IconRefresh />,
       type: 'primary',
       className: 'btn-tool',
-      async onClick({ refresh }) {
-        await refresh();
+      async onClick() {
+        await tableRef.current.refresh();
       },
     });
   }
@@ -86,7 +81,11 @@ export default ({
               index,
             }).map((item) => {
               return (
-                <Button key={item.label} {...item} type={item.type || 'link'}>
+                <Button
+                  key={item.label}
+                  {...item}
+                  type={item.type || 'link'}
+                >
                   {item.label}
                 </Button>
               );
@@ -103,8 +102,8 @@ export default ({
         form={form}
         columns={lastColums}
         search={search}
+        tools={tools}
         {...rest}
-        tools={innerTools}
       />
     </div>
   );

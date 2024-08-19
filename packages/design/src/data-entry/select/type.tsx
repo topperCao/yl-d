@@ -1,4 +1,5 @@
 import { CSSProperties, ReactNode } from 'react';
+import { FormInstance } from '../..';
 
 export interface OptionsProps {
   label: ReactNode;
@@ -6,7 +7,7 @@ export interface OptionsProps {
   disabled?: boolean;
 }
 
-export interface SelectProps {
+export interface SimpleSelectProps {
   /** 类名 */
   className?: string;
   /** 多选模式 */
@@ -35,6 +36,18 @@ export interface SelectProps {
   filter?: Function;
   /** 挂在的容器 */
   getPopupContainer?: () => HTMLElement;
+  /** 别名 */
+  fieldNames?: {
+    label?: string,
+    value?: string,
+  }
+}
+
+export interface SelectProps extends Omit<SimpleSelectProps, 'options'> {
+  /** 数据源 */
+  options?:
+    | ((forminstance: FormInstance) => Promise<OptionsProps[]>)
+    | OptionsProps[];
 }
 
 export default (props: SelectProps) => null;

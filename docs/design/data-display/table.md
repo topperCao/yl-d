@@ -228,7 +228,7 @@ export default () => {
           type: 'primary',
           icon: <IconPlus />,
           onClick({ refresh }) {
-            console.log(tableRef);
+            console.log(refresh);
           },
         },
       ]}
@@ -343,7 +343,7 @@ export default () => {
           type: 'primary',
           icon: <IconPlus />,
           onClick({ refresh }) {
-            console.log(tableRef);
+            console.log(refresh);
           },
         },
       ]}
@@ -581,20 +581,20 @@ export default () => {
         x: 1200,
         y: 300,
       }}
-      tools={(api) => [
+      tools={[
         {
           label: '添加',
           type: 'primary',
           icon: <IconPlus />,
-          drawerFormProps: {
+          drawerFormProps: ({ refresh }) => ({
             title: '添加用户',
             initialValues: {},
             schema,
             onSubmit: async (values) => {
               Message.success('添加完成');
-              api.refresh();
+              refresh();
             },
-          },
+          }),
         },
       ]}
       search={{

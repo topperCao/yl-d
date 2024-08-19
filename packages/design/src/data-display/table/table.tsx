@@ -72,7 +72,10 @@ export default ({
     try {
       const { success, data, total } = await request({
         ...innerTableRef.current.params,
-        ...innerTableRef.current.pagination,
+        ...{
+          ...innerTableRef.current.pagination,
+          total: undefined,
+        },
         ...sort,
       });
       if (success) {
@@ -171,7 +174,7 @@ export default ({
   return (
     <>
       <div className="yld-table" style={style}>
-        {tools.length > 0 && (
+        {tools && tools.length > 0 && (
           <div className="yld-table-tools">
             <h3>{title}</h3>
             <div
@@ -180,12 +183,29 @@ export default ({
                 gap: 10,
               }}
             >
-              {(tools as any).map((item) => {
+              {(tools as any).map((item: any) => {
+                let modalFormProps = item.modalFormProps;
+                let drawerFormProps = item.drawerFormProps;
+                /** 扩展参数 */
+                if (typeof modalFormProps === 'function') {
+                  modalFormProps = () =>
+                    item.modalFormProps({
+                      refresh: tableRef.current.refresh,
+                    });
+                }
+                if (typeof drawerFormProps === 'function') {
+                  drawerFormProps = () =>
+                    item.drawerFormProps({
+                      refresh: tableRef.current.refresh,
+                    });
+                }
                 return (
                   <Button
                     key={item.label}
                     {...item}
                     type={item.type}
+                    modalFormProps={modalFormProps}
+                    drawerFormProps={drawerFormProps}
                     onClick={async () => {
                       await item.onClick?.({
                         refresh: tableRef.current.refresh,

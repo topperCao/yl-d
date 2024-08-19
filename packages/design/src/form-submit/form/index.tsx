@@ -57,7 +57,6 @@ const Form = ({
           [name]: descriptorRef.current[name],
         });
         validator.validate({ [name]: value }, (errors) => {
-          console.log({ [name]: value }, errors);
           if (errors) {
             errors.map((error) => {
               itemRef.current[error.field].showError(error.message);

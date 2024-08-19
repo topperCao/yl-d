@@ -51,6 +51,48 @@ export default () => {
 };
 ```
 
+## 异步查询
+
+```jsx | react
+import { Select } from '@yl-d/design';
+
+export default () => {
+  return (
+    <Select
+      onChange={(v) => {
+        console.log('onChange', v);
+      }}
+      options={async (formInstance) => {
+        console.log('formInstance', formInstance); // 仅在 form 包裹下可以拿到
+        return [
+          {
+            label: 'Html',
+            value: 'Html',
+          },
+          {
+            label: 'Css',
+            value: 'Css',
+          },
+          {
+            label: 'JavaScript',
+            value: 'JavaScript',
+            disabled: true,
+          },
+          {
+            label: 'React',
+            value: 'React',
+          },
+          {
+            label: 'Vue',
+            value: 'Vue',
+          },
+        ];
+      }}
+    />
+  );
+};
+```
+
 ## 模糊查询
 
 ```jsx | react
@@ -174,4 +216,10 @@ export default () => {
     />
   );
 };
+```
+
+## API
+
+```API
+/packages/design/src/data-entry/select/type.tsx
 ```

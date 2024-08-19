@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { SelectProps } from './type';
+import { SimpleSelectProps } from './type';
 import { Empty, Layer } from '../..';
 import { IconDown, IconClose } from '@yl-d/icon';
 
@@ -16,7 +16,7 @@ export default ({
   showSearch = false,
   filter,
   ...rest
-}: SelectProps) => {
+}: SimpleSelectProps) => {
   const [open, setOpen] = useState(false);
   const [options, setOptions] = useState(rest.options || []);
   const [value, setValue] = useState(rest.value);

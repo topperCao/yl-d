@@ -1,5 +1,5 @@
 import { ReactNode, CSSProperties, MutableRefObject } from 'react';
-import { FormProps, ButtonProps } from '../..';
+import { FormProps, ButtonProps, ModalFormProps, DrawerFormProps } from '../..';
 
 export interface columnProps {
   title?: ReactNode;
@@ -9,7 +9,30 @@ export interface columnProps {
   render?: (e, record, index) => ReactNode;
 }
 
-export interface ToolProps extends ButtonProps {
+export interface ToolProps
+  extends Omit<ButtonProps, 'modalFormProps' | 'drawerFormProps'> {
+  label?: string;
+  /**
+   * 绑定 弹出层
+   */
+  modalFormProps?:
+    | ModalFormProps
+    | ((api: {
+        refresh: Function;
+        [key: string]: any;
+      }) => ModalFormProps | Promise<ModalFormProps>);
+  /**
+   * 绑定 抽屉
+   */
+  drawerFormProps?:
+    | DrawerFormProps
+    | ((api: {
+        refresh: Function;
+        [key: string]: any;
+      }) => DrawerFormProps | Promise<DrawerFormProps>);
+}
+
+export interface MenuProps extends ButtonProps {
   label?: string;
 }
 
@@ -44,7 +67,7 @@ export interface TableProps {
     loading?: boolean;
   }>;
   /** 工具配置 */
-  tools?: ToolProps[] | ((api: { refresh: Function }) => ToolProps[]);
+  tools?: ToolProps[];
   /** 操作列配置 */
   rowOperations?: {
     width: string | number;
@@ -52,7 +75,7 @@ export interface TableProps {
       record: any;
       refresh: Function;
       index: number;
-    }) => ToolProps[];
+    }) => MenuProps[];
   };
   /** 唯一标示 */
   rowKey?: string;

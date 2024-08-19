@@ -27,11 +27,11 @@ export interface ButtonProps {
   /**
    * 绑定 弹出层
    */
-  modalFormProps?: ModalFormProps | (() => Promise<ModalFormProps>);
+  modalFormProps?: ModalFormProps | (() => ModalFormProps | Promise<ModalFormProps>);
   /**
    * 绑定 抽屉
    */
-  drawerFormProps?: DrawerFormProps | (() => Promise<DrawerFormProps>);
+  drawerFormProps?: DrawerFormProps | (() => DrawerFormProps | Promise<DrawerFormProps>);
 }
 
 export default (props: ButtonProps) => null;
