@@ -18,7 +18,7 @@ export interface FormProps {
   /** 是否禁用 */
   disabled?: boolean;
   /** 布局等份 */
-  column?: 1 | 2 | 3;
+  column?: 1 | 2 | 3 | 4;
   /** 类名 */
   className?: string;
   /** 是否水平布局 */

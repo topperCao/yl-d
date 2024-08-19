@@ -47,7 +47,9 @@ export default ({
   }, [disabled]);
   const [error, setError] = useState(false);
   const Comp =
-    typeof type === 'function' ? type : mapping[type] || <Error type={type} />;
+    typeof type === 'function'
+      ? type
+      : mapping[type] || (() => <Error type={type} />);
   // 生成校验规则
   if (required) {
     descriptorRef.current[name] = {

@@ -58,8 +58,7 @@ export default () => {
       messageContainer.style.bottom = 50 + length * 60 + 'px';
       messageContainer.style.right = '20px';
     } else {
-      messageContainer.style.top = 50 + length * 60 + 'px';
-      messageContainer.style.top = 50 + length * 60 + 'px';
+      messageContainer.style.top = length * 60 + 'px';
     }
     $('body').appendChild(messageContainer);
     setTimeout(() => {

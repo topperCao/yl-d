@@ -17,7 +17,7 @@ export default () => {
       <Button
         style={{ background: '#d81e06', color: '#fff' }}
         onClick={() => {
-          Message.error('错误提示!');
+          Message.error('错误提示,错误提示,错误提示,错误提示错误提示,错误提示,错误提示,错误提示!');
         }}
       >
         Error

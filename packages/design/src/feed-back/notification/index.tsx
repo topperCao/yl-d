@@ -43,7 +43,6 @@ export default () => {
     let length = $$('.yld-notification').length;
     messageContainer.className = 'yld-notification';
     messageContainer.style.top = 30 + length * 120 + 'px';
-    messageContainer.style.top = 30 + length * 120 + 'px';
     $('body').appendChild(messageContainer);
     setTimeout(() => {
       messageContainer.remove();
@@ -71,7 +70,9 @@ export default () => {
             <IconClose onClick={closeNotify} />
           </div>
         </div>
-        <div className="yld-notification-content-info">{option.content}</div>
+        <div className="yld-notification-content-info">
+          {option.content}
+        </div>
       </div>
     );
   };

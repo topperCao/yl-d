@@ -12,7 +12,7 @@ export interface SearchProps extends FormProps {
 export default ({
   onReset = () => {},
   onSearch = () => {},
-  column = 3,
+  column = 4,
   schema = [],
   horizontal = true,
   ...rest
@@ -30,7 +30,7 @@ export default ({
         {
           className: 'yld-search-flex-btn',
           style: {
-            gridColumn: 3,
+            gridColumn: column,
           },
           type() {
             return (

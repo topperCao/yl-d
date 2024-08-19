@@ -212,7 +212,7 @@ export default ({
           <table
             className="yld-table-body"
             ref={tableBodyRef}
-            style={{ height: scroll.y }}
+            style={{ maxHeight: scroll.y }}
           >
             {innerTableRef.current.dataSource.length === 0 ? (
               <Empty />
