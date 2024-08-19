@@ -32,7 +32,7 @@ export interface TableProps {
   request: (params) => Promise<{
     success: boolean;
     total: number;
-    data: [];
+    data: any[];
   }>;
   /** table 实例 */
   tableRef?: MutableRefObject<{
