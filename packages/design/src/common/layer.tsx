@@ -82,7 +82,7 @@ export default forwardRef(
         domRef.current.getBoundingClientRect();
       style.width = layerWidth || width;
       if (layerHeight) {
-        style.height = layerHeight;
+        style.maxHeight = layerHeight;
       }
       style.top = top + height + 4 - parentRect.top;
       style.left = left - parentRect.left;

@@ -4,21 +4,6 @@ import { FormProps, FormRefInstance } from './type.form';
 import Item from './item';
 import './index.less';
 
-const flexMapping = {
-  1: {
-    label: 2,
-    wrap: 19,
-  },
-  2: {
-    label: 2,
-    wrap: 8.2,
-  },
-  3: {
-    label: 4,
-    wrap: 9,
-  },
-};
-
 const Form = ({
   initialValues = {},
   onValuesChange = () => {},
