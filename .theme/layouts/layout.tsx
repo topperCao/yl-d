@@ -136,7 +136,6 @@ export default () => {
                       height: 20,
                       position: 'relative',
                       top: 1,
-                      left: 4,
                     }}
                     alt="avatar"
                     src={`https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/image/github-${
