@@ -10,7 +10,7 @@ const runEsmBuild = () => {
     format: 'esm',
     platform: 'browser',
     // outdir: 'www/dev/esm',
-    outdir: '../my-project/packages/dev-ops/www/dev/esm',
+    outdir: '../my-project/packages/center-platform/www/dev/esm',
     bundle: true,
     minify: true,
     logLevel: 'info',

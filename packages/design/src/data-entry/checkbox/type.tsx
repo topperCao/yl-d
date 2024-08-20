@@ -20,7 +20,7 @@ export interface CheckGroupProps {
   /** 样式 */
   style?: CSSProperties;
   /** 方向 */
-  direction: 'horizontal' | 'vertical';
+  direction?: 'horizontal' | 'vertical';
 }
 
 export default (props: CheckGroupProps) => null;

@@ -7,6 +7,8 @@ export { default as Carousel } from './data-display/carousel';
 export { type CarouselProps } from './data-display/carousel/type';
 export { default as Empty } from './data-display/empty';
 export { type EmptyProps } from './data-display/empty/type';
+export { default as Descriptions } from './data-display/descriptions';
+export { type DescriptionsProps } from './data-display/descriptions/type';
 export { default as Tooltip } from './data-display/tooltip';
 export { type TooltipProps } from './data-display/tooltip/type';
 export { default as Badge } from './data-display/badge';

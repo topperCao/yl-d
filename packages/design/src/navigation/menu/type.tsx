@@ -4,6 +4,7 @@ interface SubMenus {
   path: string;
   icon?: ReactNode;
   label?: string;
+  onClick?: Function;
   children?: SubMenus[];
 }
 

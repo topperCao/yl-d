@@ -81,6 +81,7 @@ export default ({
       setSelectKey(item.path);
     }
     menuClick?.(openKey, itemKey);
+    item.onClick?.();
   };
   const renderMenus = (menus, paddingLeft) => {
     return menus.map((item) => {
