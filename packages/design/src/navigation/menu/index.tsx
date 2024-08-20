@@ -48,7 +48,7 @@ export default ({
                 : 'yld-menu-vertical-subMenu-hidden'
             }
           >
-            {renderMenus(item.children, paddingLeft + 24)}
+            {renderMenus(item.children, paddingLeft + 20)}
           </div>
         )}
       </>

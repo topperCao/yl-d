@@ -80,7 +80,6 @@ export default () => {
 };
 ```
 
-
 ## 和弹出层整合
 
 ```tsx | react
@@ -111,7 +110,6 @@ export default () => {
         打开 ModalForm
       </Button>
       <Button
-        spin
         drawerFormProps={async () => {
           await new Promise((res) => setTimeout(res, 2000));
           return {
