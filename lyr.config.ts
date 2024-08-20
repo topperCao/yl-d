@@ -144,7 +144,6 @@ export default defineConfig({
             {
               label: '描述列表 Descriptions',
               path: '/design/data-display/descriptions',
-              disabled: true,
             },
             {
               label: '空状态 Empty',
