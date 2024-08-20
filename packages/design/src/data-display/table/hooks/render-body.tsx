@@ -62,7 +62,10 @@ export default ({ rowKey, dataSource, columns, scroll, bordered, width }) => {
                   className={columnClassName.join(' ')}
                   style={tdStyle}
                 >
-                  <span className="yld-table-td-label" title={label}>
+                  <span
+                    className="yld-table-td-label"
+                    title={typeof label === 'object' ? undefined : label}
+                  >
                     {label}
                   </span>
                 </td>

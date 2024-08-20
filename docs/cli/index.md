@@ -51,7 +51,7 @@ yarn create lyr-cli new my-app
 
 ## 内置主题
 
-- 系统在启动之后，会自动生成 `src/.theme` 默认主题，如需定制 [参看这里](https://github.com/yunliang-ding/my-music/tree/master/.theme)
+- 系统在启动之后，会自动生成 `src/.theme` 默认主题，可以在根目录定制 .theme 文件夹下面的内容会自动覆盖默认主题
 
 - 即业务不需要关心 layout 布局，只需要关心具体的 pages 即可
 

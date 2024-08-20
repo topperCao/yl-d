@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Empty, Layer } from '../..';
 import { SimpleSelectProps } from './type';
-import { IconDown, IconClose, IconCheck } from '@yl-d/icon';
+import { IconDown, IconClose, IconCheck, IconLoading } from '@yl-d/icon';
 
 export default ({
   className,
@@ -12,6 +12,7 @@ export default ({
   layerClassName,
   onChange,
   getPopupContainer,
+  loading = false,
   ...rest
 }: SimpleSelectProps) => {
   const [open, setOpen] = useState(false);
@@ -91,7 +92,7 @@ export default ({
               </div>
             )}
           </div>
-          <IconDown />
+          {loading ? <IconLoading /> : <IconDown />}
           {showAllowClear && (
             <IconClose
               style={{ fontSize: 12 }}

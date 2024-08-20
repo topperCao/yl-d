@@ -63,6 +63,7 @@ export default () => {
         console.log('onChange', v);
       }}
       options={async (formInstance) => {
+        await new Promise((res) => setTimeout(res, 2000));
         console.log('formInstance', formInstance); // 仅在 form 包裹下可以拿到
         return [
           {

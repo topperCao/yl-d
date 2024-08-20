@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { SimpleSelectProps } from './type';
 import { Empty, Layer } from '../..';
-import { IconDown, IconClose } from '@yl-d/icon';
+import { IconDown, IconClose, IconLoading } from '@yl-d/icon';
 
 export default ({
   allowClear = true,
@@ -15,6 +15,7 @@ export default ({
   onSearch,
   showSearch = false,
   filter,
+  loading = false,
   ...rest
 }: SimpleSelectProps) => {
   const [open, setOpen] = useState(false);
@@ -35,7 +36,8 @@ export default ({
     setOptions(rest.options);
   }, [rest.options, open]);
   const classNames = ['yld-select'];
-  const showAllowClear = !disabled && allowClear && selected.value !== undefined;
+  const showAllowClear =
+    !disabled && allowClear && selected.value !== undefined;
   if (open) {
     classNames.push('yld-select-open');
   }
@@ -99,7 +101,7 @@ export default ({
             selected.label
           )}
         </div>
-        <IconDown />
+        {loading ? <IconLoading /> : <IconDown />}
         {showAllowClear && (
           <IconClose
             className="yld-icon yld-icon-close-el"

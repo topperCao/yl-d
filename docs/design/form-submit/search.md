@@ -6,6 +6,7 @@ import { Search } from '@yl-d/design';
 export default () => {
   return (
     <Search
+      column={3}
       schema={[
         {
           type: 'Input',

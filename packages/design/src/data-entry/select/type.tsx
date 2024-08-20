@@ -41,6 +41,7 @@ export interface SimpleSelectProps {
     label?: string,
     value?: string,
   }
+  loading?: boolean;
 }
 
 export interface SelectProps extends Omit<SimpleSelectProps, 'options'> {
