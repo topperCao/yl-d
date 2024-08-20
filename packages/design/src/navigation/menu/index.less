@@ -1,13 +1,13 @@
-.yld-menu-vertical {
+.yld-menu {
   width: 100%;
   transition: 0.2s;
   background-color: var(--bg-color);
-  .yld-menu-vertical-subMenu {
+  .yld-menu-subMenu {
     width: 100%;
     color: var(--text-color);
     font-size: var(--font-size);
     cursor: pointer;
-    .yld-menu-vertical-subMenu-label {
+    .yld-menu-subMenu-label {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -30,30 +30,30 @@
         background-color: var(--bg-color-2);
       }
     }
-    .yld-menu-vertical-subMenu-hidden {
+    .yld-menu-subMenu-hidden {
       display: none;
     }
   }
-  .yld-menu-vertical-subMenu-active {
+  .yld-menu-subMenu-active {
     background-color: var(--box-shadow);
     transition: 0.2s;
-    .yld-menu-vertical-subMenu-label {
+    .yld-menu-subMenu-label {
       border-color: var(--primary-color);
-      .yld-menu-vertical-subMenu-label-left {
+      .yld-menu-subMenu-label-left {
         span {
           color: var(--primary-color);
         }
       }
     }
   }
-  .yld-menu-vertical-subMenu-selected {
-    .yld-menu-vertical-subMenu-collapsed {
+  .yld-menu-subMenu-selected {
+    .yld-menu-subMenu-collapsed {
       .yld-icon {
         color: var(--primary-color);
       }
     }
-    .yld-menu-vertical-subMenu-parent {
-      .yld-menu-vertical-subMenu-label-left {
+    .yld-menu-subMenu-parent {
+      .yld-menu-subMenu-label-left {
         transition: 0.2s;
         .yld-icon,
         span {
@@ -62,17 +62,17 @@
       }
     }
   }
-  .yld-menu-vertical-subMenu-disabled {
+  .yld-menu-subMenu-disabled {
     cursor: not-allowed !important;
     opacity: 0.4;
     transition: 0.2s;
-    .yld-menu-vertical-subMenu-label-left {
+    .yld-menu-subMenu-label-left {
       color: var(--text-color) !important;
     }
   }
 }
-.yld-menu-vertical-collapsed {
-  .yld-menu-vertical-subMenu .yld-menu-vertical-subMenu-label {
+.yld-menu-collapsed {
+  .yld-menu-subMenu .yld-menu-subMenu-label {
     justify-content: center;
     &:hover {
       background-color: var(--bg-color-2);
@@ -80,5 +80,15 @@
     .yld-icon {
       margin-right: -2px;
     }
+  }
+}
+// 单层导航
+.yld-menu-nav{
+  max-width: 208px;
+  .yld-menu-subMenu .yld-menu-subMenu-label span{
+    width: 100%;
+  }
+  .yld-menu-subMenu .yld-menu-subMenu-label{
+    padding: 0 20px;
   }
 }

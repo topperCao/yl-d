@@ -9,6 +9,7 @@ export default ({
   collapsed,
   collapsedWidth = 47,
   openMenu = false,
+  nav = false,
   ...rest
 }: MenuProps) => {
   const [openKey, setOpenKey] = useState(rest.openKey || []);
@@ -45,7 +46,7 @@ export default ({
             className={
               openKey.includes(item.path) || openMenu
                 ? ''
-                : 'yld-menu-vertical-subMenu-hidden'
+                : 'yld-menu-subMenu-hidden'
             }
           >
             {renderMenus(item.children, paddingLeft + 20)}
@@ -83,27 +84,27 @@ export default ({
   };
   const renderMenus = (menus, paddingLeft) => {
     return menus.map((item) => {
-      let className = ['yld-menu-vertical-subMenu'];
+      let className = ['yld-menu-subMenu'];
       /** className */
       if (item.children && isSelected(item.children)) {
-        className.push('yld-menu-vertical-subMenu-selected');
+        className.push('yld-menu-subMenu-selected');
       }
       if (selectKey == item.path) {
-        className.push('yld-menu-vertical-subMenu-active');
+        className.push('yld-menu-subMenu-active');
       }
       if (item.disabled) {
-        className.push('yld-menu-vertical-subMenu-disabled');
+        className.push('yld-menu-subMenu-disabled');
       }
       /** labelClassName */
-      let labelClassName = ['yld-menu-vertical-subMenu-label'];
+      let labelClassName = ['yld-menu-subMenu-label'];
       if (openKey.includes(item.path) || openMenu) {
-        labelClassName.push('yld-menu-vertical-subMenu-label-open');
+        labelClassName.push('yld-menu-subMenu-label-open');
       }
       if (item.children) {
-        labelClassName.push('yld-menu-vertical-subMenu-parent');
+        labelClassName.push('yld-menu-subMenu-parent');
       }
       if (collapsed) {
-        labelClassName.push('yld-menu-vertical-subMenu-collapsed');
+        labelClassName.push('yld-menu-subMenu-collapsed');
       }
       return (
         <div
@@ -121,9 +122,12 @@ export default ({
       );
     });
   };
-  const className = ['yld-menu-vertical'];
+  const className = ['yld-menu'];
   if (collapsed) {
-    className.push('yld-menu-vertical-collapsed');
+    className.push('yld-menu-collapsed');
+  }
+  if (nav) {
+    className.push('yld-menu-nav');
   }
   return (
     <div

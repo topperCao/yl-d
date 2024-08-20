@@ -36,7 +36,7 @@ export default ({
             <h1 hidden={collapsed}>{title}</h1>
           </a>
         </div>
-        <div className="yld-layout-left-menu">
+        <div className="yld-layout-vertical-left-menu">
           <Menu
             openKey={openKeys}
             openMenu={openMenu}

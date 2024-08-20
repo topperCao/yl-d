@@ -6,9 +6,7 @@ import { IconDown, IconUserGroup, IconLanguage, IconCodepen } from '@yl-d/icon';
 
 const droplist = (
   <Menu
-    style={{
-      width: 160,
-    }}
+    nav
     menus={[
       {
         path: 'IconUserGroup',
@@ -55,9 +53,7 @@ import { IconDown, IconUserGroup, IconLanguage, IconCodepen } from '@yl-d/icon';
 
 const droplist = (
   <Menu
-    style={{
-      width: 160,
-    }}
+    nav
     menus={[
       {
         path: 'IconUserGroup',

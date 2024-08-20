@@ -45,10 +45,12 @@ export default ({
               return {
                 ...item,
                 key: item.path,
-                label: <Space>
-                  <span>{item.icon}</span>
-                  <span>{item.label}</span>
-                </Space>,
+                label: (
+                  <>
+                    {item.icon}
+                    <label title={item.label}>{item.label}</label>
+                  </>
+                ),
                 children: undefined,
               };
             })}
@@ -69,7 +71,8 @@ export default ({
               openMenu={openMenu}
               menuClick={menuClick}
               menus={
-                (menus?.find((item) => item?.path === topKey) as any)?.children || []
+                (menus?.find((item) => item?.path === topKey) as any)
+                  ?.children || []
               }
             />
           </div>

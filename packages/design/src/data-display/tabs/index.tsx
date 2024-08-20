@@ -106,6 +106,7 @@ export default ({ style, closable, onClick, onRemove, ...rest }: TabsProps) => {
               trigger="click"
               droplist={
                 <Menu
+                  nav
                   menus={(tabs.slice(splitIndex) as any).map((item) => {
                     return {
                       path: item.key,

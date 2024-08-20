@@ -42,10 +42,10 @@ export default ({
   }, [label]);
   const [, setRefresh] = useState(Math.random());
   const [_value, setValue] = useState(value);
-  const [_disabled, setDisabled] = useState(disabled);
+  const [_disabled, setDisabled] = useState(disabled || _item.disabled);
   useEffect(() => {
-    setDisabled(disabled);
-  }, [disabled]);
+    setDisabled(disabled || _item.disabled);
+  }, [disabled, _item.disabled]);
   const [error, setError] = useState(false);
   const Comp =
     typeof type === 'function'

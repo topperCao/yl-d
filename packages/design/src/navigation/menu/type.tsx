@@ -16,6 +16,7 @@ export interface MenuProps {
   style?: CSSProperties;
   collapsed?: boolean;
   collapsedWidth?: number;
+  nav?: boolean;
 }
 
 export default (props: MenuProps) => null;
