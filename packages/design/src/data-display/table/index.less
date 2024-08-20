@@ -4,7 +4,7 @@
   overflow-x: auto;
   overflow-y: hidden;
   border: 1px solid var(--border-color);
-  border-radius: 4px 4px  0 0;
+  border-radius: 4px 4px 0 0;
   table,
   tbody,
   thead {
@@ -88,7 +88,7 @@
       position: relative;
       display: flex;
       align-items: center;
-      min-height: 38px;
+      height: 38px;
       height: fit-content;
       border-bottom: 1px solid var(--border-color);
       &:last-child {
@@ -99,9 +99,15 @@
         display: flex;
         align-items: center;
         box-sizing: border-box;
-        height: 100%;
+        height: 38px;
         padding: 0 10px;
         font-size: var(--font-size);
+        &-label {
+          width: 100%;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
       }
       .yld-table-td-fixed-left {
         position: sticky;

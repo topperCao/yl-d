@@ -29,7 +29,7 @@ export default ({ rowKey, dataSource, columns, scroll, bordered, width }) => {
               if (bordered) {
                 columnClassName.push('yld-table-td-grid');
               }
-              if(scroll?.x){
+              if (scroll?.x) {
                 if (column.fixed === 'left') {
                   columnClassName.push(`yld-table-td-fixed-left`);
                   tdStyle.left = defineFixedLeft
@@ -62,7 +62,9 @@ export default ({ rowKey, dataSource, columns, scroll, bordered, width }) => {
                   className={columnClassName.join(' ')}
                   style={tdStyle}
                 >
-                  {label}
+                  <span className="yld-table-td-label" title={label}>
+                    {label}
+                  </span>
                 </td>
               );
             })}

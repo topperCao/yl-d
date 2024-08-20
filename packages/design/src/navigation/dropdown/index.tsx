@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { DropdownProps } from './type';
 import { Layer } from '../..';
-import "./index.less";
+import './index.less';
 
 export default ({
   droplist,
@@ -41,7 +41,7 @@ export default ({
         onMouseLeave={onMouseLeave}
         onMouseEnter={onMouseEnter}
         onContextMenu={(e) => {
-          if(trigger === 'contextMenu'){
+          if (trigger === 'contextMenu') {
             e.preventDefault();
             setOpen(true);
           }
@@ -59,8 +59,8 @@ export default ({
           layerWidth="fix-content"
           layerClick={() => setOpen(false)}
           layerClose={() => setOpen(false)}
-          layerMouseLeave={trigger === 'hover' && onMouseLeave}
-          layerMouseEnter={trigger === 'hover' && onMouseEnter}
+          layerMouseLeave={trigger === 'hover' ? onMouseLeave : undefined}
+          layerMouseEnter={trigger === 'hover' ? onMouseEnter : undefined}
           domRef={selectionRef}
           layerClassName={layerClassName}
           getPopupContainer={getPopupContainer}
