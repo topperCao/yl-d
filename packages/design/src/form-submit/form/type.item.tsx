@@ -36,7 +36,11 @@ export interface FormItemProps {
     wrap: number;
   };
   /** 表单项属性 */
-  props?: any;
+  props?: {
+    [key: string]: any;
+    /** 改变的钩子 */
+    onChange: (v: any, option: any, form: FormInstance) => void;
+  };
 }
 
 const Hello: React.FC<FormItemProps> = () => null;
