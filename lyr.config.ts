@@ -105,6 +105,11 @@ export default defineConfig({
           group: true,
         },
         {
+          label: '更新日志',
+          path: '/design/log',
+          group: true,
+        },
+        {
           label: '通用',
           path: '/design/general',
           group: true,
