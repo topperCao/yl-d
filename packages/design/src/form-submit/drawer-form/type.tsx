@@ -6,7 +6,7 @@ export interface DrawerFormProps extends DrawerProps {
   /** 默认值 */
   initialValues?: any;
   /** 改变的钩子 */
-  onValuesChange?: Function;
+  onValuesChange?: (v: any, vs: any, form: FormInstance) => void;
   /** 表单数据模型 */
   schema: FormItemProps[];
   /** 是否禁用 */
