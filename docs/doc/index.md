@@ -40,7 +40,7 @@ yarn create lyr-cli new my-app
 ## 说明
 
 - 自动解析 `docs` 文件夹下的 `md` 文件生成路由
-- md 文件中 `React` 组件渲染能力依赖 [MarkdownViewer](https://packages.yunliang.cloud#/shared/components/markdown-viewer)
+- md 文件中 `React` 组件渲染能力依赖 [MarkdownViewer](https://packages.yunliang.cloud#/shared/markdown-viewer)
   - 内置所有 demo 的 `code-playground`
   - 支持解析组件 API
   - 支持定制主题
@@ -52,5 +52,5 @@ yarn create lyr-cli new my-app
 
 - 定制主题复杂，依赖东西太多，1.x less 必须是 4.x 以下版本
 - 1.x 经常页面崩贵 (貌似是 默认主题的 API 解析有问题)
-- 1.x 启动速度慢 50s 左右（不知道做了什么东西）
+- 1.x 启动速度慢
 - 2.x`ui`不喜欢
