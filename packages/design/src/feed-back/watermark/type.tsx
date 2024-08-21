@@ -16,7 +16,6 @@ export interface WatermarkProps {
   height?: number | string;
   /**
    * 单个水印旋转角度
-   * @defaultValue -20
    */
   rotate?: number;
   /**
@@ -38,7 +37,6 @@ export interface WatermarkProps {
   };
   /**
    * 水印间的间距
-   * @defaultValue [100, 100]
    */
   gap?: [number, number];
   /**

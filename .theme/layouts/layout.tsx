@@ -37,7 +37,7 @@ export default () => {
     setTimeout(() => {
       document
         .querySelector(
-          '.yld-layout-horizontal-body-sider-menu .yld-menu-vertical-subMenu-active',
+          '.yld-layout-horizontal-body-sider-menu .yld-menu-subMenu-active',
         )
         ?.scrollIntoView({
           behavior: 'smooth',
