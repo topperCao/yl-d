@@ -123,14 +123,15 @@ export default () => {
 import { Form } from '@yl-d/design';
 
 export default () => {
-  const form = Form.useForm();
   return (
     <Form
-      form={form}
-      initialValues={{
-        type: 1,
+      style={{
+        width: 300,
       }}
-      schema={[
+      initialValues={{
+        type: 2,
+      }}
+      schema={(form) => [
         {
           type: 'RadioGroup',
           label: '类型',
@@ -148,32 +149,11 @@ export default () => {
               },
             ],
             onChange(value) {
-              form.setValues({
-                age: undefined, // clean
+              form.mergeItemByName('age', {
+                props: {
+                  addonBefore: value === 1 ? '类型 A' : '类型 B',
+                },
               });
-              // 修改表单模型
-              form.mergeItemByName(
-                'age',
-                value === 1
-                  ? {
-                      type: 'Input',
-                    }
-                  : {
-                      type: 'CheckGroup',
-                      props: {
-                        options: [
-                          {
-                            label: '选项 1',
-                            value: 1,
-                          },
-                          {
-                            label: '选项 2',
-                            value: 2,
-                          },
-                        ],
-                      },
-                    },
-              );
             },
           },
         },
@@ -181,8 +161,8 @@ export default () => {
           type: 'Input',
           label: '年龄',
           name: 'age',
-          style: {
-            width: 300,
+          props: {
+            addonBefore: form.getValues()?.type === 1 ? '类型 A' : '类型 B',
           },
         },
       ]}
@@ -204,7 +184,7 @@ export default () => {
       }}
       schema={[
         {
-          type: ({ value, onChange }) => {
+          type: ({ value, onChange, form }) => {
             return <input value={value} onChange={onChange} />;
           },
           name: 'name',

@@ -1,17 +1,17 @@
 export interface FormInstance {
   /** 禁用表单 */
-  setDisabled?: Function;
+  setDisabled: Function;
   /** 动态修改摸一个数据模型 */
-  mergeItemByName?: Function;
+  mergeItemByName: Function;
   /** 获取表单值 */
-  getValues?: Function;
+  getValues: Function;
   /** 设置表单值 */
-  setValues?: Function;
+  setValues: Function;
   /** 清空表单值 */
-  clearValues?: Function;
+  clearValues: Function;
   /** 表单校验 */
-  validateFields?: Function;
-  validateField?: Function;
+  validateFields: Function;
+  validateField: Function;
 }
 
 const Hello: React.FC<FormInstance> = () => null;

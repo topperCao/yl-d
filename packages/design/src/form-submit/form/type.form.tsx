@@ -1,4 +1,4 @@
-import { MutableRefObject } from 'react';
+import { CSSProperties, MutableRefObject } from 'react';
 import { FormInstance } from './type.instance';
 import { FormItemProps } from './type.item';
 
@@ -7,6 +7,8 @@ export interface FormRefInstance extends Omit<MutableRefObject<{}>, 'current'> {
 }
 
 export interface FormProps {
+  /** 样式 */
+  style?: CSSProperties;
   /** form 实例 */
   form?: FormInstance;
   /** 默认值 */
@@ -14,7 +16,7 @@ export interface FormProps {
   /** 改变的钩子 */
   onValuesChange?: (v: any, vs: any, form: FormInstance) => void;
   /** 表单数据模型 */
-  schema: FormItemProps[];
+  schema: FormItemProps[] | ((form: FormInstance) => FormItemProps[]);
   /** 是否禁用 */
   disabled?: boolean;
   /** 布局等份 */

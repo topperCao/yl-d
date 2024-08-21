@@ -12,6 +12,7 @@ const Form = ({
   className,
   horizontal = false,
   disabled = false,
+  style = {},
   ...rest
 }: FormProps) => {
   const form = rest.form || Form.useForm();
@@ -112,8 +113,8 @@ const Form = ({
     classNames.push('yld-form-horizontal');
   }
   return done ? (
-    <div className={classNames.join(' ')}>
-      {schema.map((item) => {
+    <div className={classNames.join(' ')} style={style}>
+      {(typeof schema === 'function' ? schema(form) : schema).map((item) => {
         itemRef.current[item.name] = itemRef.current[item.name] || {}; // 保留之前的ref
         return (
           <Item
