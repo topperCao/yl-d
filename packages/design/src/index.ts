@@ -69,7 +69,6 @@ export { default as DrawerForm } from './form-submit/drawer-form';
 export { type DrawerFormProps } from './form-submit/drawer-form/type';
 export { default as ModalForm } from './form-submit/modal-form';
 export { type ModalFormProps } from './form-submit/modal-form/type';
-
 /** 导航相关 */
 export { default as Pagination } from './navigation/pagination';
 export { type PaginationProps } from './navigation/pagination/type';
@@ -94,6 +93,8 @@ export { default as Alert } from './feed-back/alert';
 export { type AlertProps } from './feed-back/alert/type';
 export { default as Progress } from './feed-back/progress';
 export { type ProgressProps } from './feed-back/progress/type';
+export { default as Watermark } from './feed-back/watermark';
+export { type WatermarkProps } from './feed-back/watermark/type';
 import message from './feed-back/message';
 import notification from './feed-back/notification';
 export const Message = message();

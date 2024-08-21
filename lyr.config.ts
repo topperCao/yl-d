@@ -334,6 +334,10 @@ export default defineConfig({
               label: '加载 Spin',
               path: '/design/feed-back/spin',
             },
+            {
+              label: '水印 Watermark',
+              path: '/design/feed-back/watermark',
+            },
           ],
         },
         {
