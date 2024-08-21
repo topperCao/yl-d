@@ -6,16 +6,19 @@ import './index.less';
 
 export default ({
   title = '提交表单',
+  style = {},
   form,
   onSubmit = () => {},
   onClose = () => {},
   footer = true,
   cancelText = '取消',
   okText = '保存',
+  className,
   ...rest
 }: DrawerFormProps) => {
   const drawer = Drawer({
     title,
+    style,
     render() {
       const form = Form.useForm();
       const bodyRef = useRef<HTMLDivElement>();
@@ -52,8 +55,9 @@ export default ({
               data = await validatorForm();
             } catch (error) {
               /** 滑动到第一个校验失败的地方 */
-              console.log(bodyRef.current
-                .querySelector('.yld-form-item-error'))
+              console.log(
+                bodyRef.current.querySelector('.yld-form-item-error'),
+              );
               bodyRef.current
                 .querySelector('.yld-form-item-error')
                 ?.scrollIntoView({
@@ -83,8 +87,8 @@ export default ({
       );
     },
     ...rest,
+    className: ['yld-drawer-form-layer', className].filter(Boolean).join(' '),
     /** 不渲染footer */
-    className: 'yld-drawer-form-layer',
     footer: false,
   });
   return drawer;

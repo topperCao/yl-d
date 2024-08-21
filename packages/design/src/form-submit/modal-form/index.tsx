@@ -5,6 +5,7 @@ import { useRef } from 'react';
 import './index.less';
 
 export default ({
+  style = {},
   title = '提交表单',
   form,
   onSubmit = () => {},
@@ -16,6 +17,7 @@ export default ({
 }: ModalFormProps) => {
   const drawer = Modal({
     title,
+    style,
     render() {
       const form = Form.useForm();
       const bodyRef = useRef<HTMLDivElement>();

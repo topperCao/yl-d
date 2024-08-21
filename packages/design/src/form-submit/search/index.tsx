@@ -19,6 +19,7 @@ export default ({
 }: SearchProps) => {
   const loadingRef = useRef<boolean>(false);
   const form = rest.form || Form.useForm();
+  const _schema = typeof schema === 'function' ? schema(form) : schema;
   return (
     <Form
       horizontal={horizontal}
@@ -26,7 +27,7 @@ export default ({
       className="yld-search"
       column={column}
       schema={[
-        ...schema,
+        ..._schema,
         {
           className: 'yld-search-flex-btn',
           style: {

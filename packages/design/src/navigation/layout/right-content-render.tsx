@@ -21,6 +21,9 @@ export default ({
   layout,
   onSetting,
 }: RightProps) => {
+  if (dark) {
+    document.body.setAttribute('yld-theme', 'dark');
+  }
   return (
     <div style={{ display: 'flex', gap: 20 }}>
       {extra}

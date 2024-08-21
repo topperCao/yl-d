@@ -1,5 +1,5 @@
 // 转换处理
-import { getType, isEmpty, cloneDeep, NumberFormat } from '../../tools';
+import { isEmpty, cloneDeep, NumberFormat } from '../../tools';
 import { ColumnProps } from './type';
 import dayjs from 'dayjs';
 
@@ -21,16 +21,9 @@ export const transformColumns = (
         if (column.enums) {
           vNode = column.enums[value];
         }
-        // 处理空数据展示
-        if (emptyNode) {
-          vNode = isEmpty(vNode) ? emptyNode : vNode;
-        }
         // 日期格式化
         if (column.dateFormat && vNode) {
           vNode = dayjs(vNode).format(column.dateFormat);
-          if (vNode === 'Invalid date') {
-            vNode = '-';
-          }
         }
         // 千分位处理
         if (column.useThousandth) {
@@ -41,6 +34,10 @@ export const transformColumns = (
               : column.useThousandth,
             emptyNode,
           );
+        }
+        // 处理空数据展示
+        if (emptyNode) {
+          vNode = isEmpty(vNode) ? emptyNode : vNode;
         }
         return vNode;
       };
