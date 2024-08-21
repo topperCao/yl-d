@@ -1,11 +1,12 @@
 import { ReactNode, CSSProperties, MutableRefObject } from 'react';
 import { FormProps, ButtonProps, ModalFormProps, DrawerFormProps } from '../..';
 
-export interface columnProps {
+export interface ColumnProps {
   title?: ReactNode;
   width?: string | number;
   dataIndex: string;
   fixed?: 'left' | 'right';
+  visible?: boolean;
   render?: (e, record, index) => ReactNode;
 }
 
@@ -48,7 +49,7 @@ export interface TableProps {
   /** 标题 */
   title?: ReactNode;
   /** 列信息 */
-  columns: columnProps[];
+  columns: ColumnProps[];
   /** 查询信息配置 */
   search?: FormProps;
   /** 统一数据请求 */
@@ -98,6 +99,8 @@ export interface TableProps {
     x?: number;
     y?: string | number;
   };
+  /** 序号 */
+  autoNo?: boolean;
   setLoading?: Function;
 }
 

@@ -1,4 +1,6 @@
 import * as _BigNumber from 'bignumber.js';
+import cloneDeepWith from 'lodash.clonedeepwith';
+import React from 'react';
 
 const BigNumberjs: any = _BigNumber;
 
@@ -72,4 +74,34 @@ export const debounce = (fn, delay = 10) => {
       fn.call(this, ...args);
     }, delay);
   };
+};
+
+/** ReactElement 对象不参与深拷贝 */
+export const cloneDeep = (source) => {
+  return cloneDeepWith(source, (target) => {
+    if (React.isValidElement(target)) {
+      return target;
+    }
+  });
+};
+
+/** 获取类型 */
+export const getType = (obj: any): string => {
+  const type = Object.prototype.toString.call(obj).slice(8, -1);
+  return type.toLocaleLowerCase();
+};
+
+// 千分位，小数点2位
+export const NumberFormat = (
+  number: any,
+  options = {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 4,
+  },
+  emptyNode = '-',
+) => {
+  if (isNaN(Number.parseFloat(number))) {
+    return emptyNode;
+  }
+  return Number(number).toLocaleString('zh-CH', options);
 };

@@ -19,6 +19,7 @@ export { default as Tree } from './data-display/tree';
 export { type TreeProps } from './data-display/tree/type';
 export { default as Table } from './data-display/table';
 export { type TableProps } from './data-display/table/type';
+export { type ColumnProps } from './data-display/table/type';
 export { default as Timeline } from './data-display/timeline';
 export { type TimelineProps } from './data-display/timeline/type';
 export { default as Space } from './data-display/space';

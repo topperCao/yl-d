@@ -3,6 +3,7 @@ import { Button, Form, Search, Spin } from '../..';
 import { IconSettings, IconRefresh } from '@yl-d/icon';
 import { TableProps } from './type';
 import Table from './table';
+import { transformColumns } from './util';
 import './index.less';
 
 const Contianer = ({ search, form, tableRef, lastColums, ...rest }: any) => {
@@ -43,6 +44,7 @@ export default ({
   useRefresh = true,
   useFilter = true,
   style = {},
+  autoNo = false,
   ...rest
 }: TableProps) => {
   if (useFilter) {
@@ -64,7 +66,27 @@ export default ({
   // 查询表单实例
   const form = Form.useForm();
   // 解析 cloums
-  const lastColums = [...columns];
+  const lastColums = [...transformColumns(columns)];
+  // 自增序号
+  if (autoNo) {
+    lastColums.unshift({
+      title: '序号',
+      fixed: 'left',
+      dataIndex: 'inner_no',
+      width: 80,
+      render: (a, b, index) => {
+        if (rest.paginationConfig) {
+          return (
+            (rest.paginationConfig.pageNum - 1) *
+              rest.paginationConfig.pageSize +
+            index +
+            1
+          );
+        }
+        return index + 1;
+      },
+    });
+  }
   if (rowOperations) {
     const { width, menus } = rowOperations;
     lastColums.push({
@@ -81,11 +103,7 @@ export default ({
               index,
             }).map((item) => {
               return (
-                <Button
-                  key={item.label}
-                  {...item}
-                  type={item.type || 'link'}
-                >
+                <Button key={item.label} {...item} type={item.type || 'link'}>
                   {item.label}
                 </Button>
               );

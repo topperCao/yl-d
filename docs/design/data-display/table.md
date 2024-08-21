@@ -63,6 +63,62 @@ export default () => {
 };
 ```
 
+## 枚举和日期
+
+```jsx | react
+import { Table } from '@yl-d/design';
+
+export default () => {
+  return (
+    <Table
+      title={'用户列表'}
+      autoNo
+      rowKey="userName"
+      columns={[
+        {
+          title: '用户姓名',
+          dataIndex: 'userName',
+        },
+        {
+          title: '用户日期',
+          dataIndex: 'userDate',
+          dateFormat: 'YYYY-MM-DD',
+        },
+        {
+          title: '用户性别',
+          dataIndex: 'userSex',
+          enums: ['男', '女'],
+        },
+        {
+          title: '用户状态',
+          dataIndex: 'userState',
+          enums: {
+            disabled: '已停用',
+            enabled: '启用',
+            initial: '初始化',
+          },
+        },
+      ]}
+      request={() => {
+        return {
+          total: 1,
+          success: true,
+          data: [
+            {
+              userName: '测试',
+              userSex: 0,
+              userState: 'initial',
+              userType: 'admin',
+              userDate: new Date().getTime(),
+            },
+          ],
+        };
+      }}
+    />
+  );
+};
+```
+
 ## 自定义分页
 
 > 配置 paginationConfig
