@@ -111,3 +111,9 @@ export default () => {
   );
 };
 ```
+
+## API
+
+```API
+/packages/design/src/data-display/tabs/type.tsx
+```

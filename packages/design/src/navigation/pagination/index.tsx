@@ -5,7 +5,7 @@ import { PaginationProps } from './type';
 import './index.less';
 
 export default ({
-  current = 1,
+  pageNum = 1,
   pageSize = 10,
   total,
   onChange,
@@ -13,37 +13,37 @@ export default ({
   onPageSizeChange,
   showJumper,
 }: PaginationProps) => {
-  const [_current, setCurrent] = useState(current);
+  const [_pageNum, setpageNum] = useState(pageNum);
   const [_pageSize, setPageSize] = useState(pageSize);
   /**
    * update
    */
   useEffect(() => {
-    setCurrent(current);
-  }, [current]);
+    setpageNum(pageNum);
+  }, [pageNum]);
   useEffect(() => {
     setPageSize(pageSize);
   }, [pageSize]);
-  const pageChange = (current) => {
-    setCurrent(current);
-    onChange?.(current);
+  const pageChange = (pageNum) => {
+    setpageNum(pageNum);
+    onChange?.(pageNum);
   };
   let totalPage = Math.ceil(total / _pageSize);
   let page = [];
   let arr = [1];
   if (totalPage > 8) {
     // 默认大于8 转为更多模式
-    if (_current > 5 && _current + 5 < totalPage) {
+    if (_pageNum > 5 && _pageNum + 5 < totalPage) {
       arr.push(
         -1,
-        _current - 2,
-        _current - 1,
-        _current,
-        _current + 1,
-        _current + 2,
+        _pageNum - 2,
+        _pageNum - 1,
+        _pageNum,
+        _pageNum + 1,
+        _pageNum + 2,
         -2,
       );
-    } else if (_current + 5 >= totalPage) {
+    } else if (_pageNum + 5 >= totalPage) {
       arr.push(
         -1,
         totalPage - 5,
@@ -61,15 +61,15 @@ export default ({
         <div
           key={Math.random()}
           className={
-            _current === item
+            _pageNum === item
               ? 'yld-pagination-item-active'
               : 'yld-pagination-item'
           }
           onClick={() => {
             if (item === -1) {
-              pageChange(_current - 5);
+              pageChange(_pageNum - 5);
             } else if (item === -2) {
-              pageChange(_current + 5);
+              pageChange(_pageNum + 5);
             } else {
               pageChange(item);
             }
@@ -85,7 +85,7 @@ export default ({
         <div
           key={Math.random()}
           className={
-            _current === i
+            _pageNum === i
               ? 'yld-pagination-item-active'
               : 'yld-pagination-item'
           }
@@ -103,11 +103,11 @@ export default ({
       <div className="yld-pagination">
         <div
           className={
-            _current == 1 ? 'yld-pagination-pre-disabled' : 'yld-pagination-pre'
+            _pageNum == 1 ? 'yld-pagination-pre-disabled' : 'yld-pagination-pre'
           }
           onClick={() => {
-            if (_current != 1) {
-              pageChange(_current - 1);
+            if (_pageNum != 1) {
+              pageChange(_pageNum - 1);
             }
           }}
         >
@@ -116,13 +116,13 @@ export default ({
         {page}
         <div
           className={
-            _current == totalPage
+            _pageNum == totalPage
               ? 'yld-pagination-next-disabled'
               : 'yld-pagination-next'
           }
           onClick={() => {
-            if (_current !== totalPage) {
-              pageChange(_current + 1);
+            if (_pageNum !== totalPage) {
+              pageChange(_pageNum + 1);
             }
           }}
         >
@@ -135,7 +135,7 @@ export default ({
               value={_pageSize}
               allowClear={false}
               onChange={(pageSize: number) => {
-                setCurrent(1);
+                setpageNum(1);
                 setPageSize(pageSize);
                 typeof onPageSizeChange === 'function' &&
                   onPageSizeChange(pageSize);
@@ -158,10 +158,10 @@ export default ({
               max={totalPage}
               control={false}
               onBlur={(e) => {
-                let current = parseInt(e.target.value);
-                if (!isNaN(current)) {
-                  const pageNum = current > totalPage ? totalPage : current;
-                  setCurrent(pageNum);
+                let num = parseInt(e.target.value);
+                if (!isNaN(num)) {
+                  const pageNum = num > totalPage ? totalPage : num;
+                  setpageNum(pageNum);
                   onChange?.(pageNum);
                 }
               }}

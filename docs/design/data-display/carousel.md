@@ -51,3 +51,9 @@ export default () => {
   );
 };
 ```
+
+## API
+
+```API
+/packages/design/src/data-display/carousel/type.tsx
+```

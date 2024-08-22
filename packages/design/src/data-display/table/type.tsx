@@ -1,5 +1,5 @@
 import { ReactNode, CSSProperties, MutableRefObject } from 'react';
-import { FormProps, ButtonProps, ModalFormProps, DrawerFormProps } from '../..';
+import { FormProps, ButtonProps, ModalFormProps, DrawerFormProps, PaginationProps } from '../..';
 
 export interface ColumnProps {
   title?: ReactNode;
@@ -35,14 +35,6 @@ export interface ToolProps
 
 export interface MenuProps extends ButtonProps {
   label?: string;
-}
-
-export interface PaginationProps {
-  pageSize: number;
-  pageNum?: number;
-  total?: number;
-  onChange?: Function;
-  onPageSizeChange?: Function;
 }
 
 export interface TableProps {
@@ -83,7 +75,7 @@ export interface TableProps {
   /** 样式 */
   style?: CSSProperties;
   /** 分页配置 */
-  paginationConfig?: PaginationProps | false;
+  pagination?: PaginationProps | false;
   /** 是否带边框 */
   bordered?: boolean;
   /** 是否带选择 */

@@ -17,7 +17,7 @@ export default ({
   },
   rowKey = 'id',
   style = {},
-  paginationConfig = {
+  pagination = {
     pageSize: 10,
   },
   bordered = false,
@@ -59,10 +59,10 @@ export default ({
   const innerTableRef: any = useRef({
     dataSource: [],
     pagination:
-      typeof paginationConfig === 'object'
+      typeof pagination === 'object'
         ? {
-            pageSize: paginationConfig.pageSize,
-            pageNum: paginationConfig.pageNum,
+            pageSize: pagination.pageSize,
+            pageNum: pagination.pageNum,
           }
         : {},
     params: {},
@@ -130,6 +130,15 @@ export default ({
       })
     );
   };
+  // 判断是否已经部分选择
+  const isIndeterminate = () => {
+    return (
+      checkedkeys.length > 0 &&
+      innerTableRef.current.dataSource.some((item) => {
+        return checkedkeys.some((key) => key === item[rowKey || 'key']);
+      }) && !isCheckedAll()
+    );
+  };
   /**
    * 内部多选
    */
@@ -138,6 +147,7 @@ export default ({
       title: (
         <Checkbox
           checked={isCheckedAll()}
+          indeterminate={isIndeterminate()}
           onChange={(e) => {
             checkedAll(e.target.checked);
           }}
@@ -249,21 +259,21 @@ export default ({
           </table>
         </div>
       </div>
-      {paginationConfig !== false && (
+      {pagination !== false && (
         <div className="yld-table-footer">
           <Pagination
-            {...paginationConfig}
-            current={innerTableRef.current.pagination.pageNum}
+            {...pagination}
+            pageNum={innerTableRef.current.pagination.pageNum}
             pageSize={innerTableRef.current.pagination.pageSize}
             total={innerTableRef.current.pagination.total}
-            onChange={(pageNum) => {
-              innerTableRef.current.pagination.pageNum = pageNum;
-              paginationConfig.onChange?.(pageNum);
+            onChange={(num: number) => {
+              innerTableRef.current.pagination.pageNum = num;
+              pagination.onChange?.(num);
               tableRef.current.refresh();
             }}
-            onPageSizeChange={(pageSize) => {
+            onPageSizeChange={(pageSize: number) => {
               innerTableRef.current.pagination.pageSize = pageSize;
-              paginationConfig.onPageSizeChange?.(pageSize);
+              pagination.onPageSizeChange?.(pageSize);
               tableRef.current.search();
             }}
           />

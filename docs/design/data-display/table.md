@@ -121,7 +121,7 @@ export default () => {
 
 ## 自定义分页
 
-> 配置 paginationConfig
+> 配置 pagination
 
 ```jsx | react
 import { Table } from '@yl-d/design';
@@ -168,7 +168,7 @@ export default () => {
           dataIndex: 'score',
         },
       ]}
-      paginationConfig={{
+      pagination={{
         pageSize: 10,
         showJumper: true,
         pageSizeOptions: [10, 20, 30],

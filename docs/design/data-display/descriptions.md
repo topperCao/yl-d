@@ -31,3 +31,9 @@ export default () => {
   return <Descriptions title="User Info" data={data} />;
 };
 ```
+
+## API
+
+```API
+/packages/design/src/data-display/descriptions/type.tsx
+```

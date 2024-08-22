@@ -22,3 +22,9 @@ export default () => {
   );
 };
 ```
+
+## API
+
+```API
+/packages/design/src/data-display/badge/type.tsx
+```

@@ -42,3 +42,9 @@ export default () => {
   );
 };
 ```
+
+## API
+
+```API
+/packages/design/src/data-display/tooltip/type.tsx
+```

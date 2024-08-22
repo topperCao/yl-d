@@ -16,3 +16,5 @@ export interface DescriptionsProps {
     span?: number;
   }[];
 }
+
+export default (props: DescriptionsProps) => null;

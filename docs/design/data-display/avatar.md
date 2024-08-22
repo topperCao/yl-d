@@ -2,7 +2,7 @@
 
 ```jsx | react
 import { Space, Avatar } from '@yl-d/design';
-import { IconUser } from "@yl-d/icon";
+import { IconUser } from '@yl-d/icon';
 
 export default () => {
   return (
@@ -78,4 +78,10 @@ export default () => {
     />
   );
 };
+```
+
+## API
+
+```API
+/packages/design/src/data-display/avatar/type.tsx
 ```

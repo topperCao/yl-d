@@ -5,7 +5,6 @@ export default ({
   color,
   count,
   dot = false,
-  title,
   children,
 }: BadgeProps | any) => {
   let style: any = {};
@@ -18,7 +17,7 @@ export default ({
       {dot ? (
         <sup className="yld-badge-dot" style={style} />
       ) : (
-        <sup style={style} className="yld-badge-count" title={title}>
+        <sup style={style} className="yld-badge-count">
           {count}
         </sup>
       )}

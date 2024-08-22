@@ -15,7 +15,7 @@ const position = {
 export default ({
   style = {},
   pages = [],
-  effect,
+  fade = false,
   currentPage = 1,
   onChange,
   autoPlay = false,
@@ -125,14 +125,12 @@ export default ({
                   : 'yld-carousel-page'
               }
               style={{
-                left:
-                  effect === 'fade'
-                    ? 0
-                    : index + 1 === _currentPage
-                    ? 0
-                    : 100 * (index + 1 - _currentPage) + '%',
-                opacity:
-                  effect === 'fade' ? (index + 1 === _currentPage ? 1 : 0) : 1,
+                left: fade
+                  ? 0
+                  : index + 1 === _currentPage
+                  ? 0
+                  : 100 * (index + 1 - _currentPage) + '%',
+                opacity: fade ? (index + 1 === _currentPage ? 1 : 0) : 1,
               }}
             >
               {page}

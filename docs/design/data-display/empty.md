@@ -20,3 +20,9 @@ export default () => {
   );
 };
 ```
+
+## API
+
+```API
+/packages/design/src/data-display/empty/type.tsx
+```

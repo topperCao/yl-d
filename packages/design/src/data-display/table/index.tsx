@@ -75,10 +75,10 @@ export default ({
       dataIndex: 'inner_no',
       width: 80,
       render: (a, b, index) => {
-        if (rest.paginationConfig) {
+        if (rest.pagination) {
           return (
-            (rest.paginationConfig.pageNum - 1) *
-              rest.paginationConfig.pageSize +
+            (rest.pagination.pageNum - 1) *
+              rest.pagination.pageSize +
             index +
             1
           );

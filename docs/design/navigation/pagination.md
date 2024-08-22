@@ -6,7 +6,7 @@ import { Pagination } from '@yl-d/design';
 export default () => {
   return (
     <Pagination
-      current={5}
+      pageNum={5}
       pageSize={10}
       total={600}
       showJumper
@@ -20,4 +20,10 @@ export default () => {
     />
   );
 };
+```
+
+## API
+
+```API
+/packages/design/src/navigation/pagination/type.tsx
 ```

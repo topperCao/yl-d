@@ -1,6 +1,6 @@
 export interface PaginationProps {
   /** 当前页码 */
-  current?: number;
+  pageNum?: number;
   /** 页码大小 */
   pageSize?: number;
   /** 总条数 */
@@ -14,3 +14,5 @@ export interface PaginationProps {
   /** 开启快捷跳转 */
   showJumper?: boolean;
 }
+
+export default (props: PaginationProps) => null;
