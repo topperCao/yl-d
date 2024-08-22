@@ -27,10 +27,9 @@ const Form = ({
       itemRef.current[name].setValue(store.current[name]);
     });
   };
-  // 挂载 api
+  // 挂 api
   useEffect(() => {
     Object.assign(form, {
-      // 通知所有的Item全部禁用
       setDisabled: (v: boolean) => {
         Object.keys(itemRef.current).forEach((name) => {
           itemRef.current[name].setDisabled?.(v);

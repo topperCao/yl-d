@@ -67,7 +67,7 @@ export default ({ github, updateTime, ...rest }: any) => {
                             }),
                           );
                           window.open(
-                            `${location.pathname}#/~playground?params=${params}`,
+                            `${location.pathname}#/~playground?${params}`,
                           );
                         }}
                       />
