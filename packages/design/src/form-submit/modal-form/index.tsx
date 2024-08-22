@@ -8,6 +8,7 @@ export default ({
   style = {},
   title = '提交表单',
   form,
+  schema = [],
   onSubmit = () => {},
   onClose = () => {},
   footer = true,
@@ -54,8 +55,9 @@ export default ({
               data = await validatorForm();
             } catch (error) {
               /** 滑动到第一个校验失败的地方 */
-              console.log(bodyRef.current
-                .querySelector('.yld-form-item-error'))
+              console.log(
+                bodyRef.current.querySelector('.yld-form-item-error'),
+              );
               bodyRef.current
                 .querySelector('.yld-form-item-error')
                 ?.scrollIntoView({
@@ -71,7 +73,7 @@ export default ({
       return (
         <>
           <div className="yld-modal-form-body" ref={bodyRef}>
-            <Form {...rest} form={form} />
+            <Form {...rest} schema={schema} form={form} />
           </div>
           <div className="yld-modal-form-footer">
             <Footer

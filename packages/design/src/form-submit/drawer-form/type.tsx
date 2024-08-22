@@ -8,7 +8,7 @@ export interface DrawerFormProps extends DrawerProps {
   /** 改变的钩子 */
   onValuesChange?: (v: any, vs: any, form: FormInstance) => void;
   /** 表单数据模型 */
-  schema: FormItemProps[];
+  schema: FormItemProps[] | ((form: FormInstance) => FormItemProps[]);
   /** 是否禁用 */
   disabled?: boolean;
   /** 布局等份 */

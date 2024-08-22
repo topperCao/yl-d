@@ -1,12 +1,17 @@
-import { useRef } from 'react';
-import { Button, Form, Space } from '../..';
+import { useRef, useState } from 'react';
+import { Badge, Button, Form, FormInstance, FormItemProps, Space } from '../..';
 import { FormProps } from '../form/type.form';
-import { IconSearch } from '@yl-d/icon';
+import { IconFindReplace, IconSearch } from '@yl-d/icon';
 import './index.less';
 
 export interface SearchProps extends FormProps {
   onReset?: Function;
   onSearch?: Function;
+  advance?: {
+    schema: FormItemProps[] | ((form: FormInstance) => FormItemProps[]);
+    column?: 1 | 2 | 3;
+    initialValues?: any;
+  };
 }
 
 export default ({
@@ -15,19 +20,25 @@ export default ({
   column = 4,
   schema = [],
   horizontal = true,
+  initialValues,
+  advance,
   ...rest
 }: SearchProps) => {
-  const loadingRef = useRef<boolean>(false);
+  const loadingRef = useRef<boolean>(false); // 防止重复点击
   const form = rest.form || Form.useForm();
-  const _schema = typeof schema === 'function' ? schema(form) : schema;
+  const schemaSchema = typeof schema === 'function' ? schema(form) : schema;
+  const [advanceValue, setAdvanceValue] = useState(
+    advance?.initialValues || {},
+  ); // 防止重复点击
   return (
     <Form
       horizontal={horizontal}
       form={form}
       className="yld-search"
       column={column}
+      initialValues={initialValues}
       schema={[
-        ..._schema,
+        ...schemaSchema,
         {
           className: 'yld-search-flex-btn',
           style: {
@@ -44,6 +55,7 @@ export default ({
                     try {
                       loadingRef.current = true;
                       form.clearValues({});
+                      setAdvanceValue({});
                       await onReset?.();
                     } catch (error) {
                       console.log(error);
@@ -63,7 +75,10 @@ export default ({
                         return;
                       }
                       const values = await form.validateFields();
-                      await onSearch?.(values);
+                      await onSearch?.({
+                        ...values,
+                        ...advanceValue,
+                      });
                     } catch (error) {
                       console.log(error);
                     } finally {
@@ -73,6 +88,21 @@ export default ({
                 >
                   查询
                 </Button>
+                {advance ? (
+                  <Badge count={Object.keys(advanceValue).length}>
+                    <Button
+                      icon={<IconFindReplace style={{ fontSize: 18 }} />}
+                      modalFormProps={{
+                        title: '高级查询',
+                        ...advance,
+                        initialValues: advanceValue,
+                        async onSubmit(values) {
+                          setAdvanceValue(values);
+                        },
+                      }}
+                    />
+                  </Badge>
+                ) : null}
               </Space>
             );
           },

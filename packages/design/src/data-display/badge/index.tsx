@@ -1,12 +1,7 @@
-import './index.less';
 import { BadgeProps } from './type';
+import './index.less';
 
-export default ({
-  color,
-  count,
-  dot = false,
-  children,
-}: BadgeProps | any) => {
+export default ({ color, count, dot = false, children }: BadgeProps | any) => {
   let style: any = {};
   if (color) {
     style.backgroundColor = color;
@@ -17,9 +12,11 @@ export default ({
       {dot ? (
         <sup className="yld-badge-dot" style={style} />
       ) : (
-        <sup style={style} className="yld-badge-count">
-          {count}
-        </sup>
+        count !== 0 && (
+          <sup style={style} className="yld-badge-count">
+            {count}
+          </sup>
+        )
       )}
     </span>
   );

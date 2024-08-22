@@ -8,6 +8,7 @@ export default ({
   title = '提交表单',
   style = {},
   form,
+  schema = [],
   onSubmit = () => {},
   onClose = () => {},
   footer = true,
@@ -73,7 +74,7 @@ export default ({
       return (
         <>
           <div className="yld-drawer-form-body" ref={bodyRef}>
-            <Form {...rest} form={form} />
+            <Form {...rest} schema={schema} form={form} />
           </div>
           <div className="yld-drawer-form-footer">
             <Footer

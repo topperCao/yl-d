@@ -33,6 +33,10 @@ export default ({
   } = _item;
   const labelRef = useRef<HTMLLabelElement>();
   const wrapRef = useRef<HTMLDivElement>();
+  const Comp = 
+    typeof type === 'function'
+      ? type
+      : mapping[type] || (() => <Error type={type} />);
   useEffect(() => {
     if (labelRef.current && horizontal) {
       const { width } = labelRef.current.getBoundingClientRect();
@@ -47,10 +51,6 @@ export default ({
     setDisabled(disabled || _item.disabled);
   }, [disabled, _item.disabled]);
   const [error, setError] = useState(false);
-  const Comp =
-    typeof type === 'function'
-      ? type
-      : mapping[type] || (() => <Error type={type} />);
   // 生成校验规则
   if (required) {
     descriptorRef.current[name] = {

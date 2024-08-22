@@ -30,11 +30,6 @@ export interface FormItemProps {
   }[];
   /** 是否展示自己 */
   visible?: (form: FormInstance) => boolean;
-  /** 标签和表单的比例 */
-  flex?: {
-    label: number;
-    wrap: number;
-  };
   /** 表单项属性 */
   props?: {
     [key: string]: any;
