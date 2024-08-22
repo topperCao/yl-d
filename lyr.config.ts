@@ -270,19 +270,19 @@ export default defineConfig({
             },
             {
               label: '查询表单 Search',
-              path: '/design/form-submit/search',
+              path: '/design/form-submit/form-search',
             },
             {
               label: '卡片表单 CardForm',
-              path: '/design/form-submit/card-form',
+              path: '/design/form-submit/form-card',
             },
             {
               label: '抽屉表单 DrawerForm',
-              path: '/design/form-submit/drawer-form',
+              path: '/design/form-submit/form-drawer',
             },
             {
               label: '弹框表单 ModalForm',
-              path: '/design/form-submit/modal-form',
+              path: '/design/form-submit/form-modal',
             },
           ],
         },

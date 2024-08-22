@@ -88,6 +88,54 @@ export default () => {
 };
 ```
 
+## 使用 required 函数式解决联动校验
+
+> disabled、required 属性都支持接受一个函数
+
+```tsx | react
+import { Form, Button } from '@yl-d/design';
+
+export default () => {
+  const form = Form.useForm();
+  const submit = async () => {
+    const data = await form.validateFields();
+    alert(JSON.stringify(data));
+  };
+  return (
+    <div>
+      <Form
+        form={form}
+        schema={[
+          {
+            type: 'Input',
+            name: 'name',
+            label: '用户姓名',
+            required: true,
+            notifiRender: [
+              {
+                name: 'nickname',
+              },
+            ],
+          },
+          {
+            type: 'Input',
+            name: 'nickname',
+            label: '用户昵称',
+            tooltip: "用户姓名填写了可不填昵称",
+            required: ({ getValues }) => {
+              return !getValues().name;
+            },
+          },
+        ]}
+      />
+      <Button type="primary" onClick={submit} style={{ marginTop: 20 }}>
+        提交
+      </Button>
+    </div>
+  );
+};
+```
+
 ## 表单项联动
 
 ```jsx | react

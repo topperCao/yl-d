@@ -6,10 +6,10 @@ import {
   forwardRef,
   useImperativeHandle,
 } from 'react';
-import { IconCalendarClock } from '@yl-d/icon';
+import { IconClockCircle } from '@yl-d/icon';
 import { Button, Input, Layer } from '../..';
-import './index.less';
 import { TimePickerProps } from './type';
+import './index.less';
 
 const timeList: any = [
   Object.keys(new Array(24).fill('')).map((item: any) => {
@@ -76,7 +76,7 @@ const TimePicker = forwardRef(
       <div className={classNames.join(' ')} style={style}>
         <div className="yld-time-picker-input" ref={selectionRef}>
           <Input
-            suffix={<IconCalendarClock />}
+            suffix={<IconClockCircle />}
             disabled={disabled}
             placeholder={placeholder}
             value={times?.join?.(':')}

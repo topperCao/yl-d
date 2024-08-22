@@ -1,3 +1,4 @@
+import FormList from './list';
 import {
   AutoComplete,
   Cascader,
@@ -37,4 +38,5 @@ export default {
   Rate,
   TreeSelect,
   Block,
+  FormList,
 };

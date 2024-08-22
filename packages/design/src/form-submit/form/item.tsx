@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import mapping from './mapping';
 import Error from './error';
 import { isEmpty } from '../../tools';
+import { IconQuestionCircle } from '@yl-d/icon';
+import { Tooltip } from '../..';
 
 export default ({
   descriptorRef,
@@ -20,7 +22,6 @@ export default ({
   }, [item]);
   const {
     label,
-    required,
     name,
     type,
     style = {},
@@ -31,6 +32,7 @@ export default ({
     className,
     labelWidth,
     itemRender,
+    tooltip,
   } = _item;
   const labelRef = useRef<HTMLLabelElement>();
   const wrapRef = useRef<HTMLDivElement>();
@@ -47,11 +49,23 @@ export default ({
   }, [label]);
   const [, setRefresh] = useState(Math.random());
   const [_value, setValue] = useState(value);
-  const [_disabled, setDisabled] = useState(disabled || _item.disabled);
+  const [_disabled, setDisabled] = useState(disabled);
   useEffect(() => {
-    setDisabled(disabled || _item.disabled);
-  }, [disabled, _item.disabled]);
+    setDisabled(disabled);
+  }, [disabled]);
+  useEffect(() => {
+    setDisabled(
+      typeof _item.disabled === 'function'
+        ? _item.disabled(form)
+        : _item.disabled,
+    );
+  }, [_item.disabled]);
   const [error, setError] = useState(false);
+  // 是否必填
+  const required =
+    typeof _item.required === 'function'
+      ? _item.required(form)
+      : _item.required;
   // 生成校验规则
   if (required) {
     descriptorRef.current[name] = {
@@ -60,9 +74,11 @@ export default ({
       message: `${label}不能为空`,
       validator: (rule, value) => !isEmpty(value),
     };
+  } else {
+    delete descriptorRef.current[name];
   }
+  /** 挂 api */
   useEffect(() => {
-    // 展示报错信息
     Object.assign(itemRef, {
       showError(error) {
         setError(error);
@@ -113,6 +129,11 @@ export default ({
       {type !== 'Block' && label && (
         <label ref={labelRef} style={labelWidth ? { width: labelWidth } : {}}>
           {label}
+          {tooltip && (
+            <Tooltip title={tooltip} placement="right">
+              <IconQuestionCircle style={{ marginLeft: 6 }} />
+            </Tooltip>
+          )}
         </label>
       )}
       <div className="yld-form-item-wrap" ref={wrapRef}>
@@ -129,6 +150,7 @@ export default ({
       </div>
     </div>
   );
+  /** 扩展自定义渲染 */
   if (typeof itemRender === 'function') {
     ItemNode = itemRender(ItemNode, {
       itemProps: {

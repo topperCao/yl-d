@@ -1,9 +1,9 @@
 import { useRef, useState } from 'react';
 import { Button, Form, Search, Spin } from '../..';
 import { IconSettings, IconRefresh } from '@yl-d/icon';
+import { transformColumns } from './util';
 import { TableProps } from './type';
 import Table from './table';
-import { transformColumns } from './util';
 import './index.less';
 
 const Contianer = ({ search, form, tableRef, lastColums, ...rest }: any) => {
