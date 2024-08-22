@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 import { Empty, Tree, Layer } from '../..';
 import { fieldNamesTransfrom, getLabelByValue } from './util';
-import { IconDown, IconClose } from '@yl-d/icon';
-import { TreeSelectProps } from './type';
+import { IconDown, IconClose, IconLoading } from '@yl-d/icon';
+import { TreeDataProps, TreeSelectProps } from './type';
 import cloneDeep from 'lodash.clonedeep';
 import './index.less';
 
-export default ({
+const TreeData = ({
   allowClear = true,
   placeholder = '请选择',
   disabled = false,
@@ -17,17 +17,16 @@ export default ({
   onChange,
   fieldNames,
   checkable = false,
+  loading = false,
   ...rest
 }: TreeSelectProps) => {
   const selectionRef = useRef<HTMLDivElement>();
   const choiceRef = useRef<HTMLDivElement>();
   const [open, setOpen] = useState(false);
-  // 获得格式化 options
-  const optionsRef = useRef(
-    fieldNamesTransfrom(fieldNames, cloneDeep(rest.treeData)),
-  );
-  // 设置数据源
-  const [options, setOptions] = useState(optionsRef.current);
+  const [options, setOptions] = useState(fieldNamesTransfrom(fieldNames, cloneDeep(rest.treeData)));
+  useEffect(() => {
+    setOptions(fieldNamesTransfrom(fieldNames, cloneDeep(rest.treeData)));
+  }, [rest.treeData]);
   const [value, setValue] = useState<any>(rest.value); // 内部存选中值容器
   useEffect(() => {
     setValue(rest.value);
@@ -48,7 +47,7 @@ export default ({
     classNames.push(className);
   }
   /** 展示选中的 tag */
-  const tags = getLabelByValue(value, optionsRef.current);
+  const tags = getLabelByValue(value, options);
   const tagRender = Array.isArray(tags)
     ? tags.map((tag) => {
         return (
@@ -98,7 +97,7 @@ export default ({
             </div>
           )}
         </div>
-        <IconDown />
+        {loading ? <IconLoading /> : <IconDown />}
         {showAllowClear && (
           <IconClose
             style={{ fontSize: 12 }}
@@ -107,11 +106,6 @@ export default ({
               setValue(checkable ? [] : undefined); // 还原
               onChange?.(checkable ? [] : undefined);
               setOpen(false);
-              setOptions(
-                optionsRef.current.map((item: any) => {
-                  return item;
-                }),
-              );
             }}
           />
         )}
@@ -149,4 +143,28 @@ export default ({
       )}
     </div>
   );
+};
+
+export default ({ treeData = [], ...rest }: TreeSelectProps) => {
+  /** 这里处理下异步的options  */
+  const [options, setOptions] = useState<TreeDataProps[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  useEffect(() => {
+    (async () => {
+      if (typeof treeData === 'function') {
+        try {
+          setLoading(true);
+          const data = await treeData((rest as any).form);
+          setOptions(data);
+        } catch (error) {
+          console.log(error);
+        } finally {
+          setLoading(false);
+        }
+      } else {
+        setOptions(treeData);
+      }
+    })();
+  }, [treeData]);
+  return <TreeData treeData={options} loading={loading} {...rest} />;
 };

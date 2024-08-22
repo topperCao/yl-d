@@ -1,13 +1,14 @@
 import { CSSProperties, ReactNode } from 'react';
+import { FormInstance } from '../..';
 
-export interface treeDataProps {
+export interface TreeDataProps {
   key: string;
   title: ReactNode;
   disabled?: boolean;
-  children: treeDataProps[];
+  children: TreeDataProps[];
 }
 
-export interface TreeSelectProps{
+export interface TreeSelectProps {
   /** 别名 */
   fieldNames?: {
     label?: string;
@@ -21,7 +22,9 @@ export interface TreeSelectProps{
   /** 类名 */
   className?: string;
   /** 数据源 */
-  treeData?: treeDataProps[];
+  treeData?:
+    | TreeDataProps[]
+    | ((form: FormInstance) => Promise<TreeDataProps[]>);
   /** 值 */
   value?: string | string[];
   /** 改变钩子 */
@@ -38,6 +41,7 @@ export interface TreeSelectProps{
   layerClassName?: string;
   /** 挂载的容器 */
   getPopupContainer?: () => HTMLElement;
+  loading?: boolean;
 }
 
 export default (props: TreeSelectProps) => null;

@@ -106,6 +106,55 @@ export default () => {
 };
 ```
 
+## 异步查询
+
+```jsx | react
+import { TreeSelect } from '@yl-d/design';
+
+export default () => {
+  return (
+    <TreeSelect
+      checkable
+      value={['node1', 'node2']}
+      expandedKeys={['node1']}
+      treeData={async (formInstance) => {
+        await new Promise((res) => setTimeout(res, 2000));
+        console.log('formInstance', formInstance); // 仅在 form 包裹下可以拿到
+        return [
+          {
+            key: 'node1',
+            title: 'Trunk',
+            children: [
+              {
+                key: 'node2',
+                title: 'Leaf1',
+              },
+            ],
+          },
+          {
+            key: 'node3',
+            title: 'Trunk2',
+            children: [
+              {
+                key: 'node4',
+                title: 'Leaf2',
+              },
+              {
+                key: 'node5',
+                title: 'Leaf3',
+              },
+            ],
+          },
+        ];
+      }}
+      style={{ width: 200 }}
+      onChange={(value) => {
+        console.log('onChange', value);
+      }}
+    />
+  );
+};
+```
 
 ## API
 

@@ -92,6 +92,7 @@ export default ({
                   <Badge count={Object.keys(advanceValue).length}>
                     <Button
                       icon={<IconFindReplace style={{ fontSize: 18 }} />}
+                      style={{ padding: '0px 7px' }}
                       modalFormProps={{
                         title: '高级查询',
                         ...advance,
