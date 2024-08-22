@@ -3,6 +3,10 @@ import { IconQq, IconEmail } from '@yl-d/icon';
 
 export default [
   {
+    type: 'Block',
+    label: '基本表单项',
+  },
+  {
     type: 'Input',
     name: 'input',
     label: '输入框',
@@ -86,6 +90,10 @@ export default [
       checkedChildren: '开',
       unCheckedChildren: '关',
     },
+  },
+  {
+    type: 'Block',
+    label: '高级表单项',
   },
   {
     type: 'Rate',
@@ -179,6 +187,10 @@ export default [
     },
   },
   {
+    type: 'Block',
+    label: '日期表单项',
+  },
+  {
     type: 'DatePicker',
     name: 'datePicker',
     label: '选择日期',
@@ -202,9 +214,10 @@ export default [
     type: 'Input',
     name: 'textarea',
     label: '大文本输入框',
-    span: 'fill', // 占满一行
+    span: 'fill', // 占满格子
     props: {
       type: 'textarea',
     },
   },
 ] as FormItemProps[];
+

@@ -14,7 +14,7 @@
     "outDir": "./dist",
     "paths": {
       "@/*": ["./src/*"],
-      "lyr": ["./src/.lyr"],
+      "lyr": ["./src/.lyr"]
     }
   },
   "exclude": ["node_modules"]

@@ -31,7 +31,7 @@
       .yld-select-selection,
       .yld-auto-selection,
       .yld-textarea,
-      .yld-tree-select-selection{
+      .yld-tree-select-selection {
         border: 1px solid red;
       }
     }
@@ -39,8 +39,34 @@
       font-size: var(--font-size);
       height: 20px;
     }
-    &-hidden{
+    &-hidden {
       display: none;
+    }
+  }
+  &-item-block {
+    border-left: 3px solid var(--primary-color);
+    padding-left: 6px;
+    margin: 0;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    background: var(--bg-color-2);
+    border-radius: 4px;
+  }
+  &-fieldset {
+    border: 1px solid var(--border-color);
+    &-head {
+      background-color: var(--bg-color-2);
+      padding: 0 10px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+    }
+    &-body {
+      display: grid;
+      gap: 16px 20px;
+      padding: 12px;
     }
   }
 }

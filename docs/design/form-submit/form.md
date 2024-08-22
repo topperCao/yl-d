@@ -66,6 +66,28 @@ export default () => {
 };
 ```
 
+## 区块划分
+
+```jsx | react
+import { Form } from '@yl-d/design';
+import schema from '@/design/schema2.tsx';
+
+export default () => {
+  return <Form column={2} schema={schema} />;
+};
+```
+
+## 父子区块
+
+```jsx | react
+import { Form } from '@yl-d/design';
+import schema from '@/design/schema3.tsx';
+
+export default () => {
+  return <Form schema={schema} />;
+};
+```
+
 ## 表单项联动
 
 ```jsx | react

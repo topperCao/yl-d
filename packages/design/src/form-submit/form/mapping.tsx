@@ -16,6 +16,10 @@ import {
   TreeSelect,
 } from '../..';
 
+const Block = ({ label }) => {
+  return <p className="yld-form-item-block">{label}</p>;
+};
+
 export default {
   AutoComplete,
   Cascader,
@@ -32,4 +36,5 @@ export default {
   RangeTimePicker,
   Rate,
   TreeSelect,
+  Block,
 };

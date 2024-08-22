@@ -33,7 +33,7 @@ export default ({
   } = _item;
   const labelRef = useRef<HTMLLabelElement>();
   const wrapRef = useRef<HTMLDivElement>();
-  const Comp = 
+  const Comp =
     typeof type === 'function'
       ? type
       : mapping[type] || (() => <Error type={type} />);
@@ -103,11 +103,13 @@ export default ({
     <div
       className={classNames.join(' ')}
       style={{
-        gridColumnStart: `span ${span === 'fill' ? column : span}`,
+        gridColumnStart: `span ${
+          span === 'fill' || type === 'Block' ? column : span
+        }`,
         ...style,
       }}
     >
-      {label && (
+      {type !== 'Block' && label && (
         <label ref={labelRef} style={labelWidth ? { width: labelWidth } : {}}>
           {label}
         </label>
@@ -116,8 +118,9 @@ export default ({
         <Comp
           disabled={_disabled}
           {...props}
+          label={label}
+          /** 注入属性 value 和 onChange 和 form */
           form={form}
-          /** 注入属性 value 和 onChange */
           value={_value}
           onChange={onChange}
         />

@@ -1,5 +1,5 @@
+import AsyncValidator from 'async-validator';
 import { useRef, useEffect, useState } from 'react';
-import Schema from 'async-validator';
 import { FormProps, FormRefInstance } from './type.form';
 import Item from './item';
 import './index.less';
@@ -54,7 +54,7 @@ const Form = ({
         itemUpdateOnStoreChange();
       },
       validateField: (name: string, value: any) => {
-        const validator = new Schema({
+        const validator = new AsyncValidator({
           [name]: descriptorRef.current[name],
         });
         validator.validate({ [name]: value }, (errors) => {
@@ -75,7 +75,7 @@ const Form = ({
         });
       },
       validateFields: async () => {
-        const validator = new Schema(descriptorRef.current);
+        const validator = new AsyncValidator(descriptorRef.current);
         const values = form.getValues();
         return new Promise((res, rej) => {
           validator.validate(values, (errors) => {
@@ -112,56 +112,78 @@ const Form = ({
   if (horizontal) {
     classNames.push('yld-form-horizontal');
   }
-  return done ? (
-    <div className={classNames.join(' ')} style={style}>
-      {(typeof schema === 'function' ? schema(form) : schema).map((item) => {
-        itemRef.current[item.name] = itemRef.current[item.name] || {}; // 保留之前的ref
-        return (
-          <Item
-            item={item}
-            form={form}
-            column={column}
-            horizontal={horizontal}
-            disabled={disabled}
-            itemRef={itemRef.current[item.name]}
-            descriptorRef={descriptorRef}
-            value={store.current[item.name]}
-            onChange={(e: any, option) => {
-              const value = e?.eventPhase ? e.target.value : e;
-              form.setValues({
-                [item.name]: value,
-              });
-              // 校验自己
-              if (descriptorRef.current[item.name]) {
-                form.validateField(item.name, value);
-              }
-              onValuesChange(
-                {
-                  [item.name]: store.current[item.name],
-                },
-                form.getValues(),
-                form,
-              );
-              if (typeof item.props?.onChange === 'function') {
-                item.props.onChange(value, option, form);
-              }
-              // 提示该item拿最新的value去更新, 确保原子性，哪个 item 值改变，就更新 哪个 item
-              itemRef.current[item.name].setValue?.(store.current[item.name]);
-              /** 触发重新渲染 */
-              if (Array.isArray(item.notifiRender)) {
-                item.notifiRender.forEach(({ name, clear }) => {
-                  itemRef.current[name].reload();
-                  // 是否清空
-                  if (clear) {
-                    form.setValues({
-                      [name]: undefined,
-                    });
-                  }
+  // 兼容下函数
+  const formSchema = typeof schema === 'function' ? schema(form) : schema;
+  /** 渲染 Item */
+  const RenderItem = ({ item }) => {
+    if (item.type === 'FieldSet') {
+      return (
+        <div className="yld-form-fieldset">
+          <div className="yld-form-fieldset-head">{item.label}</div>
+          <div
+            className={`yld-form-fieldset-body yld-form-grid-${
+              item.props.column || 1
+            }`}
+          >
+            {item.props.children.map((item: any) => {
+              return <RenderItem item={item} />;
+            })}
+          </div>
+        </div>
+      );
+    }
+    itemRef.current[item.name] = itemRef.current[item.name] || {}; // 保留之前的ref
+    return (
+      <Item
+        item={item}
+        form={form}
+        column={column}
+        horizontal={horizontal}
+        disabled={disabled}
+        itemRef={itemRef.current[item.name]}
+        descriptorRef={descriptorRef}
+        value={store.current[item.name]}
+        onChange={(e: any, option) => {
+          const value = e?.eventPhase ? e.target.value : e;
+          form.setValues({
+            [item.name]: value,
+          });
+          // 校验自己
+          if (descriptorRef.current[item.name]) {
+            form.validateField(item.name, value);
+          }
+          onValuesChange(
+            {
+              [item.name]: store.current[item.name],
+            },
+            form.getValues(),
+            form,
+          );
+          if (typeof item.props?.onChange === 'function') {
+            item.props.onChange(value, option, form);
+          }
+          // 提示该item拿最新的value去更新, 确保原子性，哪个 item 值改变，就更新 哪个 item
+          itemRef.current[item.name].setValue?.(store.current[item.name]);
+          /** 触发重新渲染 */
+          if (Array.isArray(item.notifiRender)) {
+            item.notifiRender.forEach(({ name, clear }) => {
+              itemRef.current[name].reload();
+              // 是否清空
+              if (clear) {
+                form.setValues({
+                  [name]: undefined,
                 });
               }
-            }}
-          />
-        );
+            });
+          }
+        }}
+      />
+    );
+  };
+  return done ? (
+    <div className={classNames.join(' ')} style={style}>
+      {formSchema.map((item) => {
+        return <RenderItem item={item} />;
       })}
     </div>
   ) : null;
