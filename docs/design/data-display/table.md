@@ -71,9 +71,11 @@ import { Table } from '@yl-d/design';
 export default () => {
   return (
     <Table
-      title={'用户列表'}
       autoNo
       rowKey="userName"
+      useRefresh={false}
+      useFilter={false}
+      pagination={false}
       columns={[
         {
           title: '用户姓名',

@@ -57,6 +57,7 @@ export default ({
       {open && (
         <Layer
           layerWidth="fix-content"
+          layerHeight={200}
           layerClick={() => setOpen(false)}
           layerClose={() => setOpen(false)}
           layerMouseLeave={trigger === 'hover' ? onMouseLeave : undefined}

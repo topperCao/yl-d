@@ -103,7 +103,6 @@ export default ({ style, closable, onClick, onRemove, ...rest }: TabsProps) => {
           {/** 展示 Dropdown */}
           {splitIndex > 0 && (
             <Dropdown
-              trigger="click"
               droplist={
                 <Menu
                   nav
