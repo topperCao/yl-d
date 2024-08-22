@@ -100,4 +100,12 @@ import message from './feed-back/message';
 import notification from './feed-back/notification';
 export const Message = message();
 export const Notification = notification();
+/** 拖拽组件 */
+export { default as DragWrapper } from './drag/wrapper';
+export { type DragWrapperProps } from './drag/wrapper/type';
+export { default as DragList } from './drag/list';
+export { type DragListProps } from './drag/list/type';
+export { default as DragForm } from './drag/form';
+export { type DragFormProps } from './drag/form/type';
+/** 其他 */
 export { default as CopyToClipboard } from './other/copy-to-clipboard';

@@ -9,6 +9,7 @@ export interface ItemTypeProps {
 export interface FormItemProps {
   /** 表单项类型 */
   type: string | ((props: ItemTypeProps) => ReactNode);
+  key?: string;
   /** 名称 */
   name?: string;
   /** 标签 */
@@ -30,6 +31,15 @@ export interface FormItemProps {
   }[];
   /** 是否展示自己 */
   visible?: (form: FormInstance) => boolean;
+  /** 自定义渲染逻辑 */
+  itemRender?: (
+    dom: React.ReactNode,
+    options: {
+      itemProps: FormItemProps;
+      form: FormInstance;
+      disabled: boolean;
+    },
+  ) => React.ReactNode;
   /** 表单项属性 */
   props?: {
     [key: string]: any;

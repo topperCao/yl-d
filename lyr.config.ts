@@ -372,6 +372,25 @@ export default defineConfig({
           ],
         },
         {
+          label: '拖拽相关',
+          path: '/design/drag',
+          group: true,
+          children: [
+            {
+              label: '拖拽容器 DragWrapper',
+              path: '/design/drag/wrapper',
+            },
+            {
+              label: '拖拽列表 DragList',
+              path: '/design/drag/list',
+            },
+            {
+              label: '拖拽表单 DragForm',
+              path: '/design/drag/form',
+            },
+          ],
+        },
+        {
           label: '其他',
           path: '/design/other',
           group: true,

@@ -30,6 +30,7 @@ export default ({
     visible,
     className,
     labelWidth,
+    itemRender,
   } = _item;
   const labelRef = useRef<HTMLLabelElement>();
   const wrapRef = useRef<HTMLDivElement>();
@@ -99,7 +100,7 @@ export default ({
   if (error) {
     classNames.push('yld-form-item-error');
   }
-  return (
+  let ItemNode = (
     <div
       className={classNames.join(' ')}
       style={{
@@ -128,4 +129,15 @@ export default ({
       </div>
     </div>
   );
+  if (typeof itemRender === 'function') {
+    ItemNode = itemRender(ItemNode, {
+      itemProps: {
+        ..._item,
+        column,
+      },
+      form,
+      disabled,
+    });
+  }
+  return ItemNode;
 };

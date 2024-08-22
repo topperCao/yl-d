@@ -8,3 +8,4 @@
 - Menu 组件新增 nav 属性，作用于单层导航
 - Button 组件设置权限控制
 - 新增组件 `Descriptions`，`Watermark`
+- 迁移组件 `DragWrapper`，`DragList`，`DragForm`

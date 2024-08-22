@@ -122,10 +122,10 @@ const Form = ({
           <div className="yld-form-fieldset-head">{item.label}</div>
           <div
             className={`yld-form-fieldset-body yld-form-grid-${
-              item.props.column || 1
+              item.props?.column || 1
             }`}
           >
-            {item.props.children.map((item: any) => {
+            {item.props?.children?.map((item: any) => {
               return <RenderItem item={item} />;
             })}
           </div>

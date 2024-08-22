@@ -51,8 +51,7 @@
     transform: translate(0%, -50%) scale(0);
   }
 }
-.yld-tooltip,
-.yld-tooltip-dark {
+.yld-tooltip {
   position: fixed;
   z-index: 930220;
   display: block;
@@ -65,13 +64,14 @@
   line-height: 1.5;
   list-style: none;
   transition: 0.3s;
-  .yld-tooltip-arrow {
+  &-arrow {
     position: absolute;
     display: block;
     width: 6px;
     height: 6px;
     overflow: hidden;
     pointer-events: none;
+    border: 1px solid var(--border-color);
     &::before {
       position: absolute;
       top: 0;
@@ -87,7 +87,11 @@
       pointer-events: auto;
     }
   }
-  .yld-tooltip-inner {
+  &-content{
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+  }
+  &-inner {
     display: flex;
     align-items: center;
     min-width: 30px;
@@ -95,11 +99,7 @@
     padding: 6px 8px;
     overflow: hidden;
     color: var(--text-color);
-    white-space: nowrap;
     text-align: left;
-    text-decoration: none;
-    text-overflow: ellipsis;
-    word-wrap: break-word;
     background-color: var(--bg-color);
     border-radius: 4px;
     box-shadow: 0 2px 8px var(--box-shadow);
@@ -111,6 +111,8 @@
     bottom: 8px;
     left: 50%;
     transform: translate(-50%, 50%) rotate(45deg);
+    border-top: none;
+    border-left: none;
   }
 }
 .yld-tooltip-placement-bottom {
@@ -119,6 +121,8 @@
     top: 8px;
     left: 50%;
     transform: translate(-50%, -50%) rotate(45deg);
+    border-bottom: none;
+    border-right: none;
   }
 }
 .yld-tooltip-placement-left {
@@ -127,6 +131,8 @@
     top: 50%;
     right: 8px;
     transform: translate(50%, -3px) rotate(45deg);
+    border-bottom: none;
+    border-left: none;
   }
 }
 .yld-tooltip-placement-right {
@@ -135,5 +141,7 @@
     top: 50%;
     left: 8px;
     transform: translate(-50%, -3px) rotate(45deg);
+    border-top: none;
+    border-right: none;
   }
 }
