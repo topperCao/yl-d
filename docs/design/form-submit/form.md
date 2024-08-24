@@ -121,7 +121,7 @@ export default () => {
             type: 'Input',
             name: 'nickname',
             label: '用户昵称',
-            tooltip: "用户姓名填写了可不填昵称",
+            tooltip: '用户姓名填写了可不填昵称',
             required: ({ getValues }) => {
               return !getValues().name;
             },
@@ -233,6 +233,38 @@ export default () => {
           name: 'age',
           props: {
             addonBefore: form.getValues()?.type === 1 ? '类型 A' : '类型 B',
+          },
+        },
+      ]}
+    />
+  );
+};
+```
+
+## 自定义渲染
+
+```jsx | react
+import { Form } from '@yl-d/design';
+
+export default () => {
+  return (
+    <Form
+      initialValues={{
+        name: '自定义渲染',
+      }}
+      column={2}
+      schema={[
+        {
+          type: 'Input',
+          name: 'name',
+          label: '自定义渲染',
+          itemRender(dom, options) {
+            console.log(options);
+            return (
+              <div style={{ border: '2px dashed var(--primary-color)', padding: 10 }}>
+                {dom}
+              </div>
+            );
           },
         },
       ]}

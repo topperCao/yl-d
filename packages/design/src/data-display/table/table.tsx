@@ -136,7 +136,8 @@ export default ({
       checkedkeys.length > 0 &&
       innerTableRef.current.dataSource.some((item) => {
         return checkedkeys.some((key) => key === item[rowKey || 'key']);
-      }) && !isCheckedAll()
+      }) &&
+      !isCheckedAll()
     );
   };
   /**
@@ -259,7 +260,7 @@ export default ({
           </table>
         </div>
       </div>
-      {pagination !== false && (
+      {pagination !== false && innerTableRef.current.dataSource.length > 0 && (
         <div className="yld-table-footer">
           <Pagination
             {...pagination}

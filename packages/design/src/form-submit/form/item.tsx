@@ -54,11 +54,13 @@ export default ({
     setDisabled(disabled);
   }, [disabled]);
   useEffect(() => {
-    setDisabled(
-      typeof _item.disabled === 'function'
-        ? _item.disabled(form)
-        : _item.disabled,
-    );
+    if (item.disabled !== undefined) {
+      setDisabled(
+        typeof _item.disabled === 'function'
+          ? _item.disabled(form)
+          : _item.disabled,
+      );
+    }
   }, [_item.disabled]);
   const [error, setError] = useState(false);
   // 是否必填
