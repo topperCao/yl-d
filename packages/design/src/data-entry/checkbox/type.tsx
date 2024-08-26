@@ -1,3 +1,4 @@
+import { FormInstance } from '../../..';
 import { CSSProperties, ReactNode } from 'react';
 
 export interface OptionsProps {
@@ -10,7 +11,7 @@ export interface CheckGroupProps {
   /** 类名 */
   className?: string;
   /** 数据源 */
-  options: OptionsProps[];
+  options: OptionsProps[] | ((form: FormInstance) => Promise<OptionsProps[]>);
   /** 值 */
   value?: any;
   /** 改变的钩子 */
@@ -21,6 +22,7 @@ export interface CheckGroupProps {
   style?: CSSProperties;
   /** 方向 */
   direction?: 'horizontal' | 'vertical';
+  loading?: boolean;
 }
 
 export default (props: CheckGroupProps) => null;

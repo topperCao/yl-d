@@ -63,6 +63,50 @@ export default () => {
 };
 ```
 
+
+## 异步查询
+
+```jsx | react
+import { CheckGroup } from '@yl-d/design';
+
+export default () => {
+  return (
+    <CheckGroup
+      onChange={(v) => {
+        console.log('onChange', v);
+      }}
+      options={async (formInstance) => {
+        await new Promise((res) => setTimeout(res, 2000));
+        console.log('formInstance', formInstance); // 仅在 form 包裹下可以拿到
+        return [
+          {
+            label: 'Html',
+            value: 'Html',
+          },
+          {
+            label: 'Css',
+            value: 'Css',
+          },
+          {
+            label: 'JavaScript',
+            value: 'JavaScript',
+            disabled: true,
+          },
+          {
+            label: 'React',
+            value: 'React',
+          },
+          {
+            label: 'Vue',
+            value: 'Vue',
+          },
+        ];
+      }}
+    />
+  );
+};
+```
+
 ## 垂直方向
 
 > 通过 direction="vertical" 设置为垂直方向

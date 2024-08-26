@@ -12,6 +12,8 @@ export interface ButtonProps {
   onClick?: Function;
   /** 图标 */
   icon?: ReactNode;
+  /** 是否圆形 */
+  circle?: boolean;
   /** 样式 */
   style?: CSSProperties;
   /** 二次确认提示 */

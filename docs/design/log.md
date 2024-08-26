@@ -9,3 +9,8 @@
 - Button 组件设置权限控制
 - 新增组件 `Descriptions`，`Watermark`
 - 迁移组件 `DragWrapper`，`DragList`，`DragForm`
+
+
+## 2024-08-26 ~ 2024-08-30
+
+- 新增 FormList、TableList 组件

@@ -15,6 +15,7 @@ export default ({
   children,
   confirm,
   loading = false,
+  circle = false,
   modalFormProps,
   drawerFormProps,
 }: ButtonProps) => {
@@ -39,6 +40,9 @@ export default ({
   }
   if (spin) {
     classNames.push('yld-btn-loading');
+  }
+  if (circle) {
+    classNames.push('yld-btn-circle');
   }
   return (
     <button

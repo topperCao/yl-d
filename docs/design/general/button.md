@@ -31,6 +31,7 @@ export default () => {
   return (
     <Space>
       <Button icon={<IconRefresh />} />
+      <Button icon={<IconRefresh />} circle />
       <Button type="primary" icon={<IconSearch />}>
         Search
       </Button>

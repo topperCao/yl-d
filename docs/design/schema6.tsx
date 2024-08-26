@@ -1,7 +1,7 @@
 import { FormItemProps } from '@yl-d/design';
 // import { BigNumber } from '@yl-d/shared';
 
-const schema: FormItemProps[] = [
+export default [
   {
     type: 'Select',
     label: '联系人类型',
@@ -25,7 +25,7 @@ const schema: FormItemProps[] = [
     label: '收入总和(元)',
     name: 'totalAmount',
     disabled: true,
-    extra: '子表单收入合计',
+    tooltip: '子表单收入合计',
     // effect: ['contactList.{{index}}.amount', 'contactList'],
     // onEffect(name, { getFieldValue, setFieldsValue }) {
     //   const contactList = getFieldValue('contactList');
@@ -46,13 +46,13 @@ const schema: FormItemProps[] = [
     required: true,
     span: 3,
     props: {
-      label: '联系人',
+      title: '联系人',
       maxCount: 3, // 最多3条
       // operation: false, // 不可操作
       // readOnly: true // 只读
       // disabled: true // 禁用
       leastOne: true, // 至少一条
-      column: 3, // 3列
+      column: 2, // 3列
       children: [
         {
           type: 'Input',
@@ -89,7 +89,7 @@ const schema: FormItemProps[] = [
           // effect: ['userType'],
           // effectClearField: true,
           props: {
-            options: async ({ getFieldValue }) => {
+            options: async ({ getValues }) => {
               return [
                 {
                   label: '听音乐',
@@ -106,7 +106,7 @@ const schema: FormItemProps[] = [
                 {
                   label: '联动选项',
                   value: 4,
-                  disabled: getFieldValue('userType') === 1,
+                  disabled: getValues()?.userType === 1,
                 },
               ];
             },
@@ -143,5 +143,4 @@ const schema: FormItemProps[] = [
       ],
     },
   },
-];
-export default schema;
+] as FormItemProps[];

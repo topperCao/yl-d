@@ -241,6 +241,73 @@ export default () => {
 };
 ```
 
+
+## 使用 FormList 子表单联动
+
+- 主表单依赖子表单 => 主表单的收入总和是子表单每一项的收入相加
+- 子表单依赖主表单 => 子表单爱好的选项和主表单的联系人类型相关
+- 子表单依赖子表单 => 子表单项性别是男才有年龄的输入框，当姓名为空的时候收入项禁用
+
+```tsx | react
+import { Form, Button } from '@yl-d/design';
+import schema from '@/design/schema6.tsx';
+
+export default () => {
+  const form = Form.useForm();
+  const submit = async () => {
+    const data = await form.validateFields();
+    alert(JSON.stringify(data));
+  };
+  const onValuesChange = (value, values) => {
+    console.log('onValuesChange ->', value, values);
+  };
+  return (
+    <div>
+      <Button
+        type="primary"
+        onClick={() => {
+          form.formListInstance.contactList.add();
+        }}
+        style={{ marginBottom: 20 }}
+      >
+        添加一条
+      </Button>
+      &nbsp;&nbsp;&nbsp;
+      <Button
+        type="primary"
+        onClick={() => {
+          form.formListInstance.contactList.remove();
+        }}
+        style={{ marginBottom: 20 }}
+      >
+        删除第一条
+      </Button>
+      <Form
+        form={form}
+        onValuesChange={onValuesChange}
+        schema={schema}
+        column={3}
+        initialValues={{
+          userType: 1,
+          contactList: [
+            {
+              name: '小华',
+              liked: [2],
+              sex: 1,
+              age: 18,
+            },
+          ],
+        }}
+      />
+      <br /><br />
+      <Button type="primary" onClick={submit}>
+        提交
+      </Button>
+    </div>
+  );
+};
+```
+
 ## 自定义渲染
 
 ```jsx | react
