@@ -326,7 +326,6 @@ export default () => {
           name: 'name',
           label: '自定义渲染',
           itemRender(dom, options) {
-            console.log(options);
             return (
               <div style={{ border: '2px dashed var(--primary-color)', padding: 10 }}>
                 {dom}

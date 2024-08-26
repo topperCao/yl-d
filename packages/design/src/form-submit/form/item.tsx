@@ -49,20 +49,12 @@ export default ({
   }, [label]);
   const [, setRefresh] = useState(Math.random());
   const [_value, setValue] = useState(value);
-  const [_disabled, setDisabled] = useState(disabled);
-  useEffect(() => {
-    setDisabled(disabled);
-  }, [disabled]);
-  useEffect(() => {
-    if (item.disabled !== undefined) {
-      setDisabled(
-        typeof _item.disabled === 'function'
-          ? _item.disabled(form)
-          : _item.disabled,
-      );
-    }
-  }, [_item.disabled]);
   const [error, setError] = useState(false);
+  // 是否禁用
+  const _disabled =
+    typeof _item.disabled === 'function'
+      ? _item.disabled(form)
+      : _item.disabled || disabled;
   // 是否必填
   const required =
     typeof _item.required === 'function'
@@ -89,7 +81,6 @@ export default ({
         setError(false);
       },
       setValue,
-      setDisabled,
       reload: () => {
         setRefresh(Math.random());
       },

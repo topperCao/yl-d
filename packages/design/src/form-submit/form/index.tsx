@@ -27,14 +27,13 @@ const Form = ({
       itemRef.current[name].setValue(store.current[name]);
     });
   };
+  useEffect(() => {
+    store.current = initialValues;
+    itemUpdateOnStoreChange();
+  }, [initialValues]);
   // 挂 api
   useEffect(() => {
     Object.assign(form, {
-      setDisabled: (v: boolean) => {
-        Object.keys(itemRef.current).forEach((name) => {
-          itemRef.current[name].setDisabled?.(v);
-        });
-      },
       mergeItemByName(name, item) {
         itemRef.current[name].setItem(item);
       },
@@ -142,7 +141,7 @@ const Form = ({
         itemRef={itemRef.current[item.name]}
         descriptorRef={descriptorRef}
         value={store.current[item.name]}
-        onChange={(e: any, option) => {
+        onChange={(e: any, option: any) => {
           const value = e?.eventPhase ? e.target.value : e;
           form.setValues({
             [item.name]: value,
@@ -192,7 +191,6 @@ Form.useForm = () => {
   const ref: FormRefInstance = useRef({
     getValues: () => {},
     setValues: () => {},
-    setDisabled: () => {},
     mergeItemByName: () => {},
     validateField: () => {},
     validateFields: () => {},

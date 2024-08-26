@@ -1,5 +1,5 @@
 import { IconDelete, IconPlus } from '@yl-d/icon';
-import React, { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { Button, Form, FormItemProps } from '../..';
 
 export interface FormListProps {
@@ -11,7 +11,7 @@ export interface FormListProps {
   [key: string]: any;
 }
 
-export default ({
+export default memo(({
   title = '',
   children = [],
   column = 1,
@@ -28,7 +28,7 @@ export default ({
   return (
     <div className="yld-form-list">
       {value?.map((item: any, index: number) => {
-        return item.__isDelete__ ? null : (
+        return (
           <div className="yld-form-list-item">
             <div className="yld-form-list-item-head">
               <h4>
@@ -38,13 +38,22 @@ export default ({
                 icon={<IconDelete />}
                 circle
                 onClick={() => {
-                  value[index].__isDelete__ = true;
+                  value.splice(index, 1);
                   setValue([...value]);
+                  onChange(value);
                 }}
               />
             </div>
             <div className="yld-form-list-item-body">
-              <Form schema={children} column={column} initialValues={item} />
+              <Form
+                schema={children}
+                column={column}
+                initialValues={item}
+                onValuesChange={(v, vs) => {
+                  Object.assign(item, vs);
+                  onChange([...value]);
+                }}
+              />
             </div>
           </div>
         );
@@ -54,7 +63,7 @@ export default ({
         type="dashed"
         style={{
           width: '100%',
-          marginTop: 12,
+          marginTop: 20,
         }}
         onClick={() => {
           setValue([...value, {}]);
@@ -62,4 +71,4 @@ export default ({
       />
     </div>
   );
-};
+}, () => true);
