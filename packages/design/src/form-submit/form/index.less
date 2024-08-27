@@ -43,6 +43,9 @@
       display: none;
     }
   }
+  &-item-hidden {
+    display: none;
+  }
   &-item-block {
     border-left: 3px solid var(--primary-color);
     padding-left: 6px;
@@ -109,6 +112,7 @@
   }
 }
 
+// FormList
 .yld-form-list {
   &-item {
     margin-bottom: 12px;
@@ -127,6 +131,53 @@
       border: 1px solid var(--border-color);
       padding: 10px;
       padding-bottom: 28px;
+    }
+  }
+}
+
+// TableList
+.yld-table-list {
+  &-item:first-child {
+    .yld-form {
+      border-top: 1px solid var(--border-color);
+    }
+  }
+  &-th {
+    display: flex;
+    background: var(--bg-color-2);
+    align-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: 4px 4px 0 0;
+    border-right: none;
+    border-bottom: none;
+  }
+  &-td {
+    align-items: center;
+    display: flex;
+    flex: 1;
+    padding-left: 10px;
+    height: 32px;
+    border-right: 1px solid var(--border-color);
+    &-required {
+      color: red;
+      font-size: 14px;
+      margin-right: 4px;
+    }
+  }
+  .yld-form {
+    border: 1px solid var(--border-color);
+    border-top: none;
+    border-right: none;
+    &-item {
+      padding: 10px;
+      padding-bottom: 20px;
+      border-right: 1px solid var(--border-color);
+      & > label {
+        display: none;
+      }
+    }
+    &-item-hidden {
+      display: block;
     }
   }
 }

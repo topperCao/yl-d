@@ -91,7 +91,7 @@ export default ({
   }, []);
   if (typeof visible === 'function' && visible(form) === false) {
     delete descriptorRef.current[name]; // 删除校验
-    return null;
+    return <div className="yld-form-item yld-form-item-hidden"></div>;
   }
   const classNames = ['yld-form-item'];
   if (className) {

@@ -241,15 +241,63 @@ export default () => {
 };
 ```
 
-## 使用 FormList 子表单联动
+## 使用 FormList
 
-- 主表单依赖子表单 => 主表单的收入总和是子表单每一项的收入相加
-- 子表单依赖主表单 => 子表单爱好的选项和主表单的联系人类型相关
-- 子表单依赖子表单 => 子表单项性别是男才有年龄的输入框，当姓名为空的时候收入项禁用
+> 1.主表单依赖子表单(主表单的收入总和是子表单每一项的收入相加)
+
+> 2.子表单依赖主表单(子表单爱好的选项和主表单的联系人类型相关)
+
+> 3.子表单依赖子表单(子表单项性别是男才有年龄的输入框，当姓名为空的时候收入项禁用)
 
 ```tsx | react
 import { Form, Button } from '@yl-d/design';
 import schema from '@/design/schema6.tsx';
+
+export default () => {
+  const form = Form.useForm();
+  const submit = async () => {
+    const data = await form.validateFields();
+    alert(JSON.stringify(data));
+  };
+  const onValuesChange = (value, values) => {
+    console.log('onValuesChange ->', value, values);
+  };
+  return (
+    <>
+      <Form
+        form={form}
+        onValuesChange={onValuesChange}
+        schema={schema}
+        column={3}
+        initialValues={{
+          userType: 1,
+          contactList: [
+            {
+              name: '小华',
+              liked: [2],
+              sex: 1,
+              age: 18,
+            },
+          ],
+        }}
+      />
+      <br />
+      <br />
+      <Button type="primary" onClick={submit}>
+        提交
+      </Button>
+    </>
+  );
+};
+```
+
+## 使用 TableList
+
+> 适用于 4 ～ 5 个输入项，联动效果和上面一致
+
+```tsx | react
+import { Form, Button } from '@yl-d/design';
+import schema from '@/design/schema7.tsx';
 
 export default () => {
   const form = Form.useForm();
