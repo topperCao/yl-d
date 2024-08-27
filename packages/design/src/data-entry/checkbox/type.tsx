@@ -1,5 +1,5 @@
-import { FormInstance } from '../../..';
 import { CSSProperties, ReactNode } from 'react';
+import { FormInstance } from '../..';
 
 export interface OptionsProps {
   label: ReactNode;
