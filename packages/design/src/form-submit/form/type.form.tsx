@@ -25,6 +25,7 @@ export interface FormProps {
   className?: string;
   /** 是否水平布局 */
   horizontal?: boolean;
+  values?: any;
 }
 
 const Hello: React.FC<FormProps> = () => null;

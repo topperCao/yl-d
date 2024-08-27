@@ -8,6 +8,11 @@ export default (form: FormInstance) =>
       label: '联系人类型',
       name: 'userType',
       required: true,
+      notifiRender: [
+        {
+          name: 'contactList',
+        },
+      ],
       props: {
         options: [
           {
@@ -38,8 +43,7 @@ export default (form: FormInstance) =>
         title: '联系人',
         maxCount: 3, // 最多3条
         // operation: false, // 不可操作
-        // readOnly: true // 只读
-        // disabled: true // 禁用
+        // disabled: true, // 禁用
         leastOne: true, // 至少一条
         column: 2, // 3列
         children: [
@@ -60,18 +64,17 @@ export default (form: FormInstance) =>
             label: '收入(元)',
             required: true,
             disabled: ({ getValues }) => {
-              console.log("form2 is is", !!getValues().name);
-              return !getValues().name
+              return !getValues().name;
             },
             props: {
               onChange() {
-                const contactList = form.getValues().contactList;
-                const amount = contactList
-                  .filter((i) => !!i?.amount)
-                  .map((i) => i?.amount);
-                if (Array.isArray(amount) && amount.length > 0) {
+                const { contactList } = form.getValues();
+                const amounts = contactList
+                  .map((i: any) => i.amount)
+                  .filter(Boolean);
+                if (amounts.length > 0) {
                   form.setValues({
-                    totalAmount: BigNumber.add(...amount),
+                    totalAmount: BigNumber.add(...amounts),
                   });
                 }
               },
@@ -84,7 +87,7 @@ export default (form: FormInstance) =>
             required: true,
             tooltip: '和联系人类型关联',
             props: {
-              options: async ({ getValues }) => {
+              options: async () => {
                 return [
                   {
                     label: '听音乐',
@@ -101,7 +104,7 @@ export default (form: FormInstance) =>
                   {
                     label: '联动选项',
                     value: 4,
-                    disabled: getValues()?.userType === 1,
+                    disabled: form.getValues()?.userType === 1,
                   },
                 ];
               },

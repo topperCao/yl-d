@@ -1,5 +1,5 @@
 import { IconDelete, IconPlus } from '@yl-d/icon';
-import { memo, useEffect, useState } from 'react';
+import { memo, useEffect, useMemo, useState } from 'react';
 import { Button, Form, FormItemProps } from '../..';
 
 export interface FormListProps {
@@ -11,64 +11,104 @@ export interface FormListProps {
   [key: string]: any;
 }
 
-export default memo(({
-  title = '',
-  children = [],
-  column = 1,
-  maxCount = 5,
-  leastOne = false,
-  onChange,
+const FormBody = ({
+  schema,
+  column,
+  values,
+  onValuesChange,
+  disabled,
   form,
-  ...rest
-}: FormListProps) => {
-  const [value, setValue] = useState(rest.value || []);
+  name,
+  index,
+}) => {
+  const subForm = Form.useForm();
   useEffect(() => {
-    setValue(rest.value || []);
-  }, [rest.value]);
+    form.formlist[name][index] = {
+      validator: subForm.validateFields,
+    };
+  }, []);
   return (
-    <div className="yld-form-list">
-      {value?.map((item: any, index: number) => {
-        return (
-          <div className="yld-form-list-item">
-            <div className="yld-form-list-item-head">
-              <h4>
-                {title}-{index + 1}
-              </h4>
-              <Button
-                icon={<IconDelete />}
-                circle
-                onClick={() => {
-                  value.splice(index, 1);
-                  setValue([...value]);
-                  onChange(value);
-                }}
-              />
-            </div>
-            <div className="yld-form-list-item-body">
-              <Form
-                schema={children}
-                column={column}
-                initialValues={item}
-                onValuesChange={(v, vs) => {
-                  Object.assign(item, vs);
-                  onChange([...value]);
-                }}
-              />
-            </div>
-          </div>
-        );
-      })}
-      <Button
-        icon={<IconPlus />}
-        type="dashed"
-        style={{
-          width: '100%',
-          marginTop: 20,
-        }}
-        onClick={() => {
-          setValue([...value, {}]);
-        }}
-      />
-    </div>
+    <Form
+      form={subForm}
+      disabled={disabled}
+      schema={schema}
+      column={column}
+      values={values}
+      onValuesChange={onValuesChange}
+    />
   );
-}, () => true);
+};
+
+export default memo(
+  ({
+    title = '',
+    children = [],
+    column = 1,
+    maxCount = 5,
+    leastOne = false,
+    disabled = false,
+    onChange,
+    name,
+    form,
+    ...rest
+  }: FormListProps) => {
+    const [value, setValue] = useState(rest.value || []);
+    useEffect(() => {
+      setValue(rest.value || []);
+    }, [rest.value]);
+    // 初始化一下
+    useMemo(() => (form.formlist[name] = []), []);
+    return (
+      <div className="yld-form-list">
+        {value?.map((item: any, index: number) => {
+          return (
+            <div className="yld-form-list-item">
+              <div className="yld-form-list-item-head">
+                <h4>
+                  {title}-{index + 1}
+                </h4>
+                <Button
+                  icon={<IconDelete />}
+                  circle
+                  onClick={() => {
+                    value.splice(index, 1);
+                    setValue([...value]);
+                    onChange(value);
+                  }}
+                />
+              </div>
+              <div className="yld-form-list-item-body">
+                <FormBody
+                  form={form}
+                  index={index}
+                  name={name}
+                  schema={children}
+                  column={column}
+                  disabled={disabled}
+                  values={item}
+                  onValuesChange={(v, vs) => {
+                    Object.assign(item, vs);
+                    onChange([...value]);
+                  }}
+                />
+              </div>
+            </div>
+          );
+        })}
+        <Button
+          icon={<IconPlus />}
+          disabled={value?.length >= maxCount}
+          type="dashed"
+          style={{
+            width: '100%',
+            marginTop: 20,
+          }}
+          onClick={() => {
+            setValue([...value, {}]);
+          }}
+        />
+      </div>
+    );
+  },
+  (props1, props2) => props1.refresh === props2.refresh,
+);

@@ -241,7 +241,6 @@ export default () => {
 };
 ```
 
-
 ## 使用 FormList 子表单联动
 
 - 主表单依赖子表单 => 主表单的收入总和是子表单每一项的收入相加
@@ -262,26 +261,7 @@ export default () => {
     console.log('onValuesChange ->', value, values);
   };
   return (
-    <div>
-      <Button
-        type="primary"
-        onClick={() => {
-          form.formListInstance.contactList.add();
-        }}
-        style={{ marginBottom: 20 }}
-      >
-        添加一条
-      </Button>
-      &nbsp;&nbsp;&nbsp;
-      <Button
-        type="primary"
-        onClick={() => {
-          form.formListInstance.contactList.remove();
-        }}
-        style={{ marginBottom: 20 }}
-      >
-        删除第一条
-      </Button>
+    <>
       <Form
         form={form}
         onValuesChange={onValuesChange}
@@ -299,11 +279,12 @@ export default () => {
           ],
         }}
       />
-      <br /><br />
+      <br />
+      <br />
       <Button type="primary" onClick={submit}>
         提交
       </Button>
-    </div>
+    </>
   );
 };
 ```
@@ -327,7 +308,12 @@ export default () => {
           label: '自定义渲染',
           itemRender(dom, options) {
             return (
-              <div style={{ border: '2px dashed var(--primary-color)', padding: 10 }}>
+              <div
+                style={{
+                  border: '2px dashed var(--primary-color)',
+                  padding: 10,
+                }}
+              >
                 {dom}
               </div>
             );

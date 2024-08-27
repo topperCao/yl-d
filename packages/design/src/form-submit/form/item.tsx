@@ -47,7 +47,7 @@ export default ({
       wrapRef.current.style.width = `calc(100% - ${width + 10}px)`;
     }
   }, [label]);
-  const [, setRefresh] = useState(Math.random());
+  const [refresh, setRefresh] = useState(Math.random());
   const [_value, setValue] = useState(value);
   const [error, setError] = useState(false);
   // 是否禁用
@@ -138,6 +138,8 @@ export default ({
           form={form}
           value={_value}
           onChange={onChange}
+          /** FormList 是否刷新的标识 */
+          refresh={refresh}
         />
         {error && <div className="yld-form-item-error-message">{error}</div>}
       </div>

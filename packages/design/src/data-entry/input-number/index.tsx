@@ -57,6 +57,7 @@ export default ({
         placeholder={placeholder}
         value={innerValue || ""}
         disabled={disabled}
+        onWheel={(e: any) => e.target.blur()}
         maxLength={maxLength}
         onChange={(e: any) => {
           if (e.target.value === '') {

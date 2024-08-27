@@ -10,6 +10,7 @@ export interface FormInstance {
   /** 表单校验 */
   validateFields: Function;
   validateField: Function;
+  formlist?: any;
 }
 
 const Hello: React.FC<FormInstance> = () => null;

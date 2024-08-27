@@ -81,6 +81,7 @@ export default defineConfig({
   docsRequire: {
     ArcoDesign: '@arco-design/web-react',
     ArcoIcon: '@arco-design/web-react/icon',
+    yldShared: '@yl-d/shared',
     yldIcon: '@yl-d/icon',
     axios: 'axios',
   },

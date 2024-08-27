@@ -6,6 +6,7 @@ import './index.less';
 
 const Form = ({
   initialValues = {},
+  values,
   onValuesChange = () => {},
   schema = [],
   column = 1,
@@ -27,10 +28,13 @@ const Form = ({
       itemRef.current[name].setValue(store.current[name]);
     });
   };
+  // values 更新
   useEffect(() => {
-    store.current = initialValues;
-    itemUpdateOnStoreChange();
-  }, [initialValues]);
+    if (values) {
+      store.current = values;
+      itemUpdateOnStoreChange();
+    }
+  }, [values]);
   // 挂 api
   useEffect(() => {
     Object.assign(form, {
@@ -75,7 +79,21 @@ const Form = ({
       validateFields: async () => {
         const validator = new AsyncValidator(descriptorRef.current);
         const values = form.getValues();
-        return new Promise((res, rej) => {
+        return new Promise(async (res, rej) => {
+          // 子表单的校验
+          const subForm = Object.keys(form.formlist);
+          for (let i = 0; i < subForm.length; i++) {
+            const subFormName = subForm[i];
+            console.log(form.formlist[subFormName]);
+            for (let i = 0; i < form.formlist[subFormName].length; i++) {
+              const { validator } = form.formlist[subFormName][i];
+              try {
+                await validator(); // 先等待子表单全部完成校验
+              } catch (error) {
+                rej(error);
+              }
+            }
+          }
           validator.validate(values, (errors) => {
             if (errors) {
               errors.map((error) => {
@@ -150,16 +168,6 @@ const Form = ({
           if (descriptorRef.current[item.name]) {
             form.validateField(item.name, value);
           }
-          onValuesChange(
-            {
-              [item.name]: store.current[item.name],
-            },
-            form.getValues(),
-            form,
-          );
-          if (typeof item.props?.onChange === 'function') {
-            item.props.onChange(value, option, form);
-          }
           // 提示该item拿最新的value去更新, 确保原子性，哪个 item 值改变，就更新 哪个 item
           itemRef.current[item.name].setValue?.(store.current[item.name]);
           /** 触发重新渲染 */
@@ -173,6 +181,16 @@ const Form = ({
                 });
               }
             });
+          }
+          onValuesChange(
+            {
+              [item.name]: store.current[item.name],
+            },
+            form.getValues(),
+            form,
+          );
+          if (typeof item.props?.onChange === 'function') {
+            item.props.onChange(value, option, form);
           }
         }}
       />
@@ -195,6 +213,7 @@ Form.useForm = () => {
     validateField: () => {},
     validateFields: () => {},
     clearValues: () => {},
+    formlist: {},
   });
   return ref.current;
 };

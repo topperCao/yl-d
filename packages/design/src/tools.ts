@@ -1,8 +1,6 @@
-import * as _BigNumber from 'bignumber.js';
+import BigNumberjs from 'bignumber.js';
 import cloneDeepWith from 'lodash.clonedeepwith';
 import React from 'react';
-
-const BigNumberjs: any = _BigNumber;
 
 export const isEmpty = (param: any) => {
   if (param === null || param === undefined) {
