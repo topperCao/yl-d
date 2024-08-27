@@ -137,12 +137,7 @@
 
 // TableList
 .yld-table-list {
-  &-item:first-child {
-    .yld-form {
-      border-top: 1px solid var(--border-color);
-    }
-  }
-  &-th {
+  &-thead {
     display: flex;
     background: var(--bg-color-2);
     align-items: center;
@@ -150,37 +145,49 @@
     border-radius: 4px 4px 0 0;
     border-right: none;
     border-bottom: none;
-  }
-  &-td {
-    align-items: center;
-    display: flex;
-    flex: 1;
-    padding-left: 10px;
-    height: 32px;
-    border-right: 1px solid var(--border-color);
-    &-required {
-      color: red;
-      font-size: 14px;
-      margin-right: 4px;
-    }
-  }
-  .yld-form {
-    border: 1px solid var(--border-color);
-    border-top: none;
-    border-right: none;
-    &-item {
-      padding: 10px;
-      padding-bottom: 20px;
+    &-td {
+      align-items: center;
+      display: flex;
+      flex: 1;
+      padding-left: 10px;
+      height: 32px;
       border-right: 1px solid var(--border-color);
-      .yld-select{
-        min-width: 50px;
-      }
-      & > label {
-        display: none;
+      &-required {
+        color: red;
+        font-size: 14px;
+        margin-right: 4px;
       }
     }
-    &-item-hidden {
-      display: block;
+  }
+  .yld-table-list-body {
+    & > div:nth-of-type(1) {
+      border-top: 1px solid var(--border-color);
+    }
+    & > div:last-of-type {
+      .yld-form{
+        border-radius: 0 0 4px 4px;
+      }
+    }
+    &-item {
+      .yld-form {
+        border: 1px solid var(--border-color);
+        border-top: none;
+        border-right: none;
+        .yld-form-item {
+          padding: 10px;
+          padding-bottom: 20px;
+          border-right: 1px solid var(--border-color);
+          .yld-select {
+            min-width: 50px;
+          }
+          & > label {
+            display: none;
+          }
+        }
+        .yld-form-item-hidden {
+          display: block;
+        }
+      }
     }
   }
 }

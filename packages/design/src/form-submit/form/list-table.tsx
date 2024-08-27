@@ -72,23 +72,23 @@ export default memo(
     });
     return (
       <div className="yld-table-list">
-        <div className="yld-table-list-th">
+        <div className="yld-table-list-thead">
           {tableColumn.map((item) => {
             return (
-              <div className="yld-table-list-td" key={item.dataIndex}>
+              <div className="yld-table-list-thead-td" key={item.dataIndex}>
                 {item.required === true && (
-                  <span className="yld-table-list-td-required">*</span>
+                  <span className="yld-table-list-thead-td-required">*</span>
                 )}
                 {item.title}
               </div>
             );
           })}
-          <div className="yld-table-list-td">操作</div>
+          <div className="yld-table-list-thead-td">操作</div>
         </div>
-        {value?.map((item: any, index: number) => {
-          return (
-            <div className="yld-table-list-item">
-              <div className="yld-table-list-item-body">
+        <div className="yld-table-list-body">
+          {value?.map((item: any, index: number) => {
+            return (
+              <div className="yld-table-list-body-item">
                 <FormBody
                   length={tableColumn.length + 1}
                   form={form}
@@ -132,9 +132,9 @@ export default memo(
                   }}
                 />
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
         <Button
           icon={<IconPlus />}
           disabled={value?.length >= maxCount}
