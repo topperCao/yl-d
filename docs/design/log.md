@@ -13,4 +13,6 @@
 
 ## 2024-08-26 ~ 2024-08-30
 
-- 新增 FormList、TableList 组件
+- Form 新增 FormList、TableList 类型
+- Layout 内置水印属性配置
+- 新增 `ArchorCard`、`ArchorForm`

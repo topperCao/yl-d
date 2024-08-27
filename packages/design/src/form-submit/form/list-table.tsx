@@ -102,6 +102,7 @@ export default memo(
                           <Space>
                             <Button
                               icon={<IconDelete />}
+                              circle
                               onClick={() => {
                                 value.splice(index, 1);
                                 setValue([...value]);
@@ -110,6 +111,7 @@ export default memo(
                             />
                             <Button
                               icon={<IconCopy />}
+                              circle
                               onClick={() => {
                                 value.splice(index, 1);
                                 setValue([...value]);
