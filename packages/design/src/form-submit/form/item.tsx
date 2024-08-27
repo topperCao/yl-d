@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import mapping from './mapping';
-import Error from './error';
+import { getComponent } from './widget';
 import { isEmpty } from '../../tools';
 import { IconQuestionCircle } from '@yl-d/icon';
 import { Tooltip } from '../..';
@@ -36,10 +35,7 @@ export default ({
   } = _item;
   const labelRef = useRef<HTMLLabelElement>();
   const wrapRef = useRef<HTMLDivElement>();
-  const Comp =
-    typeof type === 'function'
-      ? type
-      : mapping[type] || (() => <Error type={type} />);
+  const Comp = getComponent(type);
   useEffect(() => {
     if (labelRef.current && horizontal) {
       const { width } = labelRef.current.getBoundingClientRect();

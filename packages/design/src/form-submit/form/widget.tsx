@@ -1,4 +1,5 @@
-import FormList from './list';
+import FormList from './list-form';
+import TableList from './list-table';
 import {
   AutoComplete,
   Cascader,
@@ -17,11 +18,15 @@ import {
   TreeSelect,
 } from '../..';
 
+const Error = ({ type }) => {
+  return <span style={{ color: 'red' }}>找不到类型：{type}</span>;
+};
+
 const Block = ({ label }) => {
   return <p className="yld-form-item-block">{label}</p>;
 };
 
-export default {
+const mapping = {
   AutoComplete,
   Cascader,
   DatePicker,
@@ -39,4 +44,12 @@ export default {
   TreeSelect,
   Block,
   FormList,
+  TableList,
 };
+
+export const getComponent = (type: string | Function) =>
+  typeof type === 'function'
+    ? type
+    : mapping[type] || (() => <Error type={type} />);
+
+export default mapping;
