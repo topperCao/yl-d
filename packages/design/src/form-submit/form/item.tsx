@@ -94,6 +94,7 @@ export default ({
     });
   }, []);
   if (typeof visible === 'function' && visible(form) === false) {
+    delete descriptorRef.current[name]; // 删除校验
     return null;
   }
   const classNames = ['yld-form-item'];

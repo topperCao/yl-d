@@ -64,12 +64,12 @@ export default memo(
           return (
             <div className="yld-form-list-item">
               <div className="yld-form-list-item-head">
-                <h4>
+                <label>
                   {title}-{index + 1}
-                </h4>
+                </label>
                 <Button
                   icon={<IconDelete />}
-                  circle
+                  type="link"
                   onClick={() => {
                     value.splice(index, 1);
                     setValue([...value]);
@@ -101,10 +101,11 @@ export default memo(
           type="dashed"
           style={{
             width: '100%',
-            marginTop: 20,
+            marginTop: 8,
           }}
           onClick={() => {
             setValue([...value, {}]);
+            onChange([...value, {}]);
           }}
         />
       </div>
