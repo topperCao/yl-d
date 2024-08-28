@@ -64,7 +64,6 @@ const schema: FormItemProps[] = [
         },
         {
           type: 'FieldSet',
-          span: 2,
           label: '无限嵌套',
           key: '0004-2',
           props: {

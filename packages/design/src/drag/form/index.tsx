@@ -6,7 +6,7 @@ import { baptismNode, isWrap, swapElementsInArray } from './util';
 import { DragFormProps } from './type';
 import Drag from './drag';
 
-const loopChildren = (
+const loopRender = (
   props: any,
   currentIndex: number[],
   onDrop,
@@ -22,6 +22,7 @@ const loopChildren = (
     props?.children.splice(virtualIndex, 1);
   }
   if (isEmpty(props.children)) {
+    console.log('is Empyu');
     // 如果是空容器给一个虚拟节点，用于可拖拽节点
     props.children = [
       {
@@ -35,7 +36,7 @@ const loopChildren = (
   }
   props.children.forEach((item, index, items) => {
     if (isWrap(item)) {
-      loopChildren(
+      loopRender(
         item?.props,
         [...currentIndex, index],
         onDrop,
@@ -127,14 +128,9 @@ export default ({
     items.splice(virtualIndex, 1);
   }
   const ComponentWrap: any = type === 'search' ? Search : CardForm;
-  console.log(items);
   return (
     <DragWrapper dragId={dragId}>
       <ComponentWrap
-        gridStyle={{
-          colGap: 10,
-          rowGap: 10,
-        }}
         schema={items.map((item: any, currentIndex: number) => {
           const onDrop = (indices1: string, indices2: string) => {
             if (indices1 !== indices2) {
@@ -175,7 +171,7 @@ export default ({
             onChange([...items]);
           };
           if (isWrap(item)) {
-            loopChildren(
+            loopRender(
               item?.props,
               [currentIndex],
               onDrop,

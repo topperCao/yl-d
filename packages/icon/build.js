@@ -82,9 +82,9 @@ svgs.forEach((svgPath) => {
   return ${svgContent}
 };
 
-export default ({ hover, ...props }) => {
+export default (props) => {
   const className = ['yld-icon', 'yld-icon-${name}'];
-  if (hover) {
+  if (props?.hover) {
     className.push('yld-icon-__hover__');
   }
   return <${componentName} className={className.join(' ')} {...props} />;

@@ -114,6 +114,7 @@ export default memo(
                             <Button
                               icon={<IconCopy />}
                               circle
+                              disabled={value?.length >= maxCount}
                               onClick={() => {
                                 // copy
                                 value.splice(index, 0, {

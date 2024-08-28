@@ -32,6 +32,7 @@ export default ({
     labelWidth,
     itemRender,
     tooltip,
+    initialValue,
   } = _item;
   const labelRef = useRef<HTMLLabelElement>();
   const wrapRef = useRef<HTMLDivElement>();
@@ -44,7 +45,7 @@ export default ({
     }
   }, [label]);
   const [refresh, setRefresh] = useState(Math.random());
-  const [_value, setValue] = useState(value);
+  const [_value, setValue] = useState(value || initialValue);
   const [error, setError] = useState(false);
   // 是否禁用
   const _disabled =

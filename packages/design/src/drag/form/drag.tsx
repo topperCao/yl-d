@@ -15,8 +15,8 @@ export default ({
     <div
       className="dragContainer"
       style={{
-        borderColor: 'var(--color-fill-3)',
-        backgroundColor: 'var(--color-fill-2)',
+        borderColor: 'var(--border-color)',
+        backgroundColor: 'var(--bg-color)',
         padding: 20,
       }}
     >

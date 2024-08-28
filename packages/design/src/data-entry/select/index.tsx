@@ -25,7 +25,7 @@ export default ({
           setLoading(false);
         }
       } else {
-        setOptions(props.options);
+        setOptions(props.options || []);
       }
     })();
   }, [props.options]);

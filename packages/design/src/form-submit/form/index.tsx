@@ -133,7 +133,7 @@ const Form = ({
   /** 渲染 Item */
   const RenderItem = ({ item }) => {
     if (item.type === 'FieldSet') {
-      return (
+      const VNode = (
         <div className="yld-form-fieldset">
           <div className="yld-form-fieldset-head">{item.label}</div>
           <div
@@ -147,6 +147,17 @@ const Form = ({
           </div>
         </div>
       );
+      if (typeof item.itemRender === 'function') {
+        return item.itemRender(VNode, {
+          itemProps: {
+            ...item,
+            column,
+          },
+          form,
+          disabled,
+        });
+      }
+      return VNode;
     }
     itemRef.current[item.name] = itemRef.current[item.name] || {}; // 保留之前的ref
     return (
