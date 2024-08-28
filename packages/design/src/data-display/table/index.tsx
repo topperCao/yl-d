@@ -72,7 +72,7 @@ export default ({
     lastColums.unshift({
       title: '序号',
       fixed: 'left',
-      dataIndex: 'inner_no',
+      dataIndex: 'yld-serial-number',
       width: 80,
       render: (a, b, index) => {
         if (rest.pagination) {

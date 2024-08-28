@@ -1,5 +1,9 @@
+import { IconMinus, IconPlus } from '@yl-d/icon';
+import { useState } from 'react';
+
 /** 渲染主体表格 */
 export default ({ rowKey, dataSource, columns, scroll, bordered, width }) => {
+  const [expandKeys, setExpandKeys] = useState([]);
   const defineColumn = columns.filter((i) => i.width);
   const defineColumnWidth = defineColumn.reduce(
     (a, b) => ({ width: a.width + b.width }),
@@ -7,10 +11,50 @@ export default ({ rowKey, dataSource, columns, scroll, bordered, width }) => {
   )?.width;
   const defineFixedLeft = columns.filter((i) => i.fixed === 'left');
   const defineFixedRight = columns.filter((i) => i.fixed === 'right');
-  return (
-    <tbody>
-      {dataSource.map((data, index) => {
-        return (
+  const expandIndex = columns.findIndex(
+    (i) => !['yld-serial-number', 'yld-checked'].includes(i.dataIndex),
+  );
+  const loopRender = (children = [], paddingLeft = 0) => {
+    return children.map((data, index) => {
+      const hasChildren =
+        Array.isArray(data.children) && data.children.length > 0;
+      const VNode = hasChildren ? (
+        <>
+          {!expandKeys.includes(data.key) ? (
+            <IconPlus
+              style={{
+                padding: 2,
+                backgroundColor: 'var(--bg-color-3)',
+                cursor: 'pointer',
+                fontSize: 12,
+                marginRight: 4,
+                position: 'relative',
+                top: 2,
+              }}
+              onClick={() => {
+                setExpandKeys([...expandKeys, data.key]);
+              }}
+            />
+          ) : (
+            <IconMinus
+              style={{
+                padding: 2,
+                backgroundColor: 'var(--bg-color-3)',
+                cursor: 'pointer',
+                fontSize: 12,
+                marginRight: 4,
+                position: 'relative',
+                top: 2,
+              }}
+              onClick={() => {
+                setExpandKeys(expandKeys.filter((key) => key !== data.key));
+              }}
+            />
+          )}
+        </>
+      ) : null;
+      return (
+        <>
           <tr key={data[rowKey]} className="yld-table-body-tr">
             {columns.map((column, _index) => {
               const tdStyle: any = {
@@ -65,15 +109,22 @@ export default ({ rowKey, dataSource, columns, scroll, bordered, width }) => {
                   <span
                     className="yld-table-td-label"
                     title={typeof label === 'object' ? undefined : label}
+                    style={_index === expandIndex ? { paddingLeft } : {}}
                   >
+                    {_index === expandIndex && VNode}
                     {label}
                   </span>
                 </td>
               );
             })}
           </tr>
-        );
-      })}
-    </tbody>
-  );
+          {/* 渲染子节点 */}
+          {hasChildren &&
+            expandKeys.includes(data.key) &&
+            loopRender(data.children, paddingLeft + 20)}
+        </>
+      );
+    });
+  };
+  return <tbody>{loopRender(dataSource, 0)}</tbody>;
 };

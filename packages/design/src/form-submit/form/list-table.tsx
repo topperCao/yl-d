@@ -72,19 +72,21 @@ export default memo(
     });
     return (
       <div className="yld-table-list">
-        <div className="yld-table-list-thead">
-          {tableColumn.map((item) => {
-            return (
-              <div className="yld-table-list-thead-td" key={item.dataIndex}>
-                {item.required === true && (
-                  <span className="yld-table-list-thead-td-required">*</span>
-                )}
-                {item.title}
-              </div>
-            );
-          })}
-          <div className="yld-table-list-thead-td">操作</div>
-        </div>
+        {value?.length > 0 && (
+          <div className="yld-table-list-thead">
+            {tableColumn.map((item) => {
+              return (
+                <div className="yld-table-list-thead-td" key={item.dataIndex}>
+                  {item.required === true && (
+                    <span className="yld-table-list-thead-td-required">*</span>
+                  )}
+                  {item.title}
+                </div>
+              );
+            })}
+            <div className="yld-table-list-thead-td">操作</div>
+          </div>
+        )}
         <div className="yld-table-list-body">
           {value?.map((item: any, index: number) => {
             return (
@@ -141,7 +143,7 @@ export default memo(
           type="dashed"
           style={{
             width: '100%',
-            marginTop: 8,
+            margin: '8px 0',
           }}
           onClick={() => {
             setValue([...value, {}]);

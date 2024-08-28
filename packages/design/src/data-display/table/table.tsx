@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Pagination, Checkbox, Empty, Button } from '../..';
-import renderBody from './hooks/render-body';
-import renderHead from './hooks/render-head';
+import RenderBody from './hooks/render-body';
+import RenderHead from './hooks/render-head';
 import { TableProps } from './type';
 
 export default ({
@@ -156,7 +156,7 @@ export default ({
       ),
       width: 40,
       fixed: 'left',
-      dataIndex: 'yld-checked-930226',
+      dataIndex: 'yld-checked',
       render: (e, record) => {
         return (
           <Checkbox
@@ -175,7 +175,7 @@ export default ({
         );
       },
     };
-    if (columns[0] && columns[0].dataIndex !== 'yld-checked-930226') {
+    if (columns[0] && columns[0].dataIndex !== 'yld-checked') {
       // 没有添加1项
       columns.unshift(column);
     } else {
@@ -232,13 +232,15 @@ export default ({
         )}
         <div className="yld-table-wrap" ref={tableWrapRef}>
           <table className="yld-table-header" ref={tableHeaderRef}>
-            {renderHead({
-              scroll,
-              columns,
-              bordered,
-              query,
-              width: tableHeaderRef.current?.getBoundingClientRect()?.width,
-            })}
+            <RenderHead
+              {...{
+                scroll,
+                columns,
+                bordered,
+                query,
+                width: tableHeaderRef.current?.getBoundingClientRect()?.width,
+              }}
+            />
           </table>
           <table
             className="yld-table-body"
@@ -248,14 +250,16 @@ export default ({
             {innerTableRef.current.dataSource.length === 0 ? (
               <Empty />
             ) : (
-              renderBody({
-                rowKey,
-                columns,
-                scroll,
-                bordered,
-                dataSource: innerTableRef.current.dataSource,
-                width: tableBodyRef.current?.getBoundingClientRect()?.width,
-              })
+              <RenderBody
+                {...{
+                  rowKey,
+                  columns,
+                  scroll,
+                  bordered,
+                  dataSource: innerTableRef.current.dataSource,
+                  width: tableBodyRef.current?.getBoundingClientRect()?.width,
+                }}
+              />
             )}
           </table>
         </div>

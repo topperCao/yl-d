@@ -101,7 +101,7 @@ export default memo(
           type="dashed"
           style={{
             width: '100%',
-            marginTop: 8,
+            margin: '8px 0',
           }}
           onClick={() => {
             setValue([...value, {}]);
