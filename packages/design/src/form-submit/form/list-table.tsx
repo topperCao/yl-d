@@ -115,7 +115,10 @@ export default memo(
                               icon={<IconCopy />}
                               circle
                               onClick={() => {
-                                value.splice(index, 1);
+                                // copy
+                                value.splice(index, 0, {
+                                  ...value[index],
+                                });
                                 setValue([...value]);
                                 onChange(value);
                               }}

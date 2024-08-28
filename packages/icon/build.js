@@ -82,8 +82,12 @@ svgs.forEach((svgPath) => {
   return ${svgContent}
 };
 
-export default (props) => {
-  return <${componentName} className="yld-icon yld-icon-${name}" {...props} />;
+export default ({ hover, ...props }) => {
+  const className = ['yld-icon', 'yld-icon-${name}'];
+  if (hover) {
+    className.push('yld-icon-__hover__');
+  }
+  return <${componentName} className={className.join(' ')} {...props} />;
 };
     `,
   );
@@ -155,6 +159,16 @@ fs.outputFile(
 }
 .yld-icon-loading {
   animation: spin 1.2s linear infinite;
+}
+.yld-icon-__hover__{
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  transition: 0.3s;
+  &:hover{
+    transition: 0.3s;
+    background: var(--bg-color-3);
+  }
 }
 @keyframes spin {
   0% {

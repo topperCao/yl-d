@@ -1,6 +1,6 @@
-import { IconDelete, IconPlus } from '@yl-d/icon';
+import { IconDelete, IconDragDotVertical, IconPlus } from '@yl-d/icon';
 import { memo, useEffect, useMemo, useState } from 'react';
-import { Button, Form, FormItemProps } from '../..';
+import { Button, Form, FormItemProps, Space } from '../..';
 
 export interface FormListProps {
   column: 1 | 2 | 3 | 4;
@@ -67,15 +67,17 @@ export default memo(
                 <label>
                   {title}-{index + 1}
                 </label>
-                <Button
-                  icon={<IconDelete />}
-                  type="link"
-                  onClick={() => {
-                    value.splice(index, 1);
-                    setValue([...value]);
-                    onChange(value);
-                  }}
-                />
+                <Space>
+                  <IconDelete
+                    hover
+                    onClick={() => {
+                      value.splice(index, 1);
+                      setValue([...value]);
+                      onChange(value);
+                    }}
+                  />
+                  <IconDragDotVertical hover style={{ cursor: 'move' }} />
+                </Space>
               </div>
               <div className="yld-form-list-item-body">
                 <FormBody
