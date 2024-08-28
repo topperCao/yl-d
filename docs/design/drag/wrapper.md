@@ -2,12 +2,20 @@
 
 ## 基本使用
 
-```tsx | react | var(--bg-color-2)
+```tsx | react
 import { DragWrapper } from '@yl-d/design';
 
 export default () => {
   return (
-    <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+    <div
+      style={{
+        display: 'flex',
+        gap: 10,
+        padding: 20,
+        flexWrap: 'wrap',
+        backgroundColor: 'var(--bg-color-2)',
+      }}
+    >
       <DragWrapper
         style={{
           gap: 20,
@@ -43,13 +51,21 @@ export default () => {
 
 ## 模块之间联动
 
-```tsx | react | var(--bg-color-2)
+```tsx | react
 import { DragWrapper } from '@yl-d/design';
 
 export default () => {
   return (
     <>
-      <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+      <div
+        style={{
+          display: 'flex',
+          gap: 10,
+          padding: 20,
+          flexWrap: 'wrap',
+          backgroundColor: 'var(--bg-color-2)',
+        }}
+      >
         <DragWrapper
           style={{
             gap: 20,
@@ -79,7 +95,15 @@ export default () => {
         />
       </div>
       <hr style={{ margin: '20px 0', borderColor: 'var(--border-color)' }} />
-      <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+      <div
+        style={{
+          display: 'flex',
+          gap: 10,
+          padding: 20,
+          flexWrap: 'wrap',
+          backgroundColor: 'var(--bg-color-2)',
+        }}
+      >
         <DragWrapper
           style={{
             gap: 20,
@@ -118,5 +142,5 @@ export default () => {
 ## API
 
 ```API
-/packages/pro-components/src/drag/wrapper/type.tsx
+/packages/design/src/drag/wrapper/type.tsx
 ```

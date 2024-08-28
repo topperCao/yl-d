@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 /** 渲染主体表格 */
 export default ({ rowKey, dataSource, columns, scroll, bordered, width }) => {
-  const [expandKeys, setExpandKeys] = useState([]);
+  const [expandIds, setExpandIds] = useState([]);
   const defineColumn = columns.filter((i) => i.width);
   const defineColumnWidth = defineColumn.reduce(
     (a, b) => ({ width: a.width + b.width }),
@@ -20,7 +20,7 @@ export default ({ rowKey, dataSource, columns, scroll, bordered, width }) => {
         Array.isArray(data.children) && data.children.length > 0;
       const VNode = hasChildren ? (
         <>
-          {!expandKeys.includes(data.key) ? (
+          {!expandIds.includes(data.id) ? (
             <IconPlus
               style={{
                 padding: 2,
@@ -32,7 +32,7 @@ export default ({ rowKey, dataSource, columns, scroll, bordered, width }) => {
                 top: 2,
               }}
               onClick={() => {
-                setExpandKeys([...expandKeys, data.key]);
+                setExpandIds([...expandIds, data.id]);
               }}
             />
           ) : (
@@ -47,7 +47,7 @@ export default ({ rowKey, dataSource, columns, scroll, bordered, width }) => {
                 top: 2,
               }}
               onClick={() => {
-                setExpandKeys(expandKeys.filter((key) => key !== data.key));
+                setExpandIds(expandIds.filter((id) => id !== data.id));
               }}
             />
           )}
@@ -120,7 +120,7 @@ export default ({ rowKey, dataSource, columns, scroll, bordered, width }) => {
           </tr>
           {/* 渲染子节点 */}
           {hasChildren &&
-            expandKeys.includes(data.key) &&
+            expandIds.includes(data.id) &&
             loopRender(data.children, paddingLeft + 20)}
         </>
       );

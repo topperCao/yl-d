@@ -103,6 +103,7 @@
       .yld-table-td {
         position: relative;
         display: flex;
+        overflow: hidden;
         align-items: center;
         box-sizing: border-box;
         height: 38px;
@@ -121,6 +122,7 @@
         z-index: 1;
         transition: 0.3s;
         background: var(--bg-color);
+        overflow: visible;
       }
       .yld-table-td-fixed-right {
         position: sticky;
@@ -128,6 +130,7 @@
         transition: 0.3s;
         z-index: 1;
         background: var(--bg-color);
+        overflow: visible;
       }
       .yld-table-td-fixed-left-last::after {
         content: '';
