@@ -6,13 +6,13 @@
 - Table 支持配置化 CRUD、支持 enum、dateFormat、等基础配置
 - 完善 Form 容器布局
 - Menu 组件新增 nav 属性，作用于单层导航
-- Button 组件设置权限控制
 - 新增组件 `Descriptions`，`Watermark`
 - 迁移组件 `DragWrapper`，`DragList`，`DragForm`
 
 
 ## 2024-08-26 ~ 2024-08-30
 
+- 新增 `Archor`、`ArchorForm` 组件
 - Form 新增 FormList、TableList 类型
 - Layout 内置水印属性配置
-- 新增 `ArchorCard`、`ArchorForm`
+- Button 组件设置权限控制

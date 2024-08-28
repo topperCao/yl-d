@@ -51,7 +51,6 @@ export default ({
     const el: any = document.querySelector(`#${key}`);
     if (el) {
       setActiveKey(key);
-      console.log(wrapperRef.current.querySelector(scrollElement), el.offsetTop)
       wrapperRef.current.querySelector(scrollElement).scrollTo({
         top: el.offsetTop,
         behavior: 'smooth',

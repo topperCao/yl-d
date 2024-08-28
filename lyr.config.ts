@@ -370,6 +370,10 @@ export default defineConfig({
               label: '步骤条 Steps',
               path: '/design/navigation/steps',
             },
+            {
+              label: '锚点导航 Anchor',
+              path: '/design/navigation/anchor',
+            },
           ],
         },
         {

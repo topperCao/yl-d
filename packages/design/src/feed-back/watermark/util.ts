@@ -196,7 +196,7 @@ export default function useWatermark(params) {
     if (!container || !dom) {
       return;
     }
-    const dataKey = 'data-arco-watermark-origin-position';
+    const dataKey = 'data-yld-watermark-origin-position';
     if (type === 'set') {
       container.append(dom);
       container.setAttribute(dataKey, container.style?.position || '');

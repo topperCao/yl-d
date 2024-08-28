@@ -83,6 +83,8 @@ export { default as Layout } from './navigation/layout';
 export { type LayoutProps } from './navigation/layout/type';
 export { default as Steps } from './navigation/steps';
 export { type StepsProps } from './navigation/steps/type';
+export { default as Anchor } from './navigation/anchor';
+export { type AnchorProps } from './navigation/anchor/type';
 /** 反馈提示 */
 export { default as Drawer } from './feed-back/drawer';
 export { type DrawerProps } from './feed-back/drawer/type';
