@@ -77,7 +77,14 @@ export default ({
       clearError() {
         setError(false);
       },
-      setValue,
+      setValue: (v: any) => {
+        // 开关特殊处理下
+        if (type === 'Switch') {
+          setValue(v === undefined ? false : v);
+        } else {
+          setValue(v);
+        }
+      },
       reload: () => {
         setRefresh(Math.random());
       },

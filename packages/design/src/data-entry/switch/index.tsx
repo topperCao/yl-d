@@ -4,7 +4,7 @@ import { SwitchProps } from './type';
 import './index.less';
 
 export default ({
-  value = true,
+  value = false,
   checkedChildren,
   unCheckedChildren,
   disabled = false,
@@ -20,7 +20,7 @@ export default ({
   }
   let innerText = checked ? checkedChildren : unCheckedChildren;
   useEffect(() => {
-    setChecked(value);
+    setChecked(value || false);
   }, [value]);
   return (
     <button

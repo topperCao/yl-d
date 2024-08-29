@@ -5,6 +5,7 @@ import './index.less';
 export default ({
   list,
   height = 500,
+  minusHeight = 0,
   defaultActivityKey,
   children = null,
   scrollElement = '.yld-anchor-right',
@@ -22,7 +23,7 @@ export default ({
     if (el) {
       setActiveKey(key);
       wrapperRef.current.querySelector(scrollElement).scrollTo({
-        top: el.offsetTop,
+        top: el.offsetTop - minusHeight,
         behavior: 'smooth',
       });
     }

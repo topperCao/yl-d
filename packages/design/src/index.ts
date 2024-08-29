@@ -64,6 +64,8 @@ export { type FormProps } from './form-submit/form/type.form';
 export { type FormItemProps } from './form-submit/form/type.item';
 export { type FormInstance } from './form-submit/form/type.instance';
 export { default as Search } from './form-submit/form-search';
+export { default as AnchorForm } from './form-submit/form-anchor';
+export { type AnchorFormProps } from './form-submit/form-anchor/type';
 export { default as CardForm } from './form-submit/form-card';
 export { type CardFormProps } from './form-submit/form-card/type';
 export { default as DrawerForm } from './form-submit/form-drawer';

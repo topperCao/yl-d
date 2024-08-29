@@ -135,7 +135,7 @@ const Form = ({
     if (item.type === 'FieldSet') {
       const VNode = (
         <div className="yld-form-fieldset">
-          <div className="yld-form-fieldset-head">{item.label}</div>
+          <div className="yld-form-fieldset-head" id={item.name}>{item.label}</div>
           <div
             className={`yld-form-fieldset-body yld-form-grid-${
               item.props?.column || 1

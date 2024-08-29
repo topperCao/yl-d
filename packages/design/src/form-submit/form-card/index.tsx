@@ -13,7 +13,7 @@ export default ({
   onClear = () => {},
   footer = true,
   actionAlign = 'end',
-  cancelText = '重制',
+  cancelText = '清空',
   okText = '保存',
   className,
   ...rest

@@ -274,6 +274,10 @@ export default defineConfig({
               path: '/design/form-submit/form-search',
             },
             {
+              label: '导航表单 AnchorForm',
+              path: '/design/form-submit/form-anchor',
+            },
+            {
               label: '卡片表单 CardForm',
               path: '/design/form-submit/form-card',
             },
@@ -550,7 +554,29 @@ export default defineConfig({
       ],
     },
     {
-      label: '@yl-d/pro-components',
+      label: '@yl-d/cli',
+      path: '/cli',
+      children: [
+        {
+          label: '介绍',
+          path: '/cli',
+          group: true,
+        },
+      ],
+    },
+    {
+      label: '@yl-d/docs',
+      path: '/doc',
+      children: [
+        {
+          label: '介绍',
+          path: '/doc',
+          group: true,
+        },
+      ],
+    },
+    {
+      label: '@yl-d/pro-components（待下线）',
       path: '/pro-components',
       children: [
         {
@@ -661,28 +687,6 @@ export default defineConfig({
         {
           label: '更新日志',
           path: '/pro-components/logs',
-          group: true,
-        },
-      ],
-    },
-    {
-      label: '@yl-d/cli',
-      path: '/cli',
-      children: [
-        {
-          label: '介绍',
-          path: '/cli',
-          group: true,
-        },
-      ],
-    },
-    {
-      label: '@yl-d/docs',
-      path: '/doc',
-      children: [
-        {
-          label: '介绍',
-          path: '/doc',
           group: true,
         },
       ],

@@ -1,5 +1,5 @@
 import { RateProps } from './type';
-import { Fragment, useRef, useState } from 'react';
+import { Fragment, useEffect, useRef, useState } from 'react';
 import NP from 'number-precision';
 import {
   IconFaceFrownFill,
@@ -25,6 +25,9 @@ export default ({
 }: RateProps) => {
   const ref = useRef<HTMLDivElement>();
   const [value, setValue] = useState<number>(rest.value || 0);
+  useEffect(() => {
+    setValue(rest.value || 0);
+  }, [rest.value]);
   const [hoverIndex, setHoverIndex] = useState<number>(0);
   const [animation, setAnimation] = useState<boolean>();
   const resetHoverIndex = () => {

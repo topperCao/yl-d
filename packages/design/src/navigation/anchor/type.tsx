@@ -12,6 +12,8 @@ export interface AnchorProps {
   }[];
   /** 容器的高度 */
   height: number;
+  /** 偏差量 */
+  minusHeight?: number;
   /** 默认选中 */
   defaultActivityKey?: string;
   children?: ReactNode;
